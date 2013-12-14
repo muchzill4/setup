@@ -1,0 +1,49 @@
+# CRAP ALERT: Brewfiles and cask is still not 100% nice,
+# this will fail if I already have something tapped or installed with cask
+
+# Homebrew
+# --------------------
+install ansible
+install brew-cask
+install composer
+install ctags
+install curl
+install fasd
+install git
+install lua
+install macvim --with-cscope --with-lua --HEAD
+install mobile-shell
+install openssl
+install reattach-to-user-namespace
+install sqlite
+install the_silver_searcher
+install tmux
+install zsh
+
+install mysql
+install nginx
+install node
+install ruby
+tap homebrew/dupes
+install php55
+install php55-apcu
+install php55-intl
+install php55-mcrypt
+install php55-xdebug
+install phpunit
+
+# Cask
+# --------------------
+cask install alfred
+cask install chrome
+cask install dash
+cask install firefox
+cask install forklift
+cask install grooveshark
+cask install iterm2
+cask install livereload
+cask install onepassword
+cask install utorrent
+cask install vagrant
+cask install virtualbox
+cask install vlc

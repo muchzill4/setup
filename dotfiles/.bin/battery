@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+exit 1 unless %x{uname} =~ /Darwin/
+
+output = %x{ioreg -rc 'AppleSmartBattery'}.split("\n")
+look_for = %w{ CurrentCapacity MaxCapacity IsCharging TimeRemaining }
+data = {}
+
+catch (:found_all) do
+  output.each do |line|
+    look_for.each do |match|
+
+      if line.index(match)
+        data[match.to_sym] = line.match(/=\ (.+)/)[1]
+        look_for.delete(match)
+        break true
+      end
+
+    end
+  end
+
+  throw :found_all if look_for.length == 0
+end
+
+perc = (data[:CurrentCapacity].to_f / data[:MaxCapacity].to_f * 100).to_i
+
+data[:TimeRemaining] = data[:TimeRemaining].to_i
+hours = data[:TimeRemaining] / 60
+minutes = data[:TimeRemaining] % 60
+charging = '↯' if data[:IsCharging] == 'Yes'
+
+print "%d%%(%d:%02d)%s" %[perc, hours, minutes, charging]

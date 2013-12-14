@@ -1,0 +1,22 @@
+[user]
+	name = Bartosz Mucha
+	email = muchzill4@gmail.com
+
+[core]
+	editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
+	excludesfile = /Users/much4/.gitignore_global
+
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+
+[push]
+	default = simple
+
+[alias]
+	co = checkout
+	ci = commit
+	l =  log
+	lo = log --oneline

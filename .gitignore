@@ -1,0 +1,6 @@
+.netrwhist
+tmp/
+logs
+bundle/
+*.log
+~dotfiles/.vim/bundle/vundle/
