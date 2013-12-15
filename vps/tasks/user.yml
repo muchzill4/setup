@@ -1,0 +1,13 @@
+---
+- name: create user
+  user: name="{{username}}"
+        password="{{password}}"
+        groups="sudo"
+        state=present
+        shell=/usr/bin/zsh
+        createhome=yes
+        update_password=always
+
+- name: store public key
+  authorized_key: user={{username}}
+                  key="{{ lookup('file', '/Users/' + username + '/.ssh/id_rsa.pub') }}"

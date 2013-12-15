@@ -1,0 +1,17 @@
+---
+- hosts: vps
+  gather_facts: no
+  remote_user: root
+  tasks:
+    - include: tasks/update.yml
+    - include: tasks/apps.yml
+    - include: tasks/user.yml
+  vars_files:
+    - vars.yml
+
+- hosts: vps
+  gather_facts: no
+  remote_user: much4
+  tasks:
+    - include: tasks/dotfiles.yml
+  tags: dotfiles

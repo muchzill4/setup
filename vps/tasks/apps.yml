@@ -1,0 +1,10 @@
+---
+- name: install apps
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - zsh
+    - vim-nox
+    - weechat
+    - tmux
+    - git
+    - mosh

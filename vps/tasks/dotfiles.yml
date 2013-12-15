@@ -1,0 +1,6 @@
+---
+- name: copy dotfiles to server
+  local_action: command rsync -a ../dotfiles much4@{{ inventory_hostname }}:/home/much4
+
+- name: run dotfiles installer
+  command: sh /home/much4/dotfiles/install.sh
