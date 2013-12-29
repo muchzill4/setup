@@ -1,0 +1,5 @@
+function c
+  clear
+end
+
+

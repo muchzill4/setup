@@ -27,12 +27,11 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
+Bundle 'aliva/vim-fish'
 
  
 " | >>> Backup & Undo
@@ -125,6 +124,7 @@ set clipboard=unnamed
 set tags+=.tags,.gemtags
 
 set re=1 " use old regex for ruby files sake
+set shell=/bin/sh " fish does not work well with vim
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*
