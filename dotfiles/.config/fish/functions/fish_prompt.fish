@@ -26,7 +26,7 @@ function _remote_user_host
   if test $SSH_CONNECTION
     set -l user (whoami)
     set -l host (hostname)
-    set user_host "$user@$host "
+    set user_host " $user@$host"
   end
   echo "$user_host"
 end
@@ -64,5 +64,5 @@ function fish_prompt
     set arrow_color "$red"
   end
 
-  printf '\n%s%s%s%s %s%s\n%s%s %s' $grey (_remote_user_host) $blue (prompt_pwd) $grey (_git_status) $arrow_color "❯" $normal
+  printf '\n%s%s%s%s %s%s\n%s%s %s' $blue (prompt_pwd) $grey (_remote_user_host) $grey (_git_status) $arrow_color "❯" $normal
 end

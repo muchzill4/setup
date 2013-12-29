@@ -2,7 +2,7 @@
 - name: install apps
   apt: pkg={{ item }} state=latest
   with_items:
-    - zsh
+    - fish
     - vim-nox
     - weechat
     - tmux
