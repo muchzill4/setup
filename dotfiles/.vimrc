@@ -203,14 +203,12 @@ augroup ruby_sets
             \ tabstop=2
             \ shiftwidth=2
             \ makeprg=ruby\ %
-    au FileType ruby :DashKeywords ruby rails 
 augroup END
 
 augroup php_sets
     au!
     au FileType php setlocal
         \ makeprg=php\ -l\ %
-    au FileType php :DashKeywords php
 augroup END
 
 augroup js_sets
@@ -221,7 +219,6 @@ augroup js_sets
             \ shiftwidth=2
             \ expandtab
             \ omnifunc=javascriptcomplete#CompleteJS
-    au FileType php :DashKeywords javascript jquery 
 augroup END
 
 
