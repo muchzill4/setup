@@ -3,8 +3,8 @@
 " | put together by muchzill4@gmail.com
 " | thanks stevelosh(.com), you've helped me a lot
 " |
- 
- 
+
+
 " | >>> Vundle
 " |
 filetype off
@@ -33,20 +33,20 @@ Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'aliva/vim-fish'
 
- 
+
 " | >>> Backup & Undo
 " |
 set nowb
 set nobk
 set noswapfile
- 
+
 set undofile
 set undoreload=10000
- 
+
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
- 
+
 " If above are not there yet, create'em!
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
@@ -57,13 +57,13 @@ endif
 if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
- 
+
 " | >> Searching
 " |
 set ignorecase " ignore case in search patterns
 set smartcase  " only if using lowercase letters
 set gdefault
- 
+
 " | >> Indenting
 " |
 set shiftround
@@ -73,8 +73,8 @@ set softtabstop=2
 set expandtab
 set smarttab
 set autoindent
- 
- 
+
+
 " | >> General
 " |
 set encoding=utf-8
@@ -128,18 +128,18 @@ set shell=/bin/sh " fish does not work well with vim
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*
- 
+
 " | Ignoring Files
 " |
 set wildmenu
 set wildmode=list:longest
- 
+
 set wildignore+=.hg,.git,.svn
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico,*.ai,*.psd,*.ttf,*.svg
 set wildignore+=*.ttf,*.woff,*.eof
 set wildignore+=*.DS_Store
- 
- 
+
+
 " | >>> Gui options
 " |
 if has('gui_running')
@@ -163,13 +163,13 @@ if has('gui_running')
   " Full screen means FULL screen
   set fuoptions=maxvert,maxhorz
 end
- 
- 
+
+
 " | >>> Syntax
 " |
 colorscheme TronZill4
 syntax on
- 
+
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
 
@@ -181,8 +181,8 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
- 
- 
+
+
 " | >>> Language/file specific
 " |
 augroup python_sets
@@ -248,7 +248,7 @@ let mapleader=','
 
 " Jump to previous letter match
 nnoremap \ ,
- 
+
 " Open ctag in new window
 nnoremap <c-\> <c-w>v<c-]>zvzz
 
@@ -258,49 +258,49 @@ vnoremap / /\v
 
 " ESC
 inoremap jk <esc>
- 
+
 " ,1 to underline, yay!
 nnoremap <leader>1 yypwv$r-
- 
+
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ez :e ~/.zshrc<cr>
 nnoremap <leader>et :e ~/.tmux.conf<cr>
- 
+
 " smarter way to move btw. windows (ctrl+<x>)
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-h> <c-w>h
 noremap <c-l> <c-w>l
- 
+
 " uppercase, lowercase, camelcase
 noremap <c-c>l viwu<esc>
 noremap <c-c>u viwU<esc>
 noremap <c-c>c bvU<esc>
- 
+
 " fullscreen
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 noremap <F1> :set invfullscreen<cr>
- 
+
 " temp remove search hl
 nnoremap <F12> :set hlsearch!<cr>
- 
+
 " colon to space
 nnoremap <space> :
- 
+
 " fast saving
 nnoremap <leader>w :w!<cr>
- 
+
 " delete / change while in insert mode
 inoremap <C-d> <esc>ddi
 inoremap <C-c> <esc>cc
- 
+
 " quit
 noremap <leader>q :q<cr>
- 
+
 " run current file aka make
 noremap <leader>r :make<cr>
- 
+
 " | >>> Helpers
 " |
 " show syntax highlighting groups for word under cursor
@@ -311,13 +311,13 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
- 
+
 " reload config on modify
 augroup w_config
   au!
   au BufWritePost .vimrc source %
 augroup END
- 
+
 " reload colorscheme on save
 augroup colorscheme_dev
     au!
@@ -326,13 +326,13 @@ augroup colorscheme_dev
     au BufWritePost lettherebelight.vim color lettherebelight
     au BufWritePost TronZill4.vim color TronZill4
 augroup END
- 
+
 " save file on focus lost
 augroup lost_focus
   au!
   au FocusLost * :silent! wall
 augroup END
- 
+
 " return to the same line when you reopen a file
 " Thanks, Amit & SLJ
 augroup line_return
@@ -349,6 +349,17 @@ augroup helpfiles
   au BufRead,BufEnter */doc/* wincmd L
 augroup END
 
+" Remove trailing whitespace (don't use on binary! :D)
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    let _s=@/
+    keepjumps :%s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
 " | >>> Plugin settings
 " |
 
@@ -359,7 +370,7 @@ let NERDTreeBookmarksFile   = '/Users/much4/.vim/tmp/NERDTreeBookmarks'
 let NERDTreeChDirMode       = 1
 let NERDTreeShowBookmarks   = 1
 let NERDTreeShowLineNumbers = 0
- 
+
 " >> EasyMotion
 let g:EasyMotion_leader_key = '<leader>m'
 let g:EasyMotion_do_shade = 1
@@ -373,14 +384,10 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](tmp)$',
     \ }
 noremap <leader>y :CtrlPBuffer<cr>
- 
+
 " >> Ack
 nnoremap <leader>a :Ag!<space>
 let g:agprg = 'ag --nogroup --nocolor --column'
- 
-" >> Dash
-nmap <leader>d <Plug>DashSearch
-nmap <leader>D <Plug>DashGlobalSearch
 
 " >> Neocomplete
 let g:neocomplete#max_list = 5
