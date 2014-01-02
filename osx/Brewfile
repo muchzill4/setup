@@ -4,6 +4,7 @@
 # Homebrew
 # --------------------
 install ansible
+brew tap phinze/cask
 install brew-cask
 install composer
 install ctags
