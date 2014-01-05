@@ -299,7 +299,7 @@ inoremap <C-c> <esc>cc
 noremap <leader>q :q<cr>
 
 " run current file aka make
-noremap <leader>r :make<cr>
+noremap <leader>r :make!<cr>
 
 " | >>> Helpers
 " |
