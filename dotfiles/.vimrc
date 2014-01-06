@@ -297,6 +297,9 @@ inoremap <C-c> <esc>cc
 " quit
 noremap <leader>q :q<cr>
 
+" delete buffer
+noremap <leader>d :bdelete<cr>
+
 " run current file aka make
 noremap <leader>r :make!<cr>
 
