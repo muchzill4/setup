@@ -19,7 +19,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/ag.vim'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'othree/html5.vim'
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
 Bundle 'majutsushi/tagbar'
@@ -362,14 +362,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " | >>> Plugin settings
 " |
-
-" >> NERDTree
-noremap <silent> <leader>n :NERDTreeToggle<cr>
-let NERDTreeIgnore          = ['\.png$', '\.jpg$', '\.gif$'] " Don't show image files.
-let NERDTreeBookmarksFile   = '/Users/much4/.vim/tmp/NERDTreeBookmarks'
-let NERDTreeChDirMode       = 1
-let NERDTreeShowBookmarks   = 1
-let NERDTreeShowLineNumbers = 0
 
 " >> EasyMotion
 let g:EasyMotion_leader_key = '<leader>m'
