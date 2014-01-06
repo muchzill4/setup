@@ -187,58 +187,52 @@ endif
 augroup python_sets
     au!
     au FileType python setlocal
-            \ softtabstop=4
-            \ tabstop=4
-            \ shiftwidth=4
-            \ expandtab
-            \ textwidth=80
-            \ makeprg=python\ %
+        \ softtabstop=4
+        \ tabstop=4
+        \ shiftwidth=4
+        \ expandtab
+        \ textwidth=80
+        \ makeprg=python\ %
 augroup END
 
 augroup ruby_sets
     au!
     au FileType ruby setlocal
-            \ softtabstop=2
-            \ tabstop=2
-            \ shiftwidth=2
             \ makeprg=ruby\ %
 augroup END
 
 augroup php_sets
     au!
     au FileType php setlocal
+        \ softtabstop=4
+        \ tabstop=4
+        \ shiftwidth=4
         \ makeprg=php\ -l\ %
 augroup END
 
 augroup js_sets
     au!
     au FileType javascript setlocal
-            \ softtabstop=2
-            \ tabstop=2
-            \ shiftwidth=2
-            \ expandtab
-            \ omnifunc=javascriptcomplete#CompleteJS
+        \ expandtab
+        \ omnifunc=javascriptcomplete#CompleteJS
 augroup END
 
 
 augroup html_sets
     au!
     au FileType html setlocal
-            \ softtabstop=4
-            \ tabstop=4
-            \ shiftwidth=4
-            \ expandtab
-            \ omnifunc=htmlcomplete#CompleteTags
+        \ softtabstop=4
+        \ tabstop=4
+        \ shiftwidth=4
+        \ expandtab
+        \ omnifunc=htmlcomplete#CompleteTags
 augroup END
 
 augroup css_sets
     au!
     au FileType css,scss setlocal
-            \ softtabstop=2
-            \ tabstop=2
-            \ shiftwidth=2
-            \ expandtab
-            \ omnifunc=csscomplete#CompleteCSS
+        \ expandtab
+        \ omnifunc=csscomplete#CompleteCSS
 augroup END
 
 " | >>> Bindings
