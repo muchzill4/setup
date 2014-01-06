@@ -31,6 +31,8 @@ Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'aliva/vim-fish'
+Bundle 'tpope/vim-unimpaired'
+
 
 
 " | >>> Backup & Undo
