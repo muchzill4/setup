@@ -17,7 +17,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/ag.vim'
-Bundle 'vim-scripts/bufkill.vim'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-vinegar'
 Bundle 'godlygeek/tabular'
@@ -321,9 +320,6 @@ augroup END
 " reload colorscheme on save
 augroup colorscheme_dev
     au!
-    au BufWritePost notsobadwolf.vim color notsobadwolf
-    au BufWritePost notsomidnight.vim color notsomidnight
-    au BufWritePost lettherebelight.vim color lettherebelight
     au BufWritePost TronZill4.vim color TronZill4
 augroup END
 
