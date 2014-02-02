@@ -32,8 +32,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'aliva/vim-fish'
 Bundle 'tpope/vim-unimpaired'
-
-
+Bundle 'jnurmine/Zenburn'
+Bundle 'scrooloose/syntastic'
 
 " | >>> Backup & Undo
 " |
@@ -403,7 +403,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
