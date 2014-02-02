@@ -15,6 +15,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/UltiSnips'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/ag.vim'
 Bundle 'othree/html5.vim'
@@ -26,14 +28,12 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/neosnippet.vim'
-Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'aliva/vim-fish'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'jnurmine/Zenburn'
 Bundle 'scrooloose/syntastic'
+Bundle 'evanmiller/nginx-vim-syntax'
+
 
 " | >>> Backup & Undo
 " |
@@ -201,6 +201,7 @@ augroup ruby_sets
     au!
     au FileType ruby setlocal
             \ makeprg=ruby\ %
+            \ omnifunc=rubycomplete#Complete
 augroup END
 
 augroup php_sets
@@ -372,44 +373,16 @@ let g:ctrlp_custom_ignore = {
     \ }
 noremap <leader>y :CtrlPBuffer<cr>
 
-" >> Ack
+" >> The silver searcher
 nnoremap <leader>a :Ag!<space>
-let g:agprg = 'ag --nogroup --nocolor --column'
+let g:agprg = 'ag --nogroup --nocolor --column -U'
 
-" >> Neocomplete
-let g:neocomplete#max_list = 5
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" >> YouCompleteMe
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" >> Neosnippet
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-imap <C-j> <Plug>(neosnippet_expand_or_jump)
-smap <C-j> <Plug>(neosnippet_expand_or_jump)
-xmap <C-j> <Plug>(neosnippet_expand_target)
+" >> UltiSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
