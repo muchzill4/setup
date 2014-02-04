@@ -214,6 +214,7 @@ augroup php_sets
         \ tabstop=4
         \ shiftwidth=4
         \ makeprg=php\ -l\ %
+        \ omnifunc=phpcomplete#CompletePHP
 augroup END
 
 augroup js_sets
