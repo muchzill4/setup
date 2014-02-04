@@ -17,7 +17,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-scripts/UltiSnips'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/ag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-vinegar'
@@ -33,6 +32,7 @@ Bundle 'aliva/vim-fish'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'altercation/vim-colors-solarized'
 
 
 " | >>> Backup & Undo
@@ -168,7 +168,10 @@ end
 
 " | >>> Syntax
 " |
-colorscheme TronZill4
+
+colorscheme solarized
+let g:solarized_visibility = "low"
+set background=dark
 syntax on
 
 " Don't try to highlight lines longer than 800 characters.
