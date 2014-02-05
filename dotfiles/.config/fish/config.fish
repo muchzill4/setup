@@ -19,4 +19,4 @@ end
 
 # include local fish config
 set -l local_config "$HOME/.config/fish/local_config.fish"
-test -e $local_config; and source $local_config
+test -e $local_config; and . $local_config
