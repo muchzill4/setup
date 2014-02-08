@@ -171,6 +171,7 @@ end
 
 colorscheme solarized
 let g:solarized_visibility = "low"
+let g:solarized_italic = 0
 set background=dark
 syntax on
 
