@@ -33,7 +33,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'altercation/vim-colors-solarized'
-
+Bundle 'shawncplus/phpcomplete.vim'
 
 " | >>> Backup & Undo
 " |
@@ -88,6 +88,7 @@ set numberwidth=4
 set wrap
 set linebreak
 set noruler
+set colorcolumn=0
 set textwidth=0
 set laststatus=2
 set visualbell
@@ -197,13 +198,16 @@ augroup python_sets
         \ tabstop=4
         \ shiftwidth=4
         \ expandtab
-        \ textwidth=80
+        \ textwidth=79
+        \ colorcolumn=79
         \ makeprg=python\ %
 augroup END
 
 augroup ruby_sets
     au!
     au FileType ruby setlocal
+            \ textwidth=79
+            \ colorcolumn=79
             \ makeprg=ruby\ %
             \ omnifunc=rubycomplete#Complete
 augroup END
@@ -391,3 +395,6 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" >> Syntastic
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
