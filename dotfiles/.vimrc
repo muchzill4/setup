@@ -34,6 +34,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'mattn/emmet-vim'
 
 " | >>> Backup & Undo
 " |
@@ -388,8 +389,13 @@ let g:agprg = 'ag --nogroup --nocolor --column -U'
 
 " >> YouCompleteMe
 let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_filetype_blacklist = {
+  \ 'php' : 1,
+  \ 'tagbar' : 1,
+  \ }
+
 
 " >> UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
