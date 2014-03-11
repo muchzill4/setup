@@ -35,6 +35,7 @@ Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mattn/emmet-vim'
+Bundle 'evidens/vim-twig'
 
 " | >>> Backup & Undo
 " |
@@ -112,12 +113,7 @@ set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
 set matchtime=3
-set statusline=%f
-set statusline+=\ %m
-set statusline+=%=
-set statusline+=%l
-set statusline+=/
-set statusline+=%L
+set statusline=%f\ %r[%{(&fenc==\"\"?&enc:&fenc)}]\ %=%m\ %l/%L
 set hidden
 set cursorline
 set nocursorcolumn
@@ -392,10 +388,11 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filetype_blacklist = {
-  \ 'php' : 1,
   \ 'tagbar' : 1,
   \ }
-
+let g:ycm_filetype_specific_completion_to_disable = {
+  \ 'php' : 1,
+  \ }
 
 " >> UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
