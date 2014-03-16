@@ -3,13 +3,12 @@
 
 # Homebrew
 # --------------------
-install ansible
-brew tap phinze/cask
+tap phinze/cask
 install brew-cask
-install composer
 install ctags
 install curl
 install fasd
+install fish
 install git
 install lua
 install macvim --with-cscope --with-lua --HEAD
@@ -19,7 +18,7 @@ install reattach-to-user-namespace
 install sqlite
 install the_silver_searcher
 install tmux
-install zsh
+install ansible
 
 install mysql
 install nginx
@@ -31,19 +30,24 @@ install php55-apcu
 install php55-intl
 install php55-mcrypt
 install php55-xdebug
-install phpunit
+install composer
 
 # Cask
 # --------------------
 cask install alfred
-cask install chrome
 cask install dash
+cask install dropbox
 cask install firefox
+cask install flash
 cask install forklift
-cask install grooveshark
+cask install google-chrome
 cask install iterm2
 cask install livereload
 cask install onepassword
+cask install sequel-pro
+cask install skype
+cask install steermouse
+cask install spotify
 cask install utorrent
 cask install vagrant
 cask install virtualbox
