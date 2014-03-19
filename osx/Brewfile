@@ -11,6 +11,7 @@ install fasd
 install fish
 install git
 install lua
+install python
 install macvim --with-cscope --with-lua --HEAD
 install mobile-shell
 install openssl
