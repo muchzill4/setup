@@ -14,7 +14,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'vim-scripts/ag.vim'
@@ -36,6 +35,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'evidens/vim-twig'
+Bundle 'shemerey/vim-peepopen'
+Bundle 'Lokaltog/vim-easymotion'
 
 " | >>> Backup & Undo
 " |
@@ -365,16 +366,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " >> EasyMotion
 let g:EasyMotion_leader_key = '<leader>m'
 let g:EasyMotion_do_shade = 1
-
-" >> CtrlP
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_height = 10
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](tmp)$',
-    \ }
-noremap <leader>y :CtrlPBuffer<cr>
 
 " >> The silver searcher
 nnoremap <leader>a :Ag!<space>
