@@ -194,7 +194,6 @@ augroup python_sets
         \ softtabstop=4
         \ tabstop=4
         \ shiftwidth=4
-        \ expandtab
         \ textwidth=79
         \ colorcolumn=79
         \ makeprg=python\ %
@@ -221,8 +220,8 @@ augroup END
 
 augroup js_sets
     au!
+    au BufNewFile,BufRead Gruntfile set filetype=javascript
     au FileType javascript setlocal
-        \ expandtab
         \ omnifunc=javascriptcomplete#CompleteJS
 augroup END
 
@@ -233,14 +232,12 @@ augroup html_sets
         \ softtabstop=4
         \ tabstop=4
         \ shiftwidth=4
-        \ expandtab
         \ omnifunc=htmlcomplete#CompleteTags
 augroup END
 
 augroup css_sets
     au!
     au FileType css,scss setlocal
-        \ expandtab
         \ omnifunc=csscomplete#CompleteCSS
 augroup END
 
