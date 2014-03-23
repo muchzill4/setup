@@ -12,7 +12,7 @@ install fish
 install git
 install lua
 install python
-install macvim --with-cscope --with-lua --HEAD
+install macvim
 install mobile-shell
 install openssl
 install reattach-to-user-namespace
@@ -54,3 +54,4 @@ cask install vagrant
 cask install virtualbox
 cask install vlc
 cask install peepopen
+cask install evernote
