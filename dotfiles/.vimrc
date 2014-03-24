@@ -36,7 +36,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'evidens/vim-twig'
-Bundle 'shemerey/vim-peepopen'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 
 " | >>> Backup & Undo
@@ -124,7 +124,7 @@ set autowrite
 set clipboard=unnamed
 set tags+=.tags,.gemtags
 
-set re=1 " use old regex for ruby files sake
+set re=2 " use old regex for ruby files sake
 set shell=/bin/sh " fish does not work well with vim
 
 " Make Vim able to edit crontab files again.
@@ -203,6 +203,7 @@ augroup END
 
 augroup ruby_sets
     au!
+    au BufNewFile,BufRead Vagrantfile set filetype=ruby
     au FileType ruby setlocal
             \ textwidth=79
             \ colorcolumn=79
@@ -390,3 +391,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " >> Syntastic
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+" >> CtrlP
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_height = 10
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/](tmp)$',
+    \ }
+noremap <leader>y :CtrlPBuffer<cr>
