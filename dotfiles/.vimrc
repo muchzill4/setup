@@ -264,8 +264,6 @@ nnoremap <leader>1 yypwv$r-
 
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>ez :e ~/.zshrc<cr>
-nnoremap <leader>et :e ~/.tmux.conf<cr>
 
 " smarter way to move btw. windows (ctrl+<x>)
 noremap <c-j> <c-w>j
@@ -292,6 +290,7 @@ nnoremap <space> :
 nnoremap <leader>w :w!<cr>
 
 " delete / change while in insert mode
+
 inoremap <C-d> <esc>ddi
 inoremap <C-c> <esc>cc
 
@@ -319,12 +318,6 @@ endfunc
 augroup w_config
   au!
   au BufWritePost .vimrc source %
-augroup END
-
-" reload colorscheme on save
-augroup colorscheme_dev
-    au!
-    au BufWritePost TronZill4.vim color TronZill4
 augroup END
 
 " save file on focus lost
