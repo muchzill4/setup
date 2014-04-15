@@ -22,18 +22,14 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-vinegar'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
-Bundle 'majutsushi/tagbar'
 Bundle 'rodjek/vim-puppet'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ingydotnet/yaml-vim'
-Bundle 'aliva/vim-fish'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/syntastic'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'evidens/vim-twig'
 Bundle 'kien/ctrlp.vim'
@@ -71,7 +67,7 @@ set gdefault
 
 " | >> Indenting
 " |
-set shiftround
+set noshiftround
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -199,16 +195,18 @@ augroup python_sets
         \ textwidth=79
         \ colorcolumn=79
         \ makeprg=python\ %
+        \ commentstring=#%s
 augroup END
 
 augroup ruby_sets
     au!
     au BufNewFile,BufRead Vagrantfile set filetype=ruby
     au FileType ruby setlocal
-            \ textwidth=79
-            \ colorcolumn=79
-            \ makeprg=ruby\ %
-            \ omnifunc=rubycomplete#Complete
+        \ textwidth=79
+        \ colorcolumn=79
+        \ makeprg=ruby\ %
+        \ omnifunc=rubycomplete#Complete
+        \ commentstring=#%s
 augroup END
 
 augroup php_sets
