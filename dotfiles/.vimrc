@@ -383,6 +383,8 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_filetype_specific_completion_to_disable = {
   \ 'php' : 1,
   \ }
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " >> UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
