@@ -25,6 +25,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'rodjek/vim-puppet'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'evanmiller/nginx-vim-syntax'
@@ -33,6 +34,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'evidens/vim-twig'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
+
 
 " | >>> Backup & Undo
 " |
