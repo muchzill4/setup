@@ -225,6 +225,7 @@ augroup js_sets
     au BufNewFile,BufRead Gruntfile set filetype=javascript
     au FileType javascript setlocal
         \ omnifunc=javascriptcomplete#CompleteJS
+        \ commentstring=//%s
 augroup END
 
 
