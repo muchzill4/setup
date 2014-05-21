@@ -14,9 +14,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
 Bundle 'vim-scripts/ag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-vinegar'
