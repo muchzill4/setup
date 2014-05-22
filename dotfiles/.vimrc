@@ -57,11 +57,13 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
+
 " | >> Searching
 " |
 set ignorecase " ignore case in search patterns
 set smartcase  " only if using lowercase letters
 set gdefault
+
 
 " | >> Indenting
 " |
@@ -117,12 +119,12 @@ set formatoptions=qrn1
 set autowrite
 set clipboard=unnamed
 set tags+=.tags,.gemtags
-
-set re=2 " use old regex for ruby files sake
+set backspace=2 " make backspace work like most other apps
 set shell=/bin/sh " fish does not work well with vim
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*
+
 
 " | Ignoring Files
 " |
@@ -171,6 +173,7 @@ syntax on
 
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
+
 
 " | >>> Language/file specific
 " |
@@ -232,6 +235,7 @@ augroup css_sets
         \ omnifunc=csscomplete#CompleteCSS
 augroup END
 
+
 " | >>> Bindings
 " |
 let mapleader=','
@@ -280,7 +284,6 @@ nnoremap <space> :
 nnoremap <leader>w :w!<cr>
 
 " delete / change while in insert mode
-
 inoremap <C-d> <esc>ddi
 inoremap <C-c> <esc>cc
 
@@ -292,6 +295,7 @@ noremap <leader>d :bdelete<cr>
 
 " run current file aka make
 noremap <leader>r :make!<cr>
+
 
 " | >>> Helpers
 " |
@@ -343,6 +347,7 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+
 " | >>> Plugin settings
 " |
 
@@ -353,27 +358,6 @@ let g:EasyMotion_do_shade = 1
 " >> The silver searcher
 nnoremap <leader>a :Ag!<space>
 let g:agprg = 'ag --nogroup --nocolor --column -U'
-
-" >> YouCompleteMe
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_filetype_blacklist = {
-  \ 'tagbar' : 1,
-  \ }
-let g:ycm_filetype_specific_completion_to_disable = {
-  \ 'php' : 1,
-  \ }
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" >> UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" >> Syntastic
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " >> CtrlP
 let g:ctrlp_map = '<leader>t'
