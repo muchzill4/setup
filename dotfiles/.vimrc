@@ -294,7 +294,12 @@ noremap <leader>q :q<cr>
 noremap <leader>d :bdelete<cr>
 
 " run current file aka make
-noremap <leader>r :make!<cr>
+function! ClearAndMake()
+  silent !clear
+  execute 'make!'
+endfunc
+
+noremap <leader>r :call ClearAndMake()<cr>
 
 
 " | >>> Helpers
