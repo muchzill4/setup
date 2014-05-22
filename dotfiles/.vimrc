@@ -14,9 +14,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
 Bundle 'vim-scripts/ag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-vinegar'
@@ -175,16 +172,6 @@ syntax on
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
 
-" Cmon cursor
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-
 " | >>> Language/file specific
 " |
 augroup python_sets
@@ -225,6 +212,7 @@ augroup js_sets
     au BufNewFile,BufRead Gruntfile set filetype=javascript
     au FileType javascript setlocal
         \ omnifunc=javascriptcomplete#CompleteJS
+        \ makeprg=node\ %
         \ commentstring=//%s
 augroup END
 
