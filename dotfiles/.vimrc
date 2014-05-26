@@ -31,6 +31,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'evidens/vim-twig'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'sjl/vitality.vim'
 
 
 " | >>> Backup & Undo
