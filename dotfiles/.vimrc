@@ -32,6 +32,7 @@ Bundle 'evidens/vim-twig'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'sjl/vitality.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 
 " | >>> Backup & Undo
@@ -259,12 +260,6 @@ nnoremap <leader>1 yypwv$r-
 
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
-
-" smarter way to move btw. windows (ctrl+<x>)
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-h> <c-w>h
-noremap <c-l> <c-w>l
 
 " uppercase, lowercase, camelcase
 noremap <c-c>l viwu<esc>
