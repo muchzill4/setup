@@ -216,6 +216,9 @@ augroup js_sets
     au!
     au BufNewFile,BufRead Gruntfile set filetype=javascript
     au FileType javascript setlocal
+        \ softtabstop=4
+        \ tabstop=4
+        \ shiftwidth=4
         \ omnifunc=javascriptcomplete#CompleteJS
         \ makeprg=node\ %
         \ commentstring=//%s
@@ -290,12 +293,7 @@ noremap <leader>q :q<cr>
 noremap <leader>d :bdelete<cr>
 
 " run current file aka make
-function! ClearAndMake()
-  silent !clear
-  execute 'make!'
-endfunc
-
-noremap <leader>r :call ClearAndMake()<cr>
+noremap <leader>r :make!<cr>
 
 
 " | >>> Helpers

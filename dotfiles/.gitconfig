@@ -3,7 +3,7 @@
   email = muchzill4@gmail.com
 
 [core]
-  editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
+  editor = vim
   excludesfile = /Users/much4/.gitignore_global
 
 [color]
