@@ -260,6 +260,9 @@ inoremap jk <esc>
 " ,1 to underline, yay!
 nnoremap <leader>1 yypwv$r-
 
+" explore
+nnoremap <leader>E :Explore<cr>
+
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
 
@@ -294,6 +297,8 @@ noremap <leader>d :bdelete<cr>
 " run current file aka make
 noremap <leader>r :make!<cr>
 
+" sane esc
+inoremap jk <Esc>
 
 " | >>> Helpers
 " |
