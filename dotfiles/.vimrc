@@ -75,6 +75,7 @@ set softtabstop=2
 set expandtab
 set smarttab
 set autoindent
+set smartindent
 
 
 " | >> General
@@ -171,6 +172,12 @@ let g:solarized_visibility = "low"
 let g:solarized_italic = 0
 set background=dark
 syntax on
+
+" change the default EasyMotion shading to something more readable with Solarized
+hi link EasyMotionTarget Special
+hi link EasyMotionTarget2First Special
+hi link EasyMotionTarget2Second Special
+hi link EasyMotionShade  Comment
 
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
