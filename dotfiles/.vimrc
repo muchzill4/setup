@@ -261,9 +261,6 @@ nnoremap <c-\> <c-w>v<c-]>zvzz
 nnoremap / /\v
 vnoremap / /\v
 
-" ESC
-inoremap jk <esc>
-
 " ,1 to underline, yay!
 nnoremap <leader>1 yypwv$r-
 
