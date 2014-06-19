@@ -4,7 +4,7 @@
 "
 " Thanks:
 " - Bram Moolenaar for this wonderful editor
-" - Steve Losh (stevelosh.com) for badwolf and learnvimscriptthehardway! 
+" - Steve Losh (stevelosh.com) for badwolf and learnvimscriptthehardway!
 " - Ethan Schoonover (ethanschoonover.com) for Solarized
 
 " Init: {{{
@@ -132,7 +132,7 @@ let s:pal['darkred']   = ['5f0000', 52]
 let s:pal['darkblue']  = ['875f00', 17]
 
 " }}}
-" TODO: 
+" TODO:
 " TITLE, tabline, folds
 " Colorscheme:
 
@@ -263,7 +263,9 @@ hi link coffeeAServices Number
 
 " EasyMotion
 hi link EasyMotionShade Comment
-hi link EasyMotionTarget MatchParen
+hi link EasyMotionTarget Include
+hi link EasyMotionTarget2First Include
+hi link EasyMotionTarget2Second Include
 
 " CtrlP
 hi link CtrlPMatch Search
@@ -281,4 +283,3 @@ hi link cucumberWhen Conditional
 
 " YAML
 hi link YamlBlockMappingKey Structure
-
