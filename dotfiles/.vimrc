@@ -116,7 +116,7 @@ set showbreak=↪
 set matchtime=3
 set statusline=%f\ %r[%{(&fenc==\"\"?&enc:&fenc)}]\ %=%m\ %l/%L
 set hidden
-set cursorline
+set nocursorline
 set nocursorcolumn
 set formatoptions=qrn1
 set autowrite
@@ -168,7 +168,7 @@ end
 " | >>> Syntax
 " |
 
-colorscheme TronZill4
+colorscheme abitoftron
 syntax on
 
 " Don't try to highlight lines longer than 800 characters.
@@ -311,6 +311,12 @@ endfunc
 augroup w_config
   au!
   au BufWritePost .vimrc source %
+augroup END
+
+" reload colorscheme on save
+augroup colorscheme_dev
+    au!
+    au BufWritePost TronZill4.vim color TronZill4
 augroup END
 
 " save file on focus lost
