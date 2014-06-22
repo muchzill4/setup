@@ -45,13 +45,13 @@ endfunction
 " |
 
 " UI
-call s:hl('Normal', 7, '')
+call s:hl('Normal', '', '')
 call s:hl('Visual', 0, 4)
 
 call s:hl('Search', 0, 3)
 call s:hl('IncSearch', 0, 5)
 
-call s:hl('MatchParen', 0, 2)
+call s:hl('MatchParen', 0, 4)
 
 call s:hl('NonText', 4)
 call s:hl('SpecialKey', 4)
@@ -70,7 +70,7 @@ call s:hl('StatusLineNC', 7, 0, 'underline')
 call s:hl('VertSplit', 0, 0)
 
 call s:hl('Directory', 4)
-call s:hl('Title', 5)
+call s:hl('Title', 1)
 
 call s:hl('Folded', 4, 0)
 
@@ -86,11 +86,11 @@ call s:hl('Type', 2)
 call s:hl('StorageClass', 7)
 call s:hl('Structure', 7)
 
-call s:hl('Identifier', 5)
+call s:hl('Identifier', 1)
 call s:hl('Function', 3)
 
 call s:hl('Exception', 7)
-call s:hl('Include', 1)
+call s:hl('Include', 5)
 
 call s:hl('PreProc', 7)
 call s:hl('Statement', 7)
@@ -148,6 +148,7 @@ hi link cssClassName Function
 
 " JS
 hi link jsFunction Define
+hi link jsGlobalObjects Include
 hi link javascriptSFunction Function
 hi link jsFuncCall Function
 hi link jsFuncArgs Identifier

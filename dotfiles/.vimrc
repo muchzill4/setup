@@ -316,7 +316,7 @@ augroup END
 " reload colorscheme on save
 augroup colorscheme_dev
     au!
-    au BufWritePost TronZill4.vim color TronZill4
+    au BufWritePost abitoftron.vim color abitoftron
 augroup END
 
 " save file on focus lost
