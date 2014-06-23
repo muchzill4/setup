@@ -61,6 +61,7 @@ call s:hl('LineNr', 4, 0)
 call s:hl('CursorLineNr', 2, '')
 call s:hl('CursorLine', '', 0)
 call s:hl('CursorColumn', '', 0)
+call s:hl('ColorColumn', '', 0)
 
 call s:hl('Pmenu', 4, 0)
 call s:hl('PmenuSel', 0, 7)
