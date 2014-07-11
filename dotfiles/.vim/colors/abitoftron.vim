@@ -135,11 +135,11 @@ hi link phpMemberSelector Normal
 hi link phpVarSelector Identifier
 
 " HTML
-hi link htmlTagName Identifier
+hi link htmlTagName Function
 hi link htmlSpecialTagName htmlTagName
 hi link htmlTag Boolean
 hi link htmlEndTag htmlTag
-hi link htmlArg Function
+hi link htmlArg Number
 
 " CSS
 hi link cssBraces NONE
