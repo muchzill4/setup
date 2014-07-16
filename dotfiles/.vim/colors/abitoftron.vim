@@ -122,7 +122,7 @@ hi link netrwDir Directory
 hi link netrwClassify netrwDir
 hi link NERDTreeDirSlash netrwDir
 hi link NERDTreeOpenable netrwDir
-hi link NERDTreeClosable NERDTreeClosable
+hi link NERDTreeClosable NERDTreeOpenable
 
 " EasyMotion
 hi link EasyMotionShade Comment
