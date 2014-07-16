@@ -63,8 +63,8 @@ call s:hl('CursorLine', '', 0)
 call s:hl('CursorColumn', '', 0)
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', '', 4)
-call s:hl('PmenuSel', 0, 7)
+call s:hl('Pmenu', 0, 7)
+call s:hl('PmenuSel', '', 4)
 
 call s:hl('StatusLine', 0, 7)
 call s:hl('StatusLineNC', 7, 0, 'underline')
@@ -117,8 +117,12 @@ hi link TabLine StatusLineNC
 hi link TabLineFill StatusLineNC
 hi link TabLineSel StatusLine
 
-" Netrw
+" Netrw & NERDTree
+hi link netrwDir Directory
 hi link netrwClassify netrwDir
+hi link NERDTreeDirSlash netrwDir
+hi link NERDTreeOpenable netrwDir
+hi link NERDTreeClosable NERDTreeClosable
 
 " EasyMotion
 hi link EasyMotionShade Comment

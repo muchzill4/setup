@@ -18,6 +18,7 @@ install openssl
 install reattach-to-user-namespace
 install sqlite
 install the_silver_searcher
+install grep --default-names
 install tmux
 install ansible
 

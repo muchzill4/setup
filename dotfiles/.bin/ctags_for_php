@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+system "find . -name '*.php' | ctags --fields=+l -f .tags -L -"
