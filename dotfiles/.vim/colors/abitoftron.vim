@@ -55,6 +55,7 @@ call s:hl('MatchParen', 0, 4)
 
 call s:hl('NonText', 4)
 call s:hl('SpecialKey', 4)
+call s:hl('Special', '')
 
 call s:hl('Cursor', 7, 0)
 call s:hl('LineNr', 4, 0)
