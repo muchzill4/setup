@@ -5,27 +5,28 @@
 # --------------------
 tap phinze/cask
 install brew-cask
+
+install ansible
 install ctags
 install curl
 install fasd
 install fish
 install git
+install grep --default-names
 install lua
-install python
 install macvim
 install mobile-shell
-install openssl
-install reattach-to-user-namespace
-install sqlite
-install the_silver_searcher
-install grep --default-names
-install tmux
-install ansible
-
 install mysql
 install nginx
 install node
+install openssl
+install python
+install reattach-to-user-namespace
 install ruby
+install sqlite
+install the_silver_searcher
+install tmux
+
 tap homebrew/dupes
 install php55
 install php55-apcu
@@ -55,5 +56,4 @@ cask install vagrant
 cask install virtualbox
 cask install vlc
 cask install evernote
-cask install shiftit
-cask install xquartz
+cask install divvy
