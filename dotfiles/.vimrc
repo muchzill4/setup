@@ -35,6 +35,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/nerdtree'
+Bundle 'moll/vim-bbye'
 
 
 " | >>> Backup & Undo
@@ -290,7 +291,7 @@ inoremap <C-c> <esc>cc
 noremap <leader>q :q<cr>
 
 " delete buffer
-noremap <leader>d :bdelete<cr>
+noremap <leader>d :Bdelete<cr>
 
 " run current file aka make
 noremap <leader>r :make!<cr>
@@ -374,6 +375,7 @@ let g:EasyGrepOpenWindowOnMatch = 1
 
 " >> CtrlP
 let g:ctrlp_map = '<leader>t'
+let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_height = 10
 let g:ctrlp_custom_ignore = {
