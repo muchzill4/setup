@@ -159,3 +159,4 @@ hi link javascriptSFunction Function
 hi link jsFuncCall Function
 hi link jsFuncArgs Identifier
 hi link javascriptRequire Include
+hi link javascriptString String
