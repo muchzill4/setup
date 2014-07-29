@@ -217,9 +217,9 @@ augroup js_sets
     au!
     au BufNewFile,BufRead Gruntfile set filetype=javascript
     au FileType javascript setlocal
-        \ softtabstop=4
-        \ tabstop=4
-        \ shiftwidth=4
+        \ softtabstop=2
+        \ tabstop=2
+        \ shiftwidth=2
         \ omnifunc=javascriptcomplete#CompleteJS
         \ makeprg=node\ %
         \ commentstring=//%s
