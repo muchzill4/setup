@@ -139,12 +139,13 @@ hi link CtrlPMode1 Comment
 hi link phpMemberSelector Normal
 hi link phpVarSelector Identifier
 
-" HTML
+" HTML / XML
 hi link htmlTagName Function
 hi link htmlSpecialTagName htmlTagName
 hi link htmlTag Boolean
 hi link htmlEndTag htmlTag
 hi link htmlArg Number
+hi link xmlEndTag xmlTag
 
 " CSS
 hi link cssBraces NONE
