@@ -153,6 +153,9 @@ hi link cssTagName Include
 hi link cssIdentifier Function
 hi link cssClassName Function
 
+" LESS
+hi link lessDefinition cssProp
+
 " JS
 hi link jsFunction Define
 hi link jsGlobalObjects Include

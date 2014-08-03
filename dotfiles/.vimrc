@@ -36,7 +36,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/nerdtree'
 Bundle 'moll/vim-bbye'
-Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
 
 
 " | >>> Backup & Undo
