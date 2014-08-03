@@ -238,7 +238,7 @@ augroup END
 
 augroup css_sets
     au!
-    au FileType css,scss setlocal
+    au FileType css,scss,stylus setlocal
         \ omnifunc=csscomplete#CompleteCSS
 augroup END
 
