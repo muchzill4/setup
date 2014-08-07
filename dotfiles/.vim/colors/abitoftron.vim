@@ -127,9 +127,9 @@ hi link NERDTreeClosable NERDTreeOpenable
 
 " EasyMotion
 hi link EasyMotionShade Comment
-hi link EasyMotionTarget Include
-hi link EasyMotionTarget2First Include
-hi link EasyMotionTarget2Second Include
+hi link EasyMotionTarget Identifier
+hi link EasyMotionTarget2First Identifier
+hi link EasyMotionTarget2Second Identifier
 
 " CtrlP
 hi link CtrlPMatch Search

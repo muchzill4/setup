@@ -114,7 +114,7 @@ set title
 set notimeout
 set ttimeout
 set ttimeoutlen=10
-set list
+set nolist
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
 set matchtime=3
