@@ -34,9 +34,9 @@ Bundle 'sjl/vitality.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-Bundle 'scrooloose/nerdtree'
 Bundle 'moll/vim-bbye'
 Bundle 'wavded/vim-stylus'
+Bundle 'tpope/vim-vinegar'
 
 
 " | >>> Backup & Undo
@@ -261,7 +261,7 @@ vnoremap / /\v
 nnoremap <leader>1 yypwv$r-
 
 " explore
-nnoremap <leader>E :NERDTreeToggle<cr>
+nnoremap <leader>E :Explore<cr>
 
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
