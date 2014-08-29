@@ -2,11 +2,10 @@ snippet rcom
 /** @jsx React.DOM */
 "use strict";
 
-var React = require('react');
+module.exports = React.createClass({
 
-var ${1:name} = React.createClass({
+  displayName: '${1:name}',
+
   $2
 });
-
-module.exports = $1
 endsnippet
