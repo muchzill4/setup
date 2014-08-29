@@ -14,7 +14,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'dkprice/vim-easygrep'
 Bundle 'othree/html5.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-commentary'
@@ -37,6 +36,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'moll/vim-bbye'
 Bundle 'wavded/vim-stylus'
 Bundle 'tpope/vim-vinegar'
+Bundle 'rking/ag.vim'
+Bundle 'vim-ruby/vim-ruby'
 
 
 " | >>> Backup & Undo
@@ -368,20 +369,16 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:EasyMotion_leader_key = '<leader>m'
 let g:EasyMotion_do_shade = 1
 
-" >> EasyGrep
-nnoremap <leader>a :GrepOptions<cr>
-let g:EasyGrepCommand = 1
-let g:EasyGrepJumpToMatch = 0
-let g:EasyGrepOpenWindowOnMatch = 1
+" >> Ag
+nnoremap <leader>a :Ag<SPACE>
 
 " >> CtrlP
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_height = 10
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](tmp|node_modules)|\.(git|hg|svn)$',
-    \ }
 noremap <leader>y :CtrlPBuffer<cr>
 
 " >> UltiSnips
