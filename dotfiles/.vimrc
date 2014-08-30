@@ -7,37 +7,43 @@
 
 " | >>> Vundle
 " |
-filetype off
 set nocompatible
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+filetype off
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'othree/html5.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-commentary'
-Bundle 'rodjek/vim-puppet'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'ingydotnet/yaml-vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'evanmiller/nginx-vim-syntax'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'mattn/emmet-vim'
-Bundle 'evidens/vim-twig'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'sjl/vitality.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'moll/vim-bbye'
-Bundle 'wavded/vim-stylus'
-Bundle 'tpope/vim-vinegar'
-Bundle 'rking/ag.vim'
-Bundle 'vim-ruby/vim-ruby'
+runtime macros/matchit.vim
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'othree/html5.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-commentary'
+Plugin 'rodjek/vim-puppet'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'ingydotnet/yaml-vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mattn/emmet-vim'
+Plugin 'evidens/vim-twig'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'sjl/vitality.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'moll/vim-bbye'
+Plugin 'wavded/vim-stylus'
+Plugin 'tpope/vim-vinegar'
+Plugin 'rking/ag.vim'
+Plugin 'vim-ruby/vim-ruby'
+call vundle#end()
+
+filetype plugin indent on
 
 
 " | >>> Backup & Undo
