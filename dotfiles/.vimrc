@@ -10,8 +10,6 @@
 set nocompatible
 filetype off
 
-runtime macros/matchit.vim
-
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -43,6 +41,7 @@ Plugin 'rking/ag.vim'
 Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 
+runtime macros/matchit.vim
 filetype plugin indent on
 
 
@@ -113,6 +112,7 @@ set autoread " reload files that have been updated outside vim
 set showmatch
 set matchpairs+=<:>
 set scrolloff=3
+set scrolljump=8
 set splitbelow
 set splitright
 set lazyredraw
