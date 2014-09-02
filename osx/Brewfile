@@ -7,6 +7,7 @@ tap phinze/cask
 install brew-cask
 
 install ansible
+install boris
 install ctags
 install curl
 install fasd
@@ -14,18 +15,17 @@ install fish
 install git
 install grep --default-names
 install lua
-install macvim
 install mobile-shell
 install mysql
 install nginx
 install node
 install openssl
-install python
+install rbenv
 install reattach-to-user-namespace
-install ruby
 install sqlite
 install the_silver_searcher
 install tmux
+install vim --with-python --with-ruby
 
 tap homebrew/dupes
 install php55
