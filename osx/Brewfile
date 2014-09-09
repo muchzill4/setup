@@ -47,6 +47,7 @@ cask install forklift
 cask install google-chrome
 cask install iterm2
 cask install livereload
+cask install monotype-skyfonts
 cask install onepassword
 cask install sequel-pro
 cask install skype
