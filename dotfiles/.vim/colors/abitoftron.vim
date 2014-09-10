@@ -67,8 +67,8 @@ call s:hl('ColorColumn', '', 0)
 call s:hl('Pmenu', 0, 7)
 call s:hl('PmenuSel', '', 4)
 
-call s:hl('StatusLine', 0, 7, 'underline')
-call s:hl('StatusLineNC', 7, 0, 'underline')
+call s:hl('StatusLine', 0, 7)
+call s:hl('StatusLineNC', 7, 0)
 call s:hl('VertSplit', 0, 0)
 
 call s:hl('Directory', 4)
