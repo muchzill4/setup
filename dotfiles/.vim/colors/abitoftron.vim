@@ -164,3 +164,8 @@ hi link jsFuncCall Function
 hi link jsFuncArgs Identifier
 hi link javascriptRequire Include
 hi link javascriptString String
+
+" Ruby
+hi link rubyRegexp String
+hi link rubyRegexpSpecial String
+hi link rubyRegexpDelimiter String
