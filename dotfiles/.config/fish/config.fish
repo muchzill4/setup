@@ -6,7 +6,7 @@ set fish_color_normal white
 set fish_color_valid_path normal --underline
 set fish_color_param normal
 set fish_color_command green
-set fish_color_search_match --background=6d5d2b
+set fish_color_search_match --background=white --bold
 
 # only cwd if process is fish
 function fish_title
