@@ -179,7 +179,12 @@ end
 " | >>> Syntax
 " |
 
-colorscheme abitoftron
+set background=light
+let g:solarized_underline = 1
+let g:solarized_bold = 1
+let g:solarized_contast = "normal"
+let g:solarized_visibility = "normal"
+colorscheme solarized
 syntax on
 
 " Don't try to highlight lines longer than 800 characters.
@@ -277,10 +282,6 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 noremap <c-c>l viwu<esc>
 noremap <c-c>u viwU<esc>
 noremap <c-c>c bvU<esc>
-
-" fullscreen
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-noremap <F1> :set invfullscreen<cr>
 
 " temp remove search hl
 nnoremap <F12> :set hlsearch!<cr>
