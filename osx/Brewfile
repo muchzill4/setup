@@ -37,15 +37,16 @@ install composer
 # Cask
 # --------------------
 cask install alfred
-cask install concentrate
 cask install dash
 cask install dropbox
 cask install evernote
 cask install firefox
 cask install flash
+cask install fluid
 cask install forklift
 cask install google-chrome
 cask install iterm2
+cask install libreoffice
 cask install livereload
 cask install monotype-skyfonts
 cask install onepassword
