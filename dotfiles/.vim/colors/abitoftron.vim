@@ -8,14 +8,14 @@
 
 " | >> INIT
 " |
-if !has("gui_running") && &t_Co != 256
-    finish
+if !has("gui_running") && &t_Co < 16
+  finish
 endif
 
 set background=dark
 
 if exists("syntax_on")
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name = "abitoftron"
