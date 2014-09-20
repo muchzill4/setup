@@ -127,7 +127,7 @@ set showbreak=↪
 set matchtime=3
 set statusline=%f\ %r[%{(&fenc==\"\"?&enc:&fenc)}]\ %=%m\ %l/%L
 set hidden
-set nocursorline
+set cursorline
 set nocursorcolumn
 set formatoptions=qrn1
 set autowrite
@@ -179,12 +179,12 @@ end
 " | >>> Syntax
 " |
 
-set background=light
+set background=dark
 let g:solarized_underline = 1
 let g:solarized_bold = 1
 let g:solarized_contast = "normal"
 let g:solarized_visibility = "normal"
-colorscheme solarized
+colorscheme abitoftron
 syntax on
 
 " Don't try to highlight lines longer than 800 characters.
@@ -233,6 +233,7 @@ augroup js_sets
         \ softtabstop=2
         \ tabstop=2
         \ shiftwidth=2
+        \ colorcolumn=79
         \ omnifunc=javascriptcomplete#CompleteJS
         \ makeprg=node\ %
         \ commentstring=//%s

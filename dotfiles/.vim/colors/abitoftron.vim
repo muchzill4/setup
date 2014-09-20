@@ -8,7 +8,7 @@
 
 " | >> INIT
 " |
-if !has("gui_running") && &t_Co < 16
+if !has("gui_running") && &t_Co < 256
   finish
 endif
 
@@ -46,30 +46,29 @@ endfunction
 
 " UI
 call s:hl('Normal', '', '')
-call s:hl('Visual', 0, 4)
+call s:hl('Visual', 232, 4)
 
-call s:hl('Search', 0, 3)
-call s:hl('IncSearch', 0, 5)
+call s:hl('Search', '', '', 'underline')
+call s:hl('IncSearch', 0, 3)
 
-call s:hl('MatchParen', 0, 4)
+call s:hl('MatchParen', 5, '', 'bold')
 
 call s:hl('NonText', 4)
 call s:hl('SpecialKey', 4)
-call s:hl('Special', '')
 
-call s:hl('Cursor', 7, 0)
-call s:hl('LineNr', 4, 0)
-call s:hl('CursorLineNr', 2, '')
-call s:hl('CursorLine', '', 0)
-call s:hl('CursorColumn', '', 0)
+call s:hl('Cursor', 0, 2)
+call s:hl('LineNr', 4)
+call s:hl('CursorLineNr', 4, '', 'bold')
+call s:hl('CursorLine', '', '')
+call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', 0, 7)
-call s:hl('PmenuSel', '', 4)
+call s:hl('Pmenu', 232, 7)
+call s:hl('PmenuSel', '', 5)
 
-call s:hl('StatusLine', 0, 7)
+call s:hl('StatusLine', 232, 7)
 call s:hl('StatusLineNC', 7, 0)
-call s:hl('VertSplit', 0, 0)
+call s:hl('VertSplit', 4, 0)
 
 call s:hl('Directory', 4)
 call s:hl('Title', 1)
@@ -78,31 +77,24 @@ call s:hl('Folded', 4, 0)
 
 " Syntax
 call s:hl('Comment', 4)
-call s:hl('Todo', 4, '', 'underline')
+call s:hl('Todo', 0, 4, 'bold')
 
+call s:hl('Constant', 5)
 call s:hl('Number', 2)
 call s:hl('String', 6)
-call s:hl('Boolean', 2)
+
+call s:hl('Identifier', 1)
+call s:hl('Function', 3)
+
+call s:hl('Statement', 7)
+
+call s:hl('PreProc', 7, '', 'bold')
 
 call s:hl('Type', 2)
 call s:hl('StorageClass', 7)
 call s:hl('Structure', 7)
 
-call s:hl('Identifier', 1)
-call s:hl('Function', 3)
-
-call s:hl('Exception', 7)
-call s:hl('Include', 5)
-
-call s:hl('PreProc', 7)
-call s:hl('Statement', 7)
-call s:hl('Repeat', 7)
-call s:hl('Conditional', 7)
-call s:hl('Label', 7)
-call s:hl('Operator', 7)
-call s:hl('Keyword', 7)
-
-call s:hl('Underlined', 7, '', 'underline')
+call s:hl('Delimiter', 7)
 
 call s:hl('DiffDelete', 1, '')
 call s:hl('DiffChange', 3, '')
@@ -118,13 +110,6 @@ hi link TabLine StatusLineNC
 hi link TabLineFill StatusLineNC
 hi link TabLineSel StatusLine
 
-" Netrw & NERDTree
-hi link netrwDir Directory
-hi link netrwClassify netrwDir
-hi link NERDTreeDirSlash netrwDir
-hi link NERDTreeOpenable netrwDir
-hi link NERDTreeClosable NERDTreeOpenable
-
 " EasyMotion
 hi link EasyMotionShade Comment
 hi link EasyMotionTarget Identifier
@@ -132,40 +117,31 @@ hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Identifier
 
 " CtrlP
-hi link CtrlPMatch Search
-hi link CtrlPMode1 Comment
+hi link CtrlPMatch IncSearch
 
 " PHP
-hi link phpMemberSelector Normal
-hi link phpVarSelector Identifier
+hi link phpIdentifier Normal
+hi link phpSpecialFunction Function
+hi link phpInterfaces Type
+hi link phpFunctions Normal
+hi link phpDocTags phpComment
 
 " HTML / XML
-hi link htmlTagName Function
-hi link htmlSpecialTagName htmlTagName
-hi link htmlTag Boolean
 hi link htmlEndTag htmlTag
-hi link htmlArg Number
 hi link xmlEndTag xmlTag
 
 " CSS
-hi link cssBraces NONE
-hi link cssTagName Include
-hi link cssIdentifier Function
-hi link cssClassName Function
-
-" LESS
-hi link lessDefinition cssProp
+" hi link cssBraces NONE
+" hi link cssTagName Include
+" hi link cssIdentifier Function
+" hi link cssClassName Function
 
 " JS
-hi link jsFunction Define
-hi link jsGlobalObjects Include
-hi link javascriptSFunction Function
-hi link jsFuncCall Function
-hi link jsFuncArgs Identifier
+hi link jsFunction PreProc
+hi link jsGlobalObjects Type
+hi link javascriptSFunction Normal
+hi link javascriptpFunction Normal
+hi link jsExceptions Type
 hi link javascriptRequire Include
+hi link jsFunctionKey Function
 hi link javascriptString String
-
-" Ruby
-hi link rubyRegexp String
-hi link rubyRegexpSpecial String
-hi link rubyRegexpDelimiter String
