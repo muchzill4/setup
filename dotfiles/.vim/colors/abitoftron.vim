@@ -88,7 +88,7 @@ call s:hl('Function', 3)
 
 call s:hl('Statement', 7)
 
-call s:hl('PreProc', 7, '', 'bold')
+call s:hl('PreProc', 7, '')
 
 call s:hl('Type', 2)
 call s:hl('StorageClass', 7)
@@ -96,10 +96,10 @@ call s:hl('Structure', 7)
 
 call s:hl('Delimiter', 7)
 
-call s:hl('DiffDelete', 1, '')
-call s:hl('DiffChange', 3, '')
-call s:hl('DiffAdd', 2, '')
-call s:hl('DiffText', 7, '')
+call s:hl('DiffDelete', 232, 1)
+call s:hl('DiffChange', 232, 3)
+call s:hl('DiffAdd', 232, 2)
+call s:hl('DiffText', 232, 7)
 
 
 " | >> Link
@@ -124,17 +124,12 @@ hi link phpIdentifier Normal
 hi link phpSpecialFunction Function
 hi link phpInterfaces Type
 hi link phpFunctions Normal
+hi link phpMethods Normal
 hi link phpDocTags phpComment
 
 " HTML / XML
 hi link htmlEndTag htmlTag
 hi link xmlEndTag xmlTag
-
-" CSS
-" hi link cssBraces NONE
-" hi link cssTagName Include
-" hi link cssIdentifier Function
-" hi link cssClassName Function
 
 " JS
 hi link jsFunction PreProc
