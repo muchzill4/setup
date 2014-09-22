@@ -51,14 +51,14 @@ call s:hl('Visual', 232, 4)
 call s:hl('Search', '', '', 'underline')
 call s:hl('IncSearch', 0, 3)
 
-call s:hl('MatchParen', 5, '', 'bold')
+call s:hl('MatchParen', 5)
 
 call s:hl('NonText', 4)
 call s:hl('SpecialKey', 4)
 
 call s:hl('Cursor', 0, 2)
 call s:hl('LineNr', 4)
-call s:hl('CursorLineNr', 4, '', 'bold')
+call s:hl('CursorLineNr', 3)
 call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
@@ -77,7 +77,7 @@ call s:hl('Folded', 4, 0)
 
 " Syntax
 call s:hl('Comment', 4)
-call s:hl('Todo', 0, 4, 'bold')
+call s:hl('Todo', 232, 4)
 
 call s:hl('Constant', 5)
 call s:hl('Number', 2)
