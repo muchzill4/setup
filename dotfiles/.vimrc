@@ -397,4 +397,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 " >> Synstastic
 let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_error_symbol = "✕"
+let g:syntastic_warning_symbol = "⚠"
 
