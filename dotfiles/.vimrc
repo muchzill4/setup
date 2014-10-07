@@ -14,30 +14,31 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'othree/html5.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-commentary'
-Plugin 'rodjek/vim-puppet'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'ingydotnet/yaml-vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'mattn/emmet-vim'
-Plugin 'evidens/vim-twig'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'sjl/vitality.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'SirVer/ultisnips'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'evidens/vim-twig'
+Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
+Plugin 'ingydotnet/yaml-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'moll/vim-bbye'
-Plugin 'wavded/vim-stylus'
-Plugin 'tpope/vim-vinegar'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
+Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/vitality.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'wavded/vim-stylus'
 call vundle#end()
 
 runtime macros/matchit.vim
@@ -126,7 +127,7 @@ set showbreak=↪
 set matchtime=3
 set statusline=%f\ %r[%{(&fenc==\"\"?&enc:&fenc)}]\ %=%m\ %l/%L
 set hidden
-set cursorline
+set nocursorline
 set nocursorcolumn
 set formatoptions=qrn1
 set autowrite
@@ -393,3 +394,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+
+" >> Synstastic
+let g:syntastic_javascript_checkers = ['jsxhint']
+
