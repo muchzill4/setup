@@ -96,7 +96,6 @@ set modelines=0
 set history=100
 set showmode
 set showcmd
-set number
 set numberwidth=4
 set wrap
 set linebreak
