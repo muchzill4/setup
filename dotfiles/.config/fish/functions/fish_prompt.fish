@@ -14,7 +14,7 @@ function _git_status
     set git_info $git_branch
 
     if test (__is_git_dirty)
-      set -l dirty "*"
+      set -l dirty "ˣ"
       set git_info "$git_info$dirty"
     end
   end
@@ -56,10 +56,10 @@ function fish_prompt
   set -l normal (set_color normal)
   set -l blue (set_color blue)
   set -l red (set_color red)
-  set -l white (set_color white)
+  set -l black (set_color black)
 
   if __prompt_arrow_status
-    set arrow_color "$white"
+    set arrow_color "$black"
   else
     set arrow_color "$red"
   end

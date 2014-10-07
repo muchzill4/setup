@@ -45,7 +45,7 @@ endfunction
 " |
 
 " UI
-call s:hl('Normal', 251, '')
+call s:hl('Normal', 253, '')
 call s:hl('Visual', 232, 4)
 
 call s:hl('Search', '', '', 'underline')
@@ -63,11 +63,11 @@ call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', 232, 247)
+call s:hl('Pmenu', 232, 248)
 call s:hl('PmenuSel', '', 5)
 
-call s:hl('StatusLine', 232, 247)
-call s:hl('StatusLineNC', 247, 0)
+call s:hl('StatusLine', 232, 248)
+call s:hl('StatusLineNC', 248, 0)
 call s:hl('VertSplit', 4, 0)
 
 call s:hl('Directory', 4)
@@ -86,20 +86,20 @@ call s:hl('String', 6)
 call s:hl('Identifier', 1)
 call s:hl('Function', 3)
 
-call s:hl('Statement', 247)
+call s:hl('Statement', 248)
 
-call s:hl('PreProc', 247, '')
+call s:hl('PreProc', 249, '')
 
 call s:hl('Type', 2)
-call s:hl('StorageClass', 247)
-call s:hl('Structure', 247)
+call s:hl('StorageClass', 248)
+call s:hl('Structure', 248)
 
-call s:hl('Delimiter', 247)
+call s:hl('Delimiter', 248)
 
 call s:hl('DiffDelete', 232, 1)
 call s:hl('DiffChange', 232, 3)
 call s:hl('DiffAdd', 232, 2)
-call s:hl('DiffText', 232, 247)
+call s:hl('DiffText', 232, 248)
 
 
 " | >> Link
