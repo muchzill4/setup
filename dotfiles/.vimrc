@@ -37,7 +37,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'wavded/vim-stylus'
 call vundle#end()
 
@@ -364,6 +363,7 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+
 " Close omnicompletion preview popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -377,7 +377,7 @@ let g:EasyMotion_leader_key = '<leader>m'
 let g:EasyMotion_do_shade = 1
 
 " >> Ag
-nnoremap <leader>a :Ag<SPACE>
+nnoremap <leader>a :Ag!<SPACE>
 
 " >> CtrlP
 let g:ctrlp_map = '<leader>t'
