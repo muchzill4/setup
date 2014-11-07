@@ -57,6 +57,7 @@ set autowrite
 set clipboard=unnamed
 set tags+=.tags,.gemtags
 set background=dark
+set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 colorscheme abitoftron
 
 
@@ -180,3 +181,4 @@ let g:UltiSnipsEditSplit="vertical"
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_error_symbol = "x"
 let g:syntastic_warning_symbol = "!"
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
