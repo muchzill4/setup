@@ -14,6 +14,7 @@ endif
 
 set background=dark
 
+hi clear
 if exists("syntax_on")
   syntax reset
 endif
@@ -48,7 +49,7 @@ endfunction
 call s:hl('Normal', 253, '')
 call s:hl('Visual', 232, 4)
 
-call s:hl('Search', '', '', 'underline')
+call s:hl('Search', 232, 3, 'underline')
 call s:hl('IncSearch', 232, 3)
 
 call s:hl('MatchParen', 1, 232)
@@ -77,7 +78,7 @@ call s:hl('Folded', 4, 0)
 
 " Syntax
 call s:hl('Comment', 4)
-call s:hl('Todo', 232, 4)
+call s:hl('Todo', 4, '', 'underline')
 
 call s:hl('Constant', 5)
 call s:hl('Number', 2)

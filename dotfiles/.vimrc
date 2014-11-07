@@ -35,6 +35,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/vitality.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'wavded/vim-stylus'
@@ -44,214 +46,18 @@ runtime macros/matchit.vim
 filetype plugin indent on
 
 
-" | >>> Backup & Undo
-" |
-set nowb
-set nobk
-set noswapfile
-
-set undofile
-set undoreload=10000
-
-set undodir=~/.vim/tmp/undo//
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-
-" If above are not there yet, create'em!
-if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-endif
-if !isdirectory(expand(&backupdir))
-    call mkdir(expand(&backupdir), "p")
-endif
-if !isdirectory(expand(&directory))
-    call mkdir(expand(&directory), "p")
-endif
-
-
-" | >> Searching
-" |
-set ignorecase " ignore case in search patterns
-set smartcase  " only if using lowercase letters
-set gdefault
-
-
-" | >> Indenting
-" |
-set noshiftround
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set smarttab
-set autoindent
-set smartindent
-
-
 " | >> General
 " |
-set encoding=utf-8
-set modelines=0
-set history=100
-set showmode
-set showcmd
-set numberwidth=4
-set wrap
-set linebreak
-set noruler
-set colorcolumn=0
-set textwidth=0
-set laststatus=2
-set visualbell
-set t_vb=
-set hls
-set incsearch
-set autoread " reload files that have been updated outside vim
-set showmatch
-set matchpairs+=<:>
-set scrolloff=3
-set scrolljump=8
-set splitbelow
-set splitright
-set lazyredraw
-set ttyfast
-set title
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-set nolist
+set noswapfile
+set history=1000
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
-set matchtime=3
-set statusline=%f\ %r[%{(&fenc==\"\"?&enc:&fenc)}]\ %=%m\ %l/%L
 set hidden
-set nocursorline
-set nocursorcolumn
-set formatoptions=qrn1
 set autowrite
 set clipboard=unnamed
 set tags+=.tags,.gemtags
-set backspace=2 " make backspace work like most other apps
-set shell=/bin/sh " fish does not work well with vim
-
-" Make Vim able to edit crontab files again.
-set backupskip=/tmp/*,/private/tmp/*
-
-
-" | Ignoring Files
-" |
-set wildmenu
-set wildmode=list,longest
-
-set wildignore+=.hg,.git,.svn
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico,*.ai,*.psd,*.ttf,*.svg
-set wildignore+=*.ttf,*.woff,*.eof
-set wildignore+=*.DS_Store
-
-
-" | >>> Gui options
-" |
-if has('gui_running')
-  set guifont=Terminus\ (TTF):h12
-  set noantialias
-
-  set linespace=1
-  set transparency=0
-
-  " disable blinking
-  set guicursor+=a:blinkon0
-
-  " remove gui clutter
-  set go-=l
-  set go-=L
-  set go-=r
-  set go-=R
-  set go-=T
-  set go-=e
-
-  " Full screen means FULL screen
-  set fuoptions=maxvert,maxhorz
-end
-
-
-" | >>> Syntax
-" |
-
 set background=dark
-let g:solarized_underline = 1
-let g:solarized_bold = 1
-let g:solarized_contast = "normal"
-let g:solarized_visibility = "normal"
 colorscheme abitoftron
-syntax on
-
-" Don't try to highlight lines longer than 800 characters.
-set synmaxcol=800
-
-
-" | >>> Language/file specific
-" |
-augroup python_sets
-    au!
-    au FileType python setlocal
-        \ softtabstop=4
-        \ tabstop=4
-        \ shiftwidth=4
-        \ textwidth=79
-        \ colorcolumn=79
-        \ makeprg=python\ %
-        \ commentstring=#%s
-augroup END
-
-augroup ruby_sets
-    au!
-    au BufNewFile,BufRead Vagrantfile set filetype=ruby
-    au FileType ruby setlocal
-        \ textwidth=79
-        \ colorcolumn=79
-        \ makeprg=ruby\ %
-        \ omnifunc=rubycomplete#Complete
-        \ commentstring=#%s
-augroup END
-
-augroup php_sets
-    au!
-    au FileType php setlocal
-        \ softtabstop=4
-        \ tabstop=4
-        \ shiftwidth=4
-        \ makeprg=php\ -l\ %
-        \ omnifunc=phpcomplete#CompletePHP
-augroup END
-
-augroup js_sets
-    au!
-    au BufNewFile,BufRead Gruntfile set filetype=javascript
-    au FileType javascript setlocal
-        \ softtabstop=2
-        \ tabstop=2
-        \ shiftwidth=2
-        \ colorcolumn=79
-        \ omnifunc=javascriptcomplete#CompleteJS
-        \ makeprg=node\ %
-        \ commentstring=//%s
-augroup END
-
-
-augroup html_sets
-    au!
-    au FileType html setlocal
-        \ softtabstop=4
-        \ tabstop=4
-        \ shiftwidth=4
-        \ omnifunc=htmlcomplete#CompleteTags
-augroup END
-
-augroup css_sets
-    au!
-    au FileType css,scss,stylus setlocal
-        \ omnifunc=csscomplete#CompleteCSS
-augroup END
 
 
 " | >>> Bindings
@@ -264,15 +70,8 @@ nnoremap \ ,
 " Open ctag in new window
 nnoremap <c-\> <c-w>v<c-]>zvzz
 
-" Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v
-
 " ,1 to underline, yay!
 nnoremap <leader>1 yypwv$r-
-
-" explore
-nnoremap <leader>E :Explore<cr>
 
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
@@ -281,9 +80,6 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 noremap <c-c>l viwu<esc>
 noremap <c-c>u viwU<esc>
 noremap <c-c>c bvU<esc>
-
-" temp remove search hl
-nnoremap <F12> :set hlsearch!<cr>
 
 " colon to space
 nnoremap <space> :
@@ -301,14 +97,12 @@ noremap <leader>q :q<cr>
 " delete buffer
 noremap <leader>d :Bdelete<cr>
 
-" run current file aka make
-noremap <leader>r :make!<cr>
-
 " sane esc
 inoremap jk <Esc>
 
 " | >>> Helpers
 " |
+
 " show syntax highlighting groups for word under cursor
 noremap <c-s-p> :call SynStack()<cr>
 function! SynStack()
@@ -336,23 +130,13 @@ augroup lost_focus
   au FocusLost * :silent! wall
 augroup END
 
-" return to the same line when you reopen a file
-" Thanks, Amit & SLJ
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
 " Open help in vert split
 augroup helpfiles
   au!
   au BufRead,BufEnter */doc/* wincmd L
 augroup END
 
-" Remove trailing whitespace (don't use on binary! :D)
+" Remove trailing whitespace
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -363,7 +147,6 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-
 " Close omnicompletion preview popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -371,7 +154,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " | >>> Plugin settings
 " |
-
 " >> EasyMotion
 let g:EasyMotion_leader_key = '<leader>m'
 let g:EasyMotion_do_shade = 1
@@ -396,6 +178,5 @@ let g:UltiSnipsEditSplit="vertical"
 
 " >> Synstastic
 let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_error_symbol = "✕"
-let g:syntastic_warning_symbol = "⚠"
-
+let g:syntastic_error_symbol = "x"
+let g:syntastic_warning_symbol = "!"
