@@ -64,5 +64,5 @@ function fish_prompt
     set arrow_color "$red"
   end
 
-  printf '\n%s%s%s%s %s%s\n%s%s %s' $blue (prompt_pwd) $cyan (_remote_user_host) $cyan (_git_status) $arrow_color "▸" $normal
+  printf '\n%s%s%s%s %s%s\n%s%s %s' $blue (prompt_pwd) $cyan (_remote_user_host) $cyan (_git_status) $arrow_color "λ" $normal
 end

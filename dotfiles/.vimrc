@@ -169,7 +169,6 @@ let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_height = 10
 noremap <leader>y :CtrlPBuffer<cr>
 
 " >> UltiSnips
