@@ -57,6 +57,7 @@ set autowrite
 set clipboard=unnamed
 set tags+=.tags,.gemtags
 set background=dark
+set number
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set shell=/bin/sh " fish does not work well with vim
 colorscheme abitoftron
