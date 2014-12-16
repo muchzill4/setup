@@ -1,2 +1,2 @@
-#!/usr/bin/env ruby
-system "find . -name '*.php' | ctags --fields=+l -f .tags -L -"
+#!/usr/bin/env sh
+ctags --languages=PHP -R .

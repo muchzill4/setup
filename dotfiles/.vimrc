@@ -4,7 +4,6 @@
 " | thanks stevelosh(.com), you've helped me a lot
 " |
 
-
 " | >>> Vundle
 " |
 set nocompatible
@@ -13,52 +12,44 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
+
+" Give more functionality
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'SirVer/ultisnips'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'evidens/vim-twig'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
-Plugin 'ingydotnet/yaml-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'moll/vim-bbye'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'marijnh/tern_for_vim'
+
+" Give more languages
+Plugin 'wavded/vim-stylus'
+Plugin 'evidens/vim-twig'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'rking/ag.vim'
-Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/vitality.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
-Plugin 'wavded/vim-stylus'
+
 call vundle#end()
 
-runtime macros/matchit.vim
 filetype plugin indent on
+runtime macros/matchit.vim
 
 
 " | >> General
 " |
-set noswapfile
+set undofile
 set history=1000
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
-set hidden
-set autowrite
-set clipboard=unnamed
 set tags+=.tags,.gemtags
-set background=dark
 set number
+set gdefault
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
+set foldenable
 set shell=/bin/sh " fish does not work well with vim
 colorscheme abitoftron
 
@@ -70,35 +61,14 @@ let mapleader=','
 " Jump to previous letter match
 nnoremap \ ,
 
-" Open ctag in new window
-nnoremap <c-\> <c-w>v<c-]>zvzz
-
-" ,1 to underline, yay!
-nnoremap <leader>1 yypwv$r-
-
-" edit dotfiles
+" edit vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
-
-" uppercase, lowercase, camelcase
-noremap <c-c>l viwu<esc>
-noremap <c-c>u viwU<esc>
-noremap <c-c>c bvU<esc>
-
-" colon to space
-nnoremap <space> :
 
 " fast saving
 nnoremap <leader>w :w!<cr>
 
-" delete / change while in insert mode
-inoremap <C-d> <esc>ddi
-inoremap <C-c> <esc>cc
-
 " quit
 noremap <leader>q :q<cr>
-
-" delete buffer
-noremap <leader>d :Bdelete<cr>
 
 " sane esc
 inoremap jk <Esc>
@@ -157,20 +127,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " | >>> Plugin settings
 " |
-" >> EasyMotion
-let g:EasyMotion_leader_key = '<leader>m'
-let g:EasyMotion_do_shade = 1
-
-" >> Ag
-nnoremap <leader>a :Ag!<SPACE>
-
-" >> CtrlP
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_cmd = 'CtrlP'
-noremap <leader>y :CtrlPBuffer<cr>
 
 " >> UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
