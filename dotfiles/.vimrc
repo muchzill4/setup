@@ -24,6 +24,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'tpope/vim-vinegar'
 
 " Give more languages
 Plugin 'wavded/vim-stylus'
