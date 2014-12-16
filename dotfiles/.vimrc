@@ -97,12 +97,6 @@ augroup colorscheme_dev
     au BufWritePost abitoftron.vim color abitoftron
 augroup END
 
-" save file on focus lost
-augroup lost_focus
-  au!
-  au FocusLost * :silent! wall
-augroup END
-
 " Open help in vert split
 augroup helpfiles
   au!

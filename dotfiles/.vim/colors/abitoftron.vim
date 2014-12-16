@@ -74,7 +74,7 @@ call s:hl('VertSplit', 4, 0)
 call s:hl('Directory', 4)
 call s:hl('Title', 1)
 
-call s:hl('Folded', 4, 0)
+call s:hl('Folded', 0, '', 'underline')
 
 " Syntax
 call s:hl('Comment', 4)
