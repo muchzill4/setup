@@ -42,6 +42,7 @@ runtime macros/matchit.vim
 
 " | >> General
 " |
+set noswapfile
 set undofile
 set history=1000
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
@@ -51,7 +52,7 @@ set number
 set gdefault
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
-set shell=/bin/sh " fish does not work well with vim
+set ignorecase
 colorscheme abitoftron
 
 
