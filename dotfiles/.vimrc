@@ -52,6 +52,7 @@ set gdefault
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
 set ignorecase
+set clipboard=unnamed
 colorscheme abitoftron
 
 

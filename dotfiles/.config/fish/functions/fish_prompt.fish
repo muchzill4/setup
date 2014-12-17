@@ -14,7 +14,7 @@ function _git_status
     set git_info $git_branch
 
     if test (__is_git_dirty)
-      set -l dirty "ˣ"
+      set -l dirty "•"
       set git_info "$git_info$dirty"
     end
   end
