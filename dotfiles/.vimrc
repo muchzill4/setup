@@ -18,7 +18,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
@@ -129,9 +128,3 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
-
-" >> Synstastic
-let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_error_symbol = "x"
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
