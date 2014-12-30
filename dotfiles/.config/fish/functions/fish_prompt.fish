@@ -52,7 +52,7 @@ function fish_prompt
   # FIXME: I think this is required for prompt arrow to get last command success.
   set -g es $status
 
-  set -l cyan (set_color cyan)
+  set -l magenta (set_color magenta)
   set -l normal (set_color normal)
   set -l blue (set_color blue)
   set -l red (set_color red)
@@ -64,5 +64,5 @@ function fish_prompt
     set arrow_color "$red"
   end
 
-  printf '\n%s%s%s%s %s%s\n%s%s %s' $blue (prompt_pwd) $cyan (_remote_user_host) $cyan (_git_status) $arrow_color "λ" $normal
+  printf '\n%s%s%s%s %s%s\n%s%s %s' $blue (prompt_pwd) $magenta (_remote_user_host) $magenta (_git_status) $arrow_color "λ" $normal
 end

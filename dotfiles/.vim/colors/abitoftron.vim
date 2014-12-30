@@ -76,6 +76,8 @@ call s:hl('Title', 1)
 
 call s:hl('Folded', 0, '', 'underline')
 
+call s:hl('ModeMsg', 5)
+
 " Syntax
 call s:hl('Comment', 4)
 call s:hl('Todo', 4, '', 'underline')

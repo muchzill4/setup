@@ -24,6 +24,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
+Plugin 'chriskempson/base16-vim'
 
 " Give more languages
 Plugin 'wavded/vim-stylus'
@@ -53,7 +54,7 @@ set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
 set ignorecase
 set clipboard=unnamed
-colorscheme abitoftron
+colorscheme ir_black
 
 
 " | >>> Bindings
