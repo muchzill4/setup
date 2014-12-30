@@ -69,7 +69,7 @@ call s:hl('PmenuSel', '', 5)
 
 call s:hl('StatusLine', 232, 248)
 call s:hl('StatusLineNC', 248, 0)
-call s:hl('VertSplit', 4, 0)
+call s:hl('VertSplit', 0, 0)
 
 call s:hl('Directory', 4)
 call s:hl('Title', 1)
@@ -141,3 +141,8 @@ hi link jsExceptions Type
 hi link javascriptRequire Include
 hi link jsFunctionKey Function
 hi link javascriptString String
+
+" CoffeeScript
+hi link coffeeSpaceError NONE
+hi link coffeeSemicolonError NONE
+hi link coffeeReservedError NONE

@@ -6,15 +6,13 @@
 tap homebrew/dupes
 tap homebrew/php
 
-install brew-cask
+install caskroom/cask/brew-cask
 install ansible
 install ctags
 install curl
-install fish
+install fish --HEAD
 install git
 install grep --default-names
-install lua
-install mobile-shell
 install mysql
 install nginx
 install node
@@ -23,9 +21,8 @@ install rbenv --HEAD
 install reattach-to-user-namespace
 install ruby-build
 install sqlite
-install the_silver_searcher
 install tmux
-install vim --with-python --with-ruby
+install vim
 
 install boris
 install php55
@@ -36,26 +33,21 @@ install composer
 
 # Cask
 # --------------------
+# cask install dash
+# cask install firefox
+# cask install sequel-pro
 cask install alfred
-cask install dash
 cask install dropbox
-cask install evernote
-cask install firefox
 cask install flash
-cask install fluid
-cask install forklift
 cask install google-chrome
 cask install iterm2
-cask install libreoffice
-cask install livereload
+cask install mailbox
 cask install monotype-skyfonts
-cask install onepassword
-cask install sequel-pro
 cask install skype
 cask install slate
 cask install spotify
 cask install steermouse
-cask install utorrent
+cask install transmission
 cask install vagrant
 cask install virtualbox
 cask install vlc
