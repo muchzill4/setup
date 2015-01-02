@@ -56,10 +56,10 @@ function fish_prompt
   set -l normal (set_color normal)
   set -l blue (set_color blue)
   set -l red (set_color red)
-  set -l black (set_color black)
+  set -l green (set_color green)
 
   if __prompt_arrow_status
-    set arrow_color "$black"
+    set arrow_color "$green"
   else
     set arrow_color "$red"
   end

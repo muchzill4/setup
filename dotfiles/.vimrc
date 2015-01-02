@@ -24,7 +24,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'chriskempson/base16-vim'
 
 " Give more languages
 Plugin 'wavded/vim-stylus'
@@ -39,7 +38,6 @@ call vundle#end()
 filetype plugin indent on
 runtime macros/matchit.vim
 
-
 " | >> General
 " |
 set noswapfile
@@ -48,14 +46,12 @@ set history=1000
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
 set tags+=.tags,.gemtags
-set number
 set gdefault
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
 set ignorecase
 set clipboard=unnamed
-colorscheme ir_black
-
+colorscheme abitoftron
 
 " | >>> Bindings
 " |
