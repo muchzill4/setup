@@ -46,103 +46,71 @@ endfunction
 " |
 
 " UI
-call s:hl('Normal', 253, '')
-call s:hl('Visual', 232, 4)
+call s:hl('Normal', '', '')
+call s:hl('Visual', '', 0)
 
-call s:hl('Search', 232, 3, 'underline')
-call s:hl('IncSearch', 232, 3)
+call s:hl('Search', 3, '', 'inverse,underline')
+call s:hl('IncSearch', 3, '', 'inverse')
 
-call s:hl('MatchParen', 1, 232)
+call s:hl('MatchParen', 1, 0)
 
-call s:hl('NonText', 4)
-call s:hl('SpecialKey', 4)
+call s:hl('NonText', 0)
+call s:hl('SpecialKey', 0)
 
-call s:hl('Cursor', 0, 2)
+call s:hl('Cursor', 2, '', 'inverse')
 call s:hl('LineNr', 4)
-call s:hl('CursorLineNr', 3)
+
+call s:hl('CursorLineNr', 5)
 call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', 232, 248)
-call s:hl('PmenuSel', '', 5)
+call s:hl('Pmenu', '', 0)
+call s:hl('PmenuSel', 3, '', 'inverse')
+call s:hl('WildMenu', 3, '', 'inverse')
 
-call s:hl('StatusLine', 232, 248)
-call s:hl('StatusLineNC', 248, 0)
-call s:hl('VertSplit', 0, 0)
+call s:hl('StatusLine', '', 0, 'inverse')
+call s:hl('StatusLineNC', '', 0)
+call s:hl('VertSplit', 0, '', 'inverse')
 
 call s:hl('Directory', 4)
 call s:hl('Title', 1)
 
-call s:hl('Folded', 0, '', 'underline')
+call s:hl('Folded', 4, '', 'inverse,underline')
 
-call s:hl('ModeMsg', 5)
+call s:hl('ModeMsg', 5, '', 'inverse')
 
 " Syntax
 call s:hl('Comment', 4)
 call s:hl('Todo', 4, '', 'underline')
 
-call s:hl('Constant', 5)
-call s:hl('Number', 2)
+call s:hl('Constant', 2)
 call s:hl('String', 6)
 
 call s:hl('Identifier', 1)
 call s:hl('Function', 3)
 
-call s:hl('Statement', 248)
+call s:hl('Statement', 7)
+call s:hl('PreProc', 7)
 
-call s:hl('PreProc', 249, '')
+call s:hl('Type', 5)
 
-call s:hl('Type', 2)
-call s:hl('StorageClass', 248)
-call s:hl('Structure', 248)
+call s:hl('Special', 7)
 
-call s:hl('Delimiter', 248)
+call s:hl('Error', '', 1)
+call s:hl('ErrorMsg', '', 1)
 
-call s:hl('DiffDelete', 232, 1)
-call s:hl('DiffChange', 232, 3)
-call s:hl('DiffAdd', 232, 2)
-call s:hl('DiffText', 232, 248)
-
+call s:hl('DiffDelete', 1, '', 'inverse')
+call s:hl('DiffChange', 3, '', 'inverse')
+call s:hl('DiffAdd', 2, '', 'inverse')
+call s:hl('DiffText', 6, '', 'inverse')
 
 " | >> Link
 " |
 
-" UI
-hi link TabLine StatusLineNC
-hi link TabLineFill StatusLineNC
-hi link TabLineSel StatusLine
-
-" EasyMotion
-hi link EasyMotionShade Comment
-hi link EasyMotionTarget Identifier
-hi link EasyMotionTarget2First Identifier
-hi link EasyMotionTarget2Second Identifier
-
-" CtrlP
-hi link CtrlPMatch IncSearch
-
-" PHP
-hi link phpIdentifier Normal
-hi link phpSpecialFunction Function
-hi link phpInterfaces Type
-hi link phpFunctions Normal
-hi link phpMethods Normal
-hi link phpDocTags phpComment
-
 " HTML / XML
 hi link htmlEndTag htmlTag
 hi link xmlEndTag xmlTag
-
-" JS
-hi link jsFunction PreProc
-hi link jsGlobalObjects Type
-hi link javascriptSFunction Normal
-hi link javascriptpFunction Normal
-hi link jsExceptions Type
-hi link javascriptRequire Include
-hi link jsFunctionKey Function
-hi link javascriptString String
 
 " CoffeeScript
 hi link coffeeSpaceError NONE

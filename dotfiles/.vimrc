@@ -30,7 +30,6 @@ Plugin 'wavded/vim-stylus'
 Plugin 'evidens/vim-twig'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
