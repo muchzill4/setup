@@ -45,7 +45,7 @@ cask install iterm2
 cask install mailbox
 cask install monotype-skyfonts
 cask install skype
-cask install slate
+cask install spectacle
 cask install spotify
 cask install steermouse
 cask install transmission
