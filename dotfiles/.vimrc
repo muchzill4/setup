@@ -65,11 +65,11 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 " fast saving
 nnoremap <leader>w :w!<cr>
 
-" quit
-noremap <leader>q :q<cr>
-
 " sane esc
 inoremap jk <Esc>
+
+" make / run
+noremap <leader>r :make<cr>
 
 " | >>> Helpers
 " |

@@ -60,7 +60,7 @@ call s:hl('SpecialKey', 0)
 call s:hl('Cursor', 2, '', 'inverse')
 call s:hl('LineNr', 4)
 
-call s:hl('CursorLineNr', 5)
+call s:hl('CursorLineNr', 4)
 call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)

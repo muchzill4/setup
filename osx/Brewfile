@@ -22,6 +22,7 @@ install reattach-to-user-namespace
 install ruby-build
 install sqlite
 install tmux
+install watchman
 install vim
 
 install boris
