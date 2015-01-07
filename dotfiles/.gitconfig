@@ -4,7 +4,7 @@
 
 [core]
   editor = vim
-  excludesfile = /Users/muchzill4/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [color]
   ui = true
