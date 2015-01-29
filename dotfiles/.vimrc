@@ -30,6 +30,7 @@ Plugin 'takac/vim-hardtime'
 " give more languages
 Plugin 'othree/html5.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
@@ -52,8 +53,10 @@ set tags+=.tags,.gemtags
 set gdefault
 set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
+set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
+set number
 colorscheme abitoftron
 
 " }}}
@@ -129,9 +132,11 @@ augroup commonfiles
     au!
     au FileType ruby,eruby setlocal st=2 ts=2 sw=2 expandtab
     au FileType javascript,coffee setlocal st=2 ts=2 sw=2 expandtab
-    au FileType css,scss setlocal st=2 ts=2 sw=2 expandtab
+    au FileType css setlocal st=2 ts=2 sw=2 expandtab
     au FileType php,html setlocal st=4 ts=4 sw=4 expandtab
     au FileType vim setlocal foldmethod=marker
+
+    au BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 
 " }}}
@@ -146,3 +151,5 @@ let g:UltiSnipsEditSplit="vertical"
 " hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
+let g:list_of_normal_keys = ["h", "j", "k", "l"]
+let g:list_of_visual_keys = ["h", "j", "k", "l"]
