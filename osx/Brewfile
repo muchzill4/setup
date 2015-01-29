@@ -1,10 +1,6 @@
-# CRAP ALERT: Brewfiles and cask is still not 100% nice,
-# this will fail if I already have something tapped or installed with cask
-
 # Homebrew
 # --------------------
 tap homebrew/dupes
-tap homebrew/php
 
 install caskroom/cask/brew-cask
 install ansible
@@ -24,13 +20,6 @@ install sqlite
 install tmux
 install watchman
 install vim
-
-install boris
-install php55
-install php55-apcu
-install php55-mcrypt
-install php55-xdebug
-install composer
 
 # Cask
 # --------------------
