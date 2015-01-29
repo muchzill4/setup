@@ -132,7 +132,7 @@ augroup commonfiles
     au!
     au FileType ruby,eruby setlocal st=2 ts=2 sw=2 expandtab
     au FileType javascript,coffee setlocal st=2 ts=2 sw=2 expandtab
-    au FileType css setlocal st=2 ts=2 sw=2 expandtab
+    au FileType css,scss setlocal st=2 ts=2 sw=2 expandtab
     au FileType php,html setlocal st=4 ts=4 sw=4 expandtab
     au FileType vim setlocal foldmethod=marker
 
