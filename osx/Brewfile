@@ -23,13 +23,9 @@ install vim
 
 # Cask
 # --------------------
-# cask install dash
-# cask install firefox
-# cask install sequel-pro
 cask install alfred
 cask install dropbox
 cask install flash
-cask install google-chrome
 cask install iterm2
 cask install mailbox
 cask install monotype-skyfonts
@@ -42,3 +38,11 @@ cask install vagrant
 cask install virtualbox
 cask install vlc
 cask install ynab
+
+# Appstore & manual
+# --------------------
+#
+# 1/ Chrome and Firefox 1password integration requires
+#    them to be installed in /Applications directory
+#
+# dash, sunrise, chrome, firefox, pushpal, 1password, keynote, numbers, pages
