@@ -1,43 +1,44 @@
 # Homebrew
 # --------------------
-tap homebrew/dupes
+#tap homebrew/dupes
+#tap Homebrew/brewdler
 
-install caskroom/cask/brew-cask
-install ansible
-install ctags
-install curl
-install fish --HEAD
-install git
-install grep --default-names
-install mysql
-install nginx
-install node
-install openssl
-install rbenv --HEAD
-install reattach-to-user-namespace
-install ruby-build
-install sqlite
-install tmux
-install watchman
-install vim
+brew 'caskroom/cask/brew-cask'
+brew 'ansible'
+brew 'ctags'
+brew 'curl'
+brew 'fish --HEAD'
+brew 'git'
+#brew 'grep --default-names'
+brew 'mysql'
+brew 'nginx'
+brew 'node'
+brew 'openssl'
+brew 'rbenv --HEAD'
+brew 'reattach-to-user-namespace'
+brew 'ruby-build'
+brew 'sqlite'
+brew 'tmux'
+brew 'watchman'
+brew 'vim'
 
 # Cask
 # --------------------
-cask install alfred
-cask install dropbox
-cask install flash
-cask install iterm2
-cask install mailbox
-cask install monotype-skyfonts
-cask install skype
-cask install spectacle
-cask install spotify
-cask install steermouse
-cask install transmission
-cask install vagrant
-cask install virtualbox
-cask install vlc
-cask install ynab
+cask 'alfred'
+cask 'dropbox'
+cask 'flash'
+cask 'iterm2'
+cask 'mailbox'
+cask 'monotype-skyfonts'
+cask 'skype'
+cask 'spectacle'
+cask 'spotify'
+cask 'steermouse'
+cask 'transmission'
+cask 'vagrant'
+cask 'virtualbox'
+cask 'vlc'
+cask 'ynab'
 
 # Appstore & manual
 # --------------------
