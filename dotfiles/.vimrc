@@ -26,6 +26,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'takac/vim-hardtime'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " give more languages
 Plugin 'othree/html5.vim'
