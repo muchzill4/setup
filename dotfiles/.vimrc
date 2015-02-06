@@ -57,6 +57,7 @@ set foldenable
 set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
+set shell=/usr/local/bin/fish
 set number
 colorscheme abitoftron
 
