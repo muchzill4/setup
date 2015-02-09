@@ -22,7 +22,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
+Plugin 'muchzill4/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'takac/vim-hardtime'
@@ -57,7 +57,6 @@ set foldenable
 set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
-set shell=/usr/local/bin/fish
 set number
 colorscheme abitoftron
 
