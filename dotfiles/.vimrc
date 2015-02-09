@@ -102,11 +102,16 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup barber
+    au!
+    au BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup END
 
 " close omnicompletion preview popup
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+augroup close_preview
+    au!
+    au CompleteDone * if bufname("%") != "[Command Line]"|pclose|endif
+augroup END
 
 " }}}
 " FILETYPES {{{
