@@ -21,11 +21,9 @@ Plugin 'SirVer/ultisnips'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'muchzill4/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'takac/vim-hardtime'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " give more languages
@@ -153,9 +151,3 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
-
-" hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_ignore_quickfix = 1
-let g:list_of_normal_keys = ["h", "j", "k", "l"]
-let g:list_of_visual_keys = ["h", "j", "k", "l"]
