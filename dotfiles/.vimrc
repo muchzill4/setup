@@ -17,14 +17,13 @@ call vundle#begin()
 
 " give more functionality
 Plugin 'gmarik/Vundle.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'godlygeek/tabular'
-Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-commentary'
 Plugin 'muchzill4/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mtth/scratch.vim'
 
 " give more languages
 Plugin 'othree/html5.vim'
