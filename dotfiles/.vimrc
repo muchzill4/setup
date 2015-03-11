@@ -23,6 +23,7 @@ Plugin 'muchzill4/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mtth/scratch.vim'
 
 " give more languages
@@ -77,13 +78,13 @@ nnoremap <leader>w :w!<cr>
 inoremap jk <Esc>
 
 " make / run
-noremap <leader>r :make<cr>
+nnoremap <leader>r :make<cr>
 
 " }}}
 " MISC {{{
 
 " show syntax highlighting groups for word under cursor
-noremap <c-s-p> :call SynStack()<cr>
+nnoremap <c-s-p> :call SynStack()<cr>
 function! SynStack()
     if !exists("*synstack")
 	return
@@ -152,3 +153,10 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+
+" CtrlP
+nnoremap <leader>t :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_map = ""
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_switch_buffer = ''
