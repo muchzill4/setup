@@ -17,13 +17,13 @@ brew 'rbenv --HEAD'
 brew 'reattach-to-user-namespace'
 brew 'ruby-build'
 brew 'sqlite'
+brew 'the_silver_searcher'
 brew 'tmux'
 brew 'watchman'
 brew 'vim'
 
 # Cask
 # --------------------
-cask 'alfred'
 cask 'dropbox'
 cask 'flash'
 cask 'forklift'
