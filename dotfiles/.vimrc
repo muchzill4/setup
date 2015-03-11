@@ -55,6 +55,8 @@ set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
 set number
+set mouse+=a
+set ttymouse=xterm2
 colorscheme abitoftron
 
 " }}}
