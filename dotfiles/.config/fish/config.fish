@@ -17,6 +17,9 @@ function fish_title
     end
 end
 
+# autojump
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+
 # include local fish config
 set -l local_config "$HOME/.config/fish/local_config.fish"
 test -e $local_config; and . $local_config
