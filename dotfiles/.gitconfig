@@ -17,7 +17,12 @@
 
 [alias]
   co = checkout
+  cob = checkout -b
   ci = commit
-  l =  log
+  cia = commit --amend
+  l = log
+  pl = pull
+  ps = push
   lo = log --oneline
   s = status
+  rbm = rebase master
