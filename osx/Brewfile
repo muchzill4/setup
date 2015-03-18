@@ -4,6 +4,7 @@
 tap 'homebrew/dupes'
 
 brew 'ansible'
+brew 'autojump'
 brew 'ctags'
 brew 'curl'
 brew 'fish --HEAD'
