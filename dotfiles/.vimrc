@@ -24,6 +24,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " give more languages
 Plugin 'othree/html5.vim'
@@ -49,7 +51,8 @@ set softtabstop=4
 set shiftwidth=4
 set tags+=.tags,.gemtags
 set gdefault
-set statusline=%t\ %r%m%=%c,\%l/%L\ \ \ %P
+set number
+set statusline=%f\ %r%m%=%c,\%l/%L\ \ \ %P
 set foldenable
 set wildmode=list:longest,full
 set ignorecase
@@ -159,7 +162,6 @@ let g:ctrlp_map = ""
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_switch_buffer = ''
 if executable('ag')
-    let g:ctrlp_use_caching = 0
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 endif
