@@ -29,7 +29,7 @@ for file in ~/Setup/dotfiles/.bash/{aliases,prompt}.bash; do
 done
 unset file
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="~/.rbenv/bin:$PATH"
 [[ `which rbenv` ]] && eval "$(rbenv init -)"
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -37,3 +37,5 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 [ -f ~/.bashlocal ] && source ~/.bashlocal
+
+[ -d ~/.npm/bin ] && export PATH="~/.npm/bin:$PATH"

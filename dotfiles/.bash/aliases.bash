@@ -9,4 +9,6 @@ alias ....='cd ../../..'
 
 alias md='mkdir -p'
 
-alias brew-up="brew update; brew upgrade; brew cleanup; brew prune"
+alias brew-up='brew update; brew upgrade; brew cleanup; brew prune'
+
+alias serve='ruby -run -e httpd . -p 8000'
