@@ -26,6 +26,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
 
 " give more languages
 Plugin 'othree/html5.vim'
@@ -42,7 +43,6 @@ runtime macros/matchit.vim
 " GENERAL {{{
 
 set noswapfile
-set undofile
 set history=1000
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set showbreak=↪
@@ -58,8 +58,14 @@ set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
 set mouse+=a
+set shell=/bin/bash
 set ttymouse=xterm2
 colorscheme abitoftron
+set undofile
+set undodir=~/.vim/tmp/undo/
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
 
 " }}}
 " BINDINGS {{{
@@ -158,6 +164,7 @@ let g:UltiSnipsEditSplit="vertical"
 " CtrlP
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>r :CtrlPTag<cr>
 let g:ctrlp_map = ""
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_switch_buffer = ''
@@ -165,3 +172,4 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 endif
+

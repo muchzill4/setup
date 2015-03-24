@@ -4,10 +4,9 @@
 tap 'homebrew/dupes'
 
 brew 'ansible'
-brew 'autojump'
+brew 'bash'
 brew 'ctags'
 brew 'curl'
-brew 'fish --HEAD'
 brew 'git'
 brew 'grep --with-default-names'
 brew 'mysql'

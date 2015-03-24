@@ -1,28 +1,33 @@
 [user]
-  name = Bartek Mucha
-  email = muchzill4@gmail.com
+    name = Bartek Mucha
+    email = muchzill4@gmail.com
 
 [core]
-  editor = vim
-  excludesfile = ~/.gitignore_global
+    editor = vim
+    excludesfile = ~/.gitignore_global
 
 [color]
-  ui = true
-  diff = auto
-  status = auto
-  branch = auto
+    ui = true
+    diff = auto
+    status = auto
+    branch = auto
 
 [push]
-  default = simple
+    default = simple
 
 [alias]
-  co = checkout
-  cob = checkout -b
-  ci = commit
-  cia = commit --amend
-  l = log
-  pl = pull
-  ps = push
-  lo = log --oneline
-  s = status
-  rbm = rebase master
+    co = checkout
+    ap = add . -p
+    a = add
+    s = status
+    ss = status -s
+    l = pull
+    p = push
+    po = push origin
+    c = commit -v
+    ca = commit --amend -v
+    cm = commit -v -m
+    ci = commit --interactive
+    co = checkout
+    lo = log --graph --pretty=oneline --abbrev-commit
+    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
