@@ -21,13 +21,13 @@
     a = add
     s = status
     ss = status -s
-    p = pull
-    q = push
-    qo = push origin
+    q = pull
+    p = push
+    po = push origin
     c = commit -v
     ca = commit --amend -v
     cm = commit -v -m
     ci = commit --interactive
     co = checkout
-    lo = log --graph --pretty=oneline --abbrev-commit
-    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    l = log --graph --pretty=oneline --abbrev-commit
+    ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
