@@ -27,6 +27,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'thoughtbot/vim-rspec'
 
 " give more languages
 Plugin 'othree/html5.vim'
@@ -58,8 +60,7 @@ set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
 set mouse+=a
-set shell=/bin/bash
-set ttymouse=xterm2
+set ttymouse=xterm
 colorscheme abitoftron
 set undofile
 set undodir=~/.vim/tmp/undo/
@@ -83,9 +84,6 @@ nnoremap <leader>w :w!<cr>
 
 " sane esc
 inoremap jk <Esc>
-
-" make / run
-nnoremap <leader>r :make<cr>
 
 " }}}
 " MISC {{{
@@ -152,6 +150,15 @@ augroup commonfiles
     au BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 
+" to make or not to make
+augroup makefiles
+    au!
+    au BufRead,BufNewFile *_spec.rb
+        \ nnoremap <buffer> <leader>R :call RunCurrentSpecFile()<cr> |
+        \ nnoremap <buffer> <leader>r :call RunNearestSpec()<cr>
+augroup END
+
+
 " }}}
 " PLUGIN SETTINGS {{{
 
@@ -164,7 +171,7 @@ let g:UltiSnipsEditSplit="vertical"
 " CtrlP
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>r :CtrlPTag<cr>
+nnoremap <leader>y :CtrlPTag<cr>
 let g:ctrlp_map = ""
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_switch_buffer = ''
@@ -173,3 +180,5 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+" Rspec
+let g:rspec_command = "Dispatch rspec {spec}"
