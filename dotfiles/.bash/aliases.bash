@@ -14,3 +14,4 @@ alias brew-up='brew update; brew upgrade; brew cleanup; brew prune'
 alias serve='ruby -run -e httpd . -p 8000'
 
 alias t='tmux attach || tmux -u new'
+alias g='git'

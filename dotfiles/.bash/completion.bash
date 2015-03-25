@@ -8,3 +8,5 @@ _add_local_completion() {
 _add_local_completion "git-completion.bash"
 _add_local_completion "tmux"
 _add_local_completion "brew_bash_completion.sh"
+
+__git_complete g __git_main
