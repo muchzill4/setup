@@ -25,17 +25,13 @@ UNDERLINE="$(tput sgr 0 1)"
 INVERT="$(tput sgr 1 0)"
 NOCOLOR="$(tput sgr0)"
 
-for file in ~/Setup/dotfiles/.bash/{aliases,prompt}.bash; do
+for file in ~/Setup/dotfiles/.bash/{aliases,prompt,completion}.bash; do
     [ -r "$file" ] && source $file
 done
 unset file
 
 export PATH="~/.rbenv/bin:$PATH"
 [[ `which rbenv` ]] && eval "$(rbenv init -)"
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
 
 [ -f ~/.bashlocal ] && source ~/.bashlocal
 
