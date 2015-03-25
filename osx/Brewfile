@@ -5,6 +5,7 @@ tap 'homebrew/dupes'
 
 brew 'ansible'
 brew 'bash'
+brew 'bash-completion'
 brew 'ctags'
 brew 'curl'
 brew 'git'
