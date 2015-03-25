@@ -54,7 +54,7 @@ set tags+=.tags,.gemtags
 set gdefault
 set number
 set statusline=%f\ %r%m%=%c,\%l/%L\ \ \ %P
-set foldenable
+set nofoldenable
 set wildmode=list:longest,full
 set ignorecase
 set clipboard=unnamed
