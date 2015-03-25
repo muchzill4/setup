@@ -10,6 +10,7 @@ HISTFILESIZE=1000000000
 HISTSIZE=1000000
 
 export CLICOLOR=1
+export EDITOR=vim
 
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"

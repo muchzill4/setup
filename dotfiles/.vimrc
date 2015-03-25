@@ -27,7 +27,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
 Plugin 'thoughtbot/vim-rspec'
 
 " give more languages
@@ -67,6 +66,8 @@ set undodir=~/.vim/tmp/undo/
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
+set splitbelow
+set splitright
 
 " }}}
 " BINDINGS {{{
@@ -185,4 +186,4 @@ if executable('ag')
 endif
 
 " Rspec
-let g:rspec_command = "Dispatch spring rspec {spec}"
+let g:rspec_command = "!spring rspec {spec}"
