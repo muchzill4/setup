@@ -76,8 +76,12 @@ let mapleader=','
 " jump to previous letter match
 nnoremap \ ,
 
-" edit vimrc
+" edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>eb :e ~/.bash_profile<cr>
+nnoremap <leader>ea :e ~/.bash/aliases.bash<cr>
+nnoremap <leader>ep :e ~/.bash/prompt.bash<cr>
+nnoremap <leader>eg :e ~/.gitconfig<cr>
 
 " fast saving
 nnoremap <leader>w :w!<cr>
@@ -181,4 +185,4 @@ if executable('ag')
 endif
 
 " Rspec
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "Dispatch spring rspec {spec}"

@@ -116,3 +116,6 @@ hi link xmlEndTag xmlTag
 hi link coffeeSpaceError NONE
 hi link coffeeSemicolonError NONE
 hi link coffeeReservedError NONE
+
+" CtrlP
+hi link CtrlPMatch IncSearch

@@ -21,9 +21,9 @@
     a = add
     s = status
     ss = status -s
-    l = pull
-    p = push
-    po = push origin
+    p = pull
+    q = push
+    qo = push origin
     c = commit -v
     ca = commit --amend -v
     cm = commit -v -m
