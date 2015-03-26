@@ -78,7 +78,7 @@ call s:hl('Title', 1)
 
 call s:hl('Folded', 4, '', 'inverse,underline')
 
-call s:hl('ModeMsg', 5, '', 'inverse')
+call s:hl('ModeMsg', 2, '', 'inverse')
 
 " Syntax
 call s:hl('Comment', 4)
