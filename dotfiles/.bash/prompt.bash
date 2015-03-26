@@ -18,7 +18,7 @@ esac
 
 # Symbols
 prompt_symbol="λ"
-prompt_clean_symbol="☀ "
+prompt_clean_symbol="☯ "
 prompt_dirty_symbol="☂ "
 prompt_venv_symbol="☁ "
 
