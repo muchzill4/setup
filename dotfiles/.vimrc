@@ -156,11 +156,15 @@ augroup commonfiles
 augroup END
 
 " to make or not to make
+function! SetRubyMakeOptions()
+    nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
+    nnoremap <buffer> <leader>S :call RunLastSpec()<cr>
+    nnoremap <buffer> <leader>a :call RunCurrentSpecFile()<cr>
+    nnoremap <buffer> <leader>A :call RunAllSpecs()<cr>
+endfunction
 augroup makefiles
     au!
-    au BufRead,BufNewFile *.rb
-        \ nnoremap <buffer> <leader>S :call RunLastSpec()<cr> |
-        \ nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
+    au BufRead,BufNewFile *.rb call SetRubyMakeOptions()
 augroup END
 
 
@@ -186,4 +190,4 @@ if executable('ag')
 endif
 
 " Rspec
-let g:rspec_command = "!clear;spring rspec {spec}"
+let g:rspec_command = "!clear && spring rspec {spec}"
