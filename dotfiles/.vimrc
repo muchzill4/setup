@@ -28,6 +28,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-rsi'
 
 " give more languages
 Plugin 'othree/html5.vim'
