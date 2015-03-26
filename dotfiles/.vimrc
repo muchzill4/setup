@@ -158,9 +158,9 @@ augroup END
 " to make or not to make
 augroup makefiles
     au!
-    au BufRead,BufNewFile *_spec.rb
-        \ nnoremap <buffer> <leader>R :call RunCurrentSpecFile()<cr> |
-        \ nnoremap <buffer> <leader>r :call RunNearestSpec()<cr>
+    au BufRead,BufNewFile *.rb
+        \ nnoremap <buffer> <leader>S :call RunLastSpec()<cr> |
+        \ nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
 augroup END
 
 
@@ -186,4 +186,4 @@ if executable('ag')
 endif
 
 " Rspec
-let g:rspec_command = "!spring rspec {spec}"
+let g:rspec_command = "!clear;spring rspec {spec}"
