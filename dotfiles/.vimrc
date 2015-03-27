@@ -157,21 +157,8 @@ augroup commonfiles
     au BufRead,BufNewFile *.scss set filetype=scss.css
 augroup END
 
-" to make or not to make
-function! SetRubyMakeOptions()
-    nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
-    nnoremap <buffer> <leader>S :call RunLastSpec()<cr>
-    nnoremap <buffer> <leader>a :call RunCurrentSpecFile()<cr>
-    nnoremap <buffer> <leader>A :call RunAllSpecs()<cr>
-endfunction
-augroup makefiles
-    au!
-    au BufRead,BufNewFile *.rb call SetRubyMakeOptions()
-augroup END
-
-
 " }}}
-" PLUGIN SETTINGS {{{
+" PLUGIN SETTINGS AND BINDINGS {{{
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -182,7 +169,7 @@ let g:UltiSnipsEditSplit="vertical"
 " CtrlP
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>y :CtrlPTag<cr>
+nnoremap <leader>T :CtrlPTag<cr>
 let g:ctrlp_map = ""
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_switch_buffer = ''
@@ -192,4 +179,19 @@ if executable('ag')
 endif
 
 " Rspec
-let g:rspec_command = "!clear && spring rspec {spec}"
+let g:rspec_command = "!clear && rspec --color {spec}"
+function! SetRubySpecOptions()
+    nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
+    nnoremap <buffer> <leader>S :call RunLastSpec()<cr>
+    nnoremap <buffer> <leader>a :call RunCurrentSpecFile()<cr>
+    nnoremap <buffer> <leader>A :call RunAllSpecs()<cr>
+endfunction
+augroup makefiles
+    au!
+    au BufRead,BufNewFile *.rb call SetRubySpecOptions()
+augroup END
+
+" Fugitive
+nnoremap <leader>g :Gstatus<cr>
+
+
