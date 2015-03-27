@@ -101,7 +101,7 @@ call s:hl('Error', '', 1)
 call s:hl('ErrorMsg', '', 1)
 
 call s:hl('DiffDelete', 1, '', 'inverse')
-call s:hl('DiffChange', 3, '', 'inverse')
+call s:hl('DiffChange', 6, '', 'inverse')
 call s:hl('DiffAdd', 2, '', 'inverse')
 call s:hl('DiffText', 6, '', 'inverse')
 
