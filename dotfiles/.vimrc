@@ -35,6 +35,7 @@ Plugin 'othree/html5.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
 
