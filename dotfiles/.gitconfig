@@ -27,6 +27,6 @@
     c = commit -v
     ca = commit --amend -v
     cm = commit -v -m
-    co = checkout
     l = log --graph --pretty=oneline --abbrev-commit
     ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    d = diff
