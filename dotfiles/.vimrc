@@ -29,6 +29,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rsi'
+Plugin 'Raimondi/delimitMate'
 
 " give more languages
 Plugin 'othree/html5.vim'
@@ -55,10 +56,12 @@ set shiftwidth=4
 set tags+=.tags,.gemtags
 set gdefault
 set number
-set statusline=%f\ %r%m%=%c,\%l/%L\ \ \ %P
-set nofoldenable
+set statusline=%f\ %h%m%r
+set statusline+=%=
+set statusline+=%{GitStatusline()}\ %c,\%l/%L\ %P
 set wildmode=list:longest,full
 set ignorecase
+set nofoldenable
 set clipboard=unnamed
 set mouse+=a
 set ttymouse=xterm
@@ -192,6 +195,10 @@ augroup makefiles
 augroup END
 
 " Fugitive
+function! GitStatusline()
+    if !exists('b:git_dir')
+	return ''
+    endif
+    return '['.fugitive#head(7).']'
+endfunction
 nnoremap <leader>g :Gstatus<cr>
-
-
