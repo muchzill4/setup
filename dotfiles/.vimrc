@@ -16,27 +16,27 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " give more functionality
+Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-commentary'
+Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
 Plugin 'muchzill4/vim-sensible'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'kien/ctrlp.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-fugitive'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-rsi'
-Plugin 'Raimondi/delimitMate'
 
 " give more languages
-Plugin 'othree/html5.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'othree/html5.vim'
+Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
 
