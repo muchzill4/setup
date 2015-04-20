@@ -16,20 +16,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " give more functionality
+Plugin 'gmarik/Vundle.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
-Plugin 'muchzill4/vim-sensible'
+Plugin 'mattn/emmet-vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rsi'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -71,8 +71,6 @@ set undodir=~/.vim/tmp/undo/
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
-set splitbelow
-set splitright
 
 " }}}
 " BINDINGS {{{
@@ -88,6 +86,9 @@ nnoremap <leader>eb :e ~/.bash_profile<cr>
 nnoremap <leader>ea :e ~/.bash/aliases.bash<cr>
 nnoremap <leader>ep :e ~/.bash/prompt.bash<cr>
 nnoremap <leader>eg :e ~/.gitconfig<cr>
+
+" copen
+nnoremap <leader>c :copen<cr>
 
 " fast saving
 nnoremap <leader>w :w!<cr>
