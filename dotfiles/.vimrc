@@ -38,36 +38,34 @@ Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 
 filetype plugin indent on
-runtime macros/matchit.vim
 
 " }}}
 " GENERAL {{{
 
-set noswapfile
-set history=1000
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
-set showbreak=↪
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set tags+=.tags,.gemtags
+set clipboard=unnamed
 set gdefault
+set ignorecase
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
+set mouse+=a
+set nofoldenable
+set noswapfile
 set number
-set statusline=%f\ %h%m%r
+set shiftwidth=4
+set showbreak=↪
+set softtabstop=4
 set statusline+=%=
 set statusline+=%{GitStatusline()}\ %c,\%l/%L\ %P
-set wildmode=list:longest,full
-set ignorecase
-set nofoldenable
-set clipboard=unnamed
-set mouse+=a
+set statusline=%f\ %h%m%r
+set tabstop=8
+set tags+=.tags,.gemtags
 set ttymouse=xterm
-colorscheme abitoftron
-set undofile
+set wildmode=list:longest,full
 set undodir=~/.vim/tmp/undo/
+set undofile
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
+colorscheme abitoftron
 
 " }}}
 " BINDINGS {{{
