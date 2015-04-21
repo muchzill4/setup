@@ -15,8 +15,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-" give more functionality
 Plugin 'gmarik/Vundle.vim'
+
+" give more functionality
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -30,6 +31,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
