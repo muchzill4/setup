@@ -18,20 +18,15 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " give more functionality
-Plugin 'Raimondi/delimitMate'
-Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'godlygeek/tabular'
-Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
+Plugin 'skalnik/vim-vroom'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -183,19 +178,6 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 endif
-
-" Rspec
-let g:rspec_command = "!clear && rspec --color {spec}"
-function! SetRubySpecOptions()
-    nnoremap <buffer> <leader>s :call RunNearestSpec()<cr>
-    nnoremap <buffer> <leader>S :call RunLastSpec()<cr>
-    nnoremap <buffer> <leader>a :call RunCurrentSpecFile()<cr>
-    nnoremap <buffer> <leader>A :call RunAllSpecs()<cr>
-endfunction
-augroup makefiles
-    au!
-    au BufRead,BufNewFile *.rb call SetRubySpecOptions()
-augroup END
 
 " Fugitive
 function! GitStatusline()
