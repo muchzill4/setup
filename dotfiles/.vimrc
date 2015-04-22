@@ -21,16 +21,15 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'muchzill4/vim-sensible'
+Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-rsi'
-Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'skalnik/vim-vroom'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'vim-ruby/vim-ruby'
@@ -87,6 +86,9 @@ nnoremap <leader>c :copen<cr>
 
 " fast saving
 nnoremap <leader>w :w!<cr>
+
+" bdelete
+nnoremap <leader>d :bd<cr>
 
 " sane esc
 inoremap jk <Esc>

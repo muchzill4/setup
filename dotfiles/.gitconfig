@@ -30,3 +30,4 @@
     l = log --graph --pretty=oneline --abbrev-commit
     ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     d = diff
+    cleanup = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
