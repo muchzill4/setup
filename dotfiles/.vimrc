@@ -26,6 +26,7 @@ Plugin 'skalnik/vim-vroom'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
+Plugin 'nelstrom/vim-qargs'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
