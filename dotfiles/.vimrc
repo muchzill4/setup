@@ -186,3 +186,4 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 let test#javascript#jasmine#executable = 'jasmine'
+let test#ruby#rspec#executable = 'spring rspec' " meh
