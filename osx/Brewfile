@@ -14,12 +14,12 @@ brew 'nginx'
 brew 'node'
 brew 'openssl'
 brew 'rbenv --HEAD'
+brew 'pyenv'
 brew 'reattach-to-user-namespace'
 brew 'ruby-build'
 brew 'sqlite'
 brew 'the_silver_searcher'
 brew 'tmux'
-brew 'watchman'
 brew 'vim'
 
 # Cask

@@ -1,4 +1,0 @@
-# fasd
-eval "$(fasd --init auto)"
-
-export PATH=~/.bin:$PATH
