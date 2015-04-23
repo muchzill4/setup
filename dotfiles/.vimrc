@@ -19,14 +19,14 @@ Plugin 'gmarik/Vundle.vim'
 
 " give more functionality
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'muchzill4/vim-sensible'
-Plugin 'skalnik/vim-vroom'
+Plugin 'nelstrom/vim-qargs'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
-Plugin 'nelstrom/vim-qargs'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -53,9 +53,7 @@ set number
 set shiftwidth=4
 set showbreak=↪
 set softtabstop=4
-set statusline+=%=
-set statusline+=%{GitStatusline()}\ %c,\%l/%L\ %P
-set statusline=%f\ %h%m%r
+set statusline=%<%f\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set tabstop=8
 set tags+=.tags,.gemtags
 set ttymouse=xterm
@@ -180,11 +178,11 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" Fugitive
-function! GitStatusline()
-    if !exists('b:git_dir')
-	return ''
-    endif
-    return '['.fugitive#head(7).']'
-endfunction
-nnoremap <leader>g :Gstatus<cr>
+" Test
+nmap <silent> <leader>R :TestNearest<CR>
+nmap <silent> <leader>r :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+let test#javascript#jasmine#executable = 'jasmine'
