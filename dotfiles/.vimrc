@@ -1,4 +1,6 @@
 " MY VIM CONFIGURATION {{{
+"
+"
 " ------------------------------
 " Bartek Mucha
 " <muchzill4@gmail.com>
@@ -21,9 +23,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'muchzill4/vim-sensible'
 Plugin 'nelstrom/vim-qargs'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
@@ -46,7 +47,6 @@ set clipboard=unnamed
 set gdefault
 set ignorecase
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
-set mouse+=a
 set nofoldenable
 set noswapfile
 set number
@@ -56,7 +56,6 @@ set softtabstop=4
 set statusline=%<%f\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set tabstop=8
 set tags+=.tags,.gemtags
-set ttymouse=xterm
 set wildmode=list:longest,full
 set undodir=~/.vim/tmp/undo/
 set undofile
@@ -64,6 +63,7 @@ if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
 colorscheme abitoftron
+
 
 " }}}
 " BINDINGS {{{
@@ -170,7 +170,7 @@ let g:UltiSnipsEditSplit="vertical"
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>T :CtrlPTag<cr>
-let g:ctrlp_map = ""
+let g:ctrlp_map = ''
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_switch_buffer = ''
 if executable('ag')
@@ -186,4 +186,5 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 let test#javascript#jasmine#executable = 'jasmine'
+let test#ruby#rspec#executable = 'spring rspec' " meh
 let test#ruby#rspec#executable = 'spring rspec' " meh
