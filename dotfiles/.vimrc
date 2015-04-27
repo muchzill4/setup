@@ -20,12 +20,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " give more functionality
+Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ervandew/supertab'
+Plugin 'honza/vim-snippets'
 Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-qargs'
-Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rsi'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 
@@ -119,10 +123,10 @@ augroup barber
 augroup END
 
 " close omnicompletion preview popup
-augroup close_preview
-    au!
-    au CompleteDone * if bufname("%") != "[Command Line]"|pclose|endif
-augroup END
+"augroup close_preview
+"    au!
+"    au CompleteDone * if bufname("%") != "[Command Line]"|pclose|endif
+"augroup END
 
 " }}}
 " FILETYPES {{{
@@ -161,9 +165,9 @@ augroup END
 " PLUGIN SETTINGS AND BINDINGS {{{
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " CtrlP
@@ -188,3 +192,4 @@ nmap <silent> <leader>g :TestVisit<CR>
 let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
 let test#ruby#rspec#executable = 'spring rspec' " meh
+
