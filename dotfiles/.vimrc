@@ -32,6 +32,7 @@ Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-fugitive'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
