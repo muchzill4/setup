@@ -192,5 +192,3 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
-let test#ruby#rspec#executable = 'spring rspec' " meh
-
