@@ -65,7 +65,7 @@ call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', '', 0)
+call s:hl('Pmenu', '', '', 'inverse')
 call s:hl('PmenuSel', 3, '', 'inverse')
 call s:hl('WildMenu', 3, '', 'inverse')
 
