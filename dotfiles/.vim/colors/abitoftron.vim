@@ -100,10 +100,10 @@ call s:hl('Special', 7)
 call s:hl('Error', '', 1)
 call s:hl('ErrorMsg', '', 1)
 
-call s:hl('DiffDelete', 1, '', 'inverse')
-call s:hl('DiffChange', 6, '', 'inverse')
-call s:hl('DiffAdd', 2, '', 'inverse')
-call s:hl('DiffText', 6, '', 'inverse')
+call s:hl('DiffDelete', 1, 0)
+call s:hl('DiffChange', 3, 0)
+call s:hl('DiffAdd', 2, 0)
+call s:hl('DiffText', 5, 0)
 
 " | >> Link
 " |
@@ -119,3 +119,7 @@ hi link coffeeReservedError NONE
 
 " CtrlP
 hi link CtrlPMatch IncSearch
+
+" Diff
+hi link diffRemoved DiffDelete
+hi link diffAdded DiffAdd

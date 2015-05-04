@@ -31,8 +31,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
+Plugin 'scrooloose/nerdtree'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -184,11 +185,14 @@ if executable('ag')
 endif
 
 " Test
-nmap <silent> <leader>R :TestNearest<CR>
-nmap <silent> <leader>r :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nmap <silent> <leader>R :TestNearest<cr>
+nmap <silent> <leader>r :TestFile<cr>
+nmap <silent> <leader>a :TestSuite<cr>
+nmap <silent> <leader>l :TestLast<cr>
+nmap <silent> <leader>g :TestVisit<cr>
 
 let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
+
+" NerdTree
+nmap <leader>n :NerdTree<cr>
