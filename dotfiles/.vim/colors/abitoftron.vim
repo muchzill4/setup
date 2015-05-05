@@ -123,3 +123,6 @@ hi link CtrlPMatch IncSearch
 " Diff
 hi link diffRemoved DiffDelete
 hi link diffAdded DiffAdd
+
+" NERDTree
+hi link NERDTreeDirSlash NERDTreeDir

@@ -195,4 +195,4 @@ let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
 
 " NerdTree
-nmap <leader>n :NerdTree<cr>
+nmap <leader>n :NERDTree<cr>
