@@ -32,8 +32,8 @@ Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/goyo.vim'
-Plugin 'scrooloose/nerdtree'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -193,6 +193,3 @@ nmap <silent> <leader>g :TestVisit<cr>
 
 let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
-
-" NerdTree
-nmap <leader>n :NERDTree<cr>
