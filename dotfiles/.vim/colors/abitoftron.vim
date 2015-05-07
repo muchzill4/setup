@@ -58,7 +58,7 @@ call s:hl('NonText', 0)
 call s:hl('SpecialKey', 0)
 
 call s:hl('Cursor', 2, '', 'inverse')
-call s:hl('LineNr', 4)
+call s:hl('LineNr', 0)
 
 call s:hl('CursorLineNr', 4)
 call s:hl('CursorLine', '', '')
@@ -71,7 +71,7 @@ call s:hl('WildMenu', 3, '', 'inverse')
 
 call s:hl('StatusLine', '', 0, 'inverse')
 call s:hl('StatusLineNC', '', 0)
-call s:hl('VertSplit', 0, '', 'inverse')
+call s:hl('VertSplit', 0, 0)
 
 call s:hl('Directory', 4)
 call s:hl('Title', 1)

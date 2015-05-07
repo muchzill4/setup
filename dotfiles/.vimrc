@@ -34,7 +34,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/goyo.vim'
-Plugin 'reedes/vim-colors-pencil'
 
 " give more languages
 Plugin 'cakebaker/scss-syntax.vim'
@@ -69,8 +68,7 @@ set undofile
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
-colorscheme pencil
-set background=light
+colorscheme abitoftron
 
 
 " }}}
@@ -195,7 +193,3 @@ nmap <silent> <leader>g :TestVisit<cr>
 
 let test#javascript#jasmine#executable = 'jasmine'
 let test#ruby#rspec#executable = 'spring rspec' " meh
-
-" Pencil
-let g:pencil_higher_contrast_ui = 1
-let g:pencil_neutral_code_bg = 0
