@@ -69,7 +69,7 @@ call s:hl('Pmenu', '', '', 'inverse')
 call s:hl('PmenuSel', 3, '', 'inverse')
 call s:hl('WildMenu', 3, '', 'inverse')
 
-call s:hl('StatusLine', '', 0, 'inverse')
+call s:hl('StatusLine', '', 0, 'inverse,bold')
 call s:hl('StatusLineNC', '', 0)
 call s:hl('VertSplit', 0, 0)
 
