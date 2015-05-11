@@ -65,6 +65,7 @@ set tags+=.tags,.gemtags
 set wildmode=list:longest,full
 set undodir=~/.vim/tmp/undo/
 set undofile
+set cursorline
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif

@@ -60,13 +60,13 @@ call s:hl('SpecialKey', 0)
 call s:hl('Cursor', 2, '', 'inverse')
 call s:hl('LineNr', 0)
 
-call s:hl('CursorLineNr', 4)
+call s:hl('CursorLineNr', 7, 0)
 call s:hl('CursorLine', '', '')
 call s:hl('CursorColumn', '', '')
 call s:hl('ColorColumn', '', 0)
 
-call s:hl('Pmenu', '', '', 'inverse')
-call s:hl('PmenuSel', 3, '', 'inverse')
+call s:hl('Pmenu', 7, '', 'inverse')
+call s:hl('PmenuSel', 4, '', 'inverse,bold')
 call s:hl('WildMenu', 3, '', 'inverse')
 
 call s:hl('StatusLine', '', 0, 'inverse,bold')
@@ -78,7 +78,7 @@ call s:hl('Title', 1)
 
 call s:hl('Folded', 4, '', 'inverse,underline')
 
-call s:hl('ModeMsg', 5, '', 'inverse')
+call s:hl('ModeMsg', 6, '')
 
 " Syntax
 call s:hl('Comment', 4)
