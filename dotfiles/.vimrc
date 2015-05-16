@@ -20,10 +20,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " give more functionality
-Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ervandew/supertab'
-Plugin 'honza/vim-snippets'
 Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-qargs'
@@ -166,12 +163,6 @@ augroup END
 
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsEditSplit="vertical"
 
 " CtrlP
 nnoremap <leader>t :CtrlP<cr>
