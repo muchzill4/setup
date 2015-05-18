@@ -33,6 +33,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/goyo.vim'
 
 " give more languages
+Plugin 'groenewege/vim-less'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
