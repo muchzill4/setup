@@ -47,7 +47,7 @@ endfunction
 
 " UI
 call s:hl('Normal', '', '')
-call s:hl('Visual', '', 0)
+call s:hl('Visual', 7, '', 'reverse')
 
 call s:hl('Search', 3, '', 'inverse,underline')
 call s:hl('IncSearch', 3, '', 'inverse')
@@ -100,10 +100,10 @@ call s:hl('Special', 7)
 call s:hl('Error', '', 1)
 call s:hl('ErrorMsg', '', 1)
 
-call s:hl('DiffDelete', 1, 0)
-call s:hl('DiffChange', 3, 0)
-call s:hl('DiffAdd', 2, 0)
-call s:hl('DiffText', 5, 0)
+call s:hl('DiffDelete', 1, 233)
+call s:hl('DiffChange', 3, 233)
+call s:hl('DiffAdd', 2, 233)
+call s:hl('DiffText', 5, 233)
 
 " | >> Link
 " |
