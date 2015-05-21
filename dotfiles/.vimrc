@@ -123,12 +123,6 @@ augroup barber
     au BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
 
-" close omnicompletion preview popup
-"augroup close_preview
-"    au!
-"    au CompleteDone * if bufname("%") != "[Command Line]"|pclose|endif
-"augroup END
-
 " }}}
 " FILETYPES {{{
 
