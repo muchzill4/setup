@@ -23,7 +23,7 @@ alias ll 'ls -al'
 alias c 'clear'
 alias md 'mkdir -p'
 alias g 'git'
-alias brew-up 'brew update; and brew upgrade; and brew cleanup; and brew prune'
+alias brew-up 'brew update; and brew upgrade --all; and brew cleanup; and brew prune'
 alias serve 'ruby -run -e httpd . -p 8000'
 alias t 'tmux attach; or tmux -u new'
 
