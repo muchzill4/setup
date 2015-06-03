@@ -3,7 +3,6 @@
 #tap Homebrew/brewdler
 tap 'homebrew/dupes'
 
-brew 'ansible'
 brew 'bash'
 brew 'ctags'
 brew 'curl'
@@ -29,8 +28,6 @@ cask 'dropbox'
 cask 'flash'
 cask 'forklift'
 cask 'iterm2'
-cask 'mailbox'
-cask 'monotype-skyfonts'
 cask 'skype'
 cask 'spectacle'
 cask 'spotify'
@@ -47,4 +44,4 @@ cask 'ynab'
 # 1/ Chrome and Firefox 1password integration requires
 #    them to be installed in /Applications directory
 #
-# dash, sunrise, chrome, firefox, 1password, keynote, numbers, pages, todoist
+# 1password, dash, sunrise, clear, notability, chrome, firefox, keynote, numbers, pages
