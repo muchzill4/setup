@@ -73,10 +73,14 @@ call s:hl('StatusLine', '', 0, 'inverse,bold')
 call s:hl('StatusLineNC', '', 0)
 call s:hl('VertSplit', 0, 0)
 
-call s:hl('Directory', 4)"{{{
-call s:hl('Title', 1)"}}}
+call s:hl('Directory', 4)
+call s:hl('Title', '')
 
 call s:hl('Folded', 4, '', 'inverse')
+
+call s:hl('TabLine', '', 0)
+call s:hl('TabLineFill', '', 0)
+call s:hl('TabLineSel', '', 0, 'inverse,bold')
 
 call s:hl('ModeMsg', 6, '')
 
