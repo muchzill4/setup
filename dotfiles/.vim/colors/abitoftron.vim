@@ -116,11 +116,6 @@ call s:hl('DiffText', 5, 233)
 hi link htmlEndTag htmlTag
 hi link xmlEndTag xmlTag
 
-" CoffeeScript
-hi link coffeeSpaceError NONE
-hi link coffeeSemicolonError NONE
-hi link coffeeReservedError NONE
-
 " CtrlP
 hi link CtrlPMatch IncSearch
 
