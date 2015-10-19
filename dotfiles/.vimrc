@@ -23,6 +23,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'nelstrom/vim-qargs'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rsi'
@@ -64,6 +65,7 @@ set wildmode=list:longest,full
 set undodir=~/.vim/tmp/undo/
 set undofile
 set nocursorline
+set linebreak
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
@@ -170,6 +172,7 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 endif
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Test
 nmap <silent> <leader>R :TestNearest<cr>
