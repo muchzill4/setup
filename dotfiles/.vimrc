@@ -40,6 +40,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -71,7 +72,6 @@ if !isdirectory(expand(&undodir))
 endif
 colorscheme abitoftron
 
-
 " }}}
 " BINDINGS {{{
 
@@ -95,9 +95,6 @@ nnoremap <leader>w :w!<cr>
 
 " bdelete
 nnoremap <leader>d :bd<cr>
-
-" sane esc
-inoremap jk <Esc>
 
 " }}}
 " MISC {{{
