@@ -3,7 +3,7 @@
 #tap Homebrew/brewdler
 tap 'homebrew/dupes'
 
-brew 'bash'
+brew 'ansible --HEAD'
 brew 'ctags'
 brew 'curl'
 brew 'fish'
@@ -15,7 +15,6 @@ brew 'nginx'
 brew 'node'
 brew 'openssl'
 brew 'rbenv --HEAD'
-brew 'pyenv'
 brew 'reattach-to-user-namespace'
 brew 'ruby-build'
 brew 'sqlite'
