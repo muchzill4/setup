@@ -158,6 +158,10 @@ augroup END
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
 
+" Fugitive
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gl :Glog -- %<cr>
+
 " CtrlP
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
