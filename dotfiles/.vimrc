@@ -67,6 +67,7 @@ set undodir=~/.vim/tmp/undo/
 set undofile
 set nocursorline
 set linebreak
+set mouse=a
 if !isdirectory(expand(&undodir))
     call mkdir(expand(&undodir), "p")
 endif
