@@ -32,6 +32,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/goyo.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " give more languages
 Plugin 'groenewege/vim-less'
@@ -184,4 +186,10 @@ nmap <silent> <leader>l :TestLast<cr>
 nmap <silent> <leader>g :TestVisit<cr>
 
 let test#javascript#jasmine#executable = 'jasmine'
-let test#ruby#rspec#executable = 'spring rspec' " meh
+
+" }}}
+" LOCAL OVERRIDE {{{
+
+if filereadable('.vimrc.local')
+  source .vimrc.local
+endif
