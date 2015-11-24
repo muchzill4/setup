@@ -34,6 +34,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/goyo.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'jgdavey/vim-blockle'
 
 " give more languages
 Plugin 'groenewege/vim-less'
@@ -188,6 +189,9 @@ nmap <silent> <leader>r :TestFile<cr>
 nmap <silent> <leader>a :TestSuite<cr>
 nmap <silent> <leader>l :TestLast<cr>
 nmap <silent> <leader>g :TestVisit<cr>
+
+" Blockle
+let g:blockle_mapping = '<Leader>v'
 
 let test#javascript#jasmine#executable = 'jasmine'
 
