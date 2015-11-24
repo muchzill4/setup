@@ -30,7 +30,6 @@ Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/goyo.vim'
 
 " give more languages
 Plugin 'groenewege/vim-less'
@@ -96,8 +95,9 @@ nnoremap <leader>w :w!<cr>
 " bdelete
 nnoremap <leader>d :bd<cr>
 
-" browse
-nnoremap - :e %:p:h<cr>
+" less annoyances
+:command! W w
+:command! Q q
 
 " }}}
 " MISC {{{
