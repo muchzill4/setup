@@ -99,6 +99,10 @@ nnoremap <leader>w :w!<cr>
 " bdelete
 nnoremap <leader>d :bd<cr>
 
+" less annoyances
+:command! W w
+:command! Q q
+
 " }}}
 " MISC {{{
 
