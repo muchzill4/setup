@@ -11,6 +11,7 @@
 " VUNDLE {{{
 
 set nocompatible
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -188,16 +189,13 @@ nmap <silent> <leader>R :TestNearest<cr>
 nmap <silent> <leader>r :TestFile<cr>
 nmap <silent> <leader>a :TestSuite<cr>
 nmap <silent> <leader>l :TestLast<cr>
-nmap <silent> <leader>g :TestVisit<cr>
 
 " Blockle
 let g:blockle_mapping = '<Leader>v'
-
-let test#javascript#jasmine#executable = 'jasmine'
 
 " }}}
 " LOCAL OVERRIDE {{{
 
 if filereadable('.vimrc.local')
-  source .vimrc.local
+    source .vimrc.local
 endif
