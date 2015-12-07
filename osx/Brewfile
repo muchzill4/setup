@@ -37,7 +37,6 @@ cask 'slack'
 cask 'spectacle'
 cask 'spotify'
 cask 'steermouse'
-cask 'todoist'
 cask 'transmission'
 cask 'vagrant'
 cask 'virtualbox'
@@ -50,4 +49,4 @@ cask 'ynab'
 # 1/ Chrome and Firefox 1password integration requires
 #    them to be installed in /Applications directory
 #
-# 1password, dash, sunrise, clear, notability, chrome, firefox, keynote, numbers, pages
+# 1password, dash, sunrise, clear, notability, chrome, firefox, keynote, numbers, pages, todoist
