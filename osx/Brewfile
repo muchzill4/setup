@@ -8,7 +8,6 @@ brew 'ctags'
 brew 'curl'
 brew 'fish'
 brew 'git'
-brew 'grep --with-default-names'
 brew 'httpie'
 brew 'mysql'
 brew 'nginx'
@@ -24,7 +23,6 @@ brew 'vim'
 
 # Cask
 # --------------------
-
 cask 'dropbox'
 cask 'duet'
 cask 'flash'
@@ -32,6 +30,7 @@ cask 'flux'
 cask 'forklift'
 cask 'iterm2'
 cask 'java'
+cask 'mailbox'
 cask 'paw'
 cask 'skype'
 cask 'slack'
