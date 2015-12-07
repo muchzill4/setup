@@ -24,14 +24,21 @@ brew 'vim'
 
 # Cask
 # --------------------
+
 cask 'dropbox'
+cask 'duet'
 cask 'flash'
+cask 'flux'
 cask 'forklift'
 cask 'iterm2'
+cask 'java'
+cask 'paw'
 cask 'skype'
+cask 'slack'
 cask 'spectacle'
 cask 'spotify'
 cask 'steermouse'
+cask 'todoist'
 cask 'transmission'
 cask 'vagrant'
 cask 'virtualbox'
