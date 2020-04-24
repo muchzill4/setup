@@ -1,0 +1,50 @@
+# Homebrew
+# --------------------
+brew 'curl'
+brew 'direnv'
+brew 'fish'
+brew 'fzf'
+brew 'git'
+brew 'httpie'
+brew 'neovim'
+brew 'node-build'
+brew 'openssl'
+brew 'pyenv'
+brew 'reattach-to-user-namespace'
+brew 'ripgrep'
+brew 'ruby-install'
+brew 'tmux', args: ['HEAD']
+brew 'tree'
+brew 'wget'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
+
+# Cask
+# --------------------
+cask 'adguard'
+cask 'alfred'
+cask 'calibre'
+cask 'discord'
+cask 'docker'
+cask 'dropbox'
+cask 'forklift'
+cask 'imagealpha'
+cask 'imageoptim'
+cask 'kitty'
+cask 'moom'
+cask 'paw'
+cask 'slack'
+cask 'toggl'
+cask 'transmission'
+cask 'whatsapp'
+
+# Fonts
+# --------------------
+tap 'homebrew/cask-fonts'
+
+cask 'font-ia-writer-mono'
+
+# Misc
+# --------------------
+tap 'homebrew/cask-drivers'
+
+cask 'logitech-options'

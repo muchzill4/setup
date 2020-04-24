@@ -1,0 +1,6 @@
+dotfiles/.config/fish/functions/fisher.fish
+dotfiles/.config/fish/fish_variables
+dotfiles/.config/fisher/
+dotfiles/.config/fish/functions/fzf_key_bindings.fish
+dotfiles/.config/fish/functions/fish_user_key_bindings.fish
+dotfiles/.config/coc

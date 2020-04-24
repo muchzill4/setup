@@ -1,0 +1,65 @@
+set pure_color_mute brwhite
+
+# fisher
+set -g fisher_path $HOME/.local/share/fish/fisher
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
+for file in $fisher_path/conf.d/*.fish
+    builtin source $file 2> /dev/null
+end
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+
+# colors
+set fish_color_command green
+set fish_color_error red
+set fish_color_normal white
+set fish_color_operator magenta
+set fish_color_param normal
+set fish_color_quote cyan
+set fish_color_search_match --background=brblack
+set fish_color_valid_path normal --underline
+
+# env
+set -x EDITOR 'nvim'
+set -x VISUAL $EDITOR
+set -x FZF_DEFAULT_COMMAND 'rg --files'
+
+if status --is-interactive
+    abbr -a -g la 'ls -AF'
+    abbr -a -g ll 'ls -alh'
+    abbr -a -g c 'clear'
+    abbr -a -g md 'mkdir -p'
+    abbr -a -g g 'git'
+    abbr -a -g ga 'git add'
+    abbr -a -g gc 'git commit'
+    abbr -a -g gca 'git commit --amend'
+    abbr -a -g gco 'git checkout'
+    abbr -a -g gd 'git diff'
+    abbr -a -g gf 'git fetch'
+    abbr -a -g gl 'git log --graph --pretty=oneline --abbrev-commit'
+    abbr -a -g gll 'git log -p'
+    abbr -a -g gp 'git push'
+    abbr -a -g gq 'git pull'
+    abbr -a -g gs 'git status'
+    abbr -a -g gst 'git stash'
+    abbr -a -g gsta 'git stash apply'
+    abbr -a -g gr 'git rebase'
+    abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
+    abbr -a -g t 'tmux attach || tmux new'
+    abbr -a -g d 'docker'
+    abbr -a -g dr 'docker run --rm -it'
+    abbr -a -g dc 'docker-compose'
+    abbr -a -g dce 'docker-compose exec'
+    abbr -a -g e $EDITOR
+end
+
+# direnv
+direnv hook fish | source
+set -x PYENV_ROOT $HOME/.pyenv
+set -x NODE_VERSIONS $HOME/.nodenv/versions
+set -x NODE_VERSION_PREFIX ""
+set -x PIPENV_VENV_IN_PROJECT 1 

@@ -1,0 +1,18 @@
+[user]
+  name = Bartek Mucha
+  email = muchzill4@gmail.com
+
+[core]
+  excludesfile = ~/.gitignore_global
+
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+
+[push]
+  default = simple
+
+[init]
+  templatedir = ~/.git_template
