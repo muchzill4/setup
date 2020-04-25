@@ -14,7 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-bbye'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
-Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown', {'for': 'markdown'}
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -205,6 +205,11 @@ nnoremap <silent> <leader>ca :CocFzfList actions<cr>
 " vim-commentary {{{
 
 autocmd FileType jinja setlocal commentstring={#\ %s\ #}
+
+" }}}
+" vim-fzf {{{
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " }}}
 
