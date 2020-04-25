@@ -7,8 +7,9 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug '/usr/local/opt/fzf'
+Plug 'antoinemadec/coc-fzf'
 Plug 'janko-m/vim-test'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-bbye'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -156,6 +157,8 @@ nmap <leader>H :Helptags<cr>
 " }}}
 " coc.nvim {{{
 
+let g:coc_global_extensions = ["coc-json", "coc-python", "coc-tsserver", "coc-css", "coc-prettier", "coc-tailwindcss"]
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -174,7 +177,27 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = ["coc-json", "coc-python", "coc-tsserver", "coc-css", "coc-prettier", "coc-tailwindcss"]
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -195,6 +218,13 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Mappings using coc-fzf
+nnoremap <silent> <leader>cD :CocFzfList diagnostics<cr>
+nnoremap <silent> <leader>cd :CocFzfList diagnostics --current-buf<cr>
+nnoremap <silent> <leader>ce :CocFzfList extensions<cr>
+nnoremap <silent> <leader>cc :CocFzfList commands<cr>
+nnoremap <silent> <leader>ca :CocFzfList actions<cr>
 
 " }}}
 " vim-commentary {{{
