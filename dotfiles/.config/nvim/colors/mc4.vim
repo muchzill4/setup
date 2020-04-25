@@ -38,7 +38,7 @@ call s:hl('CursorColumn', '', '0', 'none')
 
 call s:hl('Normal', '', '', '')
 call s:hl('Visual', '15', '0', 'reverse')
-call s:hl('ModeMsg', '3', '0', 'bold')
+call s:hl('ModeMsg', '3', '', 'bold')
 call s:hl('Folded', '8', 'none', '')
 call s:hl('IncSearch', '0', '3', 'bold')
 call s:hl('Search', '0', '6', '')
