@@ -23,7 +23,7 @@ function! s:hl(group, ctermfg, ctermbg, cterm)
   endif
 endfunction
 
-call s:hl('VertSplit', '8', 'none', 'none')
+call s:hl('VertSplit', '0', 'none', 'none')
 call s:hl('TabLine', '7', '0', '')
 call s:hl('TabLineSel', '7', 'none', 'reverse')
 call s:hl('TabLineFill', 'none', '0', '')
