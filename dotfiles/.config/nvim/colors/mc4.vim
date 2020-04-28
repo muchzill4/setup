@@ -44,7 +44,7 @@ call s:hl('IncSearch', '0', '3', 'bold')
 call s:hl('Search', '0', '6', '')
 call s:hl('MatchParen', '0', '6', '')
 
-call s:hl('Comment', '4', '', 'none')
+call s:hl('Comment', '4', '', 'italic')
 call s:hl('Constant', '5', '', '')
 call s:hl('String', '6', '', '')
 call s:hl('Character', '2', '', 'bold')
