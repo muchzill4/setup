@@ -54,6 +54,7 @@ set number
 set splitbelow
 set notermguicolors
 set nocursorline
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 colorscheme mc4
 
 " }}}
