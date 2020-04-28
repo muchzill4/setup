@@ -1,4 +1,5 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["python", "css", "markdown", "javascript", "typescript"],
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "python.jediEnabled": false
 }
