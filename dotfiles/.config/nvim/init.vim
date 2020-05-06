@@ -71,7 +71,6 @@ nnoremap <leader>ea :e ~/.config/alacritty/alacritty.yml<cr>
 nnoremap <leader>ek :e ~/.config/kitty/kitty.conf<cr>
 nnoremap <leader>ef :e ~/.config/fish/config.fish<cr>
 nnoremap <leader>eg :e ~/.gitconfig<cr>
-nnoremap <leader>et :e ~/.tmux.conf<cr>
 nnoremap <leader>ec :e ~/.config/nvim/colors/mc4.vim<cr>
 
 " copen

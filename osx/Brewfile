@@ -13,7 +13,6 @@ brew 'pyenv'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'ruby-install'
-brew 'tmux', args: ['HEAD']
 brew 'tree'
 brew 'wget'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
