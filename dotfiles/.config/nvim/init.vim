@@ -60,6 +60,7 @@ set splitbelow
 set notermguicolors
 set nocursorline
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+set shell=bash
 colorscheme mc4
 
 " }}}
