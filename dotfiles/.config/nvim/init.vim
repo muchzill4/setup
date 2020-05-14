@@ -14,11 +14,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-bbye'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown', {'for': 'markdown'}
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rsi'
@@ -27,6 +25,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'zhimsel/vim-stay'
+
+" Syntax
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript' }
+Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 call plug#end()
 
@@ -211,6 +215,19 @@ autocmd FileType jinja setlocal commentstring={#\ %s\ #}
 " vim-fzf {{{
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+" }}}
+" python-syntax {{{
+
+let g:python_highlight_all = 1
+
+" }}}
+" vim-tsx {{{
+
+hi link tsxTagName htmlTagName
+hi link tsxCloseTag htmlEndTag
+hi link tsxCloseTagName htmlTagName
+hi link tsxAttributeBraces htmlTagName
 
 " }}}
 
