@@ -55,11 +55,10 @@ if status --is-interactive
     abbr -a -g dc 'docker-compose'
     abbr -a -g dce 'docker-compose exec'
     abbr -a -g e $EDITOR
+    abbr -a -g da 'asdf exec direnv allow'
 end
 
-# direnv
-direnv hook fish | source
-set -x PYENV_ROOT $HOME/.pyenv
-set -x NODE_VERSIONS $HOME/.nodenv/versions
-set -x NODE_VERSION_PREFIX ""
+# asdf
+set -x PATH $HOME/.asdf/bin $PATH
+eval (asdf exec direnv hook fish)
 set -x PIPENV_VENV_IN_PROJECT 1 

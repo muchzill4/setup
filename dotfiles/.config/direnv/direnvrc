@@ -1,0 +1,9 @@
+source $(asdf which direnv_use_asdf)
+
+use_local_vim_config() {
+  local config_file="$(find_up local.vim)"
+  if [ -n "$config_file" ]; then
+    echo "Adding vim config: ${config_file}"
+    path_add LOCAL_VIM_CONFIG $config_file
+  fi
+}

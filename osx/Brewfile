@@ -1,18 +1,15 @@
 # Homebrew
 # --------------------
+brew 'asdf'
 brew 'curl'
-brew 'direnv'
 brew 'fish'
 brew 'fzf'
 brew 'git'
 brew 'httpie'
 brew 'neovim'
-brew 'node-build'
 brew 'openssl'
-brew 'pyenv'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
-brew 'ruby-install'
 brew 'tree'
 brew 'wget'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
