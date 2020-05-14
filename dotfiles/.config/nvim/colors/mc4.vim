@@ -40,7 +40,7 @@ call s:hl('Normal', '', '', '')
 call s:hl('Visual', '15', '0', 'reverse')
 call s:hl('ModeMsg', '3', '', 'bold')
 call s:hl('Folded', '8', 'none', '')
-call s:hl('IncSearch', '0', '3', 'bold,underline')
+call s:hl('IncSearch', '0', '2', 'bold,underline')
 call s:hl('Search', '0', '3', '')
 call s:hl('MatchParen', '0', '5', 'bold')
 
