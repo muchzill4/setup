@@ -1,7 +1,7 @@
 " PLUGINS {{{
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -110,15 +110,15 @@ endif
 
 " reload config on modify
 augroup reload_config
-    au!
-    au BufWritePost init.vim source %
-    au BufWritePost mc4.vim source %
+  au!
+  au BufWritePost init.vim source %
+  au BufWritePost mc4.vim source %
 augroup END
 
 " open help in vert split
 augroup helpfiles
-    au!
-    au BufRead,BufEnter */doc/* wincmd L
+  au!
+  au BufRead,BufEnter */doc/* wincmd L
 augroup END
 
 " }}}
