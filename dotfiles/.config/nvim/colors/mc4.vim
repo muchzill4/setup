@@ -42,19 +42,22 @@ call s:hl('ModeMsg', '3', '', 'bold')
 call s:hl('Folded', '8', 'none', '')
 call s:hl('IncSearch', '0', '2', 'bold,underline')
 call s:hl('Search', '0', '3', '')
-call s:hl('MatchParen', '0', '5', 'bold')
+call s:hl('MatchParen', '0', '2', 'bold')
 
 call s:hl('Comment', '4', '', 'italic')
-call s:hl('Constant', '6', '', 'bold')
+call s:hl('Constant', '2', '', '')
 call s:hl('String', '6', '', '')
-call s:hl('Identifier', '3', '', 'none')
+
+call s:hl('Identifier', '15', '', '')
 call s:hl('Function', '3', '', '')
+
 call s:hl('Statement', '15', '', '')
-call s:hl('PreProc', '2', '', '')
-call s:hl('Include', '2', '', '')
+
+call s:hl('PreProc', '15', '', '')
+
 call s:hl('Type', '5', '', '')
-call s:hl('Special', '1', '', '')
-call s:hl('Underlined', '7', '', '')
+call s:hl('Special', '7', '', '')
+call s:hl('Underlined', '7', '', 'underline')
 call s:hl('Error', '0', '1', 'none')
 call s:hl('Todo', '4', '', 'bold,underline')
 
