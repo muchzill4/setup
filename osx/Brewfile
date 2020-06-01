@@ -1,6 +1,5 @@
 # Homebrew
 # --------------------
-brew 'asdf'
 brew 'curl'
 brew 'fish'
 brew 'fzf'
