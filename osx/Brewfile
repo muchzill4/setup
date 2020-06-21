@@ -11,6 +11,7 @@ brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'tree'
 brew 'wget'
+tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 
 # Cask
