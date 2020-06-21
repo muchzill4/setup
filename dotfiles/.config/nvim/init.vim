@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'zhimsel/vim-stay'
+Plug 'honza/vim-snippets'
 
 " Syntax
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -121,6 +122,12 @@ augroup helpfiles
   au BufRead,BufEnter */doc/* wincmd L
 augroup END
 
+" highlight what's copied
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("Search", 250)
+augroup END
+
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
 
@@ -215,6 +222,11 @@ nnoremap <silent> <leader>cd :CocFzfList diagnostics --current-buf<cr>
 nnoremap <silent> <leader>ce :CocFzfList extensions<cr>
 nnoremap <silent> <leader>cc :CocFzfList commands<cr>
 nnoremap <silent> <leader>ca :CocFzfList actions<cr>
+xnoremap <silent> <leader>ca :CocAction<cr>
+
+" coc-snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
 
 " }}}
 " vim-commentary {{{
