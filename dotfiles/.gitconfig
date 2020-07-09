@@ -18,4 +18,4 @@
   templatedir = ~/.git_template
 
 [pull]
-	ff = only
+  ff = only
