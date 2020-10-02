@@ -35,6 +35,8 @@ Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 call plug#end()
 
+packadd! matchit
+
 " }}}
 " GENERAL {{{
 
