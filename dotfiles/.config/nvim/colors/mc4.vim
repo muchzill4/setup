@@ -71,3 +71,8 @@ call s:hl('DiffAdd', '0', '2', 'none')
 call s:hl('DiffDelete', '0', '1', 'none')
 call s:hl('DiffChange', '0', '6', 'none')
 call s:hl('DiffText', '0', '6', 'bold')
+
+" Legacy groups for official git.vim and diff.vim syntax
+hi! link diffAdded DiffAdd
+hi! link diffChanged DiffChange
+hi! link diffRemoved DiffDelete
