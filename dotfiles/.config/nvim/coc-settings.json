@@ -2,5 +2,6 @@
   "coc.preferences.formatOnSaveFiletypes": ["python", "css", "markdown", "javascript", "typescript", "typescriptreact", "yaml"],
   "css.lint.unknownAtRules": "ignore",
   "python.jediEnabled": false,
-  "tailwindCSS.headwind.runOnSave": false
+  "tailwindCSS.headwind.runOnSave": false,
+  "javascript.suggestionActions.enabled": false
 }
