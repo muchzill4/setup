@@ -30,12 +30,13 @@ Plug 'honza/vim-snippets'
 " Syntax
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
-
-packadd! matchit
 
 " }}}
 " GENERAL {{{
