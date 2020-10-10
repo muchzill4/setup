@@ -82,6 +82,7 @@ nnoremap <leader>ek :e ~/.config/kitty/kitty.conf<cr>
 nnoremap <leader>ef :e ~/.config/fish/config.fish<cr>
 nnoremap <leader>eg :e ~/.gitconfig<cr>
 nnoremap <leader>ec :e ~/.config/nvim/colors/mc4.vim<cr>
+nnoremap <leader>ed :e ~/.config/direnv/direnvrc<cr>
 
 " copen
 nnoremap <leader>co :copen<cr>
