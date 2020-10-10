@@ -39,7 +39,7 @@ cask 'whatsapp'
 # --------------------
 tap 'homebrew/cask-fonts'
 
-cask 'font-ia-writer-mono'
+cask 'font-jetbrains-mono'
 
 # Misc
 # --------------------
