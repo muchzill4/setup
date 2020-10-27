@@ -48,6 +48,7 @@ if status --is-interactive
     abbr -a -g gst 'git stash'
     abbr -a -g gsta 'git stash apply'
     abbr -a -g gr 'git rebase'
+    abbr -a -g grm 'git rebase master'
     abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
     abbr -a -g t 'tmux attach || tmux new'
     abbr -a -g d 'docker'
