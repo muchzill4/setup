@@ -27,6 +27,7 @@ set fish_color_valid_path normal --underline
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
 set -x FZF_DEFAULT_COMMAND 'rg --files'
+set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
 
 if status --is-interactive
     abbr -a -g la 'ls -AF'
