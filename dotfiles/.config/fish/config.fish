@@ -63,3 +63,7 @@ end
 # asdf
 source ~/.asdf/asdf.fish
 eval (direnv hook fish)
+
+# docker
+set -x DOCKER_BUILDKIT 1
+set -x COMPOSE_DOCKER_CLI_BUILD 1
