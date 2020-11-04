@@ -178,7 +178,6 @@ let g:coc_global_extensions = [
       \ "coc-css",
       \ "coc-prettier",
       \ "coc-tailwindcss",
-      \ "coc-tabnine",
       \ "coc-eslint",
       \]
 
