@@ -25,9 +25,9 @@ endfunction
 
 call s:hl('VertSplit', '0', '', '')
 call s:hl('TabLine', '7', '0', '')
-call s:hl('TabLineSel', '', '', 'reverse,bold')
+call s:hl('TabLineSel', '7', '', 'reverse,bold')
 call s:hl('TabLineFill', '', '0', '')
-call s:hl('StatusLine', '', '', 'reverse,bold')
+call s:hl('StatusLine', '7', '', 'reverse,bold')
 call s:hl('StatusLineNC', '7', '0', '')
 call s:hl('Pmenu', '7', '0', '')
 call s:hl('PmenuSel', '0', '7', 'bold')
@@ -51,9 +51,9 @@ call s:hl('String', '6', '', '')
 call s:hl('Identifier', '15', '', '')
 call s:hl('Function', '3', '', '')
 
-call s:hl('Statement', '15', '', 'italic')
+call s:hl('Statement', '15', '', '')
 
-call s:hl('PreProc', '15', '', 'italic')
+call s:hl('PreProc', '15', '', '')
 
 call s:hl('Type', '5', '', '')
 call s:hl('Special', '7', '', '')
