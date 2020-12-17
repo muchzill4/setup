@@ -246,12 +246,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:python_highlight_all = 1
 
 " }}}
-" vim-tsx {{{
-
-hi link tsxTagName htmlTagName
-hi link tsxCloseTag htmlEndTag
-hi link tsxCloseTagName htmlTagName
-hi link tsxAttributeBraces htmlTagName
 
 " }}}
 
