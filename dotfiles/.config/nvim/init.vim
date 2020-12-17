@@ -12,7 +12,7 @@ Plug 'janko-m/vim-test'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-bbye'
-Plug 'nelstrom/vim-visual-star-search'
+Plug 'bronson/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shime/vim-livedown', {'for': 'markdown'}
 Plug 'tpope/vim-abolish'
@@ -163,9 +163,13 @@ nmap <leader>tt :TestNearest<cr>
 nmap <leader>B :Buffers<cr>
 nmap <leader>F :Files<cr>
 nmap <leader>T :Tags<cr>
-nmap <leader>s :Rg<space>
-nmap <leader>S :Rg <C-R><C-W><cr>
 nmap <leader>H :Helptags<cr>
+nmap <leader>s :Rg<space>
+nmap <leader>S :Rg <C-r><C-w><CR>
+vmap <leader>S :<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><CR>
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
 
 " }}}
 " coc.nvim {{{
@@ -236,17 +240,11 @@ vmap <C-j> <Plug>(coc-snippets-select)
 autocmd FileType jinja setlocal commentstring={#\ %s\ #}
 
 " }}}
-" vim-fzf {{{
-
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" }}}
 " python-syntax {{{
 
 let g:python_highlight_all = 1
 
 " }}}
 
-" }}}
 
 " }}}
