@@ -1,5 +1,4 @@
 set pure_color_mute brwhite
-set pure_symbol_prompt '→'
 
 # fisher
 set -g fisher_path $HOME/.local/share/fish/fisher
