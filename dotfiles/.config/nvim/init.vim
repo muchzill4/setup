@@ -26,6 +26,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'zhimsel/vim-stay'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 
 " Syntax
 Plug 'yuezk/vim-js', { 'for': 'javascript' }
