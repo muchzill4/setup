@@ -39,12 +39,6 @@ cask 'timing'
 cask 'transmission'
 cask 'whatsapp'
 
-# Fonts
-# --------------------
-tap 'homebrew/cask-fonts'
-
-cask 'font-jetbrains-mono'
-
 # Misc
 # --------------------
 tap 'homebrew/cask-drivers'
