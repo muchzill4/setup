@@ -48,6 +48,8 @@ if status --is-interactive
     abbr -a -g gs 'git status'
     abbr -a -g gst 'git stash'
     abbr -a -g gsta 'git stash apply'
+    abbr -a -g gstp 'git stash pop'
+    abbr -a -g gbc 'git checkout master && git branch | rg -v master | xargs git branch -D'
     abbr -a -g gr 'git rebase'
     abbr -a -g grm 'git fetch && git rebase origin/master'
     abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
