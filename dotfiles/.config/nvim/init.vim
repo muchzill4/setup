@@ -91,11 +91,13 @@ nnoremap <leader>co :copen<cr>
 nnoremap <leader>w :w!<cr>
 :command! W w
 
-" quit
-nnoremap <leader>Q :q<cr>
-
 " exit terminal insert
 tmap <C-o> <C-\><C-n>
+
+" kill buffers
+nnoremap <leader>q :bdelete<cr>
+nnoremap <leader>Q :%bd\|e#\|bd#<cr>
+
 
 " }}}
 " MISC {{{
@@ -135,11 +137,6 @@ augroup END
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
 
-" vim-bbye {{{
-
-nnoremap <leader>q :Bwipeout<cr>
-
-" }}}
 " vim-fugitive {{{
 
 nmap <leader>gs :Gstatus<cr>
