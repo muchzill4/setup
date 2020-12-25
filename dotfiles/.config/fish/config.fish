@@ -64,7 +64,8 @@ end
 
 # asdf
 source ~/.asdf/asdf.fish
-eval (direnv hook fish)
+direnv hook fish | source
+direnv export fish | source
 
 # docker
 set -x DOCKER_BUILDKIT 1
