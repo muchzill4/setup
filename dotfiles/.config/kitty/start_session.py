@@ -1,7 +1,5 @@
-import shlex
 from dataclasses import dataclass
 from pathlib import Path
-from subprocess import check_output
 from typing import Generic, Iterable, Iterator, List, Sequence, TypeVar, Union
 
 from kittens.tui.handler import Handler
@@ -115,8 +113,8 @@ class KittySession:
         return self.path.stem
 
 
-def find_session_files(directory: str) -> Iterable[str]:
-    return Path(directory).expanduser().glob('*.conf')
+def find_session_files(directory: str) -> Iterable[Path]:
+    return Path(directory).expanduser().glob("*.conf")
 
 
 def main(args: List[str]) -> str:
