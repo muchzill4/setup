@@ -70,3 +70,9 @@ direnv export fish | source
 # docker
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
+
+# make completion fast again
+# https://github.com/fish-shell/fish-shell/issues/5825
+function __fish_describe_command
+  return
+end
