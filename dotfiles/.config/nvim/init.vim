@@ -127,12 +127,6 @@ augroup helpfiles
   au BufRead,BufEnter */doc/* wincmd L
 augroup END
 
-" highlight what's copied
-augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("Search", 250)
-augroup END
-
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
 
