@@ -33,7 +33,6 @@ call plug#end()
 " GENERAL {{{
 
 set clipboard=unnamed
-set tags+=.git/tags
 set ignorecase
 set smartcase
 set mouse=a
@@ -124,7 +123,6 @@ nmap <leader>tt :TestNearest<cr>
 
 nmap <leader>B :Buffers<cr>
 nmap <leader>F :Files<cr>
-nmap <leader>T :Tags<cr>
 nmap <leader>H :Helptags<cr>
 nmap <leader>s :Rg<space>
 nmap <leader>S :Rg <C-r><C-w><CR>
