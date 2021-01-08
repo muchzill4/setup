@@ -22,7 +22,6 @@ Plug 'ryvnf/readline.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'zhimsel/vim-stay'
 
 " Syntax
 Plug 'yuezk/vim-js', { 'for': 'javascript' }
