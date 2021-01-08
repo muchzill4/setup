@@ -97,7 +97,6 @@ tmap <C-o> <C-\><C-n>
 nnoremap <leader>q :bdelete<cr>
 nnoremap <leader>Q :%bd\|e#\|bd#<cr>
 
-
 " }}}
 " MISC {{{
 
@@ -160,7 +159,6 @@ nmap <leader>S :Rg <C-r><C-w><CR>
 vmap <leader>S :<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><CR>
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
 
 " }}}
 " coc.nvim {{{
@@ -237,6 +235,5 @@ autocmd FileType jinja setlocal commentstring={#\ %s\ #}
 let g:python_highlight_all = 1
 
 " }}}
-
 
 " }}}
