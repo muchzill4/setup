@@ -43,7 +43,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set gdefault
-set number
+set relativenumber
 set notermguicolors
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 set shell=bash
