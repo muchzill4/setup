@@ -36,7 +36,6 @@ call plug#end()
 " GENERAL {{{
 
 set clipboard=unnamed
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 set noswapfile
 set showbreak=↪
 set tags+=.git/tags
