@@ -110,12 +110,6 @@ augroup reload_config
   au BufWritePost mc4.vim source %
 augroup END
 
-" open help in vert split
-augroup helpfiles
-  au!
-  au BufRead,BufEnter */doc/* wincmd L
-augroup END
-
 " }}}
 " PLUGIN SETTINGS AND BINDINGS {{{
 
