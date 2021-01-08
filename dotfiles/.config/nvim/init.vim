@@ -35,8 +35,6 @@ call plug#end()
 " GENERAL {{{
 
 set clipboard=unnamed
-set noswapfile
-set showbreak=↪
 set tags+=.git/tags
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc
 set ignorecase
@@ -45,16 +43,9 @@ set mouse=a
 set tabstop=2
 set expandtab
 set shiftwidth=2
-set viewoptions-=options,curdir
 set gdefault
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_dirhistmax = 0
-set undofile
-set linebreak
 set number
-set splitbelow
 set notermguicolors
-set nocursorline
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 set shell=bash
 colorscheme mc4
