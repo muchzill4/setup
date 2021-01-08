@@ -48,9 +48,9 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc
 set ignorecase
 set smartcase
 set mouse=a
-set ts=2
-set et
-set sw=2
+set tabstop=2
+set expandtab
+set shiftwidth=2
 set viewoptions-=options,curdir
 set gdefault
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
