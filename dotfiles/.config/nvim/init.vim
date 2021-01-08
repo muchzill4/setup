@@ -13,7 +13,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'shime/vim-livedown', {'for': 'markdown'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
