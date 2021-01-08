@@ -29,7 +29,6 @@ Plug 'honza/vim-snippets'
 
 " Syntax
 Plug 'yuezk/vim-js', { 'for': 'javascript' }
-Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -76,7 +75,6 @@ nnoremap \ ,
 
 " edit dotfiles
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>ea :e ~/.config/alacritty/alacritty.yml<cr>
 nnoremap <leader>ek :e ~/.config/kitty/kitty.conf<cr>
 nnoremap <leader>ef :e ~/.config/fish/config.fish<cr>
 nnoremap <leader>eg :e ~/.gitconfig<cr>
@@ -166,7 +164,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:coc_global_extensions = [
       \ "coc-json",
       \ "coc-python",
-      \ "coc-tsserver",
       \ "coc-css",
       \ "coc-prettier",
       \ "coc-tailwindcss",
