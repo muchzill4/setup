@@ -1,2 +1,2 @@
-set foldmethod=indent
-set foldnestmax=1
+setlocal foldmethod=indent
+setlocal foldnestmax=1

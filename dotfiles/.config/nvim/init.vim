@@ -194,11 +194,6 @@ nnoremap <silent> <leader>ca :CocFzfList actions<cr>
 xnoremap <silent> <leader>ca :CocAction<cr>
 
 " }}}
-" vim-commentary {{{
-
-autocmd FileType jinja setlocal commentstring={#\ %s\ #}
-
-" }}}
 " python-syntax {{{
 
 let g:python_highlight_all = 1
