@@ -67,10 +67,10 @@ call s:hl('Title', '7', '', 'bold')
 call s:hl('Directory', '4', '', '')
 call s:hl('SignColumn', '1', '', '')
 
-call s:hl('DiffAdd', '0', '2', '')
-call s:hl('DiffDelete', '0', '1', '')
-call s:hl('DiffChange', '0', '6', '')
-call s:hl('DiffText', '0', '6', 'bold')
+call s:hl('DiffAdd', '2', '', '')
+call s:hl('DiffDelete', '1', '', '')
+call s:hl('DiffChange', '3', '', '')
+call s:hl('DiffText', '3', '', 'underline')
 
 " Legacy groups for official git.vim and diff.vim syntax
 hi! link diffAdded DiffAdd
