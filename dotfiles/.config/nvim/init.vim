@@ -11,7 +11,6 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'janko-m/vim-test'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'moll/vim-bbye'
 Plug 'bronson/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shime/vim-livedown', {'for': 'markdown'}
