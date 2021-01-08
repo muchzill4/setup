@@ -25,7 +25,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'zhimsel/vim-stay'
-Plug 'honza/vim-snippets'
 
 " Syntax
 Plug 'yuezk/vim-js', { 'for': 'javascript' }
@@ -216,10 +215,6 @@ nnoremap <silent> <leader>ce :CocFzfList extensions<cr>
 nnoremap <silent> <leader>cc :CocFzfList commands<cr>
 nnoremap <silent> <leader>ca :CocFzfList actions<cr>
 xnoremap <silent> <leader>ca :CocAction<cr>
-
-" coc-snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
 
 " }}}
 " vim-commentary {{{
