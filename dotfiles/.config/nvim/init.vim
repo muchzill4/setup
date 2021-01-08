@@ -36,7 +36,6 @@ call plug#end()
 
 set clipboard=unnamed
 set tags+=.git/tags
-set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc
 set ignorecase
 set smartcase
 set mouse=a
