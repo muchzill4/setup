@@ -24,7 +24,6 @@ Plug 'tpope/vim-vinegar'
 " Syntax
 Plug 'yuezk/vim-js', { 'for': 'javascript' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'jparise/vim-graphql'
 
