@@ -2,7 +2,7 @@
 source "$(asdf direnv hook asdf)"
 
 use_local_vim_config() {
-  local config_file="$(find_up local.vim)"
+  local config_file="$(find_up vim-config.lua)"
   if [ -n "$config_file" ]; then
     echo "Adding vim config: ${config_file}"
     path_add LOCAL_VIM_CONFIG $config_file
