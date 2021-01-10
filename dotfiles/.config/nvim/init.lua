@@ -128,6 +128,7 @@ end
 -- }}} --
 
 -- LSP {{{ --
+-- vim.lsp.set_log_level("debug")
 require('lspfuzzy').setup {}
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
@@ -150,5 +151,9 @@ nvim_lsp.pyls_ms.setup {
 		'exec',
 		fn.expand('~/Dev/vcs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll')
 	}
+}
+
+nvim_lsp.efm.setup {
+  on_attach = on_attach,
 }
 --- }}} ---
