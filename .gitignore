@@ -1,13 +1,17 @@
-dotfiles/.config/fish/functions/fisher.fish
-dotfiles/.config/fish/fish_variables
-dotfiles/.config/fisher/
-dotfiles/.config/fish/functions/fzf_key_bindings.fish
-dotfiles/.config/fish/functions/fish_user_key_bindings.fish
+# Fish
+fisher.fish
+fish_variables
+fisher/
+fzf_key_bindings.fish
+fish_user_key_bindings.fish
+
+# packer.nvim
+packer_compiled.vim
 
 # Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
-dotfiles/.config/nvim/.netrwhist
-dotfiles/.config/configstore/
-dotfiles/.config/direnv/allow/
+.netrwhist
+configstore/
+direnv/allow/
 
 # Srsly Fusion360
-dotfiles/.config/Autodesk/
+Autodesk/
