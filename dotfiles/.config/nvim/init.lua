@@ -79,7 +79,7 @@ opt('wo', 'statusline', [[%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P
 -- }}} --
 
 -- MAPS {{{ --
-map('t', '<C-[>', '<C-\\><C-n>') -- to quit insert in terminal
+map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 
 map('n', '<leader>ev', ':e $MYVIMRC<CR>')
 map('n', '<leader>ek', ':e ~/.config/kitty/kitty.conf<CR>')
