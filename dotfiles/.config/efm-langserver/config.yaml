@@ -26,8 +26,8 @@ tools:
 
 languages:
   python:
-    # - <<: *python-flake8
-    # - <<: *python-black
+    - <<: *python-flake8
+    - <<: *python-black
     - <<: *python-mypy
 
   markdown:
