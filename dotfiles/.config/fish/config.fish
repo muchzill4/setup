@@ -25,6 +25,7 @@ set fish_color_valid_path normal --underline
 
 # env
 set -x PATH $PATH $HOME/.bin
+set -x PATH $PATH $HOME/.local/bin # pipx
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
 set -x FZF_DEFAULT_COMMAND 'rg --files'
