@@ -43,6 +43,7 @@ require('packer').startup({{
   {'junegunn/fzf.vim'},
   {'neovim/nvim-lspconfig'},
   {'nvim-treesitter/nvim-treesitter'},
+  {'ojroques/nvim-lspfuzzy'},
   {'ryvnf/readline.vim'},
   {'shougo/deoplete-lsp'},
   {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
@@ -138,6 +139,7 @@ map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 
+require('lspfuzzy').setup {}
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.jedi_language_server.setup {}
