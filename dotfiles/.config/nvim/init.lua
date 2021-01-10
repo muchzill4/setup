@@ -52,7 +52,6 @@ paq {'tpope/vim-rhubarb'}
 paq {'tpope/vim-surround'}
 paq {'tpope/vim-unimpaired'}
 paq {'tpope/vim-vinegar'}
-paq {'wbthomason/packer.nvim'}
 -- }}} --
 
 -- SETTINGS {{{ --
