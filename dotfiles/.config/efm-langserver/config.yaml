@@ -13,11 +13,12 @@ tools:
       - "%f:%l:%c: %m"
 
   python-mypy: &python-mypy
-    lint-command: "mypy --show-column-numbers"
+    lint-command: "mypy-stdin ${INPUT} -"
     lint-formats:
       - "%f:%l:%c: %trror: %m"
       - "%f:%l:%c: %tarning: %m"
       - "%f:%l:%c: %tote: %m"
+    lint-stdin: true
 
   python-black: &python-black
     format-command: "black -"
@@ -25,9 +26,9 @@ tools:
 
 languages:
   python:
-    - <<: *python-flake8
-    - <<: *python-black
-    # - <<: *python-mypy
+    # - <<: *python-flake8
+    # - <<: *python-black
+    - <<: *python-mypy
 
   markdown:
     - <<: *generic-prettier
