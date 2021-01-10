@@ -28,30 +28,31 @@ end
 -- }}} --
 
 -- PLUGINS {{{ --
-local install_path = fn.stdpath('data')..'/site/pack/paqs/opt/paq-nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  cmd('!git clone https://github.com/savq/paq-nvim.git '..install_path)
+  cmd('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
+cmd 'packadd packer.nvim'
 
-cmd 'packadd paq-nvim'
-local paq = require('paq-nvim').paq
-paq {'savq/paq-nvim', opt = true}
+require('packer').startup({{
+  {'wbthomason/packer.nvim', opt = true},
 
-paq {'bronson/vim-visual-star-search'}
-paq {'janko-m/vim-test'}
-paq {'junegunn/fzf'}
-paq {'junegunn/fzf.vim'}
-paq {'neovim/nvim-lspconfig'}
-paq {'nvim-treesitter/nvim-treesitter'}
-paq {'ryvnf/readline.vim'}
-paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
-paq {'tpope/vim-commentary'}
-paq {'tpope/vim-fugitive'}
-paq {'tpope/vim-rhubarb'}
-paq {'tpope/vim-surround'}
-paq {'tpope/vim-unimpaired'}
-paq {'tpope/vim-vinegar'}
+  {'bronson/vim-visual-star-search'},
+  {'janko-m/vim-test'},
+  {'junegunn/fzf'},
+  {'junegunn/fzf.vim'},
+  {'neovim/nvim-lspconfig'},
+  {'nvim-treesitter/nvim-treesitter'},
+  {'ryvnf/readline.vim'},
+  {'shougo/deoplete-lsp'},
+  {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
+  {'tpope/vim-commentary'},
+  {'tpope/vim-fugitive'},
+  {'tpope/vim-rhubarb'},
+  {'tpope/vim-surround'},
+  {'tpope/vim-unimpaired'},
+  {'tpope/vim-vinegar'},
+}})
 -- }}} --
 
 -- SETTINGS {{{ --
