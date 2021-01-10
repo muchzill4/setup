@@ -42,10 +42,11 @@ paq {'janko-m/vim-test'}
 paq {'junegunn/fzf'}
 paq {'junegunn/fzf.vim'}
 paq {'neovim/nvim-lspconfig'}
-paq {'nvim-lua/completion-nvim'}
 paq {'nvim-treesitter/nvim-treesitter'}
 paq {'ojroques/nvim-lspfuzzy'}
 paq {'ryvnf/readline.vim'}
+paq {'shougo/deoplete-lsp'}
+paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
 paq {'tpope/vim-commentary'}
 paq {'tpope/vim-fugitive'}
 paq {'tpope/vim-rhubarb'}
@@ -86,8 +87,8 @@ map('n', '<leader>ec', ':e ~/.config/nvim/colors/mc4.vim<CR>')
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
--- completion-nvim
-cmd [[au! BufEnter * lua require'completion'.on_attach()]]
+-- deoplete
+vim.g['deoplete#enable_at_startup'] = 1
 
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
