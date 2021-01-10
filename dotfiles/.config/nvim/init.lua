@@ -43,7 +43,6 @@ paq {'junegunn/fzf'}
 paq {'junegunn/fzf.vim'}
 paq {'neovim/nvim-lspconfig'}
 paq {'nvim-treesitter/nvim-treesitter'}
-paq {'ojroques/nvim-lspfuzzy'}
 paq {'ryvnf/readline.vim'}
 paq {'shougo/deoplete-lsp'}
 paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
@@ -132,7 +131,7 @@ map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
