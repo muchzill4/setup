@@ -24,7 +24,7 @@ set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
 
 # env
-set -x PATH $PATH $HOME/Setup/bin
+set -x PATH $PATH $HOME/.bin
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
 set -x FZF_DEFAULT_COMMAND 'rg --files'
