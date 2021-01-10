@@ -128,32 +128,18 @@ end
 -- }}} --
 
 -- LSP {{{ --
--- vim.lsp.set_log_level("debug")
-require('lspfuzzy').setup {}
+map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+
 local nvim_lsp = require('lspconfig')
-local on_attach = function(client, bufnr)
-  bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  bmap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  bmap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  bmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  bmap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  bmap(bufnr, 'n', '<space>c', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  bmap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  bmap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-  bmap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-end
 
-nvim_lsp.pyls_ms.setup {
-	on_attach = on_attach,
-	cmd = {
-		'dotnet',
-		'exec',
-		fn.expand('~/Dev/vcs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll')
-	}
-}
-
-nvim_lsp.efm.setup {
-  on_attach = on_attach,
-}
+nvim_lsp.jedi_language_server.setup {}
+nvim_lsp.efm.setup {}
 --- }}} ---
