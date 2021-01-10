@@ -1,4 +1,4 @@
-set pure_color_mute brwhite
+set pure_color_mute white
 
 # fisher
 set -g fisher_path $HOME/.local/share/fish/fisher
