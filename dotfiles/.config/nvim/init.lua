@@ -96,7 +96,6 @@ vim.g['deoplete#enable_at_startup'] = 1
 map('n', '<leader>f', ':Files<CR>')
 map('n', '<leader>b', ':Buffers<CR>')
 map('n', '<leader>c', ':Commits<CR>')
-map('n', '<leader>s', ':Rg <C-r><C-w><CR>')
 map('v', '<leader>s', [[:<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><cr>]])
 
 -- vim-test
@@ -139,6 +138,7 @@ map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+map('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
 
 require('lspfuzzy').setup {}
 local nvim_lsp = require('lspconfig')
