@@ -66,6 +66,7 @@ call s:hl('SpellBad', '1', '', 'underline,italic')
 call s:hl('Title', '7', '', 'bold')
 call s:hl('Directory', '4', '', '')
 call s:hl('SignColumn', '1', '', '')
+call s:hl('EndOfBuffer', '0', '', '')
 
 call s:hl('DiffAdd', '2', '', '')
 call s:hl('DiffDelete', '1', '', '')
