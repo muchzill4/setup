@@ -38,6 +38,7 @@ require('packer').startup({{
   {'wbthomason/packer.nvim', opt = true},
 
   {'bronson/vim-visual-star-search'},
+  {'chriskempson/base16-vim'},
   {'janko-m/vim-test'},
   {'junegunn/fzf'},
   {'junegunn/fzf.vim'},
@@ -57,7 +58,7 @@ require('packer').startup({{
 -- }}} --
 
 -- SETTINGS {{{ --
-cmd 'colorscheme mc4'
+cmd 'colorscheme custom-base16'
 
 local indent = 2
 opt('bo', 'expandtab', true)
