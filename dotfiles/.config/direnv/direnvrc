@@ -1,6 +1,4 @@
 # vim:ft=sh
-source "$(asdf direnv hook asdf)"
-
 use_local_vim_config() {
   local config_file="$(find_up vim-config.lua)"
   if [ -n "$config_file" ]; then
