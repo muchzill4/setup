@@ -1,3 +1,0 @@
-[submodule "dotfiles/.config/kitty/base16-kitty"]
-	path = dotfiles/.config/kitty/base16-kitty
-	url = git@github.com:kdrag0n/base16-kitty.git

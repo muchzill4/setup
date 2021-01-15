@@ -58,7 +58,7 @@ require('packer').startup({{
 -- }}} --
 
 -- SETTINGS {{{ --
-cmd 'colorscheme custom-base16'
+cmd 'colorscheme mc4'
 
 local indent = 2
 opt('bo', 'expandtab', true)
