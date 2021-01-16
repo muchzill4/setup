@@ -144,5 +144,7 @@ require('lspfuzzy').setup {}
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.jedi_language_server.setup {}
-nvim_lsp.efm.setup {}
+nvim_lsp.efm.setup {
+  filetypes = {'python', 'markdown', 'yaml'}
+}
 --- }}} ---
