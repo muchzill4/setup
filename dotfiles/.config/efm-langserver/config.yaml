@@ -25,11 +25,16 @@ tools:
     format-command: "black -"
     format-stdin: true
 
+  python-isort: &python-isort
+    format-command: "isort --quiet -"
+    format-stdin: true
+
 languages:
   python:
     - <<: *python-flake8
-    - <<: *python-black
     - <<: *python-mypy
+    - <<: *python-black
+    - <<: *python-isort
 
   markdown:
     - <<: *generic-prettier
