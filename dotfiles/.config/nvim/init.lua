@@ -37,23 +37,27 @@ cmd 'packadd packer.nvim'
 require('packer').startup({{
   {'wbthomason/packer.nvim', opt = true},
 
-  {'bronson/vim-visual-star-search'},
-  {'chriskempson/base16-vim'},
-  {'janko-m/vim-test'},
-  {'junegunn/fzf'},
-  {'junegunn/fzf.vim'},
   {'neovim/nvim-lspconfig'},
-  {'nvim-treesitter/nvim-treesitter'},
   {'ojroques/nvim-lspfuzzy'},
-  {'ryvnf/readline.vim'},
+  {'nvim-treesitter/nvim-treesitter'},
+
   {'shougo/deoplete-lsp'},
   {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
+
+  {'junegunn/fzf'},
+  {'junegunn/fzf.vim'},
+  {'bronson/vim-visual-star-search'},
+
+  {'janko-m/vim-test'},
   {'tpope/vim-commentary'},
   {'tpope/vim-fugitive'},
   {'tpope/vim-rhubarb'},
   {'tpope/vim-surround'},
   {'tpope/vim-unimpaired'},
   {'tpope/vim-vinegar'},
+  {'ryvnf/readline.vim'},
+
+  {'chriskempson/base16-vim'},
 }})
 -- }}} --
 
