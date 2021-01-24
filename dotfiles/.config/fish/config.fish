@@ -39,7 +39,7 @@ if status --is-interactive
     abbr -a -g dc 'docker-compose'
     abbr -a -g dce 'docker-compose exec'
     abbr -a -g dr 'docker run --rm -it'
-    abbr -a -g e $EDITOR
+    abbr -a -g e 'edit'
     abbr -a -g g 'git'
     abbr -a -g ga 'git add'
     abbr -a -g gbc 'git checkout master && git branch | rg -v master | xargs git branch -D'

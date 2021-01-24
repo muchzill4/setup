@@ -54,6 +54,7 @@ require('packer').startup({{
   {'janko-m/vim-test'},
   {'tpope/vim-commentary'},
   {'tpope/vim-fugitive'},
+  {'tpope/vim-obsession'},
   {'tpope/vim-rhubarb'},
   {'tpope/vim-surround'},
   {'tpope/vim-unimpaired'},
