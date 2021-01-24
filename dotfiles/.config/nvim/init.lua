@@ -41,7 +41,8 @@ require('packer').startup({{
   {'ojroques/nvim-lspfuzzy'},
   {'nvim-treesitter/nvim-treesitter'},
 
-  {'nvim-lua/completion-nvim'},
+  {'shougo/deoplete-lsp'},
+  {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
   {'SirVer/ultisnips'},
   {'honza/vim-snippets'},
 
@@ -94,10 +95,8 @@ map('n', '<leader>ec', ':e ~/.config/nvim/colors/mc4.vim<CR>')
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
--- completion-nvim
-cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
-vim.g['completion_enable_auto_hover'] = 0
-vim.g['completion_enable_auto_signature'] = 0
+-- deoplete
+vim.g['deoplete#enable_at_startup'] = 1
 
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
