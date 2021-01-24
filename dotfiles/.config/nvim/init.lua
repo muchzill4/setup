@@ -40,6 +40,7 @@ require('packer').startup({{
   {'neovim/nvim-lspconfig'},
   {'ojroques/nvim-lspfuzzy'},
   {'nvim-treesitter/nvim-treesitter'},
+  {'Vimjas/vim-python-pep8-indent'},
 
   {'shougo/deoplete-lsp'},
   {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
