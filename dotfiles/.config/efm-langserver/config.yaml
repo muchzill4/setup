@@ -22,7 +22,7 @@ tools:
     lint-stdin: true
 
   python-black: &python-black
-    format-command: "black -"
+    format-command: "black --quiet -"
     format-stdin: true
 
   python-isort: &python-isort
@@ -31,7 +31,7 @@ tools:
 
 languages:
   python:
-    - <<: *python-flake8
+    # - <<: *python-flake8
     - <<: *python-mypy
     - <<: *python-black
     - <<: *python-isort
