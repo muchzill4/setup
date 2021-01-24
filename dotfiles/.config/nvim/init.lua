@@ -147,10 +147,11 @@ map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 map('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
 
 require('lspfuzzy').setup {}
-local nvim_lsp = require('lspconfig')
 
-nvim_lsp.jedi_language_server.setup {}
-nvim_lsp.efm.setup {
+local lspconfig = require('lspconfig')
+lspconfig.jedi_language_server.setup {}
+lspconfig.efm.setup {
   filetypes = {'python', 'markdown', 'yaml'}
 }
+
 --- }}} ---
