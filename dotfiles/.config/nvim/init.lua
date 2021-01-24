@@ -145,6 +145,7 @@ map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 map('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
+map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 
 require('lspfuzzy').setup {}
 
