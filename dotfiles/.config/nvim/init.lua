@@ -130,6 +130,7 @@ cmd 'au! BufWritePost init.lua :luafile %'
 cmd 'au! BufWritePost mc4.vim :source %'
 cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
+cmd 'command! W w'
 
 -- Load local vim config
 local local_config = os.getenv('LOCAL_VIM_CONFIG')
