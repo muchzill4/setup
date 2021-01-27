@@ -7,4 +7,4 @@ trap "rm -rf $TMPDIR" EXIT
 SHADOW_FILE=$TMPDIR/$SOURCE_FILE_NAME
 cat > $SHADOW_FILE
 
-mypy --show-column-numbers --shadow-file $SOURCE_FILE $SHADOW_FILE $SOURCE_FILE
+mypy --show-column-numbers --follow-imports=silent --shadow-file $SOURCE_FILE $SHADOW_FILE $SOURCE_FILE
