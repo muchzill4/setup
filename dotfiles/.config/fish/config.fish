@@ -32,10 +32,12 @@ set -x FZF_DEFAULT_COMMAND 'rg --files'
 set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
 
 if status --is-interactive
+    abbr -a -g va 'source .venv/bin/activate.fish'
+    abbr -a -g vc 'python -m venv .venv && source .venv/bin/activate.fish'
+    abbr -a -g vd 'deactivate'
     abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
     abbr -a -g c 'clear'
     abbr -a -g d 'docker'
-    abbr -a -g da 'direnv allow'
     abbr -a -g dc 'docker-compose'
     abbr -a -g dce 'docker-compose exec'
     abbr -a -g dr 'docker run --rm -it'
@@ -65,9 +67,6 @@ end
 
 # asdf
 source ~/.asdf/asdf.fish
-
-# direnv
-direnv hook fish | source
 
 # docker
 set -x DOCKER_BUILDKIT 1
