@@ -2,6 +2,7 @@
 # --------------------
 brew 'bat'
 brew 'curl'
+brew 'direnv'
 brew 'fish'
 brew 'fzf'
 brew 'git'
