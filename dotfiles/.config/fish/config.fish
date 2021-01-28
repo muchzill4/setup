@@ -67,6 +67,11 @@ function gpip
   PIP_REQUIRE_VIRTUALENV="" pip $argv
 end
 
+# ensure venv takes precedence
+if test -e $VIRTUAL_ENV
+  source $VIRTUAL_ENV/bin/activate.fish
+end
+
 # make completion fast again
 # https://github.com/fish-shell/fish-shell/issues/5825
 function __fish_describe_command
