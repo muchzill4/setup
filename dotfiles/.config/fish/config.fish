@@ -72,6 +72,13 @@ source ~/.asdf/asdf.fish
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
 
+# make pip explode if attempting to install packages globally 
+set -x PIP_REQUIRE_VIRTUALENV 1
+
+function gpip
+  PIP_REQUIRE_VIRTUALENV="" pip $argv
+end
+
 # make completion fast again
 # https://github.com/fish-shell/fish-shell/issues/5825
 function __fish_describe_command
