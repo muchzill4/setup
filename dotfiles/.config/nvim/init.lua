@@ -145,7 +145,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
-local on_attach = function(client, bufnr)
+local function on_attach(client, bufnr)
   local function cur_bmap(mode, lhs, rhs, opts)
     bmap(bufnr, mode, lhs, rhs, opts)
   end
