@@ -13,16 +13,6 @@ if not functions -q fisher
     fish -c fisher
 end
 
-# colors
-set fish_color_command green
-set fish_color_error red
-set fish_color_normal white
-set fish_color_operator magenta
-set fish_color_param normal
-set fish_color_quote cyan
-set fish_color_search_match --background=brblack
-set fish_color_valid_path normal --underline
-
 # env
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
