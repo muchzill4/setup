@@ -20,11 +20,6 @@ local function bmap(bufnr, mode, lhs, rhs, opts)
   local options = build_map_opts(opts)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
 end
-
-local function opt(scope, key, value)
-  vim[scope][key] = value
-  if scope ~= 'o' then vim['o'][key] = value end
-end
 -- }}} --
 
 -- PLUGINS {{{ --
@@ -69,25 +64,25 @@ require('packer').startup({{
 cmd 'colorscheme mc4'
 
 local indent = 2
-opt('bo', 'expandtab', true)
-opt('bo', 'shiftwidth', indent)
-opt('bo', 'tabstop', indent)
-opt('o', 'clipboard', 'unnamed')
-opt('o', 'completeopt', 'menuone,noinsert,noselect')
-opt('o', 'hidden', true)
-opt('o', 'ignorecase', true)
-opt('o', 'mouse', 'a')
-opt('o', 'scrolloff', 4)
-opt('o', 'smartcase', true)
-opt('o', 'splitbelow', true)
-opt('o', 'splitright', true)
-opt('o', 'termguicolors', false)
-opt('o', 'updatetime', 200)
-opt('o', 'wildmode', 'longest:full,full')
-opt('wo', 'number', true)
-opt('wo', 'relativenumber', true)
-opt('wo', 'signcolumn', 'yes')
-opt('wo', 'statusline', [[%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P]])
+vim.o.expandtab = true
+vim.o.shiftwidth = indent
+vim.o.tabstop = indent
+vim.o.clipboard = 'unnamed'
+vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.o.hidden = true
+vim.o.ignorecase = true
+vim.o.mouse = 'a'
+vim.o.scrolloff = 4
+vim.o.smartcase = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.termguicolors = false
+vim.o.updatetime = 200
+vim.o.wildmode = 'longest:full,full'
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.signcolumn = 'yes'
+vim.wo.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P]]
 -- }}} --
 
 -- MAPS {{{ --
