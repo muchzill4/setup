@@ -1,5 +1,3 @@
-set pure_color_mute white
-
 # fisher
 set -g fisher_path $HOME/.local/share/fish/fisher
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
@@ -7,10 +5,8 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
     builtin source $file 2> /dev/null
 end
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+if status is-interactive && ! functions --query fisher
+    curl --silent --location https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
 # colors
@@ -22,6 +18,7 @@ set fish_color_param normal
 set fish_color_quote cyan
 set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
+set pure_color_mute white
 
 # env
 set -x EDITOR 'nvim'
