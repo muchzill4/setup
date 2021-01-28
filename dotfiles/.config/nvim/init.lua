@@ -145,23 +145,38 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-map('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
-map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+local on_attach = function(client, bufnr)
+  local function cur_bmap(mode, lhs, rhs, opts)
+    bmap(bufnr, mode, lhs, rhs, opts)
+  end
+
+  cur_bmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  cur_bmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+  cur_bmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  cur_bmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  cur_bmap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  cur_bmap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  cur_bmap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  cur_bmap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+  cur_bmap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+  cur_bmap('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
+  cur_bmap('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+
+  if client.resolved_capabilities.document_formatting then
+    cur_bmap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+  elseif client.resolved_capabilities.document_range_formatting then
+    cur_bmap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+  end
+end
 
 require('lspfuzzy').setup {}
 
 local lspconfig = require('lspconfig')
-lspconfig.jedi_language_server.setup {}
+lspconfig.jedi_language_server.setup {
+  on_attach = on_attach
+}
 lspconfig.efm.setup {
+  on_attach = on_attach,
   filetypes = {'python', 'markdown', 'yaml'}
 }
 
