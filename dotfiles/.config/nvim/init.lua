@@ -76,13 +76,13 @@ vim.o.scrolloff = 4
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%{ObsessionStatus()}%=%-10.(%l,%c%V%) %P]]
 vim.o.termguicolors = false
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
-vim.wo.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%) %P]]
 -- }}} --
 
 -- MAPS {{{ --
