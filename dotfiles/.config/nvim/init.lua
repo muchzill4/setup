@@ -121,7 +121,7 @@ require('nvim-treesitter.configs').setup {
 -- }}} --
 
 -- MISC {{{ --
-cmd 'au! BufWritePost init.lua :luafile %'
+cmd 'au! BufWritePost $MYVIMRC :luafile %'
 cmd 'au! BufWritePost mc4.vim :source %'
 cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
