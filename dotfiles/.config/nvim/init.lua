@@ -47,7 +47,9 @@ require('packer').startup({{
   {'bronson/vim-visual-star-search'},
 
   {'janko-m/vim-test'},
+  {'tartansandal/vim-compiler-pytest'},
   {'tpope/vim-commentary'},
+  {'tpope/vim-dispatch'},
   {'tpope/vim-fugitive'},
   {'tpope/vim-obsession'},
   {'tpope/vim-rhubarb'},
@@ -105,7 +107,7 @@ map('n', '<leader>c', ':Commits<CR>')
 map('v', '<leader>s', [[:<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><cr>]])
 
 -- vim-test
-vim.g['test#strategy'] = 'neovim'
+vim.g['test#strategy'] = 'dispatch'
 map('n', '<leader>tf', ':TestFile<CR>')
 map('n', '<leader>tl', ':TestLast<CR>')
 map('n', '<leader>ts', ':TestSuite<CR>')
