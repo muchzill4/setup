@@ -78,7 +78,11 @@ vim.o.scrolloff = 4
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%{ObsessionStatus()}%=%-10.(%l,%c%V%) %P]]
+-- https://github.com/neovim/neovim/issues/13862
+function DiagnosticsStatus()
+  return require('lsp-status').diagnostics_info()
+end
+vim.o.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%{ObsessionStatus()}%{v:lua.DiagnosticsStatus()}%=%-10.(%l,%c%V%) %P]]
 vim.o.termguicolors = false
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
@@ -123,7 +127,7 @@ require('nvim-treesitter.configs').setup {
 -- }}} --
 
 -- MISC {{{ --
-cmd 'au! BufWritePost $MYVIMRC :luafile %'
+cmd 'au! BufWritePost init.lua :luafile %'
 cmd 'au! BufWritePost mc4.vim :source %'
 cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
