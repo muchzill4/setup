@@ -18,7 +18,6 @@ set fish_color_param normal
 set fish_color_quote cyan
 set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
-set pure_color_mute white
 
 # env
 set -x EDITOR 'nvim'
