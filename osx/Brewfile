@@ -15,7 +15,6 @@ brew 'wget'
 
 # Cask
 # --------------------
-cask 'adguard'
 cask 'alfred'
 cask 'calibre'
 cask 'dash'
@@ -30,11 +29,9 @@ cask 'kitty'
 cask 'moom'
 cask 'netnewswire'
 cask 'paw'
-cask 'pocket-casts'
 cask 'slack'
 cask 'spotify'
 cask 'tableplus'
-cask 'timing'
 cask 'transmission'
 cask 'whatsapp'
 
