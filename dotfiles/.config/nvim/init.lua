@@ -83,7 +83,15 @@ vim.o.splitright = true
 function DiagnosticsStatus()
   return require('lsp-status').diagnostics_info()
 end
-vim.o.statusline = [[%<%f %h%m%r%{FugitiveStatusline()}%{ObsessionStatus()}%{v:lua.DiagnosticsStatus()}%=%-10.(%l,%c%V%) %P]]
+local statusline = {
+  '%<%f %h%m%r',
+  '%{ObsessionStatus()}',
+  '%{FugitiveStatusline()}',
+  '%{v:lua.DiagnosticsStatus()}',
+  '%{sy#repo#get_stats_decorated()}',
+  '%=%-10.(%l,%c%V%) %P',
+}
+vim.o.statusline = table.concat(statusline)
 vim.o.termguicolors = false
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
