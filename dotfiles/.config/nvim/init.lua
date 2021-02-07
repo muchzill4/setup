@@ -47,6 +47,7 @@ require('packer').startup({{
   {'bronson/vim-visual-star-search'},
 
   {'janko-m/vim-test'},
+  {'mhinz/vim-signify'},
   {'tartansandal/vim-compiler-pytest'},
   {'tpope/vim-commentary'},
   {'tpope/vim-dispatch'},
@@ -116,6 +117,10 @@ map('n', '<leader>tf', ':TestFile<CR>')
 map('n', '<leader>tl', ':TestLast<CR>')
 map('n', '<leader>ts', ':TestSuite<CR>')
 map('n', '<leader>tt', ':TestNearest<CR>')
+
+-- vim-signify
+map('n', '<leader>hd', ':SignifyHunkDiff<CR>')
+map('n', '<leader>hu', ':SignifyHunkUndo<CR>')
 
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup {
