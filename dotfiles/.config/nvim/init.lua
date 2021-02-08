@@ -47,7 +47,6 @@ require('packer').startup({{
   {'bronson/vim-visual-star-search'},
 
   {'janko-m/vim-test'},
-  {'mhinz/vim-signify'},
   {'tartansandal/vim-compiler-pytest'},
   {'tpope/vim-commentary'},
   {'tpope/vim-dispatch'},
@@ -88,7 +87,6 @@ local statusline = {
   '%{ObsessionStatus()}',
   '%{FugitiveStatusline()}',
   '%{v:lua.DiagnosticsStatus()}',
-  '%{sy#repo#get_stats_decorated()}',
   '%=%-10.(%l,%c%V%) %P',
 }
 vim.o.statusline = table.concat(statusline)
@@ -125,10 +123,6 @@ map('n', '<leader>tf', ':TestFile<CR>')
 map('n', '<leader>tl', ':TestLast<CR>')
 map('n', '<leader>ts', ':TestSuite<CR>')
 map('n', '<leader>tt', ':TestNearest<CR>')
-
--- vim-signify
-map('n', '<leader>hd', ':SignifyHunkDiff<CR>')
-map('n', '<leader>hu', ':SignifyHunkUndo<CR>')
 
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup {
