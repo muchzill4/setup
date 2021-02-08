@@ -94,7 +94,6 @@ vim.o.termguicolors = false
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
 vim.wo.number = true
-vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 -- }}} --
 
@@ -118,7 +117,7 @@ map('n', '<leader>c', ':Commits<CR>')
 map('v', '<leader>s', [[:<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><cr>]])
 
 -- vim-test
-vim.g['test#strategy'] = 'dispatch'
+vim.g['test#strategy'] = 'neovim'
 map('n', '<leader>tf', ':TestFile<CR>')
 map('n', '<leader>tl', ':TestLast<CR>')
 map('n', '<leader>ts', ':TestSuite<CR>')
