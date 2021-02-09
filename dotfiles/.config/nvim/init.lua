@@ -87,9 +87,10 @@ end
 local statusline = {
   '%<%f %h%m%r',
   '%{ObsessionStatus()}',
+  '%=',
+  '%l:%c ',
   '%{FugitiveStatusline()}',
   '%{v:lua.DiagnosticsStatus()}',
-  '%=%-10.(%l,%c%V%) %P',
 }
 vim.o.statusline = table.concat(statusline)
 vim.o.termguicolors = false
