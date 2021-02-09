@@ -66,8 +66,6 @@ require('packer').startup({{
 cmd 'colorscheme mc4'
 
 local indent = 2
-map("n", "<space>", "<Nop>")
-vim.g.mapleader = " "
 vim.o.expandtab = true
 vim.o.shiftwidth = indent
 vim.o.tabstop = indent
