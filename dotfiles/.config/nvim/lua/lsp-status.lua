@@ -13,7 +13,7 @@ function M.diagnostics_info()
     local infos = {}
     for i = 1, #symbols do
       if stats[i] > 0 then
-        info = string.format('%s%d', symbols[i], stats[i])
+        info = string.format('%s:%d', symbols[i], stats[i])
         table.insert(infos, info)
       end
     end
