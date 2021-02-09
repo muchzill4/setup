@@ -84,9 +84,9 @@ function DiagnosticsStatus()
 end
 local statusline = {
   '%<%f %h%m%r',
-  '%{ObsessionStatus()}',
   '%=',
   '%l:%c ',
+  '%{ObsessionStatus()}',
   '%{FugitiveStatusline()}',
   '%{v:lua.DiagnosticsStatus()}',
 }
