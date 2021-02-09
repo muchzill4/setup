@@ -66,6 +66,8 @@ require('packer').startup({{
 cmd 'colorscheme mc4'
 
 local indent = 2
+map("n", "<space>", "<Nop>")
+vim.g.mapleader = " "
 vim.o.expandtab = true
 vim.o.shiftwidth = indent
 vim.o.tabstop = indent
@@ -167,17 +169,16 @@ local function on_attach(client, bufnr)
   cur_bmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
   cur_bmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   cur_bmap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  cur_bmap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  cur_bmap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>')
   cur_bmap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
   cur_bmap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  cur_bmap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  cur_bmap('n', '<space>d', '<cmd>LspDiagnostics 0<CR>')
-  cur_bmap('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+  cur_bmap('n', '<leader>le', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+  cur_bmap('n', '<leader>ld', '<cmd>LspDiagnostics 0<CR>')
 
   if client.resolved_capabilities.document_formatting then
-    cur_bmap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    cur_bmap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
   elseif client.resolved_capabilities.document_range_formatting then
-    cur_bmap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    cur_bmap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
   end
 end
 
