@@ -39,8 +39,8 @@ require('packer').startup({{
 
   {'shougo/deoplete-lsp'},
   {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
-  {'SirVer/ultisnips'},
-  {'honza/vim-snippets'},
+  {'Shougo/neosnippet.vim'},
+  {'Shougo/neosnippet-snippets'},
 
   {'junegunn/fzf'},
   {'junegunn/fzf.vim'},
@@ -111,6 +111,11 @@ map('n', '<leader>ec', ':e ~/.config/nvim/lua/mc4.lua<CR>')
 -- PLUGIN SETUP {{{ --
 -- deoplete
 vim.g['deoplete#enable_at_startup'] = 1
+
+-- neosnippet
+map('i', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
+map('s', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
+map('x', '<C-j>', '<Plug>(neosnippet_expand_target)', { noremap = false })
 
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
@@ -191,6 +196,17 @@ lspconfig.jedi_language_server.setup {
 lspconfig.efm.setup {
   on_attach = on_attach,
   filetypes = {'python', 'markdown', 'yaml'}
+}
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  settings = {
+    python = {
+      analysis = {
+        useLibraryCodeForTypes = false
+      }
+    }
+  }
+
 }
 
 --- }}} ---
