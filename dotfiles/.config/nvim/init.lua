@@ -82,9 +82,8 @@ local statusline = table.concat({
   '%<%f %h%m%r',
   '%=',
   '%l:%c',
-  '%1*',
   '%{ObsessionStatus(" $ ", " S ")}',
-  '%*',
+  '%1*',
   [[%{luaeval("require('statusline').branch_name()")}]],
   '%2*',
   [[%{luaeval("require('statusline').diag_count('Error')")}]],
@@ -97,7 +96,6 @@ vim.o.statusline = statusline
 vim.o.termguicolors = true
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
-vim.wo.cursorline = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 -- }}} --
