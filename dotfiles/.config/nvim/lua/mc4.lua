@@ -121,6 +121,11 @@ local colorscheme = {
   LspReferenceRead  = { style = 'bold,underline' },
   LspReferenceWrite = { style = 'bold,underline' },
 
+  -- Diff
+  diffAdded   = "DiffAdd",
+  diffChanged = "DiffChange",
+  diffRemoved = "DiffDelete",
+
   -- Statusline extras
   User1 = { fg = colors.purple, bg = colors.bg_brightest },
   User2 = { fg = colors.red, bg = colors.bg_brightest },
@@ -136,6 +141,10 @@ local function highlight(group, highlight_args)
   cmd(string.format('hi %s gui=%s guifg=%s guibg=%s', group, style, fg, bg))
 end
 
+local function link(from, to)
+  cmd(string.format('hi! link %s %s', from, to))
+end
+
 local function preamble()
   cmd('hi clear')
   if fn.exists('syntax_on') then
@@ -148,7 +157,11 @@ end
 local function apply()
   preamble()
   for group, args in pairs(colorscheme) do
-    highlight(group, args)
+    if type(args) == "table" then
+      highlight(group, args)
+    else
+      link(group, args)
+    end
   end
 end
 
