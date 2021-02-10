@@ -57,8 +57,6 @@ require('packer').startup({{
   {'tpope/vim-unimpaired'},
   {'tpope/vim-vinegar'},
   {'ryvnf/readline.vim'},
-
-  {'chriskempson/base16-vim'},
 }})
 -- }}} --
 
