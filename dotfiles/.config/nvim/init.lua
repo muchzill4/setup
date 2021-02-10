@@ -116,6 +116,7 @@ vim.g['deoplete#enable_at_startup'] = 1
 map('i', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
 map('s', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
 map('x', '<C-j>', '<Plug>(neosnippet_expand_target)', { noremap = false })
+vim.g['neosnippet#snippets_directory'] = fn.stdpath('config')..'/snips'
 
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
