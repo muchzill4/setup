@@ -79,21 +79,29 @@ vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 -- https://github.com/neovim/neovim/issues/13862
-function DiagnosticsStatus()
-  return require('lsp-status').diagnostics_info()
+function DiagnosticsStatus(severity)
+  return require('lsp-status').diagnostic_count(severity)
 end
-local statusline = {
+local statusline = table.concat({
   '%<%f %h%m%r',
   '%=',
-  '%l:%c ',
-  '%{ObsessionStatus()}',
-  '%{FugitiveStatusline()}',
-  '%{v:lua.DiagnosticsStatus()}',
-}
-vim.o.statusline = table.concat(statusline)
-vim.o.termguicolors = false
+  '%l:%c',
+  '%1*',
+  [[%{luaeval("require('statusline').obsession()")}]],
+  '%*',
+  [[%{luaeval("require('statusline').branch_name()")}]],
+  '%2*',
+  [[%{luaeval("require('statusline').diag_count('Error')")}]],
+  '%3*',
+  [[%{luaeval("require('statusline').diag_count('Warning')")}]],
+  '%4*',
+  [[%{luaeval("require('statusline').diag_count('Info')")}]],
+})
+vim.o.statusline = statusline
+vim.o.termguicolors = true
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
+vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.signcolumn = 'yes'
 -- }}} --
@@ -104,7 +112,7 @@ map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 map('n', '<leader>ev', ':e $MYVIMRC<CR>')
 map('n', '<leader>ek', ':e ~/.config/kitty/kitty.conf<CR>')
 map('n', '<leader>ef', ':e ~/.config/fish/config.fish<CR>')
-map('n', '<leader>ec', ':e ~/.config/nvim/colors/mc4.vim<CR>')
+map('n', '<leader>ec', ':e ~/.config/nvim/lua/mc4.lua<CR>')
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
