@@ -1,6 +1,5 @@
 local M = {}
 
-
 function M.diag_count(severity)
   local has_lsp_clients = not vim.tbl_isempty(vim.lsp.buf_get_clients(0))
   if has_lsp_clients then
@@ -20,14 +19,5 @@ function M.branch_name()
   end
   return ''
 end
-
-function M.obsession()
-  local status = vim.fn.ObsessionStatus('on', 'off')
-  if status == 'on' then
-    return ' * '
-  end
-  return ''
-end
-
 
 return M

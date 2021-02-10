@@ -87,7 +87,7 @@ local statusline = table.concat({
   '%=',
   '%l:%c',
   '%1*',
-  [[%{luaeval("require('statusline').obsession()")}]],
+  '%{ObsessionStatus(" $ ", " S ")}',
   '%*',
   [[%{luaeval("require('statusline').branch_name()")}]],
   '%2*',

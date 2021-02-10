@@ -122,7 +122,7 @@ local colorscheme = {
   LspReferenceWrite = { style = 'bold,underline' },
 
   -- Statusline extras
-  User1 = { fg = colors.red, bg = colors.bg_brightest },
+  User1 = { fg = colors.cyan, bg = colors.bg_brightest },
   User2 = { fg = colors.red, bg = colors.bg_brightest },
   User3 = { fg = colors.yellow, bg = colors.bg_brightest },
   User4 = { fg = colors.blue, bg = colors.bg_brightest },
