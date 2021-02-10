@@ -50,8 +50,8 @@ end
 setmetatable(colors, mt)
 
 colors.bg_bright = colors['bg+20']
-colors.bg_brighter = colors['bg+50']
-colors.bg_brightest = colors['bg+120']
+colors.bg_brighter = colors['bg+30']
+colors.bg_brightest = colors['bg+100']
 colors.fg_dark = colors['fg-30']
 
 local colorscheme = {
@@ -66,18 +66,18 @@ local colorscheme = {
   Directory    = { fg = colors.blue },
   EndOfBuffer  = { fg = colors.bg_brighter },
   ErrorMsg     = { fg = colors.bg, bg = colors.red },
-  Folded       = { fg = colors['black+50'], style = 'italic' },
+  Folded       = { fg = colors.black },
   IncSearch    = { fg = colors.bg, bg = colors.yellow },
   LineNr       = { fg = colors.black },
   MatchParen   = { bg = colors['blue-50'] },
   ModeMsg      = { fg = colors.purple, style = 'bold' },
   NonText      = { fg = colors.bg_brightest },
   Normal       = { fg = colors.fg, bg = colors.bg },
-  Pmenu        = { fg = colors.white, bg = colors.bg_brighter },
+  Pmenu        = { fg = colors.fg_dark, bg = colors.bg_brighter },
   PmenuSel     = { fg = colors.fg, bg = colors.bg_brightest },
   Search       = { bg = colors['yellow-65'] },
   SignColumn   = { bg = colors.bg },
-  SpellBad     = { fg = colors.red, style = 'underline,italic' },
+  SpellBad     = { fg = colors.red, style = 'underline' },
   StatusLine   = { fg = colors.fg, bg = colors.bg_brightest },
   StatusLineNC = { fg = colors.fg_dark, bg = colors.bg_brighter },
   TabLine      = { fg = colors.fg_dark, bg = colors.bg_brighter },
@@ -87,7 +87,7 @@ local colorscheme = {
   VertSplit    = { fg = colors.bg_brighter },
   Visual       = { bg = colors.bg_brightest },
 
-  Comment      = { fg = colors['blue+20'], style = 'italic' },
+  Comment      = { fg = colors['blue+20'] },
 
   Constant     = { fg = colors.green },
   String       = { fg = colors.cyan },
@@ -95,7 +95,7 @@ local colorscheme = {
   Identifier   = { fg = colors['yellow-15'] },
   Function     = { fg = colors['yellow+10'] },
 
-  Statement    = { fg = colors['white-15'], style = 'italic' },
+  Statement    = { fg = colors['white-15'] },
 
   PreProc      = { fg = colors.white },
 
@@ -122,7 +122,7 @@ local colorscheme = {
   LspReferenceWrite = { style = 'bold,underline' },
 
   -- Statusline extras
-  User1 = { fg = colors.cyan, bg = colors.bg_brightest },
+  User1 = { fg = colors.purple, bg = colors.bg_brightest },
   User2 = { fg = colors.red, bg = colors.bg_brightest },
   User3 = { fg = colors.yellow, bg = colors.bg_brightest },
   User4 = { fg = colors.blue, bg = colors.bg_brightest },
