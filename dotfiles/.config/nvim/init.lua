@@ -78,10 +78,6 @@ vim.o.scrolloff = 4
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
--- https://github.com/neovim/neovim/issues/13862
-function DiagnosticsStatus(severity)
-  return require('lsp-status').diagnostic_count(severity)
-end
 local statusline = table.concat({
   '%<%f %h%m%r',
   '%=',
@@ -102,7 +98,7 @@ vim.o.termguicolors = true
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
 vim.wo.cursorline = true
-vim.wo.number = true
+vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 -- }}} --
 
