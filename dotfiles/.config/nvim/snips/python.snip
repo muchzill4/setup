@@ -10,3 +10,8 @@ options     head
   @pytest.mark.django_db
 	def test_${1:#:name}(${2}):
 		${0:pass}
+
+snippet     patch
+abbr        @mock.patch(...)
+options     head
+  @mock.patch("${1:#:target}")
