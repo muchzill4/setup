@@ -100,6 +100,8 @@ vim.wo.signcolumn = 'yes'
 -- }}} --
 
 -- MAPS {{{ --
+map('n', '<space>', '<Nop>')
+vim.g.mapleader = ' '
 map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 
 map('n', '<leader>ev', ':e $MYVIMRC<CR>')
