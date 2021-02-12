@@ -1,14 +1,14 @@
 snippet     test
 abbr        def test_function(...): ...
 options     head
-	def test_${1:#:name}(${2}):
+	def test_${1:#:name}(${2}) -> None:
 		${0:pass}
 
 snippet     tesd
 abbr        @django_db(def test_function(...): ...)
 options     head
   @pytest.mark.django_db
-	def test_${1:#:name}(${2}):
+	def test_${1:#:name}(${2}) -> None:
 		${0:pass}
 
 snippet     patch
