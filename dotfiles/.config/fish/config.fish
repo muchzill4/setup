@@ -1,3 +1,9 @@
+# make completion fast again
+# https://github.com/fish-shell/fish-shell/issues/5825
+function __fish_describe_command
+  return
+end
+
 # fisher
 set -g fisher_path $HOME/.local/share/fish/fisher
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
@@ -9,7 +15,7 @@ if status is-interactive && ! functions --query fisher
     curl --silent --location https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
-# colors
+# fish
 set fish_color_command green
 set fish_color_error red
 set fish_color_normal white
@@ -18,12 +24,6 @@ set fish_color_param normal
 set fish_color_quote cyan
 set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
-
-# env
-set -x EDITOR 'nvim'
-set -x VISUAL $EDITOR
-set -x FZF_DEFAULT_COMMAND 'rg --files'
-set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
 
 if status --is-interactive
     abbr -a -g va 'source .venv/bin/activate.fish'
@@ -59,11 +59,13 @@ if status --is-interactive
     abbr -a -g md 'mkdir -p'
 end
 
-# asdf
-source ~/.asdf/asdf.fish
+# env
+set -x EDITOR 'nvim'
+set -x VISUAL $EDITOR
 
-# direnv
-direnv hook fish | source
+# fzf
+set -x FZF_DEFAULT_COMMAND 'rg --files'
+set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
 
 # docker
 set -x DOCKER_BUILDKIT 1
@@ -81,8 +83,8 @@ if test -e $VIRTUAL_ENV
   source $VIRTUAL_ENV/bin/activate.fish
 end
 
-# make completion fast again
-# https://github.com/fish-shell/fish-shell/issues/5825
-function __fish_describe_command
-  return
-end
+# asdf
+source ~/.asdf/asdf.fish
+
+# direnv
+direnv hook fish | source
