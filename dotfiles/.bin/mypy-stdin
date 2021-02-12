@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 SOURCE_FILE=$1
 SOURCE_FILE_NAME=$(basename "$1")
 
