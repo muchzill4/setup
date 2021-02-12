@@ -84,7 +84,7 @@ local colorscheme = {
   TabLineFill  = { fg = colors.fg_dark, bg = colors.bg_brighter },
   TabLineSel   = { fg = colors.fg, bg = colors.bg_brightest },
   Title        = { fg = colors.cyan, style = 'bold' },
-  VertSplit    = { fg = colors.bg_brighter },
+  VertSplit    = { bg = colors.bg_brighter, fg = colors.bg_brighter },
   Visual       = { bg = colors.bg_brightest },
 
   Comment      = { fg = colors['blue+20'] },
