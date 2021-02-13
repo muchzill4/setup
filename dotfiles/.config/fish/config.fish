@@ -90,5 +90,10 @@ end
 # asdf
 source ~/.asdf/asdf.fish
 
+# ensure venv takes precedence over asdf (:checkhealth provider)
+if test -e $VIRTUAL_ENV
+  source $VIRTUAL_ENV/bin/activate.fish
+end
+
 # direnv
 direnv hook fish | source
