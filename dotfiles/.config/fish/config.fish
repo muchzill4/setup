@@ -63,6 +63,9 @@ end
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
 
+# ripgrep
+set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
+
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
 set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
