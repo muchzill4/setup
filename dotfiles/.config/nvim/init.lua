@@ -103,11 +103,6 @@ vim.wo.signcolumn = 'yes'
 map('n', '<space>', '<Nop>')
 vim.g.mapleader = ' '
 map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
-
-map('n', '<leader>ev', ':e $MYVIMRC<CR>')
-map('n', '<leader>ek', ':e ~/.config/kitty/kitty.conf<CR>')
-map('n', '<leader>ef', ':e ~/.config/fish/config.fish<CR>')
-map('n', '<leader>ec', ':e ~/.config/nvim/lua/mc4.lua<CR>')
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
