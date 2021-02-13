@@ -81,9 +81,10 @@ function gpip
   PIP_REQUIRE_VIRTUALENV="" pip $argv
 end
 
-# ensure venv takes precedence
-if test -e $VIRTUAL_ENV
-  source $VIRTUAL_ENV/bin/activate.fish
+# path    # fzf                  # pipx           # dotfiles
+set paths /usr/local/opt/fzf/bin $HOME/.local/bin $HOME/.bin
+for path in $paths
+  contains $path $PATH; or set -x PATH $path $PATH
 end
 
 # asdf
