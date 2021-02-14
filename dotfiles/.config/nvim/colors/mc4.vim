@@ -1,1 +1,1 @@
-lua require('mc4')
+lua require('mc4/colorscheme')
