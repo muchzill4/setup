@@ -189,23 +189,12 @@ end
 require('lspfuzzy').setup {}
 
 local lspconfig = require('lspconfig')
-lspconfig.jedi_language_server.setup {
-  on_attach = on_attach
-}
 lspconfig.efm.setup {
   on_attach = on_attach,
   filetypes = {'python', 'markdown', 'yaml'}
 }
 lspconfig.pyright.setup {
   on_attach = on_attach,
-  settings = {
-    python = {
-      analysis = {
-        useLibraryCodeForTypes = false
-      }
-    }
-  }
-
 }
 
 --- }}} ---
