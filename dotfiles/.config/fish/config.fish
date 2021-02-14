@@ -9,10 +9,10 @@ set -g fisher_path $HOME/.local/share/fish/fisher
 set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
 set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
 for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2> /dev/null
+  builtin source $file 2> /dev/null
 end
 if status is-interactive && ! functions --query fisher
-    curl --silent --location https://git.io/fisher | source && fisher install jorgebucaran/fisher
+  curl --silent --location https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
 # fish
@@ -26,37 +26,37 @@ set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
 
 if status --is-interactive
-    abbr -a -g va 'source .venv/bin/activate.fish'
-    abbr -a -g vc 'python -m venv .venv && source .venv/bin/activate.fish'
-    abbr -a -g vd 'deactivate'
-    abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
-    abbr -a -g c 'clear'
-    abbr -a -g d 'docker'
-    abbr -a -g dc 'docker-compose'
-    abbr -a -g dce 'docker-compose exec'
-    abbr -a -g dr 'docker run --rm -it'
-    abbr -a -g e 'edit'
-    abbr -a -g g 'git'
-    abbr -a -g ga 'git add'
-    abbr -a -g gbc 'git checkout master && git branch | rg -v master | xargs git branch -D'
-    abbr -a -g gc 'git commit'
-    abbr -a -g gca 'git commit --amend'
-    abbr -a -g gco 'git checkout'
-    abbr -a -g gd 'git diff'
-    abbr -a -g gf 'git fetch'
-    abbr -a -g gl 'git log --graph --pretty=oneline --abbrev-commit'
-    abbr -a -g gll 'git log -p'
-    abbr -a -g gp 'git push'
-    abbr -a -g gq 'git pull'
-    abbr -a -g gr 'git rebase'
-    abbr -a -g grm 'git fetch && git rebase origin/master'
-    abbr -a -g gs 'git status'
-    abbr -a -g gst 'git stash'
-    abbr -a -g gsta 'git stash apply'
-    abbr -a -g gstp 'git stash pop'
-    abbr -a -g la 'ls -AF'
-    abbr -a -g ll 'ls -alh'
-    abbr -a -g md 'mkdir -p'
+  abbr -a -g va 'source .venv/bin/activate.fish'
+  abbr -a -g vc 'python -m venv .venv && source .venv/bin/activate.fish'
+  abbr -a -g vd 'deactivate'
+  abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
+  abbr -a -g c 'clear'
+  abbr -a -g d 'docker'
+  abbr -a -g dc 'docker-compose'
+  abbr -a -g dce 'docker-compose exec'
+  abbr -a -g dr 'docker run --rm -it'
+  abbr -a -g e 'edit'
+  abbr -a -g g 'git'
+  abbr -a -g ga 'git add'
+  abbr -a -g gbc 'git checkout master && git branch | rg -v master | xargs git branch -D'
+  abbr -a -g gc 'git commit'
+  abbr -a -g gca 'git commit --amend'
+  abbr -a -g gco 'git checkout'
+  abbr -a -g gd 'git diff'
+  abbr -a -g gf 'git fetch'
+  abbr -a -g gl 'git log --graph --pretty=oneline --abbrev-commit'
+  abbr -a -g gll 'git log -p'
+  abbr -a -g gp 'git push'
+  abbr -a -g gq 'git pull'
+  abbr -a -g gr 'git rebase'
+  abbr -a -g grm 'git fetch && git rebase origin/master'
+  abbr -a -g gs 'git status'
+  abbr -a -g gst 'git stash'
+  abbr -a -g gsta 'git stash apply'
+  abbr -a -g gstp 'git stash pop'
+  abbr -a -g la 'ls -AF'
+  abbr -a -g ll 'ls -alh'
+  abbr -a -g md 'mkdir -p'
 end
 
 # env
