@@ -87,13 +87,19 @@ for path in $paths
   contains $path $PATH; or set -x PATH $path $PATH
 end
 
-# asdf
-source ~/.asdf/asdf.fish
+# asdf customised to stop forcefully being first in PATH (overrides venv otherwise)
+set -x ASDF_DIR $HOME/.asdf
+set -l asdf_bin_dirs $ASDF_DIR/bin $ASDF_DIR/shims
 
-# ensure venv takes precedence over asdf (:checkhealth provider)
-if test -e $VIRTUAL_ENV
-  source $VIRTUAL_ENV/bin/activate.fish
+for x in $asdf_bin_dirs
+  if test -d $x
+    if not contains $x $PATH
+      set PATH $x $PATH
+    end
+  end
 end
+
+source $ASDF_DIR/lib/asdf.fish
 
 # direnv
 direnv hook fish | source
