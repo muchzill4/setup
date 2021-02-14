@@ -81,15 +81,16 @@ local statusline = table.concat({
   '%<%f %h%m%r',
   '%=',
   '%l:%c',
-  '%{ObsessionStatus(" $ ", " S ")}',
-  '%1*',
-  [[%{luaeval("require('statusline').branch_name()")}]],
   '%2*',
   [[%{luaeval("require('statusline').diag_count('Error')")}]],
   '%3*',
   [[%{luaeval("require('statusline').diag_count('Warning')")}]],
   '%4*',
   [[%{luaeval("require('statusline').diag_count('Info')")}]],
+  '%1*',
+  [[%{luaeval("require('statusline').branch_name()")}]],
+  '%*',
+  '%{ObsessionStatus(" $ ", " S ")}',
 })
 vim.o.statusline = statusline
 vim.o.termguicolors = true
