@@ -96,6 +96,7 @@ vim.o.statusline = statusline
 vim.o.termguicolors = true
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
+vim.wo.cursorline = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 -- }}} --

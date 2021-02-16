@@ -50,12 +50,12 @@ end
 setmetatable(colors, mt)
 
 colors.bg_bright = colors['bg+20']
-colors.bg_brighter = colors['bg+30']
+colors.bg_brighter = colors['bg+40']
 colors.bg_brightest = colors['bg+100']
 colors.fg_dark = colors['fg-30']
 
 local colorscheme = {
-  ColorColumn = { bg = colors['bg+10'] },
+  ColorColumn =  { bg = colors['bg+10'] },
   CursorColumn = { bg = colors.bg_bright },
   CursorLine   = { bg = colors.bg_bright },
   CursorLineNr = { fg = colors.white, bg = colors.bg_bright },
