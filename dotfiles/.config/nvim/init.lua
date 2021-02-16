@@ -64,8 +64,9 @@ require('packer').startup({{
 -- SETTINGS {{{ --
 cmd 'colorscheme mc4'
 
-local indent = 2
+vim.g.python3_host_prog = os.getenv('HOME')..'/.venvs/neovim3/bin/python'
 vim.o.expandtab = true
+local indent = 2
 vim.o.shiftwidth = indent
 vim.o.tabstop = indent
 vim.o.clipboard = 'unnamed'
@@ -145,9 +146,6 @@ cmd 'au! BufWritePost mc4.lua :luafile %'
 cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
 cmd 'command! W w'
-
--- Python
-vim.g.python3_host_prog = os.getenv('HOME')..'/.venvs/neovim3/bin/python'
 
 -- Load local vim config
 local local_config = os.getenv('LOCAL_VIM_CONFIG')
