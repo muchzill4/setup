@@ -49,7 +49,7 @@ end
 
 setmetatable(colors, mt)
 
-colors.bg_bright = colors['bg+20']
+colors.bg_bright = colors['bg+15']
 colors.bg_brighter = colors['bg+40']
 colors.bg_brightest = colors['bg+100']
 colors.fg_dark = colors['fg-30']
@@ -58,7 +58,7 @@ local colorscheme = {
   ColorColumn =  { bg = colors['bg+10'] },
   CursorColumn = { bg = colors.bg_bright },
   CursorLine   = { bg = colors.bg_bright },
-  CursorLineNr = { fg = colors.white, bg = colors.bg_bright },
+  CursorLineNr = { fg = colors.green, bg = colors.bg_bright },
   DiffAdd      = { fg = colors.green, bg = colors['green-75'] },
   DiffChange   = { fg = colors.yellow, bg = colors['yellow-75'] },
   DiffDelete   = { fg = colors.red, bg = colors['red-75'] },
