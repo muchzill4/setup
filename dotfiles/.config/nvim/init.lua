@@ -100,6 +100,8 @@ vim.o.wildmode = 'longest:full,full'
 vim.wo.cursorline = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
+vim.o.pumblend = 10
+cmd [[hi PmenuSel blend=0]]
 -- }}} --
 
 -- MAPS {{{ --
