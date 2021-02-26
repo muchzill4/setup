@@ -156,6 +156,8 @@ end
 -- }}} --
 
 -- LSP {{{ --
+require('lspfuzzy').setup {}
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -180,20 +182,65 @@ local function on_attach(client, bufnr)
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  elseif client.resolved_capabilities.document_range_formatting then
-    cur_bmap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
   end
 end
 
-require('lspfuzzy').setup {}
-
 local lspconfig = require('lspconfig')
+
+lspconfig.jedi_language_server.setup {
+  on_attach = on_attach,
+}
+
+local efm_tools = {
+  prettier = {
+    formatCommand = 'prettier --stdin-filepath ${INPUT}',
+    formatStdin = true
+  },
+  flake8 = {
+    lintCommand = 'flake8 --stdin-display-name ${INPUT} -',
+    lintStdin = true,
+    lintFormats = {'%f:%l:%c: %m'},
+  },
+  mypy = {
+    lintCommand = 'mypy-stdin ${INPUT} -',
+    lintFormats = {
+      '%f:%l:%c: %trror: %m',
+      '%f:%l:%c: %tarning: %m',
+      '%f:%l:%c: %tote: %m',
+    },
+    lintStdin = true
+  },
+  black = {
+    formatCommand = 'black --quiet -',
+    formatStdin = true,
+  },
+  isort = {
+    formatCommand = 'isort --quiet -',
+    formatStdin = true,
+  }
+}
+
+local efm_languages = {
+  python = {
+    efm_tools.flake8,
+    efm_tools.mypy,
+    efm_tools.black,
+    efm_tools.isort,
+  },
+  markdown = { efm_tools.prettier },
+  yaml = { efm_tools.prettier },
+}
+
 lspconfig.efm.setup {
   on_attach = on_attach,
-  filetypes = {'python', 'markdown', 'yaml'}
+  root_dir = lspconfig.util.root_pattern('.git'),
+  init_options = {
+    documentFormatting = true,
+    codeAction = true
+  },
+  settings = {
+    languages = efm_languages
+  },
+  filetypes = vim.tbl_keys(efm_languages)
 }
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-}
-
 --- }}} ---
