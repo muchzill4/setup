@@ -1,5 +1,6 @@
 # Homebrew
 # --------------------
+brew 'asdf'
 brew 'bat'
 brew 'curl'
 brew 'direnv'
