@@ -12,6 +12,7 @@ brew 'neovim'
 brew 'openssl'
 brew 'pipx'
 brew 'ripgrep'
+brew 'tmux'
 brew 'wget'
 
 # Cask
