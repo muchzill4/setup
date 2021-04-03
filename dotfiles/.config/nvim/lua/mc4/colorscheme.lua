@@ -29,7 +29,7 @@ local colors = {
   red    = '#de5c6b',
   green  = '#7ec699',
   yellow = '#ffac45',
-  blue   = '#6e9acb',
+  blue   = '#84b8f3',
   purple = '#e0a8e1',
   cyan   = '#d2ad9b',
   white  = '#c5d3e7',
@@ -107,7 +107,7 @@ local colorscheme = {
 
   Error        = { fg = colors.red },
 
-  Todo         = { fg = colors['blue+40'], style = 'italic,bold' },
+  Todo         = { fg = colors.blue, style = 'bold,italic' },
 
   LspDiagnosticsDefaultError         = { fg = colors.red },
   LspDiagnosticsDefaultWarning       = { fg = colors.yellow },
