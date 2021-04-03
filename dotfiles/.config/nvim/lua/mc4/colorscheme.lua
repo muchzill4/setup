@@ -69,7 +69,7 @@ local colorscheme = {
   Folded       = { fg = colors.black },
   IncSearch    = { fg = colors.bg, bg = colors.yellow },
   LineNr       = { fg = colors.black },
-  MatchParen   = { bg = colors['blue-50'] },
+  MatchParen   = { bg = colors['green-60'] },
   ModeMsg      = { fg = colors.purple, style = 'bold' },
   NonText      = { fg = colors.bg_brightest },
   Normal       = { fg = colors.fg, bg = colors.bg },
