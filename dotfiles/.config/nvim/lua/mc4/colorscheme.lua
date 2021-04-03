@@ -28,7 +28,7 @@ local colors = {
   black  = '#504f6e',
   red    = '#de5c6b',
   green  = '#7ec699',
-  yellow = '#ea9d3f',
+  yellow = '#ffac45',
   blue   = '#6e9acb',
   purple = '#e0a8e1',
   cyan   = '#d2ad9b',
@@ -93,7 +93,7 @@ local colorscheme = {
   String       = { fg = colors.cyan },
 
   Identifier   = { fg = colors['yellow-15'] },
-  Function     = { fg = colors['yellow+10'] },
+  Function     = { fg = colors.yellow },
 
   Statement    = { fg = colors['white-15'] },
 
