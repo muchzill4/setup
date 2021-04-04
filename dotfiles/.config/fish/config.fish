@@ -38,7 +38,6 @@ if status --is-interactive
   abbr -a -g e 'edit'
   abbr -a -g g 'git'
   abbr -a -g ga 'git add'
-  abbr -a -g gbc 'git checkout master && git branch | rg -v master | xargs git branch -D'
   abbr -a -g gc 'git commit'
   abbr -a -g gca 'git commit --amend'
   abbr -a -g gco 'git checkout'
