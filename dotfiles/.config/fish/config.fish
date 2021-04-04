@@ -26,9 +26,6 @@ set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
 
 if status --is-interactive
-  abbr -a -g va 'source .venv/bin/activate.fish'
-  abbr -a -g vc 'python -m venv .venv && source .venv/bin/activate.fish'
-  abbr -a -g vd 'deactivate'
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
   abbr -a -g c 'clear'
   abbr -a -g d 'docker'
