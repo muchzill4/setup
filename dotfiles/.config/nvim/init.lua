@@ -227,6 +227,7 @@ local efm_languages = {
     efm_tools.black,
     efm_tools.isort,
   },
+  javascript = { efm_tools.prettier },
   markdown = { efm_tools.prettier },
   yaml = { efm_tools.prettier },
 }
