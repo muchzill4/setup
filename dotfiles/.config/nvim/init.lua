@@ -93,6 +93,7 @@ local statusline = table.concat({
 })
 vim.o.statusline = statusline
 vim.o.termguicolors = true
+vim.o.tags = vim.o.tags..',.git/tags'
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
 vim.wo.relativenumber = true
@@ -120,6 +121,7 @@ vim.g['neosnippet#snippets_directory'] = fn.stdpath('config')..'/snips'
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
 map('n', '<leader>b', ':Buffers<CR>')
+map('n', '<leader>t', ':Tags<CR>')
 map('n', '<leader>c', ':Commits<CR>')
 map('n', '<leader>s', ':Rg <C-r><C-w><CR>')
 map('v', '<leader>s', [[:<C-u>call VisualStarSearchSet('/', 'raw')<CR>:Rg <C-r><C-/><cr>]])

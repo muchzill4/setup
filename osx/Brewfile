@@ -16,6 +16,7 @@ brew 'pipx'
 brew 'ripgrep'
 brew 'tmux'
 brew 'wget'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ["HEAD"]
 
 # Cask
 # --------------------
