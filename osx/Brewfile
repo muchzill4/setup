@@ -40,6 +40,10 @@ cask 'tableplus'
 cask 'transmission'
 cask 'whatsapp'
 
+# Fonts
+# --------------------
+brew 'font-sf-mono'
+
 # Misc
 # --------------------
 tap 'homebrew/cask-drivers'
