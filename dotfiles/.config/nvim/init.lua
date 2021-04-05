@@ -252,4 +252,4 @@ lspconfig.efm.setup {
   },
   filetypes = vim.tbl_keys(efm_languages)
 }
---- }}} ---
+-- }}} --
