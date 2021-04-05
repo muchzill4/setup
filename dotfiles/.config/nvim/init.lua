@@ -193,6 +193,10 @@ lspconfig.jedi_language_server.setup {
   on_attach = on_attach,
 }
 
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+}
+
 local efm_tools = {
   prettier = {
     formatCommand = 'prettier --stdin-filepath ${INPUT}',
