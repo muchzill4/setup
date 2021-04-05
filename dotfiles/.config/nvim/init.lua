@@ -71,6 +71,7 @@ vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.hidden = true
 vim.o.ignorecase = true
+vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = 'a'
 vim.o.scrolloff = 4
