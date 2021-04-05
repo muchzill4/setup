@@ -113,6 +113,7 @@ map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 -- PLUGIN SETUP {{{ --
 -- deoplete
 vim.g['deoplete#enable_at_startup'] = 1
+cmd([[call deoplete#custom#source('lsp', 'input_pattern', '[a-zA-Z_]\w*$')]])
 
 -- neosnippet
 map('i', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
