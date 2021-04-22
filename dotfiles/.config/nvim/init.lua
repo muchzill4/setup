@@ -37,10 +37,8 @@ require('packer').startup({{
   {'nvim-treesitter/nvim-treesitter'},
   {'Vimjas/vim-python-pep8-indent'},
 
-  {'shougo/deoplete-lsp'},
-  {'shougo/deoplete.nvim', run = ':UpdateRemotePlugins'},
-  {'Shougo/neosnippet.vim'},
-  {'Shougo/neosnippet-snippets'},
+  {'hrsh7th/nvim-compe'},
+  {'hrsh7th/vim-vsnip', requires={'rafamadriz/friendly-snippets'}},
 
   {'junegunn/fzf'},
   {'junegunn/fzf.vim'},
@@ -111,15 +109,70 @@ map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
--- deoplete
-vim.g['deoplete#enable_at_startup'] = 1
-cmd([[call deoplete#custom#source('lsp', 'input_pattern', '[a-zA-Z_]\w*$')]])
+-- nvim-compe
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
 
--- neosnippet
-map('i', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
-map('s', '<C-j>', '<Plug>(neosnippet_expand_or_jump)', { noremap = false })
-map('x', '<C-j>', '<Plug>(neosnippet_expand_target)', { noremap = false })
-vim.g['neosnippet#snippets_directory'] = fn.stdpath('config')..'/snips'
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    vsnip = true;
+  };
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+  local col = fn.col('.') - 1
+  if col == 0 or fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
+end
+
+_G.tab_complete = function()
+  if fn.call("vsnip#jumpable", {1}) == 1 then
+    return t "<Plug>(vsnip-jump-next)"
+  elseif fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return fn["compe#complete"]()
+  end
+end
+_G.s_tab_complete = function()
+  if fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
+  elseif fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+map('i', '<CR>', [[compe#confirm('<CR>')]], {expr = true, noremap = false})
+map('i', '<Tab>', 'v:lua.tab_complete()', {expr = true, noremap = false})
+map('s', '<Tab>', 'v:lua.tab_complete()', {expr = true, noremap = false})
+map('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true, noremap = false})
+map('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true, noremap = false})
 
 -- fzf
 map('n', '<leader>f', ':Files<CR>')
