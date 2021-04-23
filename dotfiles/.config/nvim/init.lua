@@ -105,7 +105,6 @@ cmd [[hi PmenuSel blend=0]]
 -- MAPS {{{ --
 map('n', '<space>', '<Nop>')
 vim.g.mapleader = ' '
-map('t', '<C-o>', '<C-\\><C-n>') -- to quit insert in terminal
 -- }}} --
 
 -- PLUGIN SETUP {{{ --
@@ -205,6 +204,16 @@ cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
 cmd 'au! VimResized * wincmd ='
 cmd 'command! W w'
+
+-- C-o to exit insert in terminal
+-- Don't show numbers
+vim.api.nvim_exec([[
+  augroup Terminal
+    autocmd!
+    au TermOpen * tnoremap <buffer> <C-o> <C-\><C-n>
+    au TermOpen * set norelativenumber
+  augroup end
+]], false)
 
 -- Load local vim config
 local local_config = os.getenv('LOCAL_VIM_CONFIG')
