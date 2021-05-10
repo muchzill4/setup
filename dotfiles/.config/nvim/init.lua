@@ -72,6 +72,7 @@ vim.o.ignorecase = true
 vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = 'a'
+vim.wo.number = true
 vim.o.scrolloff = 4
 vim.o.smartcase = true
 vim.o.splitbelow = true
@@ -200,7 +201,6 @@ require('nvim-treesitter.configs').setup {
 -- MISC {{{ --
 cmd 'au! BufWritePost init.lua :luafile %'
 cmd 'au! BufWritePost mc4.lua :luafile %'
-cmd 'au! TermOpen * startinsert'
 cmd 'au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
 cmd 'au! VimResized * wincmd ='
 cmd 'command! W w'
@@ -210,8 +210,9 @@ cmd 'command! W w'
 vim.api.nvim_exec([[
   augroup Terminal
     autocmd!
+    au TermOpen * startinsert
     au TermOpen * tnoremap <buffer> <C-o> <C-\><C-n>
-    au TermOpen * set norelativenumber
+    au TermOpen * setlocal nonumber norelativenumber
   augroup end
 ]], false)
 
