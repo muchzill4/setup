@@ -73,6 +73,7 @@ vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = 'a'
 vim.wo.number = true
+vim.wo.colorcolumn = '80'
 vim.o.scrolloff = 8
 vim.o.smartcase = true
 vim.o.splitbelow = true
