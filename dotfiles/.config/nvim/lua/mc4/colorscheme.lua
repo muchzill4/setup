@@ -92,7 +92,7 @@ local colorscheme = {
   Constant     = { fg = colors.green },
   String       = { fg = colors.cyan },
 
-  Identifier   = { fg = colors['yellow-15'] },
+  Identifier   = { fg = colors['yellow-25'] },
   Function     = { fg = colors.yellow },
 
   Statement    = { fg = colors['white-15'] },
