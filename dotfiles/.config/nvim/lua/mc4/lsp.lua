@@ -33,6 +33,15 @@ lspconfig.tsserver.setup {
   on_attach = on_attach
 }
 
+lspconfig.solargraph.setup {
+  on_attach = on_attach,
+  settings = {
+    solargraph = {
+      diagnostics = false;
+    }
+  }
+}
+
 local efm_tools = {
   prettier = {
     formatCommand = 'prettier --stdin-filepath ${INPUT}',
