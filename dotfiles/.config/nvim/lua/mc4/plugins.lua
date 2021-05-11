@@ -11,16 +11,17 @@ require('packer').startup({{
   {'wbthomason/packer.nvim', opt = true},
 
   {'neovim/nvim-lspconfig'},
-  {'ojroques/nvim-lspfuzzy'},
   {'nvim-treesitter/nvim-treesitter'},
   {'Vimjas/vim-python-pep8-indent'},
 
   {'hrsh7th/nvim-compe'},
   {'hrsh7th/vim-vsnip', requires={'rafamadriz/friendly-snippets'}},
 
-  {'junegunn/fzf'},
-  {'junegunn/fzf.vim'},
-  {'bronson/vim-visual-star-search'},
+  {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  },
+  {'nvim-telescope/telescope-fzy-native.nvim'},
 
   {'janko-m/vim-test'},
   {'tpope/vim-commentary'},
