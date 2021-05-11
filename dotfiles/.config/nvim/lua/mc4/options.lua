@@ -21,22 +21,6 @@ vim.o.scrolloff = 8
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-local statusline = table.concat({
-  '%<%f %h%m%r',
-  '%=',
-  '%l:%c',
-  '%2*',
-  [[%{luaeval("require('mc4.statusline').diag_count('Error')")}]],
-  '%3*',
-  [[%{luaeval("require('mc4.statusline').diag_count('Warning')")}]],
-  '%4*',
-  [[%{luaeval("require('mc4.statusline').diag_count('Info')")}]],
-  '%1*',
-  [[%{luaeval("require('mc4.statusline').branch_name()")}]],
-  '%*',
-  '%{ObsessionStatus(" $ ", " S ")}',
-})
-vim.o.statusline = statusline
 vim.o.termguicolors = true
 vim.o.tags = vim.o.tags..',.git/tags'
 vim.o.updatetime = 200

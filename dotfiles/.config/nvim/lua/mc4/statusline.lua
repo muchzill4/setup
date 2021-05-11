@@ -20,4 +20,29 @@ function M.branch_name()
   return ''
 end
 
+function M.obsession_status()
+  local status = vim.fn.ObsessionStatus()
+  if status == '[$]' then
+    return ' ⊙ '
+  end
+  return ''
+end
+
+local statusline = table.concat({
+  '%<%f %h%m%r',
+  '%=',
+  '%l:%c',
+  '%2*',
+  [[%{luaeval("require('mc4.statusline').diag_count('Error')")}]],
+  '%3*',
+  [[%{luaeval("require('mc4.statusline').diag_count('Warning')")}]],
+  '%4*',
+  [[%{luaeval("require('mc4.statusline').diag_count('Info')")}]],
+  '%1*',
+  [[%{luaeval("require('mc4.statusline').branch_name()")}]],
+  '%2*',
+  [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
+})
+vim.o.statusline = statusline
+
 return M
