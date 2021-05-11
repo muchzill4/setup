@@ -41,6 +41,7 @@ vim.o.tags = vim.o.tags..',.git/tags'
 vim.o.updatetime = 200
 vim.o.wildmode = 'longest:full,full'
 vim.wo.colorcolumn = '80'
+vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
