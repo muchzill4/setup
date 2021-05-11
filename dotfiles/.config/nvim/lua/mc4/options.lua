@@ -10,6 +10,7 @@ vim.o.tabstop = indent
 vim.o.clipboard = 'unnamed'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.hidden = true
+vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
