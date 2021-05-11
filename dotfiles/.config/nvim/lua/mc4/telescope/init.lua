@@ -25,11 +25,6 @@ function M.edit_dotfiles()
     prompt_title = "~ dotfiles ~",
     shorten_path = false,
     cwd = "~/Setup/dotfiles",
-
-    layout_strategy = 'horizontal',
-    layout_config = {
-      preview_width = 0.65,
-    },
   }
 end
 
