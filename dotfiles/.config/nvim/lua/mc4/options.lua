@@ -45,6 +45,14 @@ vim.api.nvim_exec([[
   augroup end
 ]], false)
 
+-- Trim dat whitespace
+vim.api.nvim_exec([[
+augroup TrimWhitespace
+    autocmd!
+    autocmd BufWritePre * %s/\s\+$//e
+  augroup end
+]], false)
+
 -- Load local vim config
 local local_config = os.getenv('LOCAL_VIM_CONFIG')
 if local_config ~= nil then

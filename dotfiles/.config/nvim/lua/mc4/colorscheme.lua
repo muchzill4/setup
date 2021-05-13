@@ -19,7 +19,7 @@ local function shade(color, percent)
   g = percent_hex(g)
   b = percent_hex(b)
 
-  return string.format('#%s%s%s', r, g, b) 
+  return string.format('#%s%s%s', r, g, b)
 end
 
 local colors = {
