@@ -47,6 +47,7 @@ local sumneko_binary = sumneko_root_path.."/bin/macOS/lua-language-server"
 
 lspconfig.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path.."/main.lua"};
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
