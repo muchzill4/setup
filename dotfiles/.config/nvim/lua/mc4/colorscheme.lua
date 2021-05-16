@@ -111,12 +111,12 @@ local colorscheme = {
 
   LspDiagnosticsDefaultError         = { fg = colors.red },
   LspDiagnosticsDefaultWarning       = { fg = colors.yellow },
-  LspDiagnosticsDefaultInformation   = { fg = colors.white },
-  LspDiagnosticsDefaultHint          = { fg = colors.blue },
+  LspDiagnosticsDefaultInformation   = { fg = colors.blue },
+  LspDiagnosticsDefaultHint          = { fg = colors.white },
   LspDiagnosticsUnderlineError       = { fg = colors.red, style="underline" },
   LspDiagnosticsUnderlineWarning     = { fg = colors.yellow, style="underline" },
-  LspDiagnosticsUnderlineInformation = { fg = colors.white, style="underline" },
-  LspDiagnosticsUnderlineHint        = { fg = colors.blue, style="underline" },
+  LspDiagnosticsUnderlineInformation = { fg = colors.blue, style="underline" },
+  LspDiagnosticsUnderlineHint        = { fg = colors.white, style="underline" },
   LspReferenceText  = { style = "bold,underline" },
   LspReferenceRead  = { style = "bold,underline" },
   LspReferenceWrite = { style = "bold,underline" },
@@ -131,6 +131,7 @@ local colorscheme = {
   User2 = { fg = colors.red, bg = colors.bg_brightest },
   User3 = { fg = colors.yellow, bg = colors.bg_brightest },
   User4 = { fg = colors.blue, bg = colors.bg_brightest },
+  User5 = { fg = colors.white, bg = colors.bg_brightest },
 }
 
 local function highlight(group, highlight_args)

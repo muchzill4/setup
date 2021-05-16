@@ -38,6 +38,8 @@ local statusline = table.concat({
   [[%{luaeval("require('mc4.statusline').diag_count('Warning')")}]],
   "%4*",
   [[%{luaeval("require('mc4.statusline').diag_count('Info')")}]],
+  "%5*",
+  [[%{luaeval("require('mc4.statusline').diag_count('Hint')")}]],
   "%1*",
   [[%{luaeval("require('mc4.statusline').branch_name()")}]],
   "%2*",
