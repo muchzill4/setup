@@ -1,6 +1,6 @@
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 
-require('telescope').setup {
+require("telescope").setup {
   defaults = {
     mappings = {
       i = {
@@ -16,12 +16,12 @@ require('telescope').setup {
     }
   }
 }
-require('telescope').load_extension('fzy_native')
+require("telescope").load_extension("fzy_native")
 
 local M = {}
 
 function M.edit_dotfiles()
-  require('telescope.builtin').find_files {
+  require("telescope.builtin").find_files {
     prompt_title = "~ dotfiles ~",
     shorten_path = false,
     cwd = "~/Setup/dotfiles",

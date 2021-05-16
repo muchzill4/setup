@@ -1,12 +1,11 @@
-local map = require('mc4.shortcuts').map
-local bmap = require('mc4.shortcuts').bmap
+local map = require("mc4.shortcuts").map
 
 -- leader
-map('n', '<space>', '<Nop>')
-vim.g.mapleader = ' '
+map("n", "<space>", "<Nop>")
+vim.g.mapleader = " "
 
 -- C-o to exit insert in terminal
--- Don't show numbers
+-- Don"t show numbers
 vim.api.nvim_exec([[
   augroup TerminalInsert
     autocmd!
@@ -15,4 +14,4 @@ vim.api.nvim_exec([[
 ]], false)
 
 -- :W
-cmd 'command! W w'
+vim.cmd "command! W w"

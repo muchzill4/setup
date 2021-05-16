@@ -1,3 +1,3 @@
-local map = require('mc4.shortcuts').map
+local map = require("mc4.shortcuts").map
 
-map('n', '<leader>gs', '<Cmd>Git<CR>')
+map("n", "<leader>gs", "<Cmd>Git<CR>")

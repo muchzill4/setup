@@ -1,16 +1,16 @@
 local cmd, fn = vim.api.nvim_command, vim.fn
 
 local function shade(color, percent)
-  local r, g, b = string.match(color, '#(%w%w)(%w%w)(%w%w)')
+  local r, g, b = string.match(color, "#(%w%w)(%w%w)(%w%w)")
 
   local function percent_hex(hex)
     local value = tonumber(hex, 16)
     value = value * (100 + percent) / 100
     value = value < 255 and value or 255
 
-    value = string.format('%X', value)
+    value = string.format("%X", value)
     if string.len(value) == 1 then
-      value = '0'..value
+      value = "0"..value
     end
     return value
   end
@@ -19,25 +19,25 @@ local function shade(color, percent)
   g = percent_hex(g)
   b = percent_hex(b)
 
-  return string.format('#%s%s%s', r, g, b)
+  return string.format("#%s%s%s", r, g, b)
 end
 
 local colors = {
-  bg     = '#1e1c31',
-  fg     = '#eaeaea',
-  black  = '#504f6e',
-  red    = '#de5c6b',
-  green  = '#7ec699',
-  yellow = '#ffac45',
-  blue   = '#84b8f3',
-  purple = '#e0a8e1',
-  cyan   = '#d2ad9b',
-  white  = '#c5d3e7',
+  bg     = "#1e1c31",
+  fg     = "#eaeaea",
+  black  = "#504f6e",
+  red    = "#de5c6b",
+  green  = "#7ec699",
+  yellow = "#ffac45",
+  blue   = "#84b8f3",
+  purple = "#e0a8e1",
+  cyan   = "#d2ad9b",
+  white  = "#c5d3e7",
 }
 
 local mt = {}
 function mt:__index(k)
-  local color, operation, percent = string.match(k, '(%w+)([+-])(%d+)')
+  local color, operation, percent = string.match(k, "(%w+)([+-])(%d+)")
   if mt[k] == nil then
     percent = tonumber(percent, 10)
     percent = operation == "+" and percent or -1 * percent
@@ -49,41 +49,41 @@ end
 
 setmetatable(colors, mt)
 
-colors.bg_bright = colors['bg+15']
-colors.bg_brighter = colors['bg+40']
-colors.bg_brightest = colors['bg+100']
-colors.fg_dark = colors['fg-30']
+colors.bg_bright = colors["bg+15"]
+colors.bg_brighter = colors["bg+40"]
+colors.bg_brightest = colors["bg+100"]
+colors.fg_dark = colors["fg-30"]
 
 local colorscheme = {
-  ColorColumn =  { bg = colors['bg+10'] },
+  ColorColumn =  { bg = colors["bg+10"] },
   CursorColumn = { bg = colors.bg_bright },
   CursorLine   = { bg = colors.bg_bright },
   CursorLineNr = { fg = colors.green, bg = colors.bg_bright },
-  DiffAdd      = { fg = colors.green, bg = colors['green-75'] },
-  DiffChange   = { fg = colors.yellow, bg = colors['yellow-75'] },
-  DiffDelete   = { fg = colors.red, bg = colors['red-75'] },
-  DiffText     = { fg = colors.yellow, bg = colors['yellow-55'] },
+  DiffAdd      = { fg = colors.green, bg = colors["green-75"] },
+  DiffChange   = { fg = colors.yellow, bg = colors["yellow-75"] },
+  DiffDelete   = { fg = colors.red, bg = colors["red-75"] },
+  DiffText     = { fg = colors.yellow, bg = colors["yellow-55"] },
   Directory    = { fg = colors.blue },
   EndOfBuffer  = { fg = colors.bg_brighter },
   ErrorMsg     = { fg = colors.bg, bg = colors.red },
   Folded       = { fg = colors.black },
   IncSearch    = { fg = colors.bg, bg = colors.yellow },
   LineNr       = { fg = colors.black },
-  MatchParen   = { bg = colors['green-60'] },
-  ModeMsg      = { fg = colors.purple, style = 'bold' },
+  MatchParen   = { bg = colors["green-60"] },
+  ModeMsg      = { fg = colors.purple, style = "bold" },
   NonText      = { fg = colors.bg_brightest },
   Normal       = { fg = colors.fg, bg = colors.bg },
   Pmenu        = { fg = colors.fg_dark, bg = colors.bg_brighter },
   PmenuSel     = { fg = colors.fg, bg = colors.bg_brightest },
-  Search       = { bg = colors['yellow-65'] },
+  Search       = { bg = colors["yellow-65"] },
   SignColumn   = { bg = colors.bg },
-  SpellBad     = { fg = colors.red, style = 'underline' },
+  SpellBad     = { fg = colors.red, style = "underline" },
   StatusLine   = { fg = colors.fg, bg = colors.bg_brightest },
   StatusLineNC = { fg = colors.fg_dark, bg = colors.bg_brighter },
   TabLine      = { fg = colors.fg_dark, bg = colors.bg_brighter },
   TabLineFill  = { fg = colors.fg_dark, bg = colors.bg_brighter },
   TabLineSel   = { fg = colors.fg, bg = colors.bg_brightest },
-  Title        = { fg = colors.cyan, style = 'bold' },
+  Title        = { fg = colors.cyan, style = "bold" },
   VertSplit    = { bg = colors.bg, fg = colors.bg_brighter },
   Visual       = { bg = colors.bg_brightest },
 
@@ -92,34 +92,34 @@ local colorscheme = {
   Constant     = { fg = colors.green },
   String       = { fg = colors.cyan },
 
-  Identifier   = { fg = colors['yellow-25'] },
+  Identifier   = { fg = colors["yellow-25"] },
   Function     = { fg = colors.yellow },
 
-  Statement    = { fg = colors['white-15'] },
+  Statement    = { fg = colors["white-15"] },
 
   PreProc      = { fg = colors.white },
 
-  Type         = { fg = colors['purple'] },
+  Type         = { fg = colors["purple"] },
 
   Special      = { fg = colors.white },
 
-  Underlined   = { fg = colors.white, style = 'underline' },
+  Underlined   = { fg = colors.white, style = "underline" },
 
   Error        = { fg = colors.red },
 
-  Todo         = { fg = colors.blue, style = 'bold,italic' },
+  Todo         = { fg = colors.blue, style = "bold,italic" },
 
   LspDiagnosticsDefaultError         = { fg = colors.red },
   LspDiagnosticsDefaultWarning       = { fg = colors.yellow },
   LspDiagnosticsDefaultInformation   = { fg = colors.white },
   LspDiagnosticsDefaultHint          = { fg = colors.blue },
-  LspDiagnosticsUnderlineError       = { fg = colors.red, style='underline' },
-  LspDiagnosticsUnderlineWarning     = { fg = colors.yellow, style='underline' },
-  LspDiagnosticsUnderlineInformation = { fg = colors.white, style='underline' },
-  LspDiagnosticsUnderlineHint        = { fg = colors.blue, style='underline' },
-  LspReferenceText  = { style = 'bold,underline' },
-  LspReferenceRead  = { style = 'bold,underline' },
-  LspReferenceWrite = { style = 'bold,underline' },
+  LspDiagnosticsUnderlineError       = { fg = colors.red, style="underline" },
+  LspDiagnosticsUnderlineWarning     = { fg = colors.yellow, style="underline" },
+  LspDiagnosticsUnderlineInformation = { fg = colors.white, style="underline" },
+  LspDiagnosticsUnderlineHint        = { fg = colors.blue, style="underline" },
+  LspReferenceText  = { style = "bold,underline" },
+  LspReferenceRead  = { style = "bold,underline" },
+  LspReferenceWrite = { style = "bold,underline" },
 
   -- Diff
   diffAdded   = "DiffAdd",
@@ -134,24 +134,24 @@ local colorscheme = {
 }
 
 local function highlight(group, highlight_args)
-  local style = highlight_args.style or 'NONE'
-  local fg = highlight_args.fg or 'NONE'
-  local bg = highlight_args.bg or 'NONE'
+  local style = highlight_args.style or "NONE"
+  local fg = highlight_args.fg or "NONE"
+  local bg = highlight_args.bg or "NONE"
 
-  cmd(string.format('hi %s gui=%s guifg=%s guibg=%s', group, style, fg, bg))
+  cmd(string.format("hi %s gui=%s guifg=%s guibg=%s", group, style, fg, bg))
 end
 
 local function link(from, to)
-  cmd(string.format('hi! link %s %s', from, to))
+  cmd(string.format("hi! link %s %s", from, to))
 end
 
 local function preamble()
-  cmd('hi clear')
-  if fn.exists('syntax_on') then
-    cmd('syntax reset')
+  cmd("hi clear")
+  if fn.exists("syntax_on") then
+    cmd("syntax reset")
   end
-  vim.o.background = 'dark'
-  vim.g.colors_name = 'mc4'
+  vim.o.background = "dark"
+  vim.g.colors_name = "mc4"
 end
 
 local function apply()
