@@ -15,3 +15,4 @@ vim.api.nvim_exec([[
 
 -- :W
 vim.cmd "command! W w"
+map("n", "<leader>w", "<cmd>w<cr>")
