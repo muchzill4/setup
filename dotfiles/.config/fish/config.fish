@@ -71,7 +71,7 @@ set -x FZF_DEFAULT_OPTS '--color hl:3,hl+:3,prompt:5'
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
 
-# make pip explode if attempting to install packages globally 
+# make pip explode if attempting to install packages globally
 set -x PIP_REQUIRE_VIRTUALENV 1
 
 function gpip
