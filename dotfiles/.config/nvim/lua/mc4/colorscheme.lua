@@ -87,7 +87,7 @@ local colorscheme = {
   VertSplit    = { bg = colors.bg, fg = colors.bg_brighter },
   Visual       = { bg = colors.bg_brightest },
 
-  Comment      = { fg = colors.blue },
+  Comment      = { fg = colors.blue, style = "italic" },
 
   Constant     = { fg = colors.green },
   String       = { fg = colors.cyan },
