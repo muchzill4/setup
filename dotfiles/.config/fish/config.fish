@@ -53,7 +53,6 @@ if status --is-interactive
   abbr -a -g la 'ls -AF'
   abbr -a -g ll 'ls -alh'
   abbr -a -g md 'mkdir -p'
-  abbr -a -g t 'tmux attach || tmux new'
 end
 
 # env
