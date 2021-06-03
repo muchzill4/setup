@@ -3,7 +3,8 @@ function t -d "attach or run a tmux session from ~/Dev/*"
   set -l selected (
     find $path/* -maxdepth 1 -mindepth 1 -type d |
       string replace "$HOME" "~" |
-      fzf-tmux -p
+      fzf-tmux -p |
+      string replace "~" "$HOME"
   )
 
   if test -n "$selected"
