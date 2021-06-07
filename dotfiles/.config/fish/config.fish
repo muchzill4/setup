@@ -25,6 +25,9 @@ set fish_color_quote cyan
 set fish_color_search_match --background=brblack
 set fish_color_valid_path normal --underline
 
+# pure
+set pure_show_jobs true
+
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
   abbr -a -g c 'clear'
