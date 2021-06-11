@@ -9,6 +9,19 @@ require("telescope").setup {
       }
     }
   },
+  pickers = {
+    buffers = {
+      previewer = false,
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer,
+        },
+        n = {
+          ["<c-d>"] = actions.delete_buffer,
+        }
+      }
+    }
+  },
   extensions = {
     fzy_native = {
       override_generic_sorter = false,
