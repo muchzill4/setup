@@ -25,7 +25,6 @@ cask "dash"
 cask "discord"
 cask "docker"
 cask "dropbox"
-cask "forklift"
 cask "imagealpha"
 cask "imageoptim"
 cask "kitty"
@@ -50,6 +49,7 @@ mas "Keynote", id: 409183694
 mas "Marked 2", id: 890031187
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Shapr3D", id: 1091675654
 
 
 # Misc
