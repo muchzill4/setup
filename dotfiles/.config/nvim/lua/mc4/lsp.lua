@@ -12,6 +12,7 @@ local function on_attach(client, bufnr)
     bmap(bufnr, mode, lhs, rhs, opts)
   end
 
+
   cur_bmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   cur_bmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
   cur_bmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
@@ -23,6 +24,13 @@ local function on_attach(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
+
+  require("aerial").on_attach(client)
+  cur_bmap("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+  cur_bmap("n", "{", "<cmd>AerialPrev<CR>")
+  cur_bmap("n", "}", "<cmd>AerialNext<CR>")
+  cur_bmap("n", "[[", "<cmd>AerialPrevUp<CR>")
+  cur_bmap("n", "]]", "<cmd>AerialNextUp<CR>")
 end
 
 lspconfig.jedi_language_server.setup {
