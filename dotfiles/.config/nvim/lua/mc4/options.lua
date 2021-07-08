@@ -2,7 +2,6 @@ local cmd = vim.api.nvim_command
 
 cmd "colorscheme mc4"
 
-vim.g.python3_host_prog = os.getenv("HOME").."/.venvs/neovim3/bin/python"
 vim.o.expandtab = true
 local indent = 2
 vim.o.shiftwidth = indent
