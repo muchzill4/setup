@@ -7,8 +7,9 @@ packer_compiled.lua
 
 # Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
 .netrwhist
-configstore/
-direnv/allow/
 
 # Srsly Fusion360
 Autodesk/
+
+# gh cli
+gh
