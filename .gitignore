@@ -3,7 +3,7 @@ fisher.fish
 fish_variables
 
 # packer.nvim
-packer_compiled.vim
+packer_compiled.lua
 
 # Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
 .netrwhist
