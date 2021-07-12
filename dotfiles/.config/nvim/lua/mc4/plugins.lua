@@ -25,6 +25,7 @@ require("packer").startup({{
   {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
 
   {"janko-m/vim-test"},
+  {"lukas-reineke/indent-blankline.nvim"},
   {"tpope/vim-commentary"},
   {"tpope/vim-fugitive"},
   {"tpope/vim-obsession"},
@@ -32,5 +33,4 @@ require("packer").startup({{
   {"tpope/vim-surround"},
   {"tpope/vim-unimpaired"},
   {"tpope/vim-vinegar"},
-  {"Yggdroot/indentLine"},
 }})

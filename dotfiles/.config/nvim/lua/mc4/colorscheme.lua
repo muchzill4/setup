@@ -132,6 +132,9 @@ local colorscheme = {
   User3 = { fg = colors.yellow, bg = colors.bg_brightest },
   User4 = { fg = colors.blue, bg = colors.bg_brightest },
   User5 = { fg = colors.white, bg = colors.bg_brightest },
+
+  -- IndentBlankline
+  IndentBlanklineChar = { fg=colors.bg_brighter, style="nocombine" }
 }
 
 local function highlight(group, highlight_args)
