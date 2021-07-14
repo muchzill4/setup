@@ -33,4 +33,5 @@ require("packer").startup({{
   {"tpope/vim-surround"},
   {"tpope/vim-unimpaired"},
   {"tpope/vim-vinegar"},
+  {"christoomey/vim-tmux-navigator"},
 }})
