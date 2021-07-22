@@ -11,6 +11,6 @@ configs.setup {
   },
   indent = {
     enable = true,
-    disable = {"python", "yaml"}
+    disable = {"python", "yaml", "svelte"}
   }
 }

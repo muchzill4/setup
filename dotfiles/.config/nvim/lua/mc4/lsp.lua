@@ -55,6 +55,11 @@ lspconfig.solargraph.setup {
   }
 }
 
+lspconfig.svelte.setup {
+  on_attach = on_attach
+}
+
+
 local sumneko_root_path = vim.fn.expand("$HOME/Dev/vcs/lua-language-server")
 local sumneko_binary = sumneko_root_path.."/bin/macOS/lua-language-server"
 
