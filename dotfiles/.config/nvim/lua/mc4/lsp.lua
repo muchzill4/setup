@@ -1,4 +1,9 @@
-local lspconfig = require("lspconfig")
+local ok, lspconfig = pcall(require, "lspconfig")
+
+if not ok then
+  return nil
+end
+
 local bmap = require("mc4.shortcuts").bmap
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

@@ -1,4 +1,10 @@
-require("compe").setup {
+local ok, compe = pcall(require, 'compe')
+
+if not ok then
+  return nil
+end
+
+compe.setup {
   enabled = true;
   autocomplete = true;
   debug = false;
