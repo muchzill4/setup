@@ -134,7 +134,12 @@ local colorscheme = {
   User5 = { fg = colors.white, bg = colors.bg_brightest },
 
   -- IndentBlankline
-  IndentBlanklineChar = { fg=colors.bg_brightest, style="nocombine" }
+  IndentBlanklineChar = { fg=colors.bg_brightest, style="nocombine" },
+
+  -- Signify
+  SignifySignAdd = { fg = colors.green },
+  SignifySignChange = { fg = colors.yellow },
+  SignifySignDelete = { fg = colors.red },
 }
 
 local function highlight(group, highlight_args)

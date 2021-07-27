@@ -34,4 +34,5 @@ require("packer").startup({{
   {"tpope/vim-surround"},
   {"tpope/vim-unimpaired"},
   {"tpope/vim-vinegar"},
+  {"mhinz/vim-signify"},
 }})
