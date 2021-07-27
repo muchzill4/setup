@@ -31,7 +31,6 @@ end
 local statusline = table.concat({
   "%<%f %h%m%r",
   "%=",
-  "%l:%c",
   "%2*",
   [[%{luaeval("require('mc4.statusline').diag_count('Error')")}]],
   "%3*",
@@ -44,6 +43,8 @@ local statusline = table.concat({
   [[%{luaeval("require('mc4.statusline').branch_name()")}]],
   "%2*",
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
+  "%*",
+  "%l:%c",
 })
 vim.o.statusline = statusline
 
