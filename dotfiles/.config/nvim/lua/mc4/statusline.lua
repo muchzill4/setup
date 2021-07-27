@@ -44,7 +44,7 @@ local statusline = table.concat({
   "%2*",
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
   "%*",
-  "%l:%c",
+  "%-7.(%l:%c%)",
 })
 vim.o.statusline = statusline
 
