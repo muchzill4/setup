@@ -1,58 +1,5 @@
 local cmd, fn = vim.api.nvim_command, vim.fn
-
-local function shade(color, percent)
-  local r, g, b = string.match(color, "#(%w%w)(%w%w)(%w%w)")
-
-  local function percent_hex(hex)
-    local value = tonumber(hex, 16)
-    value = value * (100 + percent) / 100
-    value = value < 255 and value or 255
-
-    value = string.format("%X", value)
-    if string.len(value) == 1 then
-      value = "0"..value
-    end
-    return value
-  end
-
-  r = percent_hex(r)
-  g = percent_hex(g)
-  b = percent_hex(b)
-
-  return string.format("#%s%s%s", r, g, b)
-end
-
-local colors = {
-  bg     = "#1e1c31",
-  fg     = "#eaeaea",
-  black  = "#504f6e",
-  red    = "#de5c6b",
-  green  = "#7ec699",
-  yellow = "#ffac45",
-  blue   = "#84b8f3",
-  purple = "#e0a8e1",
-  cyan   = "#d2ad9b",
-  white  = "#c5d3e7",
-}
-
-local mt = {}
-function mt:__index(k)
-  local color, operation, percent = string.match(k, "(%w+)([+-])(%d+)")
-  if mt[k] == nil then
-    percent = tonumber(percent, 10)
-    percent = operation == "+" and percent or -1 * percent
-
-    mt[k] = shade(colors[color], percent)
-  end
-  return mt[k]
-end
-
-setmetatable(colors, mt)
-
-colors.bg_bright = colors["bg+15"]
-colors.bg_brighter = colors["bg+40"]
-colors.bg_brightest = colors["bg+100"]
-colors.fg_dark = colors["fg-30"]
+local colors = require('mc4.colorscheme.colors')
 
 local colorscheme = {
   ColorColumn =  { bg = colors["bg+10"] },
