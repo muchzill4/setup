@@ -20,7 +20,11 @@ require("packer").startup({{
 
   {
     "nvim-telescope/telescope.nvim",
-    requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
+    requires = {
+      {"nvim-lua/popup.nvim"},
+      {"nvim-lua/plenary.nvim"},
+      {"kyazdani42/nvim-web-devicons"}
+    }
   },
   {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
 
