@@ -73,13 +73,6 @@ local colorscheme = {
   diffChanged = "DiffChange",
   diffRemoved = "DiffDelete",
 
-  -- Statusline extras
-  User1 = { fg = colors.purple, bg = colors.bg_brightest },
-  User2 = { fg = colors.red, bg = colors.bg_brightest },
-  User3 = { fg = colors.yellow, bg = colors.bg_brightest },
-  User4 = { fg = colors.blue, bg = colors.bg_brightest },
-  User5 = { fg = colors.white, bg = colors.bg_brightest },
-
   -- IndentBlankline
   IndentBlanklineChar = { fg=colors.bg_brightest, style="nocombine" },
 
