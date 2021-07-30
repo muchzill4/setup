@@ -28,7 +28,6 @@ require("packer").startup({{
   },
   {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
 
-  {"christoomey/vim-tmux-navigator"},
   {"janko-m/vim-test"},
   {"lukas-reineke/indent-blankline.nvim"},
   {"tpope/vim-commentary"},
