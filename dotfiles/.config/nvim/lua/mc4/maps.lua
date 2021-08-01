@@ -16,3 +16,15 @@ vim.api.nvim_exec([[
 -- :W
 vim.cmd "command! W w"
 map("n", "<leader>w", "<cmd>w<cr>")
+
+-- Why, why, why
+map("n", "Y", "y$")
+
+-- Keeping it center
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("n", "J", "mzJ`z")
+
+-- Jumplist mutations
+map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], {expr = true})
+map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], {expr = true})
