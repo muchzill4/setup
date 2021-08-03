@@ -21,7 +21,7 @@ vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.termguicolors = true
-vim.o.tags = vim.o.tags..",.git/tags"
+vim.o.tags = vim.o.tags .. ",.git/tags"
 vim.o.updatetime = 200
 vim.o.wildmode = "longest:full,full"
 vim.o.showmode = false
@@ -57,5 +57,5 @@ augroup TrimWhitespace
 local local_config = os.getenv("LOCAL_VIM_CONFIG")
 if local_config ~= nil then
   -- Is this horrible?
-  cmd(":luafile "..local_config)
+  cmd(":luafile " .. local_config)
 end

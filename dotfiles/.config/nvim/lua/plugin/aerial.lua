@@ -1,3 +1,1 @@
-vim.g.aerial = {
-  manage_folds = false
-}
+vim.g.aerial = {manage_folds = false}

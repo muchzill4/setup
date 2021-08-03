@@ -1,8 +1,6 @@
 local ok, compe = pcall(require, 'compe')
 
-if not ok then
-  return nil
-end
+if not ok then return nil end
 
 compe.setup {
   enabled = true,

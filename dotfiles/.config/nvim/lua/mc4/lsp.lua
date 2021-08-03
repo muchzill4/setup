@@ -1,8 +1,6 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 
-if not ok then
-  return nil
-end
+if not ok then return nil end
 
 local bmap = require("mc4.shortcuts").bmap
 
@@ -17,7 +15,6 @@ local function on_attach(client, bufnr)
   local function cur_bmap(mode, lhs, rhs, opts)
     bmap(bufnr, mode, lhs, rhs, opts)
   end
-
 
   cur_bmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   cur_bmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
@@ -51,7 +48,7 @@ lspconfig.solargraph.setup {
   on_attach = on_attach,
   settings = {
     solargraph = {
-      diagnostics = false;
+      diagnostics = false
     }
   }
 }
@@ -68,10 +65,10 @@ lspconfig.cssls.setup {
 }
 
 local sumneko_root_path = vim.fn.expand("$HOME/Dev/vcs/lua-language-server")
-local sumneko_binary = sumneko_root_path.."/bin/macOS/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
 lspconfig.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path.."/main.lua"};
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -79,25 +76,25 @@ lspconfig.sumneko_lua.setup {
         -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
         -- Setup your lua path
-        path = vim.split(package.path, ";"),
+        path = vim.split(package.path, ";")
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {"vim"},
+        globals = {"vim"}
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {
           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-        },
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        }
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
-        enable = false,
-      },
-    },
-  },
+        enable = false
+      }
+    }
+  }
 }
 
 local efm_tools = {
@@ -108,14 +105,14 @@ local efm_tools = {
   flake8 = {
     lintCommand = "flake8 --stdin-display-name ${INPUT} -",
     lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"},
+    lintFormats = {"%f:%l:%c: %m"}
   },
   mypy = {
     lintCommand = "mypy-stdin ${INPUT} -",
     lintFormats = {
       "%f:%l:%c: %trror: %m",
       "%f:%l:%c: %tarning: %m",
-      "%f:%l:%c: %tote: %m",
+      "%f:%l:%c: %tote: %m"
     },
     lintStdin = true
   },
