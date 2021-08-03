@@ -16,8 +16,8 @@ end
 
 lualine.setup({
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {{'filename', path = 1}},
+    lualine_a = {{'mode', lower = true}},
+    lualine_b = {{'filetype', disable_text = true, right_padding = 0}, {'filename', path = 1}},
     lualine_c = {},
     lualine_x = {
       {
