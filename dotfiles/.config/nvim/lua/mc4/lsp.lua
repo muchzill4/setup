@@ -60,6 +60,12 @@ lspconfig.svelte.setup {
   on_attach = on_attach
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.cssls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach
+}
 
 local sumneko_root_path = vim.fn.expand("$HOME/Dev/vcs/lua-language-server")
 local sumneko_binary = sumneko_root_path.."/bin/macOS/lua-language-server"
