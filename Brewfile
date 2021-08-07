@@ -14,6 +14,7 @@ brew "neovim", args: ["HEAD"]
 brew "openssl"
 brew "pipx"
 brew "ripgrep"
+brew "stow"
 brew "tmux"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]

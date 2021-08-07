@@ -1,0 +1,21 @@
+#!/bin/sh
+me=$(basename $0)
+my_dir=$(dirname "$0")
+
+action=${1:-install}
+
+if [ "$action" != "install" ] && [ "$action" != "uninstall" ]; then
+  echo "Usage: $me [install|uninstall]"
+fi
+
+cd $my_dir
+
+managed_by_stow=$(find . -type d -d 1 | cut -d / -f 2)
+for package in $managed_by_stow; do
+  stow -t $HOME -D $package
+  if [ "$action" == "install" ]; then
+    stow -t $HOME $package
+  fi
+done
+
+cd ~-
