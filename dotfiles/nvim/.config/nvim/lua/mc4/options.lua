@@ -1,6 +1,6 @@
 local cmd = vim.api.nvim_command
 
-cmd "colorscheme mc4"
+cmd "colorscheme doubletrouble"
 
 vim.o.expandtab = true
 local indent = 2

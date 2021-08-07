@@ -2,7 +2,7 @@ local ok, lualine = pcall(require, "lualine")
 
 if not ok then return nil end
 
-local colors = require("mc4.colorscheme.colors")
+local colors = require("doubletrouble")
 
 local function obsession_status()
   local status = vim.fn.ObsessionStatus()

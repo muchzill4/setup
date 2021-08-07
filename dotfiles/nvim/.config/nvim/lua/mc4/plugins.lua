@@ -42,4 +42,5 @@ require("packer").startup({{
     "shadmansaleh/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons", opt = true}
   },
+  {"muchzill4/doubletrouble"}
 }})
