@@ -1,5 +1,4 @@
 # Fish
-fisher.fish
 fish_variables
 
 # packer.nvim
@@ -7,9 +6,3 @@ packer_compiled.lua
 
 # Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
 .netrwhist
-
-# Srsly Fusion360
-Autodesk/
-
-# gh cli
-gh
