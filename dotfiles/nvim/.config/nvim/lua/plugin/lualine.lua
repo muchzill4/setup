@@ -27,11 +27,8 @@ lualine.setup({
         symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:"}
       }
     },
-    lualine_y = {
-      {"FugitiveHead", color = {fg = colors.purple}},
-      {obsession_status, color = {fg = colors.red}}
-    },
-    lualine_z = {"location"}
+    lualine_y = {"branch"},
+    lualine_z = {"location", {obsession_status, color = {fg = colors.red}}}
   },
   inactive_sections = {
     lualine_a = {},
