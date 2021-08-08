@@ -39,7 +39,7 @@ require("telescope").load_extension("fzf")
 
 local M = {}
 
-function M.edit_dotfiles()
+function M.find_dotfiles()
   require("telescope.builtin").find_files {
     prompt_title = "~ dotfiles ~",
     shorten_path = false,
