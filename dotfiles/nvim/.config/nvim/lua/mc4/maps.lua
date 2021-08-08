@@ -1,7 +1,7 @@
 local map = require("mc4.shortcuts").map
 
 -- leader
-map("n", "<space>", "<Nop>")
+map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
 -- C-o to exit insert in terminal
@@ -15,7 +15,7 @@ vim.api.nvim_exec([[
 
 -- :W
 vim.cmd "command! W w"
-map("n", "<leader>w", "<cmd>w<cr>")
+map("n", "<Leader>w", "<Cmd>w<CR>")
 
 -- Why, why, why
 map("n", "Y", "y$")
@@ -28,3 +28,6 @@ map("n", "J", "mzJ`z")
 -- Jumplist mutations
 map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], {expr = true})
 map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], {expr = true})
+
+-- Mkdir
+map("n", "<Leader>md", "<Cmd>!mkdir -p %:p:h<CR>")
