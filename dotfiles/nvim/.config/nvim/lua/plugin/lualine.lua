@@ -6,7 +6,7 @@ local colors = require("doubletrouble")
 
 local function obsession_status()
   local ObsessionStatus = vim.fn["ObsessionStatus"]
-  if ObsessionStatus ~= nil then return "" end
+  if ObsessionStatus == nil then return "" end
   if ObsessionStatus() == "[$]" then return "⊙" end
   return ""
 end
