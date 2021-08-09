@@ -25,7 +25,6 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "1password"
 cask "alfred"
 cask "betaflight-configurator"
-cask "brave-browser"
 cask "dash"
 cask "discord"
 cask "docker"
