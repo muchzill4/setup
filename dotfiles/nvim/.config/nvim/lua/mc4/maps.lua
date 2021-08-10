@@ -21,8 +21,6 @@ map("n", "<Leader>w", "<Cmd>w<CR>")
 map("n", "Y", "y$")
 
 -- Keeping it center
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
 map("n", "J", "mzJ`z")
 
 -- Jumplist mutations
