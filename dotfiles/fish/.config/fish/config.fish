@@ -68,7 +68,7 @@ set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
-set -x FZF_DEFAULT_OPTS '--color fg+:regular,hl:3,hl+:3:regular,prompt:5,bg+:#3c3862,gutter:-1'
+set -x FZF_DEFAULT_OPTS '--color query:regular,fg+:regular,hl:3,hl+:3:regular,prompt:5,bg+:#3c3862,gutter:-1'
 
 # docker
 set -x DOCKER_BUILDKIT 1
