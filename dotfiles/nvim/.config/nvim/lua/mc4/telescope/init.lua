@@ -6,6 +6,7 @@ local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     mappings = {
       i = {
         ["<c-k>"] = actions.move_selection_previous,
