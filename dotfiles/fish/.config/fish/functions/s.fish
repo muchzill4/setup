@@ -2,7 +2,7 @@ function s -d "switch to a tmux session"
   set -l selected (
     tmux list-sessions |
       cut -d : -f 1 |
-      fzf-tmux -p --cycle
+      fzf-tmux -p --cycle --prompt 's> '
   )
 
   if test -n "$selected"
