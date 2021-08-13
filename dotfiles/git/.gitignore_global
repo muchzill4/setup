@@ -3,3 +3,5 @@
 .direnv
 tags
 Session.vim
+vim-config.lua
+.tool-versions
