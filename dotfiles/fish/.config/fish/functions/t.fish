@@ -8,7 +8,7 @@ function t -d "attach or run a tmux session from ~/Dev/*"
   )
 
   if test -n "$selected_dir"
-    set -l session_name (echo $selected_dir | sed "s~$path/~~")
+    set -l session_name (echo $selected_dir | sed "s~$path/~~" | sed "s/\./_/g")
 
     if test -n "$TMUX"
       tmux switch-client -t $session_name ||
