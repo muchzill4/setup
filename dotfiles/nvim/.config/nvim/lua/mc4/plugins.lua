@@ -38,6 +38,7 @@ require("packer").startup({{
   {"tpope/vim-unimpaired"},
   {"tpope/vim-vinegar"},
   {"mhinz/vim-signify"},
+  {"christoomey/vim-tmux-navigator"},
   {
     "shadmansaleh/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons", opt = true}
