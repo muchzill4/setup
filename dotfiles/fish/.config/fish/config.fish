@@ -16,13 +16,13 @@ if status is-interactive && ! functions --query fisher
 end
 
 # fish
-set fish_color_command green
-set fish_color_error red
-set fish_color_normal white
-set fish_color_operator magenta
+set fish_color_command 7ec699
+set fish_color_error de5c6b
+set fish_color_normal c5d3e7
+set fish_color_operator a7b3c4
 set fish_color_param normal
-set fish_color_quote cyan
-set fish_color_search_match --background=brblack
+set fish_color_quote d2ad9b
+set fish_color_search_match --background=504f6e
 set fish_color_valid_path normal --underline
 
 # pure
