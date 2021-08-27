@@ -6,13 +6,8 @@ local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
-    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-    mappings = {
-      i = {
-        ["<c-k>"] = actions.move_selection_previous,
-        ["<c-j>"] = actions.move_selection_next
-      }
-    }
+    layout_config = {prompt_position = "top"},
+    sorting_strategy = "ascending",
   },
   pickers = {
     buffers = {
