@@ -4,10 +4,6 @@ if not ok then return nil end
 
 local bmap = require("mc4.shortcuts").bmap
 
-vim.api.nvim_command [[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
-vim.api.nvim_command [[autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()]]
-vim.api.nvim_command [[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]]
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -22,15 +18,15 @@ local function on_attach(client, bufnr)
 
   cur_bmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   cur_bmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-  cur_bmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-  cur_bmap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  cur_bmap("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+  cur_bmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
+
+  vim.api.nvim_command [[autocmd! CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })]]
 
   require("aerial").on_attach(client)
   cur_bmap("n", "<leader>a", "<cmd>AerialToggle!<CR>")

@@ -45,6 +45,7 @@ map("n", "<Leader>fx", "<Cmd>Telescope builtin<CR>")
 map("n", "<Leader>gb", "<Cmd>Telescope git_branches<CR>")
 map("n", "<Leader>fd", "<Cmd>lua require('plugin.telescope').find_dotfiles()<CR>")
 map("n", "<leader>ll", "<Cmd>Telescope lsp_document_diagnostics<CR>")
+map("n", "<leader>lr", "<Cmd>Telescope lsp_references<CR>")
 
 local M = {}
 
