@@ -3,7 +3,7 @@ function t -d "attach or run a tmux session from ~/Dev/*"
   set -l selected_dir (
     find $path/* -maxdepth 1 -mindepth 1 -type d |
       sed "s~$path/~~" |
-      fzf-tmux -p --cycle --prompt 't> ' |
+      fzf-tmux -p --cycle --layout=reverse --prompt 't> ' |
       sed "s~^~$path/~"
   )
 
