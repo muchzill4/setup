@@ -53,7 +53,7 @@ function M.obsession_status()
 end
 
 local statusline = table.concat({
-  [[%7{luaeval("require('mc4.statusline').mode()")} | ]],
+  [[ %-7{luaeval("require('mc4.statusline').mode()")}| ]],
   "%<%f %h",
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
   "%m%r",
