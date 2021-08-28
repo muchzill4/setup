@@ -1,6 +1,6 @@
 local cmd = vim.api.nvim_command
 
-cmd "colorscheme doubletrouble"
+cmd "colorscheme doubletrouble-lush"
 
 vim.o.expandtab = true
 local indent = 2
@@ -17,6 +17,7 @@ vim.o.mouse = "a"
 vim.o.pumblend = 5
 cmd [[hi PmenuSel blend=0]]
 vim.o.scrolloff = 8
+vim.o.showmode = false
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -24,7 +25,6 @@ vim.o.termguicolors = true
 vim.o.tags = vim.o.tags .. ",.git/tags"
 vim.o.updatetime = 200
 vim.o.wildmode = "longest:full,full"
-vim.o.showmode = false
 vim.wo.colorcolumn = "80"
 vim.wo.cursorline = true
 vim.wo.number = true
