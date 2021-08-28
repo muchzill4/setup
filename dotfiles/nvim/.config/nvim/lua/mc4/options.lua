@@ -31,6 +31,10 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
+-- Faster startup
+vim.g.loaded_python2_provider = false
+vim.g.python3_host_prog = '~/.venvs/neovim/bin/python'
+
 cmd "au! TermOpen * startinsert"
 cmd "au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}"
 cmd "au! VimResized * wincmd ="
