@@ -10,12 +10,12 @@ cmd "packadd packer.nvim"
 require("packer").startup({{
   {"wbthomason/packer.nvim", opt = true},
 
-  {"neovim/nvim-lspconfig"},
-  {"stevearc/aerial.nvim"},
-  {"nvim-treesitter/nvim-treesitter"},
-  {"Vimjas/vim-python-pep8-indent"},
+  "neovim/nvim-lspconfig",
+  "stevearc/aerial.nvim",
+  "nvim-treesitter/nvim-treesitter",
+  "Vimjas/vim-python-pep8-indent",
 
-  {"hrsh7th/nvim-compe"},
+  "hrsh7th/nvim-compe",
   {"hrsh7th/vim-vsnip", requires={"rafamadriz/friendly-snippets"}},
 
   {
@@ -28,15 +28,15 @@ require("packer").startup({{
   },
   {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
 
-  {"janko-m/vim-test"},
-  {"tpope/vim-commentary"},
-  {"tpope/vim-fugitive"},
-  {"tpope/vim-obsession"},
-  {"tpope/vim-rhubarb"},
-  {"tpope/vim-surround"},
-  {"tpope/vim-unimpaired"},
-  {"tpope/vim-vinegar"},
-  {"christoomey/vim-tmux-navigator"},
-  {"muchzill4/doubletrouble"},
-  {"rktjmp/lush.nvim"},
+  "janko-m/vim-test",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  "tpope/vim-obsession",
+  "tpope/vim-rhubarb",
+  "tpope/vim-surround",
+  "tpope/vim-unimpaired",
+  "tpope/vim-vinegar",
+  "christoomey/vim-tmux-navigator",
+  "muchzill4/doubletrouble",
+  "rktjmp/lush.nvim",
 }})
