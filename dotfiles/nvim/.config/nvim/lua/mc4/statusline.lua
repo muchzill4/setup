@@ -52,6 +52,14 @@ function M.obsession_status()
   return ""
 end
 
+function M.branch()
+  local branch = vim.fn.FugitiveHead()
+  if branch ~= "" then
+    return string.format(" %s", branch)
+  end
+  return ""
+end
+
 local statusline = table.concat({
   [[ %-7{luaeval("require('mc4.statusline').mode()")}| ]],
   "%<%f %h",
@@ -60,7 +68,7 @@ local statusline = table.concat({
   "%=",
   [[ %20{luaeval("require('mc4.statusline').lsp_diagnostics()")} ]],
   "   ",
-  [[%<%.30{FugitiveHead()}]],
+  [[%<%.30{luaeval("require('mc4.statusline').branch()")}]],
   "%10(%l:%c%)",
 })
 vim.o.statusline = statusline
