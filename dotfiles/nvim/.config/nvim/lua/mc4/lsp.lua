@@ -57,11 +57,20 @@ lspconfig.svelte.setup {
   on_attach = on_attach
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local css_capabilities = vim.lsp.protocol.make_client_capabilities()
+css_capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.cssls.setup {
   capabilities = capabilities,
   on_attach = on_attach
+}
+
+
+local html_capabilities = vim.lsp.protocol.make_client_capabilities()
+html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.html.setup {
+  capabilities = html_capabilities,
+  on_attach = on_attach,
+  filetypes = { 'html', 'htmldjango' },
 }
 
 local sumneko_root_path = vim.fn.expand("$HOME/Dev/vcs/lua-language-server")
