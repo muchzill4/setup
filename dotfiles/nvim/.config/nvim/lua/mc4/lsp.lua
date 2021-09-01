@@ -60,7 +60,7 @@ lspconfig.svelte.setup {
 local css_capabilities = vim.lsp.protocol.make_client_capabilities()
 css_capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.cssls.setup {
-  capabilities = capabilities,
+  capabilities = css_capabilities,
   on_attach = on_attach
 }
 
