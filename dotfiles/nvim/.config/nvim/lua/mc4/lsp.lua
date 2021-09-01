@@ -26,7 +26,7 @@ local function on_attach(client, bufnr)
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
 
-  vim.api.nvim_command [[autocmd! CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })]]
+  vim.api.nvim_command [[autocmd! BufWrite,BufEnter,InsertLeave <buffer> lua vim.lsp.diagnostic.set_loclist({ open = false })]]
 
   require("aerial").on_attach(client)
   cur_bmap("n", "<leader>a", "<cmd>AerialToggle!<CR>")
