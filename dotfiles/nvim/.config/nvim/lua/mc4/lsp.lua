@@ -21,12 +21,13 @@ local function on_attach(client, bufnr)
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   cur_bmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+  cur_bmap("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
 
-  vim.api.nvim_command [[autocmd! BufWrite,BufEnter,InsertLeave <buffer> lua vim.lsp.diagnostic.set_loclist({ open = false })]]
+  vim.api.nvim_command [[autocmd! User LspDiagnosticsChanged lua vim.lsp.diagnostic.set_loclist({ open = false })]]
 
   require("aerial").on_attach(client)
   cur_bmap("n", "<leader>a", "<cmd>AerialToggle!<CR>")

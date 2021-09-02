@@ -35,7 +35,6 @@ require("packer").startup({{
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
   "tpope/vim-vinegar",
-  "christoomey/vim-tmux-navigator",
-  "muchzill4/doubletrouble",
-  "rktjmp/lush.nvim",
+  "kyazdani42/nvim-web-devicons",
+  {"muchzill4/doubletrouble", requires={"rktjmp/lush.nvim"}},
 }})

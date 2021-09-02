@@ -60,9 +60,23 @@ function M.branch()
   return ""
 end
 
+function M.file_icon()
+  local ok, icon = pcall(function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    local ext = vim.fn.fnamemodify(name, ':e')
+    return require('nvim-web-devicons').get_icon(
+      name,
+      ext,
+      {default = true}
+    )
+  end)
+  return ok and icon or ''
+end
+
 local statusline = table.concat({
   [[ %-7{luaeval("require('mc4.statusline').mode()")}| ]],
-  "%<%f %h",
+  [[%{luaeval("require('mc4.statusline').file_icon()")} %<%f %h]],
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
   "%m%r",
   "%=",
@@ -72,7 +86,5 @@ local statusline = table.concat({
   "%10(%l:%c%)",
 })
 vim.o.statusline = statusline
-
--- lua vim.o.statusline="%2{mode(')} | %f %m %r %= %{&spelllang} %y %8(%l,%c%) %8p%%"
 
 return M

@@ -29,3 +29,7 @@ map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], {expr = true})
 
 -- Mkdir
 map("n", "<Leader>md", "<Cmd>!mkdir -p %:p:h<CR>")
+
+-- copen, lopen
+map("n", "<Leader>co", "<Cmd>copen<CR>")
+map("n", "<Leader>lo", "<Cmd>lopen<CR>")
