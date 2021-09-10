@@ -74,6 +74,9 @@ set -x FZF_DEFAULT_OPTS '--color query:regular,fg+:regular,hl:3,hl+:3:regular,pr
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
 
+# local venvs please
+set -x PIPENV_VENV_IN_PROJECT 1
+
 # make pip explode if attempting to install packages globally
 set -x PIP_REQUIRE_VIRTUALENV 1
 
