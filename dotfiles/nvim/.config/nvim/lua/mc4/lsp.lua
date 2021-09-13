@@ -28,13 +28,6 @@ local function on_attach(client, bufnr)
   end
 
   vim.api.nvim_command [[autocmd! User LspDiagnosticsChanged lua vim.lsp.diagnostic.set_loclist({ open = false })]]
-
-  require("aerial").on_attach(client)
-  cur_bmap("n", "<leader>a", "<cmd>AerialToggle!<CR>")
-  cur_bmap("n", "{", "<cmd>AerialPrev<CR>")
-  cur_bmap("n", "}", "<cmd>AerialNext<CR>")
-  cur_bmap("n", "[[", "<cmd>AerialPrevUp<CR>")
-  cur_bmap("n", "]]", "<cmd>AerialNextUp<CR>")
 end
 
 lspconfig.jedi_language_server.setup {

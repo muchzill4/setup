@@ -11,7 +11,6 @@ require("packer").startup({{
   {"wbthomason/packer.nvim", opt = true},
 
   "neovim/nvim-lspconfig",
-  "stevearc/aerial.nvim",
   "nvim-treesitter/nvim-treesitter",
   "Vimjas/vim-python-pep8-indent",
 
