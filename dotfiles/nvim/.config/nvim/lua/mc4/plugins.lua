@@ -14,8 +14,14 @@ require("packer").startup({{
   "nvim-treesitter/nvim-treesitter",
   "Vimjas/vim-python-pep8-indent",
 
-  "hrsh7th/nvim-compe",
-  {"hrsh7th/vim-vsnip", requires={"rafamadriz/friendly-snippets"}},
+  {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    }
+  },
 
   {
     "nvim-telescope/telescope.nvim",
