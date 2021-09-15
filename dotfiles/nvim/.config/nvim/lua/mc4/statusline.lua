@@ -75,8 +75,7 @@ function M.file_icon()
 end
 
 local statusline = table.concat({
-  [[ %-7{luaeval("require('mc4.statusline').mode()")}| ]],
-  [[%{luaeval("require('mc4.statusline').file_icon()")} %<%f %h]],
+  [[ %{luaeval("require('mc4.statusline').file_icon()")} %<%f %h]],
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
   "%m%r",
   "%=",
