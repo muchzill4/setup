@@ -1,4 +1,6 @@
 # vim:ft=sh
+source "$(asdf direnv hook asdf)"
+
 use_local_vim_config() {
   local config_name=${1:-vim-config.lua}
   local config_file="$(find_up $config_name)"
@@ -10,6 +12,3 @@ use_local_vim_config() {
   fi
 }
 
-realpath() {
-  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-}

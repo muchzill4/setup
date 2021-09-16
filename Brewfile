@@ -2,7 +2,6 @@
 # --------------------
 brew "asdf"
 brew "curl"
-brew "direnv"
 brew "efm-langserver"
 brew "fish"
 brew "fzf"
