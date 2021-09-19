@@ -92,6 +92,3 @@ end
 
 # asdf
 source /usr/local/opt/asdf/asdf.fish
-
-# direnv
-direnv hook fish | source
