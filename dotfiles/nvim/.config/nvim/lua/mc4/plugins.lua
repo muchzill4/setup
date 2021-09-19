@@ -33,6 +33,8 @@ require("packer").startup({{
   {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
 
   "janko-m/vim-test",
+  "kyazdani42/nvim-web-devicons",
+  {"muchzill4/doubletrouble", requires={"rktjmp/lush.nvim"}},
   "tpope/vim-commentary",
   "tpope/vim-fugitive",
   "tpope/vim-obsession",
@@ -40,6 +42,5 @@ require("packer").startup({{
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
   "tpope/vim-vinegar",
-  "kyazdani42/nvim-web-devicons",
-  {"muchzill4/doubletrouble", requires={"rktjmp/lush.nvim"}},
+  "windwp/nvim-projectconfig",
 }})

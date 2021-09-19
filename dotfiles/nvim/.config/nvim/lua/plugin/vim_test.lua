@@ -1,6 +1,4 @@
 vim.g["test#strategy"] = "neovim"
-vim.g["test#python#runner"] = "pytest"
-vim.g["test#python#pytest#executable"] = ".venv/bin/python -m pytest"
 
 local map = require("mc4.shortcuts").map
 
