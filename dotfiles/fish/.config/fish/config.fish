@@ -56,6 +56,9 @@ if status --is-interactive
   abbr -a -g la 'ls -AF'
   abbr -a -g ll 'ls -alh'
   abbr -a -g md 'mkdir -p'
+  abbr -a -g vp '.venv/bin/python'
+  abbr -a -g va 'source .venv/bin/activate.fish'
+  abbr -a -g vd 'deactivate'
   alias ssh='kitty +kitten ssh'
 end
 
