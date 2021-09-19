@@ -38,6 +38,10 @@ lspconfig.tsserver.setup {
   on_attach = on_attach
 }
 
+lspconfig.gopls.setup {
+  on_attach = on_attach
+}
+
 lspconfig.solargraph.setup {
   on_attach = on_attach,
   settings = {
