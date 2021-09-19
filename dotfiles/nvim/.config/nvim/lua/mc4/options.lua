@@ -8,6 +8,7 @@ vim.o.shiftwidth = indent
 vim.o.tabstop = indent
 vim.o.clipboard = "unnamed"
 vim.o.completeopt = "menuone,noinsert,noselect"
+vim.o.gdefault = true
 vim.o.hidden = true
 vim.o.hlsearch = false
 vim.o.ignorecase = true
