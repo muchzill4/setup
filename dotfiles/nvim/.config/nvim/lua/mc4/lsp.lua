@@ -30,8 +30,21 @@ local function on_attach(client, bufnr)
   vim.api.nvim_command [[autocmd! User LspDiagnosticsChanged lua vim.lsp.diagnostic.set_loclist({ open = false })]]
 end
 
+local function get_venv_path()
+  if vim.env.VIRTUAL_ENV then return vim.env.VIRTUAL_ENV end
+
+  local path = require("lspconfig.util").path
+
+  if vim.fn.isdirectory(path.join(vim.fn.getcwd(), ".venv")) then
+    return ".venv"
+  end
+
+  return ""
+end
+
 lspconfig.jedi_language_server.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
+  cmd_env = {VIRTUAL_ENV=get_venv_path()}
 }
 
 lspconfig.tsserver.setup {
