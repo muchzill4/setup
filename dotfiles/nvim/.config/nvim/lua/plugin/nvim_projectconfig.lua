@@ -1,5 +1,7 @@
-local ok, pc = pcall(require, 'nvim-projectconfig')
+local ok, pc = pcall(require, "nvim-projectconfig")
 
-if not ok then return nil end
+if not ok then
+  return nil
+end
 
 pc.load_project_config()

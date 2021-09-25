@@ -34,30 +34,36 @@ vim.wo.signcolumn = "yes"
 
 -- Faster startup
 vim.g.loaded_python2_provider = false
-vim.g.python3_host_prog = '~/.venvs/neovim/bin/python'
+vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
 
 cmd "au! TermOpen * startinsert"
 cmd "au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}"
 cmd "au! VimResized * wincmd ="
 
 -- Don"t show numbers
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
   augroup TerminalNumbers
     autocmd!
     au TermOpen * setlocal nonumber norelativenumber
   augroup end
-]], false)
+]],
+  false
+)
 
 -- Trim dat whitespace
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup TrimWhitespace
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
   augroup end
-]], false)
+]],
+  false
+)
 
 -- Load local vim config
-local local_config = os.getenv("LOCAL_VIM_CONFIG")
+local local_config = os.getenv "LOCAL_VIM_CONFIG"
 if local_config ~= nil then
   -- Is this horrible?
   cmd(":luafile " .. local_config)

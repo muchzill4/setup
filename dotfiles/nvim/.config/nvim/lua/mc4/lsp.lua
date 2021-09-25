@@ -1,11 +1,14 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 
-if not ok then return nil end
+if not ok then
+  return nil
+end
 
 local bmap = require("mc4.shortcuts").bmap
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
     virtual_text = false,
     signs = true,
   }
@@ -21,7 +24,11 @@ local function on_attach(client, bufnr)
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   cur_bmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  cur_bmap("n", "<leader>le", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+  cur_bmap(
+    "n",
+    "<leader>le",
+    "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>"
+  )
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
@@ -31,7 +38,9 @@ local function on_attach(client, bufnr)
 end
 
 local function get_venv_path()
-  if vim.env.VIRTUAL_ENV then return vim.env.VIRTUAL_ENV end
+  if vim.env.VIRTUAL_ENV then
+    return vim.env.VIRTUAL_ENV
+  end
 
   local path = require("lspconfig.util").path
 
@@ -44,51 +53,50 @@ end
 
 lspconfig.jedi_language_server.setup {
   on_attach = on_attach,
-  cmd_env = {VIRTUAL_ENV=get_venv_path()}
+  cmd_env = { VIRTUAL_ENV = get_venv_path() },
 }
 
 lspconfig.tsserver.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
 }
 
 lspconfig.gopls.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
 }
 
 lspconfig.solargraph.setup {
   on_attach = on_attach,
   settings = {
     solargraph = {
-      diagnostics = false
-    }
-  }
+      diagnostics = false,
+    },
+  },
 }
 
 lspconfig.svelte.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
 }
 
 local css_capabilities = vim.lsp.protocol.make_client_capabilities()
 css_capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.cssls.setup {
   capabilities = css_capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
 }
-
 
 local html_capabilities = vim.lsp.protocol.make_client_capabilities()
 html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup {
   capabilities = html_capabilities,
   on_attach = on_attach,
-  filetypes = { 'html', 'htmldjango' },
+  filetypes = { "html", "htmldjango" },
 }
 
-local sumneko_root_path = vim.fn.expand("$HOME/Dev/vcs/lua-language-server")
+local sumneko_root_path = vim.fn.expand "$HOME/Dev/vcs/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
 lspconfig.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -96,45 +104,45 @@ lspconfig.sumneko_lua.setup {
         -- Tell the language server which version of Lua you"re using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
         -- Setup your lua path
-        path = vim.split(package.path, ";")
+        path = vim.split(package.path, ";"),
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {"vim"}
+        globals = { "vim" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-        }
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+        },
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
-        enable = false
-      }
-    }
-  }
+        enable = false,
+      },
+    },
+  },
 }
 
 local efm_tools = {
   prettier = {
     formatCommand = "prettier --stdin-filepath ${INPUT}",
-    formatStdin = true
+    formatStdin = true,
   },
   flake8 = {
     lintCommand = "flake8 --stdin-display-name ${INPUT} -",
     lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"}
+    lintFormats = { "%f:%l:%c: %m" },
   },
   mypy = {
     lintCommand = "mypy-stdin ${INPUT} -",
     lintFormats = {
       "%f:%l:%c: %trror: %m",
       "%f:%l:%c: %tarning: %m",
-      "%f:%l:%c: %tote: %m"
+      "%f:%l:%c: %tote: %m",
     },
-    lintStdin = true
+    lintStdin = true,
   },
   black = {
     formatCommand = "black --quiet -",
@@ -143,7 +151,7 @@ local efm_tools = {
   isort = {
     formatCommand = "isort --quiet -",
     formatStdin = true,
-  }
+  },
 }
 
 local efm_languages = {
@@ -160,13 +168,13 @@ local efm_languages = {
 
 lspconfig.efm.setup {
   on_attach = on_attach,
-  root_dir = lspconfig.util.root_pattern(".git"),
+  root_dir = lspconfig.util.root_pattern ".git",
   init_options = {
     documentFormatting = true,
-    codeAction = true
+    codeAction = true,
   },
   settings = {
-    languages = efm_languages
+    languages = efm_languages,
   },
-  filetypes = vim.tbl_keys(efm_languages)
+  filetypes = vim.tbl_keys(efm_languages),
 }

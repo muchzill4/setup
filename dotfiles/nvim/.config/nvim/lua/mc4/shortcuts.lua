@@ -1,7 +1,7 @@
 local M = {}
 
 local function build_map_opts(opts)
-  local defaults = {noremap = true}
+  local defaults = { noremap = true }
   if opts then
     return vim.tbl_extend("force", defaults, opts)
   end
