@@ -33,7 +33,8 @@ telescope.setup {
     },
   },
 }
-require("telescope").load_extension "fzf"
+telescope.load_extension "fzf"
+telescope.load_extension "dap"
 
 local map = require("mc4.shortcuts").map
 

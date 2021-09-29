@@ -33,6 +33,10 @@ require("packer").startup {
     },
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 
+    "mfussenegger/nvim-dap",
+    "nvim-telescope/telescope-dap.nvim",
+    "rcarriga/nvim-dap-ui",
+
     "janko-m/vim-test",
     "kyazdani42/nvim-web-devicons",
     { "muchzill4/doubletrouble", requires = { "rktjmp/lush.nvim" } },
