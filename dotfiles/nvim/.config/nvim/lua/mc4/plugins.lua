@@ -38,7 +38,6 @@ require("packer").startup {
     "rcarriga/nvim-dap-ui",
 
     "janko-m/vim-test",
-    "kyazdani42/nvim-web-devicons",
     { "muchzill4/doubletrouble", requires = { "rktjmp/lush.nvim" } },
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
