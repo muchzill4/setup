@@ -4,6 +4,9 @@ if not ok then
   return nil
 end
 
+vim.api.nvim_command [[ hi link CmpItemAbbr Pmenu ]]
+vim.api.nvim_command [[ hi link CmpItemAbbrMatch Function ]]
+
 cmp.setup {
   sources = {
     { name = "nvim_lsp" },

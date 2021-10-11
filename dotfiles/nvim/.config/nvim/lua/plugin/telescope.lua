@@ -4,6 +4,8 @@ if not ok then
   return nil
 end
 
+vim.api.nvim_command [[ hi link TelescopeMatching Function ]]
+
 local actions = require "telescope.actions"
 
 telescope.setup {
