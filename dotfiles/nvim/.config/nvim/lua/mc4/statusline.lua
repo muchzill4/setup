@@ -40,7 +40,7 @@ local statusline = table.concat {
   "%=",
   [[ %20{luaeval("require('mc4.statusline').lsp_diagnostics()")} ]],
   "   ",
-  [[%<%.30{luaeval("require('mc4.statusline').branch()")}]],
+  [[%<%.40{luaeval("require('mc4.statusline').branch()")}]],
   "%10(%l:%c%)",
 }
 vim.o.statusline = statusline
