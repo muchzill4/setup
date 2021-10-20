@@ -1,32 +1,5 @@
 local M = {}
 
-local modes = {
-  n = "Normal",
-  no = "N·OpPd",
-  v = "Visual",
-  V = "V·Line",
-  [""] = "V·Blck",
-  s = "Select",
-  S = "S·Line",
-  [""] = "S·Blck",
-  i = "Insert",
-  ic = "ICompl",
-  R = "Rplace",
-  Rv = "VRplce",
-  c = "Cmmand",
-  cv = "Vim Ex",
-  ce = "Ex (r)",
-  r = "Prompt",
-  rm = "More",
-  ["r?"] = "Cnfirm",
-  ["!"] = "Shell",
-  t = "Term",
-}
-
-function M.mode()
-  return modes[vim.api.nvim_get_mode().mode]
-end
-
 function M.lsp_diagnostics()
   local output = {}
   local has_lsp_clients = not vim.tbl_isempty(vim.lsp.buf_get_clients(0))
