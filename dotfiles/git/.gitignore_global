@@ -5,3 +5,5 @@ tags
 Session.vim
 vim-config.lua
 .tool-versions
+start
+.venv
