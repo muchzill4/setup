@@ -28,7 +28,7 @@ end
 function M.branch()
   local branch = vim.fn.FugitiveHead()
   if branch ~= "" then
-    return string.format("⎇ %s", branch)
+    return string.format("%s", branch)
   end
   return ""
 end
