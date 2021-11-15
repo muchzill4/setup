@@ -40,7 +40,7 @@ cmd "au! TermOpen * startinsert"
 cmd "au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}"
 cmd "au! VimResized * wincmd ="
 
--- Don"t show numbers
+-- Don't show numbers
 vim.api.nvim_exec(
   [[
   augroup TerminalNumbers
