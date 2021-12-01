@@ -29,9 +29,10 @@ require("packer").startup {
       requires = {
         { "nvim-lua/popup.nvim" },
         { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-live-grep-raw.nvim" },
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
     },
-    { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 
     "mfussenegger/nvim-dap",
     "nvim-telescope/telescope-dap.nvim",
