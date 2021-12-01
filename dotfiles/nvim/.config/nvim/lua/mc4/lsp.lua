@@ -27,14 +27,14 @@ local function on_attach(client, bufnr)
   cur_bmap(
     "n",
     "<leader>le",
-    "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>"
+    [[<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>]]
   )
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
 
-  vim.api.nvim_command [[autocmd! User LspDiagnosticsChanged lua vim.lsp.diagnostic.set_loclist({ open = false })]]
+  vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.lsp.diagnostic.set_loclist({ open = false })]]
 end
 
 local function get_venv_path()
