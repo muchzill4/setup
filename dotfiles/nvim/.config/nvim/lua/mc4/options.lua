@@ -37,8 +37,9 @@ vim.g.loaded_python2_provider = false
 vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
 
 cmd "au! TermOpen * startinsert"
-cmd "au! TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}"
+cmd "au! TextYankPost * lua vim.highlight.on_yank {timeout = 200}"
 cmd "au! VimResized * wincmd ="
+cmd "au! FileType qf wincmd J" -- quickfix bottom
 
 -- Don't show numbers
 vim.api.nvim_exec(
