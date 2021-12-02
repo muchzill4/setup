@@ -48,5 +48,6 @@ require("packer").startup {
     "tpope/vim-unimpaired",
     "tpope/vim-vinegar",
     "windwp/nvim-projectconfig",
+    "christoomey/vim-tmux-navigator",
   },
 }
