@@ -34,10 +34,12 @@ local function on_attach(client, bufnr)
   end
 
   vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.lsp.diagnostic.set_loclist({ open = false })]]
-  vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
-  vim.api.nvim_command [[autocmd! CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()]]
-  vim.api.nvim_command [[autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()]]
-  vim.api.nvim_command [[autocmd! BufLeave <buffer> lua vim.lsp.buf.clear_references()]]
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
+    vim.api.nvim_command [[autocmd! CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()]]
+    vim.api.nvim_command [[autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()]]
+    vim.api.nvim_command [[autocmd! BufLeave <buffer> lua vim.lsp.buf.clear_references()]]
+  end
 end
 
 local function get_venv_path()
