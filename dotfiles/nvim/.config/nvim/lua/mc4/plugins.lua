@@ -53,8 +53,8 @@ require("packer").startup {
   },
   config = {
     -- for impatient.vim
-    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
-  }
+    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+  },
 }
 
 pcall(require, "packer_compiled")

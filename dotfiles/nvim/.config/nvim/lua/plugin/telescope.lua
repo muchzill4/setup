@@ -39,7 +39,6 @@ telescope.load_extension "fzf"
 telescope.load_extension "live_grep_raw"
 telescope.load_extension "dap"
 
-
 local map = require("mc4.shortcuts").map
 
 map("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>")
