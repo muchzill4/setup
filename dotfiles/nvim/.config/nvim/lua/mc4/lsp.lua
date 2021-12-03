@@ -19,8 +19,7 @@ local function on_attach(client, bufnr)
     bmap(bufnr, mode, lhs, rhs, opts)
   end
 
-  cur_bmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-  cur_bmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   cur_bmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
