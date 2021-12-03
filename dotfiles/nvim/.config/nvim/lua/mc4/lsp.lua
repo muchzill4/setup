@@ -26,7 +26,7 @@ local function on_attach(client, bufnr)
   cur_bmap(
     "n",
     "<leader>le",
-    [[<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>]]
+    [[<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>]]
   )
 
   if client.resolved_capabilities.document_formatting then
