@@ -31,6 +31,7 @@ local function on_attach(client, bufnr)
 
   if client.resolved_capabilities.document_formatting then
     cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+    vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
   end
 
   vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.lsp.diagnostic.set_loclist({ open = false })]]
