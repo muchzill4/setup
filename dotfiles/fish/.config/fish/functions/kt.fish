@@ -1,0 +1,14 @@
+function kt -d "kitty tab from ~/Dev/*"
+  set -l path $HOME/Dev
+  set -l selected_dir (
+    find $path/* -maxdepth 1 -mindepth 1 -type d |
+      sed "s~$path/~~" |
+      fzf-tmux -p --cycle --layout=reverse --prompt 't> ' |
+      sed "s~^~$path/~"
+  )
+
+  if test -n "$selected_dir"
+    set -l tab_name (echo $selected_dir | sed "s~$path/~~" | sed "s/\./_/g")
+    kitty @ focus-tab --match title:$tab_name 2>/dev/null || kitty @ new-window --new-tab --tab-title $tab_name --cwd $selected_dir
+  end
+end

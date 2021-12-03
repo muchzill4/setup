@@ -40,7 +40,7 @@ require("packer").startup {
     "janko-m/vim-test",
 
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
-    "christoomey/vim-tmux-navigator",
+    "knubie/vim-kitty-navigator",
     "lewis6991/impatient.nvim",
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
