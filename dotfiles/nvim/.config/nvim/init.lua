@@ -1,3 +1,5 @@
+pcall(require, "impatient")
+
 require "mc4.maps"
 require "mc4.plugins"
 require "mc4.options"

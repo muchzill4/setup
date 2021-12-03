@@ -37,9 +37,11 @@ require("packer").startup {
     "mfussenegger/nvim-dap",
     "nvim-telescope/telescope-dap.nvim",
     "rcarriga/nvim-dap-ui",
-
     "janko-m/vim-test",
-    { "muchzill4/doubletrouble", requires = { "rktjmp/lush.nvim" } },
+
+    { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
+    "christoomey/vim-tmux-navigator",
+    "lewis6991/impatient.nvim",
     "tpope/vim-commentary",
     "tpope/vim-fugitive",
     "tpope/vim-obsession",
@@ -48,6 +50,11 @@ require("packer").startup {
     "tpope/vim-unimpaired",
     "tpope/vim-vinegar",
     "windwp/nvim-projectconfig",
-    "christoomey/vim-tmux-navigator",
   },
+  config = {
+    -- for impatient.vim
+    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
+  }
 }
+
+pcall(require, "packer_compiled")
