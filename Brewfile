@@ -45,16 +45,19 @@ cask "zoom"
 
 # Mac App Store
 # --------------------
+mas "1Blocker", id: 1365531024
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
 mas "Affinity Publisher", id: 881418622
+mas "Bear", id: 1091189122
 mas "Color Picker", id: 1545870783
 mas "Keynote", id: 409183694
 mas "Marked 2", id: 890031187
+mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Shapr3D", id: 1091675654
-
+mas "Things", id: 904280696
 
 # Misc
 # --------------------
