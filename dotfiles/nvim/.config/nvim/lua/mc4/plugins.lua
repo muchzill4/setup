@@ -23,6 +23,13 @@ require("packer").startup {
         "hrsh7th/cmp-path",
       },
     },
+    {
+      "dcampos/nvim-snippy",
+      requires = {
+        "dcampos/cmp-snippy",
+        "honza/vim-snippets",
+      },
+    },
 
     {
       "nvim-telescope/telescope.nvim",
