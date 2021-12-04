@@ -20,7 +20,7 @@ end
 function M.obsession_status()
   local status = vim.fn.ObsessionStatus()
   if status == "[$]" then
-    return "[⊙]"
+    return "[◉]"
   end
   return ""
 end
