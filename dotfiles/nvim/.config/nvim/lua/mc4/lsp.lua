@@ -59,45 +59,26 @@ local function get_venv_path()
   return ""
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+local servers = { "tsserver", "gopls", "svelte", "cssls" }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+  }
+end
+
+lspconfig.html.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "htmldjango" },
+}
+
 lspconfig.jedi_language_server.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd_env = { VIRTUAL_ENV = get_venv_path() },
-}
-
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-}
-
-lspconfig.gopls.setup {
-  on_attach = on_attach,
-}
-
-lspconfig.solargraph.setup {
-  on_attach = on_attach,
-  settings = {
-    solargraph = {
-      diagnostics = false,
-    },
-  },
-}
-
-lspconfig.svelte.setup {
-  on_attach = on_attach,
-}
-
-local css_capabilities = vim.lsp.protocol.make_client_capabilities()
-css_capabilities.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.cssls.setup {
-  capabilities = css_capabilities,
-  on_attach = on_attach,
-}
-
-local html_capabilities = vim.lsp.protocol.make_client_capabilities()
-html_capabilities.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.html.setup {
-  capabilities = html_capabilities,
-  on_attach = on_attach,
-  filetypes = { "html", "htmldjango" },
 }
 
 local sumneko_root_path = vim.fn.expand "$HOME/Dev/vcs/lua-language-server"
@@ -106,6 +87,7 @@ local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 lspconfig.sumneko_lua.setup {
   cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
@@ -176,6 +158,7 @@ local efm_languages = {
 
 lspconfig.efm.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern ".git",
   init_options = {
     documentFormatting = true,
