@@ -94,4 +94,4 @@ for path in $paths
 end
 
 # asdf
-source /usr/local/opt/asdf/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
