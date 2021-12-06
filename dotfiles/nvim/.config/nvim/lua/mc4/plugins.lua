@@ -44,7 +44,7 @@ require("packer").startup {
     "mfussenegger/nvim-dap",
     "nvim-telescope/telescope-dap.nvim",
     "rcarriga/nvim-dap-ui",
-    "janko-m/vim-test",
+    "vim-test/vim-test",
 
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
     "knubie/vim-kitty-navigator",
