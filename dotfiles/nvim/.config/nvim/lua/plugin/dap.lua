@@ -5,9 +5,13 @@ if not ok then
 end
 
 local dap_go_ok, dap_go = pcall(require, "dap-go")
-
 if dap_go_ok then
   dap_go.setup()
+end
+
+local dapui_ok, dapui = pcall(require, "dapui")
+if dapui_ok then
+  dapui.setup()
 end
 
 dap.adapters.go = function(callback, config)
@@ -45,9 +49,12 @@ end
 
 local map = require("mc4.shortcuts").map
 
-if dap_go_ok then
-  map("n", "<leader>dt", "<Cmd>lua require('dap-go').debug_test()<CR>")
-end
 map("n", "<leader>db", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
 map("n", "<leader>dc", "<Cmd>lua require('dap').continue()<CR>")
 map("n", "<leader>dr", "<Cmd>lua require('dap').repl.toggle()<CR>")
+if dapui_ok then
+  map("n", "<leader>du", "<Cmd>lua require('dapui').toggle()<CR>")
+end
+if dap_go_ok then
+  map("n", "<leader>dt", "<Cmd>lua require('dap-go').debug_test()<CR>")
+end
