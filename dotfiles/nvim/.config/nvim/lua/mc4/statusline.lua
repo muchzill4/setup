@@ -4,10 +4,10 @@ function M.lsp_diagnostics()
   local output = {}
   local has_lsp_clients = not vim.tbl_isempty(vim.lsp.buf_get_clients(0))
   if has_lsp_clients then
-    local diags = { "Error", "Warning", "Hint", "Info" }
+    local diags = { "ERROR", "WARN", "INFO", "HINT" }
     for i = 1, #diags do
       local diag = diags[i]
-      local count = vim.lsp.diagnostic.get_count(0, diag)
+      local count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity[diag] }))
       if count > 0 then
         local symbol = string.sub(diag, 1, 1)
         table.insert(output, string.format("%s:%d", symbol, count))
