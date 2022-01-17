@@ -53,7 +53,7 @@ map(
   "<Leader>fd",
   "<Cmd>lua require('plugin.telescope').find_dotfiles()<CR>"
 )
-map("n", "<leader>ll", "<Cmd>Telescope lsp_document_diagnostics<CR>")
+map("n", "<leader>ll", "<Cmd>Telescope diagnostics bufnr=0<CR>")
 map("n", "<leader>lr", "<Cmd>Telescope lsp_references<CR>")
 
 local M = {}
