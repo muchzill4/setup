@@ -7,45 +7,59 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
 local palette = {
-  name="root",
-  contents={
-    { name="lsp",
-      contents={
-        { name="rename", cmd="lua vim.lsp.buf.rename()" },
-        { name="references", cmd="Telescope lsp_references" },
-        { name="diagnostics", cmd="Telescope diagnostics bufnr=0" },
-      }
+  name = "root",
+  contents = {
+    {
+      name = "lsp",
+      contents = {
+        { name = "rename", cmd = "lua vim.lsp.buf.rename()" },
+        { name = "references", cmd = "Telescope lsp_references" },
+        { name = "diagnostics", cmd = "Telescope diagnostics bufnr=0" },
+      },
     },
-    { name="test",
-      contents={
-        { name="file", cmd=":TestFile" },
-        { name="suite", cmd=":TestSuite" },
-      }
+    {
+      name = "test",
+      contents = {
+        { name = "file", cmd = ":TestFile" },
+        { name = "suite", cmd = ":TestSuite" },
+      },
     },
     -- { name="misc",
     --   contents={
     --     { name="mkdir where I am", cmd=":!mkdir -p %:p:h" },
     --   }
     -- },
-    { name="git",
-      contents={
-        { name="diff", cmd="Gdiffsplit" },
-        { name="push", cmd="Git push" },
-        { name="push --force", cmd="Git push --force" },
-      }
+    {
+      name = "git",
+      contents = {
+        { name = "diff", cmd = "Gdiffsplit" },
+        { name = "push", cmd = "Git push" },
+        { name = "push --force", cmd = "Git push --force" },
+      },
     },
-    { name="dap",
-      contents={
-        { name="continue", cmd="lua require('dap').continue()" },
-        { name="toggle breakpoint", cmd="lua require('dap').toggle_breakpoint()" },
-        { name="clear breakpoints", cmd="lua require('dap').clear_breakpoints()" },
-        { name="toggle repl", cmd="lua require('dap').repl.toggle()" },
-        { name="toggle ui", cmd="lua require('dapui').toggle()" },
-        { name="debug test", cmd="lua require('dap-go').debug_test()" },
-      }
+    {
+      name = "dap",
+      contents = {
+        { name = "continue", cmd = "lua require('dap').continue()" },
+        {
+          name = "toggle breakpoint",
+          cmd = "lua require('dap').toggle_breakpoint()",
+        },
+        {
+          name = "clear breakpoints",
+          cmd = "lua require('dap').clear_breakpoints()",
+        },
+        { name = "toggle repl", cmd = "lua require('dap').repl.toggle()" },
+        { name = "toggle ui", cmd = "lua require('dapui').toggle()" },
+        { name = "debug test", cmd = "lua require('dap-go').debug_test()" },
+      },
     },
-    { name="dotfiles", cmd="lua require('plugin.telescope.find_dotfiles').find_dotfiles()", insert=true },
-    { name="builtins", cmd="Telescope builtin" }
+    {
+      name = "dotfiles",
+      cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
+      insert = true,
+    },
+    { name = "builtins", cmd = "Telescope builtin" },
   },
 }
 
@@ -99,7 +113,7 @@ local function command_palette(opts)
           if selection.value.insert then
             vim.schedule(function()
               vim.cmd "startinsert! "
-              end)
+            end)
           end
           vim.api.nvim_exec(selection.value.cmd, true)
         end
@@ -113,6 +127,9 @@ function M.command_palette()
   command_palette()
 end
 
-require("plenary.reload").reload_module("plugin.telescope.command_palette", true)
+require("plenary.reload").reload_module(
+  "plugin.telescope.command_palette",
+  true
+)
 
 return M

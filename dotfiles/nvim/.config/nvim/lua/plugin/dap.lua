@@ -43,6 +43,6 @@ dap.adapters.go = function(callback, config)
   -- Wait for delve to start
   vim.defer_fn(function()
     callback { type = "server", host = "127.0.0.1", port = port }
-  -- Timeout needed bumping because dlv is slow to start
+    -- Timeout needed bumping because dlv is slow to start
   end, 250)
 end

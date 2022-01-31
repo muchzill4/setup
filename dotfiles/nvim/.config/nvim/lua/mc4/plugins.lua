@@ -46,7 +46,7 @@ require("packer").startup {
         "leoluz/nvim-dap-go",
         "nvim-telescope/telescope-dap.nvim",
         "rcarriga/nvim-dap-ui",
-      }
+      },
     },
 
     "vim-test/vim-test",

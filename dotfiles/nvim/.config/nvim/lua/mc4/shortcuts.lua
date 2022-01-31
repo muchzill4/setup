@@ -20,7 +20,9 @@ end
 
 -- https://github.com/tjdevries/astronauta.nvim
 function M.source_plugins()
-  for _, mod in ipairs(vim.api.nvim_get_runtime_file("lua/plugin/**/*.lua", true)) do
+  for _, mod in
+    ipairs(vim.api.nvim_get_runtime_file("lua/plugin/**/*.lua", true))
+  do
     local ok, msg = pcall(loadfile(mod))
 
     if not ok then
