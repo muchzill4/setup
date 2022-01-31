@@ -64,7 +64,6 @@ local palette = {
 }
 
 local function read_palette(address)
-  print(vim.inspect(address))
   local selected = palette
   for i = 1, #address do
     selected = selected.contents[address[i]]
