@@ -50,3 +50,8 @@ map(
   "<Leader>p",
   "<Cmd>lua require('plugin.telescope.command_palette').command_palette()<CR>"
 )
+map(
+  "n",
+  "<Leader>P",
+  "<Cmd>lua require('plugin.telescope.command_palette').command_palette_last_cmd()<CR>"
+)

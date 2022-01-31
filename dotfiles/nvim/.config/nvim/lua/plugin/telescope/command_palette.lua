@@ -6,6 +6,8 @@ local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
+local last_cmd = nil
+
 local palette = {
   name = "root",
   contents = {
@@ -59,7 +61,7 @@ local palette = {
       cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
       insert = true,
     },
-    { name = "builtins", cmd = "Telescope builtin" },
+    { name = "builtins", cmd = "Telescope builtin", insert = true },
   },
 }
 
@@ -109,6 +111,7 @@ local function command_palette(opts)
           current_picker:refresh(finder(opts.address), { reset_prompt = true })
         else
           actions.close(prompt_bufnr)
+          last_cmd = selection.value.cmd
           if selection.value.insert then
             vim.schedule(function()
               vim.cmd "startinsert! "
@@ -124,6 +127,12 @@ end
 
 function M.command_palette()
   command_palette()
+end
+
+function M.command_palette_last_cmd()
+  if last_cmd ~= nil then
+    vim.api.nvim_exec(last_cmd, true)
+  end
 end
 
 require("plenary.reload").reload_module(
