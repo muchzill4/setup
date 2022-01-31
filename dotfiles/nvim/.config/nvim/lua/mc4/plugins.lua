@@ -27,7 +27,6 @@ require("packer").startup {
       "dcampos/nvim-snippy",
       requires = {
         "dcampos/cmp-snippy",
-        "honza/vim-snippets",
       },
     },
 
