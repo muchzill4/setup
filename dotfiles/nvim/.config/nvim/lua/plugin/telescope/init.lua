@@ -41,29 +41,12 @@ telescope.load_extension "dap"
 
 local map = require("mc4.shortcuts").map
 
-map("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>")
-map("n", "<Leader>fb", "<Cmd>Telescope buffers<CR>")
-map("n", "<Leader>ft", "<Cmd>Telescope tags<CR>")
-map("n", "<Leader>fs", "<Cmd>Telescope live_grep_raw<CR>")
-map("n", "<Leader>fS", "<Cmd>Telescope grep_string<CR>")
-map("n", "<Leader>fx", "<Cmd>Telescope builtin<CR>")
-map("n", "<Leader>gb", "<Cmd>Telescope git_branches<CR>")
+map("n", "<Leader>f", "<Cmd>Telescope find_files<CR>")
+map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
+map("n", "<Leader>s", "<Cmd>Telescope live_grep_raw<CR>")
+map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map(
   "n",
-  "<Leader>fd",
-  "<Cmd>lua require('plugin.telescope').find_dotfiles()<CR>"
+  "<Leader>p",
+  "<Cmd>lua require('plugin.telescope.command_palette').command_palette()<CR>"
 )
-map("n", "<leader>ll", "<Cmd>Telescope diagnostics bufnr=0<CR>")
-map("n", "<leader>lr", "<Cmd>Telescope lsp_references<CR>")
-
-local M = {}
-
-function M.find_dotfiles()
-  require("telescope.builtin").find_files {
-    prompt_title = "~ dotfiles ~",
-    shorten_path = false,
-    cwd = "~/Dev/my/setup",
-  }
-end
-
-return M

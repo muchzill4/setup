@@ -22,17 +22,11 @@ local function on_attach(client, bufnr)
   cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-  cur_bmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  cur_bmap(
-    "n",
-    "<leader>le",
-    [[<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>]]
-  )
+  cur_bmap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
   cur_bmap("n", "]d", [[<cmd>lua vim.diagnostic.goto_next()<CR>]])
   cur_bmap("n", "[d", [[<cmd>lua vim.diagnostic.goto_prev()<CR>]])
 
   if client.resolved_capabilities.document_formatting then
-    cur_bmap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
     vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
   end
 

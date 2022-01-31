@@ -46,15 +46,3 @@ dap.adapters.go = function(callback, config)
   -- Timeout needed bumping because dlv is slow to start
   end, 250)
 end
-
-local map = require("mc4.shortcuts").map
-
-map("n", "<leader>db", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
-map("n", "<leader>dc", "<Cmd>lua require('dap').continue()<CR>")
-map("n", "<leader>dr", "<Cmd>lua require('dap').repl.toggle()<CR>")
-if dapui_ok then
-  map("n", "<leader>du", "<Cmd>lua require('dapui').toggle()<CR>")
-end
-if dap_go_ok then
-  map("n", "<leader>dt", "<Cmd>lua require('dap-go').debug_test()<CR>")
-end
