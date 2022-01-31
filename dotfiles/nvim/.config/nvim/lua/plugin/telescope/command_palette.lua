@@ -22,8 +22,8 @@ local palette = {
     {
       name = "test",
       contents = {
-        { name = "file", cmd = ":TestFile" },
-        { name = "suite", cmd = ":TestSuite" },
+        { name = "file", cmd = ":TestFile", insert = true },
+        { name = "suite", cmd = ":TestSuite", insert = true },
       },
     },
     -- { name="misc",
