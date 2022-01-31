@@ -3,7 +3,7 @@ function edit -d "edit using nvim with obsession"
     command nvim $argv
   else if test -f Session.vim
     command nvim -S
-    else
+  else
     command nvim
   end
 end
