@@ -37,12 +37,13 @@ local palette = {
         { name = "diff", cmd = "Gdiffsplit" },
         { name = "push", cmd = "Git push" },
         { name = "push --force", cmd = "Git push --force" },
+        { name = "browse", cmd = ".GBrowse" },
       },
     },
     {
       name = "dap",
       contents = {
-        { name = "continue", cmd = "lua require('dap').continue()" },
+        { name = "continue", cmd = "lua require('dap').continue()", insert = true },
         {
           name = "toggle breakpoint",
           cmd = "lua require('dap').toggle_breakpoint()",
@@ -62,6 +63,7 @@ local palette = {
       insert = true,
     },
     { name = "builtins", cmd = "Telescope builtin", insert = true },
+    { name = "unload buffers", cmd = ":bd%" },
   },
 }
 
@@ -117,7 +119,7 @@ local function command_palette(opts)
               vim.cmd "startinsert! "
             end)
           end
-          vim.api.nvim_exec(selection.value.cmd, true)
+          vim.api.nvim_command(selection.value.cmd)
         end
       end)
       return true
@@ -131,7 +133,7 @@ end
 
 function M.command_palette_last_cmd()
   if last_cmd ~= nil then
-    vim.api.nvim_exec(last_cmd, true)
+    vim.api.nvim_command(last_cmd)
   end
 end
 
