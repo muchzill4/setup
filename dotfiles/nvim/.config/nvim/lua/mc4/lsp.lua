@@ -14,9 +14,15 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+local aerial_ok, aerial = pcall(require, "aerial")
+
 local function on_attach(client, bufnr)
   local function cur_bmap(mode, lhs, rhs, opts)
     bmap(bufnr, mode, lhs, rhs, opts)
+  end
+
+  if aerial_ok then
+   aerial.on_attach(client, bufnr)
   end
 
   cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")

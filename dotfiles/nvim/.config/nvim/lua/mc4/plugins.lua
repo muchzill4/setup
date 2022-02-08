@@ -14,6 +14,7 @@ require("packer").startup {
     "neovim/nvim-lspconfig",
     "nvim-treesitter/nvim-treesitter",
     "Vimjas/vim-python-pep8-indent",
+    "stevearc/aerial.nvim",
 
     {
       "hrsh7th/nvim-cmp",
