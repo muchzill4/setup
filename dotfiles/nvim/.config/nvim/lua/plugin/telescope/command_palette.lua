@@ -11,59 +11,35 @@ local last_cmd = nil
 local palette = {
   name = "root",
   contents = {
+    { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
+    { name = "lsp references", cmd = "Telescope lsp_references" },
+    { name = "lsp diagnostics", cmd = "Telescope diagnostics bufnr=0" },
+    { name = "test file", cmd = ":TestFile", insert = true },
+    { name = "test suite", cmd = ":TestSuite", insert = true },
+  --     { name="mkdir where I am", cmd=":!mkdir -p %:p:h" },
+    { name = "git diff", cmd = "Gdiffsplit" },
+    { name = "git push", cmd = "Git push" },
+    { name = "git push --force", cmd = "Git push --force" },
+    { name = "git browse", cmd = ".GBrowse" },
+    { name = "dap continue", cmd = "lua require('dap').continue()", insert = true },
     {
-      name = "lsp",
-      contents = {
-        { name = "rename", cmd = "lua vim.lsp.buf.rename()" },
-        { name = "references", cmd = "Telescope lsp_references" },
-        { name = "diagnostics", cmd = "Telescope diagnostics bufnr=0" },
-      },
+      name = "dap toggle breakpoint",
+      cmd = "lua require('dap').toggle_breakpoint()",
     },
     {
-      name = "test",
-      contents = {
-        { name = "file", cmd = ":TestFile", insert = true },
-        { name = "suite", cmd = ":TestSuite", insert = true },
-      },
+      name = "dap clear breakpoints",
+      cmd = "lua require('dap').clear_breakpoints()",
     },
-    -- { name="misc",
-    --   contents={
-    --     { name="mkdir where I am", cmd=":!mkdir -p %:p:h" },
-    --   }
-    -- },
-    {
-      name = "git",
-      contents = {
-        { name = "diff", cmd = "Gdiffsplit" },
-        { name = "push", cmd = "Git push" },
-        { name = "push --force", cmd = "Git push --force" },
-        { name = "browse", cmd = ".GBrowse" },
-      },
-    },
-    {
-      name = "dap",
-      contents = {
-        { name = "continue", cmd = "lua require('dap').continue()", insert = true },
-        {
-          name = "toggle breakpoint",
-          cmd = "lua require('dap').toggle_breakpoint()",
-        },
-        {
-          name = "clear breakpoints",
-          cmd = "lua require('dap').clear_breakpoints()",
-        },
-        { name = "toggle repl", cmd = "lua require('dap').repl.toggle()" },
-        { name = "toggle ui", cmd = "lua require('dapui').toggle()" },
-        { name = "debug test", cmd = "lua require('dap-go').debug_test()" },
-      },
-    },
+    { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
+    { name = "dap toggle ui", cmd = "lua require('dapui').toggle()" },
+    { name = "dap debug test", cmd = "lua require('dap-go').debug_test()" },
     {
       name = "dotfiles",
       cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
       insert = true,
     },
-    { name = "builtins", cmd = "Telescope builtin", insert = true },
-    { name = "unload buffers", cmd = ":bd%" },
+    { name = "telescope builtins", cmd = "Telescope builtin", insert = true },
+    { name = "unload buffers", cmd = "%bd" },
   },
 }
 
