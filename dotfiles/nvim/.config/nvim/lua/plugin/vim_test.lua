@@ -7,4 +7,5 @@ end
 local map = require("mc4.shortcuts").map
 
 map("n", "<leader>l", "<Cmd>TestLast<CR>")
+map("n", "<leader>T", "<Cmd>TestFile<CR>")
 map("n", "<leader>t", "<Cmd>TestNearest<CR>")
