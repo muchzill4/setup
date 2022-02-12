@@ -21,6 +21,7 @@ local palette = {
     { name = "git push", cmd = "Git push" },
     { name = "git push --force", cmd = "Git push --force" },
     { name = "git browse", cmd = ".GBrowse" },
+    { name = "git branch", cmd = "Telescope git_branches", insert = true },
     { name = "dap continue", cmd = "lua require('dap').continue()", insert = true },
     {
       name = "dap toggle breakpoint",
