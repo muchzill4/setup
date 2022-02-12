@@ -1,4 +1,24 @@
 snippet it
-	t.Run("${1:name}", func(t *testing.T) {
+	t.Run("$1", func(t *testing.T) {
 		$2
 	})
+
+snippet st
+	type $1 struct {
+		$2
+	}
+
+snippet fum
+	func ($1 $2) $3($4) {
+		$5
+	}
+
+snippet fun
+	func $1($2) {
+		$3
+	}
+
+snippet ierr
+	if err != nil {
+		$1
+	}
