@@ -22,7 +22,7 @@ local function on_attach(client, bufnr)
   end
 
   if aerial_ok then
-   aerial.on_attach(client, bufnr)
+    aerial.on_attach(client, bufnr)
   end
 
   cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
