@@ -37,6 +37,7 @@ require("packer").startup {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-live-grep-raw.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
     },
@@ -61,7 +62,6 @@ require("packer").startup {
     "tpope/vim-rhubarb",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
-    "tpope/vim-vinegar",
     "windwp/nvim-projectconfig",
   },
   config = {
