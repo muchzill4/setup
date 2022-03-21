@@ -1,16 +1,21 @@
+snippet test
+	func Test${1:Name}(t *testing.T) {
+		$2
+	}
+
 snippet it
-	t.Run("$1", func(t *testing.T) {
+	t.Run("${1:description}", func(t *testing.T) {
 		$2
 	})
 
 snippet st
-	type $1 struct {
+	type ${1:name} struct {
 		$2
 	}
 
 snippet fum
-	func ($1 $2) $3($4) {
-		$5
+	func (${1:var} ${2:type}) ${3:fname}($4) $5{
+		$6
 	}
 
 snippet fun
