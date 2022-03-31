@@ -9,7 +9,7 @@ brew "git"
 brew "gh"
 brew "jq"
 brew "mas"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "openssl"
 brew "pipx"
 brew "ripgrep"
