@@ -30,14 +30,15 @@ local function on_attach(client, bufnr)
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   cur_bmap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
   cur_bmap("n", "<leader>R", "<cmd>Telescope lsp_references<CR>")
-  cur_bmap("n", "]d", [[<cmd>lua vim.diagnostic.goto_next()<CR>]])
-  cur_bmap("n", "[d", [[<cmd>lua vim.diagnostic.goto_prev()<CR>]])
+  cur_bmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+  cur_bmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+  cur_bmap("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>")
+
+  vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
 
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
   end
-
-  vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
     vim.api.nvim_command [[autocmd! CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()]]

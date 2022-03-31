@@ -44,6 +44,7 @@ telescope.load_extension "fzf"
 telescope.load_extension "live_grep_raw"
 telescope.load_extension "dap"
 telescope.load_extension "file_browser"
+telescope.load_extension "aerial"
 
 local map = require("mc4.shortcuts").map
 
@@ -52,6 +53,7 @@ map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
 map("n", "<Leader>s", "<Cmd>Telescope live_grep_raw<CR>")
 map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
+map("n", "<Leader>a", "<Cmd>Telescope aerial<CR>")
 map(
   "n",
   "<Leader>p",
