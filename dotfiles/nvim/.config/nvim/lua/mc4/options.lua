@@ -40,6 +40,7 @@ cmd "au! TermOpen * startinsert"
 cmd "au! TextYankPost * lua vim.highlight.on_yank {timeout = 200}"
 cmd "au! VimResized * wincmd ="
 cmd "au! FileType qf wincmd J" -- quickfix bottom
+cmd "au! BufEnter *.txt if &buftype == 'help' | wincmd L | endif"
 
 -- Don't show numbers
 vim.api.nvim_exec(
