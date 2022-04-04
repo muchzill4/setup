@@ -10,7 +10,7 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-    layout_config = { prompt_position = "top" },
+    layout_config = { prompt_position = "top", width = 0.9 },
     sorting_strategy = "ascending",
   },
   pickers = {
