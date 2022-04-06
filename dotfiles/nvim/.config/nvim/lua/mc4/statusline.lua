@@ -22,7 +22,7 @@ end
 function M.obsession_status()
   local status = vim.fn.ObsessionStatus()
   if status == "[$]" then
-    return "[◉]"
+    return "[$]"
   end
   return ""
 end
@@ -35,10 +35,18 @@ function M.branch()
   return ""
 end
 
+function M.filename()
+  local data = vim.fn.expand('%:~:.')
+  if data == "" then
+    return "[No Name]"
+  end
+  return data
+end
+
 local statusline = table.concat {
-  [[%<%f %h]],
+  [[%<%{luaeval("require('mc4.statusline').filename()")} ]],
   [[%{luaeval("require('mc4.statusline').obsession_status()")}]],
-  "%m%r",
+  "%h%m%r",
   "%=",
   [[ %20{luaeval("require('mc4.statusline').lsp_diagnostics()")} ]],
   "   ",
