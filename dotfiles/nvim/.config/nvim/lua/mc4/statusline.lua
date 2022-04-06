@@ -36,7 +36,7 @@ function M.branch()
 end
 
 function M.filename()
-  local data = vim.fn.expand('%:~:.')
+  local data = vim.fn.expand "%:~:."
   if data == "" then
     return "[No Name]"
   end

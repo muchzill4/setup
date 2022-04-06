@@ -32,7 +32,11 @@ local function on_attach(client, bufnr)
   cur_bmap("n", "<leader>R", "<cmd>Telescope lsp_references<CR>")
   cur_bmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
   cur_bmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-  cur_bmap("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>")
+  cur_bmap(
+    "n",
+    "<leader>d",
+    "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>"
+  )
 
   vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
 

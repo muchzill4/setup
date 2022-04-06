@@ -1,7 +1,7 @@
 return {
   extension = {
-    ['svelte'] = 'svelte',
+    ["svelte"] = "svelte",
   },
   file_name = {},
-  shebang = {}
+  shebang = {},
 }

@@ -35,8 +35,8 @@ telescope.setup {
     },
     file_browser = {
       grouped = true,
-      sorting_strategy = 'ascending',
-      path = '%:p:h',
+      sorting_strategy = "ascending",
+      path = "%:p:h",
     },
   },
 }
