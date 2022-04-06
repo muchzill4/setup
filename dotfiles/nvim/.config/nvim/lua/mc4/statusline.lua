@@ -54,6 +54,5 @@ local statusline = table.concat {
   "%10(%l:%c%)",
 }
 vim.o.statusline = statusline
-vim.o.laststatus = 3
 
 return M
