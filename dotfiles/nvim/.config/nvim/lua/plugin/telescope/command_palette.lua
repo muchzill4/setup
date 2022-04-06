@@ -13,7 +13,7 @@ local palette = {
   contents = {
     { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
     { name = "lsp references", cmd = "Telescope lsp_references" },
-    { name = "lsp diagnostics", cmd = "Telescope diagnostics bufnr=0" },
+    { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
     { name = "test suite", cmd = "TestSuite", insert = true },
     { name = "git diff", cmd = "Gdiffsplit" },
     { name = "git push", cmd = "Git push" },
