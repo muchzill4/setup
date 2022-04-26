@@ -6,7 +6,7 @@ local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
-local last_cmd = nil
+local last_selection = nil
 
 local palette = {
   { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
@@ -77,7 +77,7 @@ local function command_palette(opts)
       actions.select_default:replace(function()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
-        last_cmd = selection.value.cmd
+        last_selection = selection.value
         run_cmd(selection.value.cmd, selection.value.can_error)
       end)
       return true
@@ -90,8 +90,9 @@ function M.command_palette()
 end
 
 function M.command_palette_last_cmd()
-  if last_cmd ~= nil then
-    vim.api.nvim_command(last_cmd)
+  if last_selection ~= nil then
+    -- this seems to always work w/o horrid feed_keys, so run_cmd isn't necessary
+    run_cmd(last_selection.cmd, last_selection.can_error)
   end
 end
 
