@@ -14,16 +14,15 @@ local palette = {
     { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
     { name = "lsp references", cmd = "Telescope lsp_references" },
     { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
-    { name = "test suite", cmd = "TestSuite", insert = true },
+    { name = "test suite", cmd = "TestSuite", can_error = true },
     { name = "git diff", cmd = "Gdiffsplit" },
     { name = "git push", cmd = "Git push" },
     { name = "git push --force", cmd = "Git push --force" },
     { name = "git browse", cmd = ".GBrowse" },
-    { name = "git branch", cmd = "Telescope git_branches", insert = true },
+    { name = "git branch", cmd = "Telescope git_branches" },
     {
       name = "dap continue",
       cmd = "lua require('dap').continue()",
-      insert = true,
     },
     {
       name = "dap toggle breakpoint",
@@ -39,9 +38,8 @@ local palette = {
     {
       name = "dotfiles",
       cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
-      insert = true,
     },
-    { name = "telescope builtins", cmd = "Telescope builtin", insert = true },
+    { name = "telescope builtins", cmd = "Telescope" },
     { name = "unload buffers", cmd = "%bd" },
   },
 }
@@ -52,6 +50,18 @@ local function read_palette(address)
     selected = selected.contents[address[i]]
   end
   return selected
+end
+
+local function feed_keys(keys)
+  vim.api.nvim_input(vim.api.nvim_replace_termcodes(keys, true, false, true))
+end
+
+local function run_cmd(cmd, can_error)
+  if can_error then
+    feed_keys(":" .. cmd .. "<CR>")
+  else
+    vim.api.nvim_command(cmd)
+  end
 end
 
 local function command_palette(opts)
@@ -94,12 +104,7 @@ local function command_palette(opts)
         else
           actions.close(prompt_bufnr)
           last_cmd = selection.value.cmd
-          if selection.value.insert then
-            vim.schedule(function()
-              vim.cmd "startinsert! "
-            end)
-          end
-          vim.api.nvim_command(selection.value.cmd)
+          run_cmd(selection.value.cmd, selection.value.can_error)
         end
       end)
       return true
