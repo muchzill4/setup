@@ -4,8 +4,8 @@ if not ok then
   return nil
 end
 
-incline.setup({
+incline.setup {
   window = {
-    placement = { horizontal = 'right', vertical = 'bottom' },
+    placement = { horizontal = "right", vertical = "bottom" },
   },
-})
+}
