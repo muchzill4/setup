@@ -12,7 +12,7 @@ local palette = {
   { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
   { name = "lsp references", cmd = "Telescope lsp_references" },
   { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
-  { name = "test suite", cmd = "TestSuite", can_error = true },
+  { name = "test suite", cmd = "TestSuite", update_errmsg = true },
   { name = "git diff", cmd = "Gdiffsplit" },
   { name = "git push", cmd = "Git push" },
   { name = "git push --force", cmd = "Git push --force" },
@@ -39,14 +39,15 @@ local palette = {
   },
   { name = "telescope builtins", cmd = "Telescope" },
   { name = "unload buffers", cmd = "%bd" },
+  { name = "help", cmd = "Telescope help_tags" },
 }
 
 local function feed_keys(keys)
   vim.api.nvim_input(vim.api.nvim_replace_termcodes(keys, true, false, true))
 end
 
-local function run_cmd(cmd, can_error)
-  if can_error then
+local function run_cmd(cmd, update_errmsg)
+  if update_errmsg then
     feed_keys(":" .. cmd .. "<CR>")
   else
     vim.api.nvim_command(cmd)
@@ -78,7 +79,7 @@ local function command_palette(opts)
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
         last_selection = selection.value
-        run_cmd(selection.value.cmd, selection.value.can_error)
+        run_cmd(selection.value.cmd, selection.value.update_errmsg)
       end)
       return true
     end,
@@ -91,8 +92,8 @@ end
 
 function M.command_palette_last_cmd()
   if last_selection ~= nil then
-    -- this seems to always work w/o horrid feed_keys, so run_cmd isn't necessary
-    run_cmd(last_selection.cmd, last_selection.can_error)
+    -- this seems to always handle errors w/o horrid feed_keys, so run_cmd isn't necessary
+    run_cmd(last_selection.cmd, last_selection.update_errmsg)
   end
 end
 
