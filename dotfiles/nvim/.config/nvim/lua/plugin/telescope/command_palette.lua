@@ -81,6 +81,7 @@ local function command_palette(opts)
   end
 
   pickers.new(opts, {
+    prompt_title = "Command palette",
     finder = finder(opts.address),
     sorter = conf.generic_sorter(opts),
     attach_mappings = function(prompt_bufnr, map)
