@@ -39,6 +39,7 @@ require("packer").startup {
         "nvim-telescope/telescope-live-grep-raw.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        "muchzill4/telescope-yacp.nvim",
       },
     },
 
