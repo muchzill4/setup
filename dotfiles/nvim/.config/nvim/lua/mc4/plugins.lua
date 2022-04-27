@@ -63,7 +63,6 @@ require("packer").startup {
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
     "windwp/nvim-projectconfig",
-    "b0o/incline.nvim",
   },
   config = {
     -- for impatient.vim
