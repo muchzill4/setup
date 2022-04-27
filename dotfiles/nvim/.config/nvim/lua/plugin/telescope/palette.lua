@@ -1,7 +1,6 @@
 local M = {}
 
 M.palette = {
-  { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
   { name = "lsp references", cmd = "Telescope lsp_references" },
   { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
   { name = "test suite", cmd = "TestSuite" },
@@ -25,12 +24,12 @@ M.palette = {
   { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
   { name = "dap toggle ui", cmd = "lua require('dapui').toggle()" },
   { name = "dap debug test", cmd = "lua require('dap-go').debug_test()" },
+  { name = "telescope builtins", cmd = "Telescope" },
+  { name = "unload buffers", cmd = "%bd" },
   {
     name = "dotfiles",
     cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
   },
-  { name = "telescope builtins", cmd = "Telescope" },
-  { name = "unload buffers", cmd = "%bd" },
   { name = "help", cmd = "Telescope help_tags" },
 }
 
