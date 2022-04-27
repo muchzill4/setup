@@ -4,7 +4,7 @@ M.palette = {
   { name = "lsp rename", cmd = "lua vim.lsp.buf.rename()" },
   { name = "lsp references", cmd = "Telescope lsp_references" },
   { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
-  { name = "test suite", cmd = "TestSuite", update_errmsg = true },
+  { name = "test suite", cmd = "TestSuite" },
   { name = "git diff", cmd = "Gdiffsplit" },
   { name = "git push", cmd = "Git push" },
   { name = "git push --force", cmd = "Git push --force" },

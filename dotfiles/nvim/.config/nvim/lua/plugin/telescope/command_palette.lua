@@ -9,15 +9,11 @@ local action_state = require "telescope.actions.state"
 local last_selection = nil
 
 local function feed_keys(keys)
-  vim.api.nvim_input(vim.api.nvim_replace_termcodes(keys, true, false, true))
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
 end
 
-local function run_cmd(cmd, update_errmsg)
-  if update_errmsg then
-    feed_keys(":" .. cmd .. "<CR>")
-  else
-    vim.api.nvim_command(cmd)
-  end
+local function run_cmd(cmd)
+  feed_keys(":" .. cmd .. "<CR>")
 end
 
 function M.command_palette(opts)
@@ -45,7 +41,7 @@ function M.command_palette(opts)
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
         last_selection = selection.value
-        run_cmd(selection.value.cmd, selection.value.update_errmsg)
+        run_cmd(selection.value.cmd)
       end)
       return true
     end,
@@ -54,8 +50,7 @@ end
 
 function M.command_palette_last_cmd()
   if last_selection ~= nil then
-    -- this seems to always handle errors w/o horrid feed_keys, so run_cmd isn't necessary
-    run_cmd(last_selection.cmd, last_selection.update_errmsg)
+    run_cmd(last_selection.cmd)
   end
 end
 
