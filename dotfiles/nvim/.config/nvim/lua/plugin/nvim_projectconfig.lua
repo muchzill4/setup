@@ -4,6 +4,6 @@ if not ok then
   return nil
 end
 
-pc.setup({
+pc.setup {
   project_dir = "~/.local/share/projectconfig/",
-})
+}
