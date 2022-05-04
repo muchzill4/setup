@@ -5,8 +5,20 @@ if not ok then
 end
 
 configs.setup {
-  ensure_installed = "all",
-  ignore_install = { "phpdoc" },
+  ensure_installed = {
+    "bash",
+    "fish",
+    "go",
+    "gomod",
+    "gowork",
+    "javascript",
+    "lua",
+    "make",
+    "markdown",
+    "python",
+    "typescript",
+    "yaml",
+  },
   highlight = { enable = true },
   indent = {
     enable = true,
