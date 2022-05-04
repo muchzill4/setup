@@ -21,5 +21,5 @@ EOF
 
 augroup GO_LSP
   autocmd!
-  autocmd BufWritePre *.go :silent! lua org_imports(3000)
+  autocmd BufWritePre *.go :silent! lua org_imports(1000)
 augroup END
