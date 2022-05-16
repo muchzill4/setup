@@ -140,6 +140,10 @@ local efm_tools = {
     formatCommand = "isort --quiet -",
     formatStdin = true,
   },
+  stylua = {
+    formatCommand = "stylua -",
+    formatStdin = true,
+  },
 }
 
 local efm_languages = {
@@ -152,6 +156,7 @@ local efm_languages = {
   javascript = { efm_tools.prettier },
   markdown = { efm_tools.prettier },
   yaml = { efm_tools.prettier },
+  lua = { efm_tools.stylua },
 }
 
 lspconfig.efm.setup {
