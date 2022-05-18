@@ -40,6 +40,7 @@ telescope.setup {
     },
     yacp = {
       palette = {
+        require("yacp.focus").palette_entry,
         { name = "lsp references", cmd = "Telescope lsp_references" },
         { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
         { name = "test suite", cmd = "TestSuite" },
