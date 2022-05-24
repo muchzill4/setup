@@ -43,6 +43,7 @@ telescope.setup {
         require("yacp.focus").palette_entry,
         { name = "lsp references", cmd = "Telescope lsp_references" },
         { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
+        { name = "lsp workspace symbols", cmd = "Telescope lsp_dynamic_workspace_symbols" },
         { name = "test suite", cmd = "TestSuite" },
         { name = "git diff", cmd = "Gdiffsplit" },
         { name = "git push", cmd = "Git push" },
