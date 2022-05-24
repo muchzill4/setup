@@ -48,6 +48,7 @@ if status --is-interactive
   abbr -a -g gp 'git push'
   abbr -a -g gq 'git pull'
   abbr -a -g gr 'git rebase'
+  abbr -a -g gro 'git rebase --onto master'
   abbr -a -g grm 'git fetch && git rebase origin/master'
   abbr -a -g gs 'git status'
   abbr -a -g gst 'git stash'
