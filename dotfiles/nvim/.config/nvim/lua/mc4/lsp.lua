@@ -6,13 +6,13 @@ end
 
 local bmap = require("mc4.shortcuts").bmap
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    virtual_text = false,
-    signs = true,
-  }
-)
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+}
 
 local aerial_ok, aerial = pcall(require, "aerial")
 
