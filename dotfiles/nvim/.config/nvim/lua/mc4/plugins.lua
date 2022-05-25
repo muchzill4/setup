@@ -14,7 +14,6 @@ require("packer").startup {
     "neovim/nvim-lspconfig",
     "nvim-treesitter/nvim-treesitter",
     "Vimjas/vim-python-pep8-indent",
-    "stevearc/aerial.nvim",
 
     {
       "hrsh7th/nvim-cmp",
@@ -39,7 +38,7 @@ require("packer").startup {
         "nvim-telescope/telescope-live-grep-raw.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        "muchzill4/telescope-yacp.nvim",
+        "~/Dev/my/telescope-yacp.nvim",
       },
     },
 

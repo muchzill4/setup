@@ -14,22 +14,15 @@ vim.diagnostic.config {
   severity_sort = false,
 }
 
-local aerial_ok, aerial = pcall(require, "aerial")
-
 local function on_attach(client, bufnr)
   local function cur_bmap(mode, lhs, rhs, opts)
     bmap(bufnr, mode, lhs, rhs, opts)
-  end
-
-  if aerial_ok then
-    aerial.on_attach(client, bufnr)
   end
 
   cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
   cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   cur_bmap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  cur_bmap("n", "<leader>R", "<cmd>Telescope lsp_references<CR>")
   cur_bmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
   cur_bmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
   cur_bmap(

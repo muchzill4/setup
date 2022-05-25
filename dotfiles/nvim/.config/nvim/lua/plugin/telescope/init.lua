@@ -42,6 +42,7 @@ telescope.setup {
       palette = {
         require("yacp.focus").palette_entry,
         { name = "lsp references", cmd = "Telescope lsp_references" },
+        { name = "lsp document symbols", cmd = "Telescope lsp_document_symbols" },
         { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
@@ -84,7 +85,6 @@ telescope.load_extension "fzf"
 telescope.load_extension "live_grep_raw"
 telescope.load_extension "dap"
 telescope.load_extension "file_browser"
-telescope.load_extension "aerial"
 telescope.load_extension "yacp"
 
 local map = require("mc4.shortcuts").map
@@ -94,6 +94,5 @@ map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
 map("n", "<Leader>s", "<Cmd>Telescope live_grep_raw<CR>")
 map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
-map("n", "<Leader>a", "<Cmd>Telescope aerial<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
 map("n", "<Leader>P", "<Cmd>Telescope yacp replay<CR>")
