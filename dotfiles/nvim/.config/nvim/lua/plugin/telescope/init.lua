@@ -41,8 +41,10 @@ telescope.setup {
     yacp = {
       palette = {
         require("yacp.focus").palette_entry,
-        { name = "lsp references", cmd = "Telescope lsp_references" },
-        { name = "lsp document symbols", cmd = "Telescope lsp_document_symbols" },
+        {
+          name = "lsp document symbols",
+          cmd = "Telescope lsp_document_symbols",
+        },
         { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
@@ -96,3 +98,4 @@ map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
 map("n", "<Leader>P", "<Cmd>Telescope yacp replay<CR>")
+map("n", "<Leader>R", "<Cmd>Telescope lsp_references<CR>")
