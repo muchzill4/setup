@@ -4,8 +4,6 @@ if not ok then
   return nil
 end
 
-local bmap = require("mc4.shortcuts").bmap
-
 vim.diagnostic.config {
   virtual_text = false,
   signs = true,

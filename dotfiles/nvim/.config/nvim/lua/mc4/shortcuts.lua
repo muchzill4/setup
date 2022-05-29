@@ -1,5 +1,3 @@
-local M = {}
-
 local function build_map_opts(opts)
   local defaults = { noremap = true }
   if opts then
@@ -8,14 +6,22 @@ local function build_map_opts(opts)
   return defaults
 end
 
-function M.map(mode, lhs, rhs, opts)
+_G.map = function(mode, lhs, rhs, opts)
   local options = build_map_opts(opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function M.bmap(bufnr, mode, lhs, rhs, opts)
+_G.bmap = function(bufnr, mode, lhs, rhs, opts)
   local options = build_map_opts(opts)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
 end
 
-return M
+_G.prequire = function(mod)
+  local ok, err = pcall(require, mod)
+  if not ok then
+    print("Failed to load: ", mod)
+    print("\t", err)
+    return nil, err
+  end
+  return err
+end

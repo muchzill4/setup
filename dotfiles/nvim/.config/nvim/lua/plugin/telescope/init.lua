@@ -89,8 +89,6 @@ telescope.load_extension "dap"
 telescope.load_extension "file_browser"
 telescope.load_extension "yacp"
 
-local map = require("mc4.shortcuts").map
-
 map("n", "<Leader>f", "<Cmd>Telescope find_files<CR>")
 map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
 map("n", "<Leader>s", "<Cmd>Telescope live_grep_raw<CR>")

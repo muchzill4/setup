@@ -1,5 +1,3 @@
-local map = require("mc4.shortcuts").map
-
 -- leader
 map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
