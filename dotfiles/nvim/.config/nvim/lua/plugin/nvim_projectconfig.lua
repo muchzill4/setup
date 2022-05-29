@@ -1,9 +1,7 @@
-local ok, pc = pcall(require, "nvim-projectconfig")
+local pc = prequire "nvim-projectconfig"
 
-if not ok then
-  return nil
+if pc then
+  pc.setup {
+    project_dir = "~/.local/share/projectconfig/",
+  }
 end
-
-pc.setup {
-  project_dir = "~/.local/share/projectconfig/",
-}

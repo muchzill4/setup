@@ -1,6 +1,6 @@
-local ok, lspconfig = pcall(require, "lspconfig")
+local lspconfig = prequire "lspconfig"
 
-if not ok then
+if not lspconfig then
   return nil
 end
 
@@ -57,7 +57,10 @@ local function get_venv_path()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local cmp_nvim_lsp = prequire "cmp_nvim_lsp"
+if cmp_nvim_lsp then
+  capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+end
 
 local servers = { "tsserver", "gopls", "svelte", "cssls" }
 for _, lsp in ipairs(servers) do

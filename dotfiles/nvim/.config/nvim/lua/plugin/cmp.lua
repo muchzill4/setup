@@ -1,11 +1,7 @@
-local ok, cmp = pcall(require, "cmp")
+local cmp = prequire "cmp"
+local snippy = prequire "snippy"
 
-if not ok then
-  return nil
-end
-
-local snippy_ok, snippy = pcall(require, "snippy")
-if not snippy_ok then
+if not cmp or not snippy then
   return nil
 end
 

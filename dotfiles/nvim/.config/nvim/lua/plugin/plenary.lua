@@ -1,7 +1,5 @@
-local ok, plenary = pcall(require, "plenary")
+local plenary = prequire "plenary"
 
-if not ok then
-  return nil
+if plenary then
+  plenary.filetype.add_file "svelte"
 end
-
-plenary.filetype.add_file "svelte"

@@ -1,6 +1,6 @@
-local ok, telescope = pcall(require, "telescope")
+local telescope = prequire "telescope"
 
-if not ok then
+if not telescope then
   return nil
 end
 
