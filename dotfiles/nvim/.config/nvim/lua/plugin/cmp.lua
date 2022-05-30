@@ -5,7 +5,6 @@ if not cmp or not snippy then
   return nil
 end
 
-vim.api.nvim_command [[ hi link CmpItemAbbr Pmenu ]]
 vim.api.nvim_command [[ hi link CmpItemAbbrMatch Function ]]
 
 local has_words_before = function()
