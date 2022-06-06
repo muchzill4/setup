@@ -36,32 +36,22 @@ vim.wo.signcolumn = "yes"
 vim.g.loaded_python2_provider = false
 vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
 
-cmd "au! TermOpen * startinsert"
 cmd "au! TextYankPost * lua vim.highlight.on_yank {timeout = 200}"
 cmd "au! VimResized * wincmd ="
-cmd "au! FileType qf wincmd J" -- quickfix bottom
 
--- Don't show numbers
-vim.api.nvim_exec(
-  [[
-  augroup TerminalNumbers
-    autocmd!
-    au TermOpen * setlocal nonumber norelativenumber
-  augroup end
-]],
-  false
-)
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    cmd "setlocal nonumber norelativenumber"
+    cmd "startinsert"
+  end,
+})
 
 -- Trim dat whitespace
-vim.api.nvim_exec(
-  [[
-augroup TrimWhitespace
-    autocmd!
-    autocmd BufWritePre * %s/\s\+$//e
-  augroup end
-]],
-  false
-)
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = "%s/s+$//e",
+})
 
 -- Load local vim config
 local local_config = os.getenv "LOCAL_VIM_CONFIG"
