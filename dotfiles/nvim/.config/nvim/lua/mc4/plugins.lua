@@ -35,7 +35,7 @@ require("packer").startup {
       requires = {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-live-grep-raw.nvim",
+        "nvim-telescope/telescope-live-grep-args.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
         "~/Dev/my/telescope-yacp.nvim",

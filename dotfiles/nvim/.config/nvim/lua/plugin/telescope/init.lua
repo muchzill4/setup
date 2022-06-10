@@ -84,14 +84,14 @@ telescope.setup {
   },
 }
 telescope.load_extension "fzf"
-telescope.load_extension "live_grep_raw"
+telescope.load_extension "live_grep_args"
 telescope.load_extension "dap"
 telescope.load_extension "file_browser"
 telescope.load_extension "yacp"
 
 map("n", "<Leader>f", "<Cmd>Telescope find_files<CR>")
 map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
-map("n", "<Leader>s", "<Cmd>Telescope live_grep_raw<CR>")
+map("n", "<Leader>s", "<Cmd>Telescope live_grep_args<CR>")
 map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
