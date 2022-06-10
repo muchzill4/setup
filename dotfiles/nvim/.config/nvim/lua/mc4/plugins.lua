@@ -51,7 +51,7 @@ require("packer").startup {
       },
     },
 
-    {"muchzill4/vim-test", branch="support-go-subtests"},
+    { "vim-test/vim-test" },
 
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
     "knubie/vim-kitty-navigator",
