@@ -17,7 +17,6 @@ vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = "a"
 vim.o.pumblend = 5
 cmd [[hi PmenuSel blend=0]]
-vim.o.scrolloff = 8
 vim.o.showmode = true
 vim.o.smartcase = true
 vim.o.splitbelow = true
