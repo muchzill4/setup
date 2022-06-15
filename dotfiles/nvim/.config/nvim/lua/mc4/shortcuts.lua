@@ -19,8 +19,6 @@ end
 _G.prequire = function(mod)
   local ok, err = pcall(require, mod)
   if not ok then
-    print("Failed to load: ", mod)
-    print("\t", err)
     return nil, err
   end
   return err
