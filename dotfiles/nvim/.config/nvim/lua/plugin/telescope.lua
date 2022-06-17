@@ -24,6 +24,11 @@ telescope.setup {
       },
     },
     sorting_strategy = "ascending",
+    mappings = {
+      i = {
+        ["<c-/>"] = actions.which_key,
+      },
+    },
   },
   pickers = {
     buffers = {
