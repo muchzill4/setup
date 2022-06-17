@@ -5,8 +5,6 @@ if not telescope then
 end
 
 vim.api.nvim_command [[ hi link TelescopeMatching Function ]]
-vim.api.nvim_command [[ hi link TelescopeBorder LineNr ]]
-vim.api.nvim_command [[ hi link TelescopeTitle NormalFloat ]]
 vim.api.nvim_command [[ hi link TelescopePromptCounter LineNr ]]
 
 local actions = require "telescope.actions"
@@ -15,7 +13,7 @@ telescope.setup {
   defaults = {
     layout_strategy = "flex",
     winblend = 5,
-    results_title = false,
+    dynamic_preview_title = true,
     layout_config = {
       flip_columns = 110,
       prompt_position = "top",
