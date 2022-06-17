@@ -74,7 +74,7 @@ telescope.setup {
         },
         {
           name = "dotfiles",
-          cmd = "lua require('plugin.telescope.find_dotfiles').find_dotfiles()",
+          cmd = "Telescope find_files cwd=~/Dev/my/setup",
         },
         { name = "telescope builtins", cmd = "Telescope" },
         { name = "unload buffers", cmd = "%bd" },
@@ -95,5 +95,5 @@ map("n", "<Leader>s", "<Cmd>Telescope live_grep_args<CR>")
 map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
-map("n", "<Leader>P", "<Cmd>Telescope yacp replay<CR>")
+map("n", "@p", "<Cmd>Telescope yacp replay<CR>")
 map("n", "<Leader>R", "<Cmd>Telescope lsp_references<CR>")
