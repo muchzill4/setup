@@ -3,10 +3,10 @@ map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
 -- C-o to exit insert in terminal
--- Don"t show numbers
+-- Don't show numbers
 vim.api.nvim_exec(
   [[
-  augroup TerminalInsert
+  augroup TerminalSettings
     autocmd!
     au TermOpen * tnoremap <buffer> <C-o> <C-\><C-n>
   augroup end
