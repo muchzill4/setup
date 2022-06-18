@@ -38,6 +38,7 @@ cask "ngrok"
 cask "paw"
 cask "slack"
 cask "spotify"
+cask "steermouse"
 cask "tableplus"
 cask "ultimaker-cura"
 cask "whatsapp"
@@ -58,9 +59,3 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Shapr3D", id: 1091675654
 mas "Things", id: 904280696
-
-# Misc
-# --------------------
-tap "homebrew/cask-drivers"
-
-cask "logitech-options"
