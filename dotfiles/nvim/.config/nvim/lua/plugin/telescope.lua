@@ -52,6 +52,8 @@ telescope.setup {
       grouped = true,
       sorting_strategy = "ascending",
       path = "%:p:h",
+      dir_icon = "d",
+      dir_icon_hl = "Directory",
     },
     yacp = {
       palette = {
