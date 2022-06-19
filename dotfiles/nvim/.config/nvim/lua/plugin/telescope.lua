@@ -15,8 +15,10 @@ telescope.setup {
     winblend = 5,
     dynamic_preview_title = true,
     layout_config = {
-      flip_columns = 110,
       prompt_position = "top",
+      flex = {
+        flip_columns = 110,
+      },
       vertical = {
         mirror = true,
       },
