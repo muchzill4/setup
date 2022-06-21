@@ -74,24 +74,6 @@ telescope.setup {
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
         {
-          name = "dap continue",
-          cmd = "lua require('dap').continue()",
-        },
-        {
-          name = "dap toggle breakpoint",
-          cmd = "lua require('dap').toggle_breakpoint()",
-        },
-        {
-          name = "dap clear breakpoints",
-          cmd = "lua require('dap').clear_breakpoints()",
-        },
-        { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
-        { name = "dap toggle ui", cmd = "lua require('dapui').toggle()" },
-        {
-          name = "dap debug test",
-          cmd = "lua require('dap-go').debug_test()",
-        },
-        {
           name = "dotfiles",
           cmd = "Telescope find_files cwd=~/Dev/my/setup",
         },
@@ -104,7 +86,6 @@ telescope.setup {
 }
 telescope.load_extension "fzf"
 telescope.load_extension "live_grep_args"
-telescope.load_extension "dap"
 telescope.load_extension "file_browser"
 telescope.load_extension "yacp"
 

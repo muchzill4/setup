@@ -42,15 +42,6 @@ require("packer").startup {
       },
     },
 
-    {
-      "mfussenegger/nvim-dap",
-      requires = {
-        "leoluz/nvim-dap-go",
-        "nvim-telescope/telescope-dap.nvim",
-        "rcarriga/nvim-dap-ui",
-      },
-    },
-
     { "vim-test/vim-test" },
 
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
