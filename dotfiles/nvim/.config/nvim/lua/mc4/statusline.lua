@@ -37,7 +37,7 @@ end
 local function branch()
   local b = vim.fn.FugitiveHead()
   if b ~= "" then
-    return string.format("%s", b)
+    return string.format("%%<%s", b)
   end
   return ""
 end
@@ -56,7 +56,7 @@ function _G.statusline_active()
     " ",
     obsession_status(),
     "%h%m%r",
-    "%=",
+    "   %=",
     lsp_diagnostics(),
     "   ",
     branch(),
