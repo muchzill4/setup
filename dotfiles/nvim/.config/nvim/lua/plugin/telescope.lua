@@ -64,6 +64,10 @@ telescope.setup {
           name = "lsp document symbols",
           cmd = "Telescope lsp_document_symbols",
         },
+        {
+          name = "lsp workspace symbols",
+          cmd = "Telescope lsp_dynamic_workspace_symbols",
+        },
         { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
