@@ -79,7 +79,7 @@ set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
-set -x FZF_DEFAULT_OPTS '--color query:regular,fg+:regular,hl:3,hl+:3:regular,prompt:5,bg+:#561e57,gutter:-1'
+set -x FZF_DEFAULT_OPTS '--color query:regular,fg+:regular,hl:3,hl+:3:regular,prompt:5,bg+:#561e57,gutter:-1 --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'
 
 # fzf.fish
 set fzf_history_opts --preview=""
