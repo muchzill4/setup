@@ -35,6 +35,3 @@ map("n", "<Leader>q", "<Cmd>bdelete<CR>")
 
 -- :wq!
 map("n", "<Leader>Q", "<Cmd>wq!<CR>")
-
--- alternate buffer
-map("n", "<Leader><Leader>", "<C-^>")

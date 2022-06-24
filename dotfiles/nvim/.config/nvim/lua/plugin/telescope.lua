@@ -94,7 +94,7 @@ telescope.load_extension "file_browser"
 telescope.load_extension "yacp"
 
 map("n", "<Leader>f", "<Cmd>Telescope find_files<CR>")
-map("n", "<Leader>b", "<Cmd>Telescope buffers<CR>")
+map("n", "<Leader><space>", "<Cmd>Telescope buffers<CR>")
 map("n", "<Leader>s", "<Cmd>Telescope live_grep_args<CR>")
 map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
