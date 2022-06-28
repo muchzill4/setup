@@ -5,21 +5,12 @@ local function lsp_diagnostics()
     local diags = { "ERROR", "WARN", "INFO", "HINT" }
     for i = 1, #diags do
       local diag = diags[i]
-      local bcount = vim.tbl_count(
+      local count = vim.tbl_count(
         vim.diagnostic.get(0, { severity = vim.diagnostic.severity[diag] })
       )
-      local gcount = vim.tbl_count(
-        vim.diagnostic.get(nil, { severity = vim.diagnostic.severity[diag] })
-      )
-      if bcount > 0 or gcount > 0 then
+      if count > 0 then
         local symbol = string.sub(diag, 1, 1)
-        local status = ""
-        if gcount ~= bcount then
-          status = string.format("%s:%d/%d", symbol, bcount, gcount)
-        else
-          status = string.format("%s:%d", symbol, bcount)
-        end
-        table.insert(output, status)
+        table.insert(output, string.format("%s:%d", symbol, count))
       end
     end
   end
