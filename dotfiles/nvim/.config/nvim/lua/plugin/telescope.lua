@@ -72,6 +72,7 @@ telescope.setup {
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
         { name = "git bcommits", cmd = "Gllog %" },
+        { name = "git blame", cmd = "Git blame" },
         { name = "git commits", cmd = "Gllog" },
         { name = "git diff", cmd = "Gdiffsplit" },
         { name = "git push", cmd = "Git push" },
