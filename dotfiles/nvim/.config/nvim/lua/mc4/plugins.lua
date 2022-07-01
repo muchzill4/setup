@@ -12,6 +12,7 @@ require("packer").startup {
     { "wbthomason/packer.nvim", opt = true },
 
     "neovim/nvim-lspconfig",
+    "j-hui/fidget.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "Vimjas/vim-python-pep8-indent",
