@@ -1,19 +1,11 @@
-local function build_map_opts(opts)
-  local defaults = { noremap = true }
-  if opts then
-    return vim.tbl_extend("force", defaults, opts)
-  end
-  return defaults
-end
-
 _G.map = function(mode, lhs, rhs, opts)
-  local options = build_map_opts(opts)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 _G.bmap = function(bufnr, mode, lhs, rhs, opts)
-  local options = build_map_opts(opts)
-  vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
+  opts = opts or {}
+  opts.buffer = bufnr
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 _G.prequire = function(mod)
