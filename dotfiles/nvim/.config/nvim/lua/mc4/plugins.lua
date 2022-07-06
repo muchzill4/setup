@@ -39,7 +39,7 @@ require("packer").startup {
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
     "knubie/vim-kitty-navigator",
     "lewis6991/impatient.nvim",
-    "tpope/vim-commentary",
+    "numToStr/Comment.nvim",
     "tpope/vim-fugitive",
     "tpope/vim-obsession",
     "tpope/vim-rhubarb",
