@@ -20,7 +20,7 @@ end
 local function obsession_status()
   local status = vim.fn.ObsessionStatus()
   if status == "[$]" then
-    return "[$]"
+    return "[REC]"
   end
   return ""
 end
