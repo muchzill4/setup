@@ -50,3 +50,15 @@ configs.setup {
     },
   },
 }
+
+local context = prequire "treesitter-context"
+
+if context then
+  context.setup {
+    max_lines = 1,
+    trim_scope = "inner",
+    mode = "topline",
+  }
+
+  vim.api.nvim_command [[hi link TreesitterContextLineNumber Identifier]]
+end
