@@ -66,6 +66,7 @@ if status --is-interactive
   abbr -a -g va 'source .venv/bin/activate.fish'
   abbr -a -g vd 'deactivate'
   abbr -a -g cb 'checkout-branch'
+  abbr -a -g db 'delete-branches'
   abbr -a -g cpr 'checkout-pr'
   alias ssh='kitty +kitten ssh'
 end
