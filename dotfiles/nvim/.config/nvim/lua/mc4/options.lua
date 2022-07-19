@@ -60,3 +60,8 @@ if local_config ~= nil then
   -- Is this horrible?
   cmd(":luafile " .. local_config)
 end
+
+-- Folds
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldmethod = "expr"
+vim.wo.foldenable = false -- `zi` to toggle
