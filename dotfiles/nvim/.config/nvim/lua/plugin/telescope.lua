@@ -96,7 +96,11 @@ telescope.load_extension "yacp"
 map("n", "<Leader>f", "<Cmd>Telescope find_files<CR>")
 map("n", "<Leader><space>", "<Cmd>Telescope buffers<CR>")
 map("n", "<Leader>s", "<Cmd>Telescope live_grep_args<CR>")
-map("n", "<Leader>S", "<Cmd>Telescope grep_string<CR>")
+map("n", "<Leader>S", function()
+  require("telescope").extensions.live_grep_args.live_grep_args {
+    default_text = vim.fn.expand "<cword>",
+  }
+end)
 map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
 map("n", "@p", "<Cmd>Telescope yacp replay<CR>")
