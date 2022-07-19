@@ -55,9 +55,14 @@ local context = prequire "treesitter-context"
 
 if context then
   context.setup {
-    max_lines = 1,
+    max_lines = 0,
     trim_scope = "inner",
-    mode = "topline",
+    mode = "cursor",
+    patterns = {
+      go = {
+        "struct",
+      },
+    },
   }
 
   vim.api.nvim_command [[hi link TreesitterContextLineNumber Identifier]]
