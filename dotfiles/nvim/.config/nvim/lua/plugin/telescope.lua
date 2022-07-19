@@ -82,7 +82,7 @@ telescope.setup {
           cmd = "Telescope find_files cwd=~/Dev/my/setup",
         },
         { name = "telescope builtins", cmd = "Telescope" },
-        { name = "unload buffers", cmd = "%bd" },
+        { name = "unload buffers", cmd = "%bd|edit#|bd#" },
         { name = "help", cmd = "Telescope help_tags" },
       },
     },
