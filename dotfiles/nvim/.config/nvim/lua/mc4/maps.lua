@@ -34,4 +34,4 @@ map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
 map("n", "<Leader>q", "<Cmd>bdelete<CR>")
 
 -- :wq!
-map("n", "<Leader>Q", "<Cmd>wq!<CR>")
+map("n", "<Leader>Q", "<Cmd>bdelete!<CR>")
