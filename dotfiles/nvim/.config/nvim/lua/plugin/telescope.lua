@@ -78,7 +78,20 @@ telescope.setup {
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
         {
-          name = "dotfiles",
+          name = "dap continue",
+          cmd = "lua require('dap').continue()",
+        },
+        {
+          name = "dap toggle breakpoint",
+          cmd = "lua require('dap').toggle_breakpoint()",
+        },
+        {
+          name = "dap clear breakpoints",
+          cmd = "lua require('dap').clear_breakpoints()",
+        },
+        { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
+        {
+          name = "setup / dotfiles",
           cmd = "Telescope find_files cwd=~/Dev/my/setup",
         },
         { name = "telescope builtins", cmd = "Telescope" },

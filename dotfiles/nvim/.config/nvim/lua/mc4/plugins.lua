@@ -26,6 +26,9 @@ require("packer").startup {
     "dcampos/nvim-snippy",
     "dcampos/cmp-snippy",
 
+    "mfussenegger/nvim-dap",
+    "leoluz/nvim-dap-go",
+
     {
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" },
