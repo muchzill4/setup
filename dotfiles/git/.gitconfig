@@ -1,7 +1,3 @@
-[user]
-  name = Bartek Mucha
-  email = muchzill4@gmail.com
-
 [core]
   excludesfile = ~/.gitignore_global
 
@@ -21,3 +17,12 @@
 [init]
   defaultBranch = master
   templateDir = ~/.git_template
+
+[commit]
+  gpgSign = true
+
+[tag]
+  gpgSign = true
+
+[include]
+  path = ~/.gitconfig.local
