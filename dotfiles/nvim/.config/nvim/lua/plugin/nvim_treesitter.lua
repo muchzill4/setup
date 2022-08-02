@@ -7,6 +7,7 @@ end
 configs.setup {
   ensure_installed = {
     "bash",
+    "comment",
     "fish",
     "go",
     "gomod",
