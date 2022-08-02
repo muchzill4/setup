@@ -91,6 +91,20 @@ telescope.setup {
         },
         { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
         {
+          name = "dap debug test",
+          cmd = "lua require('dap-go').debug_test()",
+          show = function()
+            return vim.bo.filetype == "go"
+          end,
+        },
+        {
+          name = "open using default application",
+          cmd = "!open %",
+          show = function()
+            return vim.bo.filetype == "markdown"
+          end,
+        },
+        {
           name = "setup / dotfiles",
           cmd = "Telescope find_files cwd=~/Dev/my/setup",
         },
@@ -101,6 +115,7 @@ telescope.setup {
     },
   },
 }
+
 telescope.load_extension "fzf"
 telescope.load_extension "live_grep_args"
 telescope.load_extension "file_browser"
