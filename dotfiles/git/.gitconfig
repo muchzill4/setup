@@ -1,5 +1,5 @@
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore
 
 [color]
   ui = true
