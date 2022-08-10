@@ -18,11 +18,5 @@
   defaultBranch = master
   templateDir = ~/.git_template
 
-[commit]
-  gpgSign = true
-
-[tag]
-  gpgSign = true
-
 [include]
   path = ~/.gitconfig.local
