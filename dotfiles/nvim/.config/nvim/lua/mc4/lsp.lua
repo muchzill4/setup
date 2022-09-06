@@ -32,7 +32,7 @@ local function on_attach(client, bufnr)
   vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
 
   if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
   end
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
