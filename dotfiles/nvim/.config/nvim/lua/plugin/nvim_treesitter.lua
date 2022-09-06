@@ -56,7 +56,7 @@ local context = prequire "treesitter-context"
 
 if context then
   context.setup {
-    max_lines = 0,
+    max_lines = 5,
     trim_scope = "inner",
     mode = "cursor",
     patterns = {
