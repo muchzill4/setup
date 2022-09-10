@@ -22,16 +22,8 @@ set fish_color_quote D1AF9F
 set fish_color_search_match --background=50340B
 set fish_color_valid_path normal --underline
 
-# hydro
-set hydro_multiline true
-set hydro_color_pwd 6CA9EF
-set hydro_color_prompt E0A8E1
-set hydro_color_error E25A6A
-set hydro_symbol_git_dirty "*"
-set hydro_symbol_git_ahead "⇡"
-set hydro_symbol_git_behind "⇣"
-set hydro_color_git 565B8F
-set hydro_color_duration E6A64C
+# pure
+set pure_show_jobs true
 
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
