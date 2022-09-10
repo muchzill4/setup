@@ -22,6 +22,7 @@ require("packer").startup {
       requires = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/nvim-treesitter-context",
+        "aarondiel/spread.nvim",
       },
     },
     "Vimjas/vim-python-pep8-indent",
