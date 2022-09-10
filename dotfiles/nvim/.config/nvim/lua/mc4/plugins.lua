@@ -11,32 +11,51 @@ require("packer").startup {
   {
     { "wbthomason/packer.nvim", opt = true },
 
-    "neovim/nvim-lspconfig",
-    "j-hui/fidget.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+      "neovim/nvim-lspconfig",
+      requires = {
+        "j-hui/fidget.nvim",
+      },
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      requires = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-context",
+      },
+    },
     "Vimjas/vim-python-pep8-indent",
 
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
+    {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
 
-    "dcampos/nvim-snippy",
-    "dcampos/cmp-snippy",
+        "dcampos/nvim-snippy",
+        "dcampos/cmp-snippy",
+      },
+    },
 
-    "mfussenegger/nvim-dap",
-    "leoluz/nvim-dap-go",
+    {
+      "mfussenegger/nvim-dap",
+      requires = {
+        "leoluz/nvim-dap-go",
+      },
+    },
 
     {
       "nvim-telescope/telescope.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = {
+        "nvim-lua/plenary.nvim",
+
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        "~/Dev/my/telescope-yacp.nvim",
+      },
     },
-    "nvim-telescope/telescope-live-grep-args.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    "~/Dev/my/telescope-yacp.nvim",
 
     "vim-test/vim-test",
 
