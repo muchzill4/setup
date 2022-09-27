@@ -1,4 +1,4 @@
-fidget = prequire "fidget"
+local fidget = prequire "fidget"
 
 if not fidget then
   return nil
