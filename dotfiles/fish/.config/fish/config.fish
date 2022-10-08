@@ -81,9 +81,6 @@ set -x COMPOSE_DOCKER_CLI_BUILD 1
 # local venvs please
 set -x PIPENV_VENV_IN_PROJECT 1
 
-# make pip explode if attempting to install packages globally
-set -x PIP_REQUIRE_VIRTUALENV 1
-
 # bat
 set -x BAT_THEME '1337'
 
