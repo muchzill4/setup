@@ -15,6 +15,12 @@ require("packer").startup {
       "neovim/nvim-lspconfig",
       requires = {
         "j-hui/fidget.nvim",
+        {
+          "jose-elias-alvarez/null-ls.nvim",
+          requires = {
+            "nvim-lua/plenary.nvim",
+          },
+        },
       },
     },
     {

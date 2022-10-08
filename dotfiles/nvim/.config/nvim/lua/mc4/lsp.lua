@@ -29,11 +29,9 @@ local function on_attach(client, bufnr)
     "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>"
   )
 
+  -- TODO: wrap this in if capabilities
   vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
 
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-  end
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
     vim.api.nvim_command [[autocmd! CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()]]
@@ -107,62 +105,22 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
-local efm_tools = {
-  prettier = {
-    formatCommand = "prettier --stdin-filepath ${INPUT}",
-    formatStdin = true,
-  },
-  flake8 = {
-    lintCommand = "flake8 --stdin-display-name ${INPUT} -",
-    lintStdin = true,
-    lintFormats = { "%f:%l:%c: %m" },
-  },
-  mypy = {
-    lintCommand = "mypy-stdin ${INPUT} -",
-    lintFormats = {
-      "%f:%l:%c: %trror: %m",
-      "%f:%l:%c: %tarning: %m",
-      "%f:%l:%c: %tote: %m",
+local null_ls = prequire "null-ls"
+
+if null_ls then
+  null_ls.setup {
+    sources = {
+      null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.isort,
+      null_ls.builtins.formatting.gofmt,
+      null_ls.builtins.formatting.goimports,
+      null_ls.builtins.formatting.flake8,
+      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.stylua,
     },
-    lintStdin = true,
-  },
-  black = {
-    formatCommand = "black --quiet -",
-    formatStdin = true,
-  },
-  isort = {
-    formatCommand = "isort --quiet -",
-    formatStdin = true,
-  },
-  stylua = {
-    formatCommand = "stylua -",
-    formatStdin = true,
-  },
-}
-
-local efm_languages = {
-  python = {
-    efm_tools.flake8,
-    efm_tools.mypy,
-    efm_tools.black,
-    efm_tools.isort,
-  },
-  javascript = { efm_tools.prettier },
-  markdown = { efm_tools.prettier },
-  yaml = { efm_tools.prettier },
-  lua = { efm_tools.stylua },
-}
-
-lspconfig.efm.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern ".git",
-  init_options = {
-    documentFormatting = true,
-    codeAction = true,
-  },
-  settings = {
-    languages = efm_languages,
-  },
-  filetypes = vim.tbl_keys(efm_languages),
-}
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.format({ bufnr = bufnr })]]
+    end,
+  }
+end
