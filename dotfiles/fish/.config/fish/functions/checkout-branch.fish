@@ -2,6 +2,6 @@ function checkout-branch -e "checkout selected branch"
   git branch |
   rg -v '\*' |
   cut -c 3- |
-  fzf |
+  fzf --prompt "Checkout: " |
   xargs git checkout
 end
