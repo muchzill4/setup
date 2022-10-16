@@ -21,6 +21,7 @@ require("packer").startup {
             "nvim-lua/plenary.nvim",
           },
         },
+        "lukas-reineke/lsp-format.nvim",
       },
     },
     {

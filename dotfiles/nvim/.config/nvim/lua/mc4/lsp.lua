@@ -106,6 +106,11 @@ lspconfig.sumneko_lua.setup {
 }
 
 local null_ls = prequire "null-ls"
+local lsp_format = prequire "lsp-format"
+
+if lsp_format then
+  lsp_format.setup()
+end
 
 if null_ls then
   null_ls.setup {
@@ -120,7 +125,9 @@ if null_ls then
     },
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
-      vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.format({ bufnr = bufnr })]]
+      if lsp_format then
+        lsp_format.on_attach(client)
+      end
     end,
   }
 end
