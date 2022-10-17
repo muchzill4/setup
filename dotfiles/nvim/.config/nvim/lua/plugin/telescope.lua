@@ -129,7 +129,7 @@ map("n", "<Leader>S", function()
     default_text = vim.fn.expand "<cword>",
   }
 end)
-map("n", "<Leader>F", "<Cmd>Telescope file_browser<CR>")
+map("n", "<Leader>F", "<Cmd>Telescope file_browser hidden=true<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
 map("n", "@p", "<Cmd>Telescope yacp replay<CR>")
 map("n", "<Leader>R", "<Cmd>Telescope lsp_references<CR>")
