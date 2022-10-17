@@ -57,7 +57,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_nvim_lsp = prequire "cmp_nvim_lsp"
 if cmp_nvim_lsp then
-  capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+  capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
 local servers = { "tsserver", "gopls", "svelte", "cssls" }
