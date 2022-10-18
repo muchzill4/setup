@@ -78,26 +78,6 @@ telescope.setup {
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
         {
-          name = "dap continue",
-          cmd = "lua require('dap').continue()",
-        },
-        {
-          name = "dap toggle breakpoint",
-          cmd = "lua require('dap').toggle_breakpoint()",
-        },
-        {
-          name = "dap clear breakpoints",
-          cmd = "lua require('dap').clear_breakpoints()",
-        },
-        { name = "dap toggle repl", cmd = "lua require('dap').repl.toggle()" },
-        {
-          name = "dap debug test",
-          cmd = "lua require('dap-go').debug_test()",
-          show = function()
-            return vim.bo.filetype == "go"
-          end,
-        },
-        {
           name = "open using default application",
           cmd = "!open %",
           show = function()
