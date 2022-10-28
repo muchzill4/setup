@@ -12,7 +12,6 @@ end
 local palette = prequire "yacp.palette"
 
 local function has_dap_configured()
-  print(dap.configurations[vim.bo.filetype] ~= nil)
   return dap.configurations[vim.bo.filetype] ~= nil
 end
 
