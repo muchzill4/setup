@@ -78,8 +78,8 @@ telescope.setup {
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
         {
-          name = "open using default application",
-          cmd = "!open %",
+          name = "markdown preview",
+          cmd = "MarkdownPreview",
           show = function()
             return vim.bo.filetype == "markdown"
           end,
