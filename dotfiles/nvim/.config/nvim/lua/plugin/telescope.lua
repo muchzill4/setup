@@ -8,6 +8,7 @@ vim.api.nvim_command [[ hi link TelescopeMatching Function ]]
 vim.api.nvim_command [[ hi link TelescopePromptCounter LineNr ]]
 
 local actions = require "telescope.actions"
+local lga_actions = require "telescope-live-grep-args.actions"
 
 telescope.setup {
   defaults = {
@@ -56,6 +57,15 @@ telescope.setup {
       path = "%:p:h",
       dir_icon = "d",
       dir_icon_hl = "Directory",
+    },
+    live_grep_args = {
+      auto_quoting = true,
+      mappings = { -- extend mappings
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+        },
+      },
     },
     yacp = {
       palette = {
