@@ -12,14 +12,11 @@ local lga_actions = require "telescope-live-grep-args.actions"
 
 telescope.setup {
   defaults = {
-    layout_strategy = "flex",
     winblend = 5,
     dynamic_preview_title = true,
+    layout_strategy = "vertical",
     layout_config = {
       prompt_position = "top",
-      flex = {
-        flip_columns = 110,
-      },
       vertical = {
         mirror = true,
       },
