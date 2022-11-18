@@ -119,4 +119,8 @@ end)
 map("n", "<Leader>F", "<Cmd>Telescope file_browser hidden=true<CR>")
 map("n", "<Leader>p", "<Cmd>Telescope yacp<CR>")
 map("n", "@p", "<Cmd>Telescope yacp replay<CR>")
-map("n", "<Leader>R", "<Cmd>Telescope lsp_references<CR>")
+map(
+  "n",
+  "<Leader>R",
+  "<Cmd>Telescope lsp_references include_current_line=true<CR>"
+)
