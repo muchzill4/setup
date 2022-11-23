@@ -76,6 +76,7 @@ require("packer").startup {
     "tpope/vim-rhubarb",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
+    "tpope/vim-rsi",
     "windwp/nvim-projectconfig",
     { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" },
   },
