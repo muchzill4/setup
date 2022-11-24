@@ -79,6 +79,7 @@ telescope.setup {
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
         { name = "git blame", cmd = "Git blame" },
+        { name = "git branch", cmd = "Telescope git_branches" },
         { name = "git log", cmd = "Git log --oneline -100" },
         { name = "git buffer log", cmd = "Git log --oneline -100 %" },
         { name = "git diff", cmd = "Gdiffsplit" },
