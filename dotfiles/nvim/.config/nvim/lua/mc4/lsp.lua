@@ -60,12 +60,27 @@ if cmp_nvim_lsp then
   capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
-local servers = { "tsserver", "gopls", "svelte", "cssls" }
+local servers = { "tsserver", "svelte", "cssls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
   }
 end
+
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        shadow = true,
+        unusedparams = true,
+        unusedwrite = true,
+      },
+    },
+  },
+}
 
 lspconfig.html.setup {
   on_attach = on_attach,
