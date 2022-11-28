@@ -3,16 +3,11 @@ map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
 -- C-o to exit insert in terminal
--- Don't show numbers
-vim.api.nvim_exec(
-  [[
-  augroup TerminalSettings
-    autocmd!
-    au TermOpen * tnoremap <buffer> <C-o> <C-\><C-n>
-  augroup end
-]],
-  false
-)
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("TerminalExitInsertCustomMap", {}),
+  pattern = "*",
+  command = [[tnoremap <buffer> <C-o> <C-\><C-n>]],
+})
 
 -- :W
 vim.cmd "command! W w"

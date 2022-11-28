@@ -36,10 +36,25 @@ vim.wo.signcolumn = "yes"
 vim.g.loaded_python2_provider = false
 vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
 
-cmd "au! TextYankPost * lua vim.highlight.on_yank {timeout = 200}"
-cmd "au! VimResized * wincmd ="
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank { timeout = 200 }
+  end,
+})
 
+-- Scale splits when resizing terminal
+vim.api.nvim_create_autocmd("VimResized", {
+  group = vim.api.nvim_create_augroup("ResizeSplitsOnWinResize", {}),
+  pattern = "*",
+  command = "wincmd =",
+})
+
+-- Terminal w/o numbers, in insert mode by default
 vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("TerminalOverrides", {}),
   pattern = "*",
   callback = function()
     cmd "setlocal nonumber norelativenumber"
@@ -47,8 +62,21 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+-- Danger: close terminal automatically if status code is 0
+vim.api.nvim_create_autocmd("TermClose", {
+  group = vim.api.nvim_create_augroup("TerminalAutoCloseWhen0", {}),
+  pattern = "*",
+  callback = function(data)
+    local status = vim.v.event["status"]
+    if status == 0 then
+      vim.api.nvim_buf_delete(data.buf, {})
+    end
+  end,
+})
+
 -- Trim dat whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {}),
   pattern = "*",
   command = "%s/s+$//e",
 })
