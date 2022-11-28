@@ -26,6 +26,7 @@ require("packer").startup {
     },
     {
       "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
       requires = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/nvim-treesitter-context",
