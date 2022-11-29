@@ -21,7 +21,10 @@ configs.setup {
     "yaml",
   },
   auto_install = true,
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "gitcommit" },
+  },
   indent = {
     enable = true,
     disable = { "python", "yaml" },
