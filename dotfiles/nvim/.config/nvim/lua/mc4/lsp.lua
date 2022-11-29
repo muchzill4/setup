@@ -94,10 +94,6 @@ lspconfig.jedi_language_server.setup {
   cmd_env = { VIRTUAL_ENV = get_venv_path() },
 }
 
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -105,7 +101,6 @@ lspconfig.sumneko_lua.setup {
     Lua = {
       runtime = {
         version = "LuaJIT",
-        path = runtime_path,
       },
       diagnostics = {
         globals = { "vim" },
