@@ -1,4 +1,4 @@
-function git-muscle-memory-fix -e "alias main branch"
+function git-muscle-memory-fix -d "alias main branch"
   set -l main (git branch --list main)
 
   if test -n "$main"

@@ -1,4 +1,4 @@
-function checkout-pr -e "checkout selected pull request"
+function checkout-pr -d "checkout selected pull request"
   gh api 'repos/:owner/:repo/pulls' |
   jq --raw-output '.[] | "#\(.number) \(.title)"' |
   fzf |
