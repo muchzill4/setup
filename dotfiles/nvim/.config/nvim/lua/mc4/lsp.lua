@@ -29,15 +29,24 @@ local function on_attach(client, bufnr)
     "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>"
   )
 
-  -- TODO: wrap this in if capabilities
-  vim.api.nvim_command [[autocmd! DiagnosticChanged * lua vim.diagnostic.setloclist({ open = false })]]
-
   if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_command [[autocmd! CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]
-    vim.api.nvim_command [[autocmd! CursorHoldI  <buffer> lua vim.lsp.buf.document_highlight()]]
-    vim.api.nvim_command [[autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()]]
-    vim.api.nvim_command [[autocmd! BufLeave <buffer> lua vim.lsp.buf.clear_references()]]
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight,
+    })
+
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.clear_references,
+    })
   end
+
+  vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
+    buffer = bufnr,
+    callback = function()
+      vim.diagnostic.setloclist { open = false }
+    end,
+  })
 end
 
 local function get_venv_path()
