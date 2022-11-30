@@ -12,17 +12,32 @@ vim.diagnostic.config {
   severity_sort = false,
 }
 
+local diagnostic_float_opts = {
+  focusable = false,
+  close_events = {
+    "BufLeave",
+    "CursorMoved",
+    "InsertEnter",
+    "FocusLost",
+  },
+  source = "if_many",
+  prefix = "",
+  scope = "cursor",
+}
+
 local function on_attach(client, bufnr)
   local opts = { buffer = bufnr }
   map("n", "<c-]>", vim.lsp.buf.definition, opts)
   map("n", "K", vim.lsp.buf.hover, opts)
   map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
   map("n", "<leader>r", vim.lsp.buf.rename, opts)
-  map("n", "]d", vim.diagnostic.goto_next, opts)
-  map("n", "[d", vim.diagnostic.goto_prev, opts)
-  map("n", "<leader>d", function()
-    vim.diagnostic.setloclist { open = true }
+  map("n", "]d", function()
+    vim.diagnostic.goto_next(diagnostic_float_opts)
+  end)
+  map("n", "[d", function()
+    vim.diagnostic.goto_prev(diagnostic_float_opts)
   end, opts)
+  map("n", "<leader>d", "Telescope diagnostics bufnr=0", opts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -36,10 +51,10 @@ local function on_attach(client, bufnr)
     })
   end
 
-  vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
+  vim.api.nvim_create_autocmd({ "CursorHold" }, {
     buffer = bufnr,
     callback = function()
-      vim.diagnostic.setloclist { open = false }
+      vim.diagnostic.open_float(nil, diagnostic_float_opts)
     end,
   })
 end
