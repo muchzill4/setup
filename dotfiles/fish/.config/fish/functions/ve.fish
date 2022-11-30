@@ -1,4 +1,4 @@
-function ve -d "execute in python venv"
+function ve -d "Execute in python venv"
   source .venv/bin/activate.fish
   if count $argv > /dev/null
     $argv

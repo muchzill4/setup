@@ -1,4 +1,4 @@
-function edit -d "edit using nvim with obsession"
+function edit -d "Edit using nvim with obsession"
   if test (count $argv) -gt 0
     command nvim $argv
   else if test -f Session.vim

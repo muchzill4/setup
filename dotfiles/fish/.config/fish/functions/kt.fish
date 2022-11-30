@@ -1,4 +1,4 @@
-function kt -d "kitty tab from ~/Dev/*"
+function kt -d "Kitty tab from ~/Dev/*"
   set -l path $HOME/Dev
   set -l selected_dir (
     find $path/* -maxdepth 1 -mindepth 1 -type d |

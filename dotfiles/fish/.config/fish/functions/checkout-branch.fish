@@ -1,4 +1,4 @@
-function checkout-branch -d "checkout selected branch"
+function checkout-branch -d "Checkout selected branch"
   git branch |
   rg -v '\*' |
   cut -c 3- |
