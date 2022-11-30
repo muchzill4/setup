@@ -126,3 +126,4 @@ map(
   "<Cmd>Telescope lsp_references include_current_line=true<CR>"
 )
 map("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>")
+map("n", "<leader>d", "<Cmd>Telescope diagnostics bufnr=0<CR>")

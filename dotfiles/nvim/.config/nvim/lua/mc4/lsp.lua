@@ -37,7 +37,6 @@ local function on_attach(client, bufnr)
   map("n", "[d", function()
     vim.diagnostic.goto_prev(diagnostic_float_opts)
   end, opts)
-  map("n", "<leader>d", "Telescope diagnostics bufnr=0", opts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
