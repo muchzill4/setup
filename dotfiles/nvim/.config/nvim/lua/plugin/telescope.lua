@@ -125,3 +125,4 @@ map(
   "<Leader>R",
   "<Cmd>Telescope lsp_references include_current_line=true<CR>"
 )
+map("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>")
