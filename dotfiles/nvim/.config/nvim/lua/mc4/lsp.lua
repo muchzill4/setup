@@ -13,21 +13,16 @@ vim.diagnostic.config {
 }
 
 local function on_attach(client, bufnr)
-  local function cur_bmap(mode, lhs, rhs, opts)
-    bmap(bufnr, mode, lhs, rhs, opts)
-  end
-
-  cur_bmap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
-  cur_bmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-  cur_bmap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-  cur_bmap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  cur_bmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-  cur_bmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-  cur_bmap(
-    "n",
-    "<leader>d",
-    "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>"
-  )
+  local opts = { buffer = bufnr }
+  map("n", "<c-]>", vim.lsp.buf.definition, opts)
+  map("n", "K", vim.lsp.buf.hover, opts)
+  map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+  map("n", "<leader>r", vim.lsp.buf.rename, opts)
+  map("n", "]d", vim.diagnostic.goto_next, opts)
+  map("n", "[d", vim.diagnostic.goto_prev, opts)
+  map("n", "<leader>d", function()
+    vim.diagnostic.setloclist { open = true }
+  end, opts)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {

@@ -2,12 +2,6 @@ _G.map = function(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-_G.bmap = function(bufnr, mode, lhs, rhs, opts)
-  opts = opts or {}
-  opts.buffer = bufnr
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
-
 _G.prequire = function(mod)
   local ok, err = pcall(require, mod)
   if not ok then
