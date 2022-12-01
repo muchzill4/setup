@@ -81,10 +81,4 @@ require("packer").startup {
     "windwp/nvim-projectconfig",
     { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" },
   },
-  config = {
-    -- for impatient.vim
-    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-  },
 }
-
-pcall(require, "packer_compiled")
