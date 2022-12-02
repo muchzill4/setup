@@ -71,6 +71,7 @@ require("packer").startup {
     { "~/Dev/my/doubletrouble", requires = { "rktjmp/lush.nvim" } },
     "knubie/vim-kitty-navigator",
     "lewis6991/impatient.nvim",
+    "lewis6991/gitsigns.nvim",
     "numToStr/Comment.nvim",
     "tpope/vim-fugitive",
     "tpope/vim-obsession",
