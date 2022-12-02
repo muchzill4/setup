@@ -1,6 +1,4 @@
-local cmd = vim.api.nvim_command
-
-cmd "colorscheme doubletrouble-lush"
+vim.cmd "colorscheme doubletrouble-lush"
 
 vim.o.expandtab = true
 local indent = 2
@@ -17,7 +15,7 @@ vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = "a"
 vim.o.pumblend = 5
-cmd [[hi PmenuSel blend=0]]
+vim.cmd [[hi PmenuSel blend=0]]
 vim.o.scrolloff = 4
 vim.o.showmode = true
 vim.o.splitbelow = true
@@ -57,8 +55,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("TerminalOverrides", {}),
   pattern = "*",
   callback = function()
-    cmd "setlocal nonumber norelativenumber"
-    cmd "startinsert"
+    vim.cmd "setlocal nonumber norelativenumber"
+    vim.cmd "startinsert"
   end,
 })
 
@@ -85,7 +83,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 local local_config = os.getenv "LOCAL_VIM_CONFIG"
 if local_config ~= nil then
   -- Is this horrible?
-  cmd(":luafile " .. local_config)
+  vim.cmd(":luafile " .. local_config)
 end
 
 -- Folds

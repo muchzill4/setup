@@ -1,11 +1,11 @@
-local fn = vim.fn
-local cmd = vim.api.nvim_command
-
-local install_path = fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  cmd("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+local install_path = vim.fn.stdpath "data"
+  .. "/site/pack/packer/opt/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.cmd(
+    "!git clone https://github.com/wbthomason/packer.nvim " .. install_path
+  )
 end
-cmd "packadd packer.nvim"
+vim.cmd "packadd packer.nvim"
 
 require("packer").startup {
   {
