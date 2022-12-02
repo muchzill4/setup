@@ -26,10 +26,11 @@ local function obsession_status()
   return ""
 end
 
-local function branch()
-  local b = vim.fn.FugitiveHead()
-  if b ~= "" then
-    return string.format("%%<%s", b)
+local function vcs()
+  local branch = vim.b["gitsigns_head"]
+  local changes = vim.b["gitsigns_status"]
+  if branch ~= nil and changes ~= nil then
+    return "%<" .. branch .. " " .. changes
   end
   return ""
 end
@@ -51,7 +52,8 @@ local function statusline_active()
     "   %=",
     lsp_diagnostics(),
     "   ",
-    branch(),
+    " ",
+    vcs(),
     "%10(%l:%c%)",
   }
 end
