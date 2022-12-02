@@ -69,8 +69,6 @@ if context then
       },
     },
   }
-
-  vim.api.nvim_command [[hi link TreesitterContextLineNumber Identifier]]
 end
 
 local spread = prequire "spread"

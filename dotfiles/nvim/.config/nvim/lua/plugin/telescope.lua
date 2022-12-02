@@ -4,9 +4,6 @@ if not telescope then
   return nil
 end
 
-vim.api.nvim_command [[ hi link TelescopeMatching Function ]]
-vim.api.nvim_command [[ hi link TelescopePromptCounter LineNr ]]
-
 local actions = require "telescope.actions"
 local lga_actions = require "telescope-live-grep-args.actions"
 
