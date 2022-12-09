@@ -60,18 +60,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
--- Danger: close terminal automatically if status code is 0
-vim.api.nvim_create_autocmd("TermClose", {
-  group = vim.api.nvim_create_augroup("TerminalAutoCloseWhen0", {}),
-  pattern = "*",
-  callback = function(data)
-    local status = vim.v.event["status"]
-    if status == 0 then
-      vim.api.nvim_buf_delete(data.buf, {})
-    end
-  end,
-})
-
 -- Trim dat whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {}),
