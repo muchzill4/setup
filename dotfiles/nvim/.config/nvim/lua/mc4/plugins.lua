@@ -51,6 +51,7 @@ require("packer").startup {
       "mfussenegger/nvim-dap",
       requires = {
         "leoluz/nvim-dap-go",
+        "rcarriga/nvim-dap-ui",
       },
     },
 
