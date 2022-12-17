@@ -49,13 +49,6 @@ local function on_attach(client, bufnr)
       callback = vim.lsp.buf.clear_references,
     })
   end
-
-  vim.api.nvim_create_autocmd({ "CursorHold" }, {
-    buffer = bufnr,
-    callback = function()
-      vim.diagnostic.open_float(nil, diagnostic_float_opts)
-    end,
-  })
 end
 
 local function get_venv_path()
