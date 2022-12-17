@@ -122,3 +122,4 @@ map(
 )
 map("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>")
 map("n", "<leader>d", "<Cmd>Telescope diagnostics bufnr=0<CR>")
+map("n", "<leader>/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
