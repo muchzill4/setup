@@ -84,3 +84,10 @@ require("packer").startup {
     { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" },
   },
 }
+
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  command = "source <afile> | PackerSync",
+  group = packer_group,
+  pattern = "**/mc4/plugins.lua",
+})
