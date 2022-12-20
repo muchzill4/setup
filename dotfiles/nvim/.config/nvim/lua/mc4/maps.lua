@@ -27,6 +27,4 @@ map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
 
 -- :bdelete
 map("n", "<Leader>q", "<Cmd>bdelete<CR>")
-
--- :wq!
 map("n", "<Leader>Q", "<Cmd>bdelete!<CR>")
