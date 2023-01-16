@@ -15,6 +15,7 @@ local dapui = prequire "dapui"
 
 if dapui then
   dapui.setup {
+    icons = { expanded = "-", collapsed = "+", current_frame = ">" },
     controls = {
       enabled = true,
       element = "repl",
