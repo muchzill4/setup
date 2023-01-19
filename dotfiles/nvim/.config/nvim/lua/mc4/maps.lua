@@ -20,6 +20,8 @@ map("n", "Y", "y$")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "J", "mzJ`z")
+map("n", "<C-o>", "<C-o>zz")
+map("n", "<C-i>", "<C-i>zz")
 
 -- Jumplist mutations
 map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], { expr = true })
