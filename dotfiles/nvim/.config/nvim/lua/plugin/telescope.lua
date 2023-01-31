@@ -62,15 +62,6 @@ telescope.setup {
     yacp = {
       palette = {
         require("yacp.focus").palette_entry,
-        {
-          name = "lsp document symbols",
-          cmd = "Telescope lsp_document_symbols",
-        },
-        {
-          name = "lsp workspace symbols",
-          cmd = "Telescope lsp_dynamic_workspace_symbols",
-        },
-        { name = "lsp diagnostics", cmd = "Telescope diagnostics" },
         { name = "test suite", cmd = "TestSuite" },
         { name = "git browse", cmd = ".GBrowse" },
         { name = "git blame", cmd = "Git blame" },
@@ -93,7 +84,11 @@ telescope.setup {
         },
         { name = "telescope builtins", cmd = "Telescope" },
         { name = "unload buffers", cmd = "%bd|edit#|bd#" },
-        { name = "help", cmd = "Telescope help_tags" },
+        {
+          name = "vim keymaps",
+          cmd = "Telescope keymaps",
+        },
+        { name = "vim help", cmd = "Telescope help_tags" },
       },
     },
   },
@@ -123,4 +118,6 @@ map(
 map("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>")
 map("n", "<leader>d", "<Cmd>Telescope diagnostics bufnr=0<CR>")
 map("n", "<leader>D", "<Cmd>Telescope diagnostics<CR>")
+map("n", "<leader>j", "<Cmd>Telescope lsp_document_symbols<CR>")
+map("n", "<leader>J", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 map("n", "<leader>/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
