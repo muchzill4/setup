@@ -54,24 +54,8 @@ local function statusline_active()
   }
 end
 
-local function statusline_inactive()
-  return table.concat {
-    filename(),
-    " ",
-    "%h%m%r",
-  }
-end
-
-local function is_focussed()
-  return tonumber(vim.g.actual_curwin) == vim.api.nvim_get_current_win()
-end
-
 function _G.statusline()
-  if is_focussed() then
-    return statusline_active()
-  else
-    return statusline_inactive()
-  end
+  return statusline_active()
 end
 
 vim.go.statusline = "%{%v:lua.statusline()%}"
