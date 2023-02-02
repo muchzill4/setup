@@ -77,7 +77,6 @@ require("packer").startup {
     "tpope/vim-fugitive",
     "tpope/vim-obsession",
     "tpope/vim-rhubarb",
-    "tpope/vim-rsi",
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
     "windwp/nvim-projectconfig",
