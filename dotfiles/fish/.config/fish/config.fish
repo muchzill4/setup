@@ -96,7 +96,3 @@ end
 
 # asdf
 source (brew --prefix asdf)/libexec/asdf.fish
-
-# gpg
-set -x GPG_TTY (tty)
-gpgconf --launch gpg-agent
