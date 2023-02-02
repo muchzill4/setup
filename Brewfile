@@ -50,6 +50,7 @@ mas "Affinity Photo", id: 824183456
 mas "Affinity Publisher", id: 881418622
 mas "Bear", id: 1091189122
 mas "Color Picker", id: 1545870783
+mas "GoodLinks", id: 1474335294
 mas "Keynote", id: 409183694
 mas "Marked 2", id: 890031187
 mas "Notability", id: 360593530
