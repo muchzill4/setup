@@ -20,7 +20,6 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 # Cask
 # --------------------
 cask "1password"
-cask "alfred"
 cask "betaflight-configurator"
 cask "dash"
 cask "discord"
@@ -30,7 +29,6 @@ cask "imagealpha"
 cask "imageoptim"
 cask "istat-menus"
 cask "kitty"
-cask "moom"
 cask "netnewswire"
 cask "ngrok"
 cask "paw"
