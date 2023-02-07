@@ -60,6 +60,16 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+vim.api.nvim_create_autocmd("TermClose", {
+  group = vim.api.nvim_create_augroup("TerminalCloseOnSuccess", {}),
+  pattern = "*",
+  callback = function()
+    if vim.v.event["status"] == 0 then
+      vim.fn.feedkeys "i"
+    end
+  end,
+})
+
 -- Trim dat whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {}),
