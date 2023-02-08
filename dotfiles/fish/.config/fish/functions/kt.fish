@@ -9,6 +9,6 @@ function kt -d "Kitty tab from ~/Dev/*"
 
   if test -n "$selected_dir"
     set -l tab_name (echo $selected_dir | sed "s~$path/~~")
-    kitty @ focus-tab --match title:$tab_name 2>/dev/null || kitty @ new-window --new-tab --tab-title $tab_name --cwd $selected_dir
+    kitty @ focus-tab --match title:$tab_name 2>/dev/null || kitty @ launch --type=tab --tab-title $tab_name --cwd $selected_dir
   end
 end
