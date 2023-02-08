@@ -80,7 +80,12 @@ require("packer").startup {
     "tpope/vim-surround",
     "tpope/vim-unimpaired",
     "windwp/nvim-projectconfig",
-    { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" },
+    {
+      "iamcco/markdown-preview.nvim",
+      run = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+    },
   },
 }
 
