@@ -1,5 +1,4 @@
 local function set_test_split_size()
-  print "setting term position"
   local test_split_size = math.floor(vim.o.lines / 3)
   if test_split_size < 20 then
     test_split_size = math.floor(vim.o.lines / 2)
