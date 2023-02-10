@@ -1,9 +1,5 @@
 vim.diagnostic.config {
   virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = false,
 }
 
 local diagnostic_float_opts = {
@@ -47,69 +43,66 @@ local function on_attach(client, bufnr)
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_nvim_lsp = prequire "cmp_nvim_lsp"
-if cmp_nvim_lsp then
-  capabilities = require("cmp_nvim_lsp").default_capabilities()
-end
-
-local defaults = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-local servers = {
-  cssls = {},
-  gopls = {
-    settings = {
-      gopls = {
-        experimentalPostfixCompletions = true,
-        analyses = {
-          shadow = true,
-          unusedparams = true,
-          unusedwrite = true,
-        },
-      },
-    },
-  },
-  html = {},
-  pyright = {
-    settings = {
-      python = {
-        venvPath = ".venv",
-      },
-    },
-  },
-  sumneko_lua = {
-    settings = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT",
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-          checkThirdParty = false,
-        },
-        telemetry = {
-          enable = false,
-        },
-      },
-    },
-  },
-  tsserver = {},
-}
-
 return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
+    opts = {
+      servers = {
+        cssls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              experimentalPostfixCompletions = true,
+              analyses = {
+                shadow = true,
+                unusedparams = true,
+                unusedwrite = true,
+              },
+            },
+          },
+        },
+        html = {},
+        pyright = {
+          settings = {
+            python = {
+              venvPath = ".venv",
+            },
+          },
+        },
+        sumneko_lua = {
+          settings = {
+            Lua = {
+              runtime = {
+                version = "LuaJIT",
+              },
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+              },
+              telemetry = {
+                enable = false,
+              },
+            },
+          },
+        },
+        tsserver = {},
+      },
+    },
+    config = function(_, opts)
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+      )
+
       local lspconfig = require "lspconfig"
-      for server, config in pairs(servers) do
-        local merged = vim.tbl_extend("error", defaults, config)
+      for server, config in pairs(opts.servers) do
+        local merged = vim.tbl_extend("error", {
+          capabilities = capabilities,
+          on_attach = on_attach,
+        }, config)
         lspconfig[server].setup(merged)
       end
     end,
