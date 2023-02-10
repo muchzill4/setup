@@ -1,7 +1,6 @@
-vim.cmd "colorscheme doubletrouble-lush"
-
 vim.o.expandtab = true
 local indent = 2
+
 vim.o.shiftwidth = indent
 vim.o.tabstop = indent
 vim.o.breakindent = true
@@ -14,13 +13,10 @@ vim.o.smartcase = true
 vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = "a"
-vim.o.pumblend = 5
-vim.cmd [[hi PmenuSel blend=0]]
 vim.o.scrolloff = 4
 vim.o.showmode = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.termguicolors = true
 vim.o.tags = vim.o.tags .. ",.git/tags"
 vim.o.updatetime = 200
 vim.o.wildmode = "longest:full,full"
