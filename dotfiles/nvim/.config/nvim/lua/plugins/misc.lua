@@ -1,7 +1,10 @@
 return {
   "tpope/vim-obsession",
   "tpope/vim-surround",
-  "tpope/vim-unimpaired",
+  {
+    "tpope/vim-unimpaired",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
   {
     "knubie/vim-kitty-navigator",
@@ -9,8 +12,8 @@ return {
   },
 
   {
-    event = "BufReadPre",
     "numToStr/Comment.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
 

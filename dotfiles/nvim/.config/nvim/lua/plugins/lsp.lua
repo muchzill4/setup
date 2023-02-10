@@ -105,6 +105,7 @@ local servers = {
 return {
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lspconfig = require "lspconfig"
       for server, config in pairs(servers) do
@@ -116,6 +117,7 @@ return {
 
   {
     "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
         "lukas-reineke/lsp-format.nvim",
@@ -144,8 +146,8 @@ return {
   },
 
   {
-    event = "LspAttach",
     "j-hui/fidget.nvim",
+    event = "LspAttach",
     config = true,
   },
 }
