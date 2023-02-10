@@ -1,9 +1,13 @@
 return {
   "tpope/vim-obsession",
-  "tpope/vim-surround",
+
+  {
+    "tpope/vim-surround",
+    event = { "VeryLazy" },
+  },
   {
     "tpope/vim-unimpaired",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VeryLazy" },
   },
 
   {
@@ -19,6 +23,7 @@ return {
 
   {
     "windwp/nvim-projectconfig",
+    event = { "VeryLazy" },
     opts = {
       project_dir = "~/.local/share/projectconfig/",
     },
