@@ -32,3 +32,7 @@ require("lazy").setup {
     },
   },
 }
+
+extend_palette {
+  { name = "lazy", cmd = "Lazy" },
+}
