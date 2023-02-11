@@ -79,6 +79,7 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
     },
+    event = { "VeryLazy" },
     config = function()
       require("dap-go").setup()
     end,
