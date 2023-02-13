@@ -110,8 +110,11 @@ return {
     { "<Leader>h", "<Cmd>Telescope help_tags<CR>" },
     { "<leader>d", "<Cmd>Telescope diagnostics bufnr=0<CR>" },
     { "<leader>D", "<Cmd>Telescope diagnostics<CR>" },
-    { "<leader>j", "<Cmd>Telescope lsp_document_symbols<CR>" },
-    { "<leader>J", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>" },
+    { "<leader>j", "<Cmd>Telescope lsp_document_symbols symbol_width=50<CR>" },
+    {
+      "<leader>J",
+      "<Cmd>Telescope lsp_dynamic_workspace_symbols symbol_width=50<CR>",
+    },
     { "<leader>/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
   },
 }
