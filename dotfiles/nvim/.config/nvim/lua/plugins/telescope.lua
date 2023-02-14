@@ -88,6 +88,7 @@ return {
     telescope.load_extension "file_browser"
     telescope.load_extension "yacp"
   end,
+  cmd = "Telescope",
   keys = {
     { "<Leader>f", "<Cmd>Telescope find_files<CR>" },
     { "<Leader><space>", "<Cmd>Telescope buffers<CR>" },
