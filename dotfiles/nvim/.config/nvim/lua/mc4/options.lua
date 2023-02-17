@@ -46,26 +46,6 @@ vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
 
--- Terminal w/o numbers, in insert mode by default
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("TerminalOverrides", {}),
-  pattern = "*",
-  callback = function()
-    vim.cmd "setlocal nonumber norelativenumber"
-    vim.cmd "startinsert"
-  end,
-})
-
-vim.api.nvim_create_autocmd("TermClose", {
-  group = vim.api.nvim_create_augroup("TerminalCloseOnSuccess", {}),
-  pattern = "*",
-  callback = function()
-    if vim.v.event["status"] == 0 then
-      vim.fn.feedkeys "i"
-    end
-  end,
-})
-
 -- Trim dat whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {}),

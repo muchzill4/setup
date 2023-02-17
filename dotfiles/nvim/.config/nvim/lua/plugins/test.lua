@@ -24,6 +24,24 @@ return {
     extend_palette {
       { name = "test suite", cmd = "TestSuite" },
     }
+
+    -- Autoclose test run terminal when status is 0
+    vim.api.nvim_create_autocmd("TermClose", {
+      group = vim.api.nvim_create_augroup("TerminalCloseOnTestSuccess", {}),
+      pattern = "*",
+      callback = function()
+        local test_matchers = { "go test", "richgo test" }
+        local buf_name = vim.api.nvim_buf_get_name(0)
+        for _, matcher in ipairs(test_matchers) do
+          if string.find(buf_name, matcher) then
+            if vim.v.event["status"] == 0 then
+              vim.fn.feedkeys "i"
+            end
+            return
+          end
+        end
+      end,
+    })
   end,
   cmd = {
     "TestSuite",
