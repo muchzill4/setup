@@ -5,9 +5,15 @@ return {
     "tpope/vim-surround",
     event = { "VeryLazy" },
   },
+
   {
     "tpope/vim-unimpaired",
     event = { "VeryLazy" },
+  },
+
+  {
+    "tpope/vim-vinegar",
+    keys = { "-" },
   },
 
   {
