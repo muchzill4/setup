@@ -15,11 +15,19 @@ return {
           ["<C-u>"] = "preview-page-up",
         },
       },
+      grep = {
+        rg_glob = true,
+        glob_flag = "--iglob",
+        glob_separator = "%s%-%-",
+      },
     },
     keys = {
       { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
       { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
-      { "<Leader>s", "<Cmd>lua require('fzf-lua').live_grep()<CR>" },
+      {
+        "<Leader>s",
+        "<Cmd>lua require('fzf-lua').live_grep()<CR>",
+      },
       { "<Leader>S", "<Cmd>lua require('fzf-lua').grep_cword()<CR>" },
       {
         "<Leader>R",
