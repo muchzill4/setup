@@ -85,8 +85,8 @@ function gpip
   PIP_REQUIRE_VIRTUALENV="" pip $argv
 end
 
-# path    # fzf                  # pipx           # dotfiles
-set paths /usr/local/opt/fzf/bin $HOME/.local/bin $HOME/.bin
+# path    # pipx           # dotfiles
+set paths $HOME/.local/bin $HOME/.bin
 for path in $paths
   contains $path $PATH; or set -x PATH $path $PATH
 end
