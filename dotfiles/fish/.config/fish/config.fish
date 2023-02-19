@@ -81,9 +81,6 @@ set -x COMPOSE_DOCKER_CLI_BUILD 1
 # local venvs please
 set -x PIPENV_VENV_IN_PROJECT 1
 
-# bat
-set -x BAT_THEME '1337'
-
 function gpip
   PIP_REQUIRE_VIRTUALENV="" pip $argv
 end
