@@ -1,3 +1,14 @@
+local function is_test_run_buf()
+  local test_matchers = { "go test", "richgo test" }
+  local buf_name = vim.api.nvim_buf_get_name(0)
+  for _, matcher in ipairs(test_matchers) do
+    if string.find(buf_name, matcher) then
+      return true
+    end
+  end
+  return false
+end
+
 return {
   "vim-test/vim-test",
   init = function()
@@ -27,18 +38,22 @@ return {
 
     -- Autoclose test run terminal when status is 0
     vim.api.nvim_create_autocmd("TermClose", {
-      group = vim.api.nvim_create_augroup("TerminalCloseOnTestSuccess", {}),
+      group = vim.api.nvim_create_augroup("TerminalCloseOnTestRunSuccess", {}),
       pattern = "*",
       callback = function()
-        local test_matchers = { "go test", "richgo test" }
-        local buf_name = vim.api.nvim_buf_get_name(0)
-        for _, matcher in ipairs(test_matchers) do
-          if string.find(buf_name, matcher) then
-            if vim.v.event["status"] == 0 then
-              vim.fn.feedkeys "i"
-            end
-            return
-          end
+        if is_test_run_buf() and vim.v.event["status"] == 0 then
+          vim.fn.feedkeys "i"
+        end
+      end,
+    })
+
+    -- Remove terminal line numbers
+    vim.api.nvim_create_autocmd("TermOpen", {
+      group = vim.api.nvim_create_augroup("TerminalTestRunOverrides", {}),
+      pattern = "*",
+      callback = function()
+        if is_test_run_buf() then
+          vim.cmd "setlocal nonumber norelativenumber"
         end
       end,
     })
