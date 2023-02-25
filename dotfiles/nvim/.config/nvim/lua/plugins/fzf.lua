@@ -1,7 +1,6 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    cmd = "FzfLua",
     opts = {
       winopts = {
         preview = {
@@ -21,6 +20,12 @@ return {
         glob_separator = "%s%-%-",
       },
     },
+    config = function(_, opts)
+      local fzf_lua = require "fzf-lua"
+      fzf_lua.setup(opts)
+      fzf_lua.register_ui_select()
+    end,
+    cmd = "FzfLua",
     keys = {
       { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
       { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
