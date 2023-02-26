@@ -72,7 +72,11 @@ return {
       enable_focus = true,
     },
     keys = {
-      { "<Leader>p", "<Cmd>lua require('yacp').yacp()<CR>" },
+      {
+        "<Leader>p",
+        "<Cmd>lua require('yacp').yacp()<CR>",
+        mode = { "v", "n" },
+      },
       { "@p", "<Cmd>lua require('yacp').replay()<CR>" },
     },
   },
