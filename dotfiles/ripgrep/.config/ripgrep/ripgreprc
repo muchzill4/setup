@@ -1,3 +1,8 @@
 --hidden
 --glob=!.git
 --multiline-dotall
+--colors=match:fg:yellow
+--colors=line:fg:black
+--colors=path:fg:blue
+--colors=path:style:bold
+--colors=column:fg:black
