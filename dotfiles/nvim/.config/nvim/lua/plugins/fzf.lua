@@ -28,6 +28,10 @@ return {
     cmd = "FzfLua",
     keys = {
       { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
+      {
+        "<Leader>F",
+        "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>",
+      },
       { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
       {
         "<Leader>s",
