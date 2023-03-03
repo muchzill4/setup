@@ -74,12 +74,4 @@ return {
       },
     },
   },
-
-  {
-    "aarondiel/spread.nvim",
-    keys = {
-      { "<leader>$o", "<Cmd>lua require('spread').out()<CR>" },
-      { "<leader>$c", "<Cmd>lua require('spread').combine()<CR>" },
-    },
-  },
 }
