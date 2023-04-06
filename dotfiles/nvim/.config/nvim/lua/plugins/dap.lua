@@ -75,7 +75,8 @@ return {
   },
 
   {
-    "leoluz/nvim-dap-go",
+    "muchzill4/nvim-dap-go",
+    branch = "support-deeply-nested-tests",
     dependencies = {
       "mfussenegger/nvim-dap",
     },
