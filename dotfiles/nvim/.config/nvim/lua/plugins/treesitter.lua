@@ -46,13 +46,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufReadPre",
-    opts = {
-      max_lines = 5,
-      trim_scope = "inner",
-      mode = "cursor",
-      patterns = {
-        go = { "struct" },
-      },
-    },
+    config = true,
   },
 }
