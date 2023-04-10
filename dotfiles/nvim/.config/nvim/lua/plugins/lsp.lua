@@ -28,7 +28,7 @@ local function on_attach(client, bufnr)
     vim.diagnostic.goto_prev(diagnostic_float_opts)
   end, opts)
 
-  if client.server_capabilities.documentHighlightProvider then
+  if client.supports_method "textDocument/documentHighlight" then
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
       buffer = bufnr,
       callback = vim.lsp.buf.document_highlight,
