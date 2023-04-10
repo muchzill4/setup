@@ -15,6 +15,17 @@ local diagnostic_float_opts = {
   scope = "cursor",
 }
 
+local function lsp_formatting(bufnr)
+  vim.lsp.buf.format {
+    filter = function(client)
+      return client.name == "null-ls"
+    end,
+    bufnr = bufnr,
+  }
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local function on_attach(client, bufnr)
   local opts = { buffer = bufnr }
   map("n", "<c-]>", vim.lsp.buf.definition, opts)
@@ -37,6 +48,17 @@ local function on_attach(client, bufnr)
     vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
       buffer = bufnr,
       callback = vim.lsp.buf.clear_references,
+    })
+  end
+
+  if client.supports_method "textDocument/formatting" then
+    vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        lsp_formatting(bufnr)
+      end,
     })
   end
 end
@@ -110,10 +132,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      {
-        "lukas-reineke/lsp-format.nvim",
-        config = true,
-      },
       "nvim-lua/plenary.nvim",
     },
     config = function()
@@ -128,10 +146,7 @@ return {
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.stylua,
         },
-        on_attach = function(client, bufnr)
-          on_attach(client, bufnr)
-          require("lsp-format").on_attach(client)
-        end,
+        on_attach = on_attach,
       }
     end,
   },
