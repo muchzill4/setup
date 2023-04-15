@@ -15,5 +15,11 @@
   defaultBranch = master
   templateDir = ~/.config/git/template
 
+[alias]
+  l = log --graph --pretty=oneline --abbrev-commit
+  s = status
+  p = push
+  q = pull
+
 [include]
   path = ~/.config/git/config.local
