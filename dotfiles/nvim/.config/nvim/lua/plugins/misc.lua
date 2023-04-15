@@ -19,6 +19,7 @@ return {
   {
     "knubie/vim-kitty-navigator",
     event = { "VeryLazy" },
+    build = { "cp ./*.py ~/.config/kitty/" },
     init = function()
       vim.api.nvim_create_autocmd("filetype", {
         group = vim.api.nvim_create_augroup(
