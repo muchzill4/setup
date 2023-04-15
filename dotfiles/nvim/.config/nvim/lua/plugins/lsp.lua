@@ -1,19 +1,21 @@
 vim.diagnostic.config {
   virtual_text = false,
+  float = {
+    focusable = false,
+    close_events = {
+      "BufLeave",
+      "CursorMoved",
+      "InsertEnter",
+      "FocusLost",
+    },
+    source = "if_many",
+    prefix = "",
+    scope = "cursor",
+  },
 }
 
-local diagnostic_float_opts = {
-  focusable = false,
-  close_events = {
-    "BufLeave",
-    "CursorMoved",
-    "InsertEnter",
-    "FocusLost",
-  },
-  source = "if_many",
-  prefix = "",
-  scope = "cursor",
-}
+map("n", "]d", vim.diagnostic.goto_next)
+map("n", "[d", vim.diagnostic.goto_prev)
 
 local function lsp_formatting(bufnr)
   vim.lsp.buf.format {
@@ -32,12 +34,6 @@ local function on_attach(client, bufnr)
   map("n", "K", vim.lsp.buf.hover, opts)
   map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
   map("n", "<leader>r", vim.lsp.buf.rename, opts)
-  map("n", "]d", function()
-    vim.diagnostic.goto_next(diagnostic_float_opts)
-  end)
-  map("n", "[d", function()
-    vim.diagnostic.goto_prev(diagnostic_float_opts)
-  end, opts)
 
   if client.supports_method "textDocument/documentHighlight" then
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
