@@ -17,16 +17,33 @@ vim.diagnostic.config {
 map("n", "]d", vim.diagnostic.goto_next)
 map("n", "[d", vim.diagnostic.goto_prev)
 
-local function lsp_formatting(bufnr)
-  vim.lsp.buf.format {
-    filter = function(client)
-      return client.name == "null-ls"
+local augroup_format = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local autocmd_format = function()
+  vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = 0,
+    callback = function()
+      vim.lsp.buf.format {}
     end,
-    bufnr = bufnr,
-  }
+  })
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup_highlight = vim.api.nvim_create_augroup("LspHighlight", {})
+
+local autocmd_highlight = function(bufnr)
+  vim.api.nvim_clear_autocmds { buffer = bufnr, group = augroup_highlight }
+  vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    group = augroup_highlight,
+    buffer = bufnr,
+    callback = vim.lsp.buf.document_highlight,
+  })
+  vim.api.nvim_create_autocmd({ "CursorMoved", "BufLeave" }, {
+    group = augroup_highlight,
+    buffer = bufnr,
+    callback = vim.lsp.buf.clear_references,
+  })
+end
 
 local function on_attach(client, bufnr)
   local opts = { buffer = bufnr }
@@ -36,26 +53,11 @@ local function on_attach(client, bufnr)
   map("n", "<leader>r", vim.lsp.buf.rename, opts)
 
   if client.supports_method "textDocument/documentHighlight" then
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      buffer = bufnr,
-      callback = vim.lsp.buf.document_highlight,
-    })
-
-    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
-      buffer = bufnr,
-      callback = vim.lsp.buf.clear_references,
-    })
+    autocmd_highlight(bufnr)
   end
 
   if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
-    })
+    autocmd_format()
   end
 end
 
