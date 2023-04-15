@@ -18,7 +18,21 @@ return {
 
   {
     "knubie/vim-kitty-navigator",
-    keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+    event = { "VeryLazy" },
+    init = function()
+      vim.api.nvim_create_autocmd("filetype", {
+        group = vim.api.nvim_create_augroup(
+          "KittyNavigatorNetrwMapOverride",
+          {}
+        ),
+        pattern = "netrw",
+        -- <C-l> is used to NetrwRefresh, which I never use
+        command = [[
+          nunmap <buffer> <c-l>
+          nmap <buffer> <c-l> <Cmd>KittyNavigateRight<CR>
+        ]],
+      })
+    end,
   },
 
   {
