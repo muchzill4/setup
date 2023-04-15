@@ -17,9 +17,9 @@ vim.diagnostic.config {
 map("n", "]d", vim.diagnostic.goto_next)
 map("n", "[d", vim.diagnostic.goto_prev)
 
-local augroup_format = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup_format = vim.api.nvim_create_augroup("UserLspFormatting", {})
 
-local autocmd_format = function()
+local function autocmd_format()
   vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
   vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = 0,
@@ -29,10 +29,14 @@ local autocmd_format = function()
   })
 end
 
-local augroup_highlight = vim.api.nvim_create_augroup("LspHighlight", {})
+local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
 
-local autocmd_highlight = function(bufnr)
+local function clear_autocmd_highlight(bufnr)
   vim.api.nvim_clear_autocmds { buffer = bufnr, group = augroup_highlight }
+end
+
+local function autocmd_highlight(bufnr)
+  clear_autocmd_highlight(bufnr)
   vim.api.nvim_create_autocmd({ "CursorHold" }, {
     group = augroup_highlight,
     buffer = bufnr,
@@ -45,21 +49,36 @@ local autocmd_highlight = function(bufnr)
   })
 end
 
-local function on_attach(client, bufnr)
-  local opts = { buffer = bufnr }
-  map("n", "<c-]>", vim.lsp.buf.definition, opts)
-  map("n", "K", vim.lsp.buf.hover, opts)
-  map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-  map("n", "<leader>r", vim.lsp.buf.rename, opts)
+local augroup_lsp_config = vim.api.nvim_create_augroup("UserLspConfig", {})
 
-  if client.supports_method "textDocument/documentHighlight" then
-    autocmd_highlight(bufnr)
-  end
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup_lsp_config,
+  callback = function(args)
+    local opts = { buffer = args.buf }
+    map("n", "<c-]>", vim.lsp.buf.definition, opts)
+    map("n", "K", vim.lsp.buf.hover, opts)
+    map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+    map("n", "<leader>r", vim.lsp.buf.rename, opts)
 
-  if client.supports_method "textDocument/formatting" then
-    autocmd_format()
-  end
-end
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.supports_method "textDocument/documentHighlight" then
+      autocmd_highlight(args.buf)
+    end
+    if client.name == "null-ls" then
+      autocmd_format()
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspDetach", {
+  group = augroup_lsp_config,
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.supports_method "textDocument/documentHighlight" then
+      clear_autocmd_highlight(args.buf)
+    end
+  end,
+})
 
 return {
   {
@@ -91,18 +110,12 @@ return {
         lua_ls = {
           settings = {
             Lua = {
-              runtime = {
-                version = "LuaJIT",
-              },
               diagnostics = {
                 globals = { "vim" },
               },
               workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
-              },
-              telemetry = {
-                enable = false,
               },
             },
           },
@@ -119,7 +132,6 @@ return {
       for server, config in pairs(opts.servers) do
         local merged = vim.tbl_extend("error", {
           capabilities = capabilities,
-          on_attach = on_attach,
         }, config)
         lspconfig[server].setup(merged)
       end
@@ -144,7 +156,6 @@ return {
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.stylua,
         },
-        on_attach = on_attach,
       }
     end,
   },
