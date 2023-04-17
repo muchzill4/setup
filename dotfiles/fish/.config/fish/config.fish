@@ -47,7 +47,8 @@ if status --is-interactive
 end
 
 # brew
-if status --is-interactive && test -e /opt/homebrew/bin/brew
+if test -e /opt/homebrew/bin/brew && test ! -n "$BREW_INITIALISED"
+  set -x BREW_INITIALISED 'aye'
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
