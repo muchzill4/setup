@@ -46,6 +46,11 @@ if status --is-interactive
   alias ssh='kitty +kitten ssh'
 end
 
+# brew
+if status --is-interactive && test -e /opt/homebrew/bin/brew
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+
 # env
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
