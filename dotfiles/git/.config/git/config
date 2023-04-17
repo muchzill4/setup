@@ -16,10 +16,13 @@
   templateDir = ~/.config/git/template
 
 [alias]
-  l = log --graph --pretty=oneline --abbrev-commit
+  l = log --oneline
   s = status
   p = push
   q = pull
+  c = commit
+  a = add
+  d = diff
 
 [include]
   path = ~/.config/git/config.local
