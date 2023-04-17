@@ -23,6 +23,7 @@
   c = commit
   a = add
   d = diff
+  co = checkout
 
 [include]
   path = ~/.config/git/config.local
