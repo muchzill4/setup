@@ -11,7 +11,6 @@ return {
         "go",
         "gomod",
         "gowork",
-        "help",
         "javascript",
         "lua",
         "make",
