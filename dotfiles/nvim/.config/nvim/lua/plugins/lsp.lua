@@ -83,6 +83,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = "folke/neodev.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       servers = {
@@ -110,11 +111,7 @@ return {
         lua_ls = {
           settings = {
             Lua = {
-              diagnostics = {
-                globals = { "vim" },
-              },
               workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
               },
             },
@@ -124,6 +121,7 @@ return {
       },
     },
     config = function(_, opts)
+      require("neodev").setup {}
       local capabilities = require("cmp_nvim_lsp").default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
       )
