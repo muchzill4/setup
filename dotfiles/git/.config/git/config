@@ -24,6 +24,7 @@
   a = add
   d = diff
   co = checkout
+  r = rebase
 
 [include]
   path = ~/.config/git/config.local

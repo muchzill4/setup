@@ -42,6 +42,7 @@ if status --is-interactive
   abbr -a -g ga 'git a'
   abbr -a -g ga 'git d'
   abbr -a -g gco 'git co'
+  abbr -a -g gr 'git r'
   abbr -a -g cb 'checkout-branch'
   abbr -a -g db 'delete-branches'
   abbr -a -g cpr 'checkout-pr'
