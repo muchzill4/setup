@@ -17,6 +17,28 @@ return {
   },
 
   {
+    "tpope/vim-projectionist",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>a", "<Cmd>A<CR>" },
+    },
+    config = function()
+      vim.g["projectionist_heuristics"] = {
+        ["go.mod"] = {
+          ["*.go"] = {
+            type = "source",
+            alternate = "{}_test.go",
+          },
+          ["*_test.go"] = {
+            type = "test",
+            alternate = "{}.go",
+          },
+        },
+      }
+    end,
+  },
+
+  {
     "knubie/vim-kitty-navigator",
     event = { "VeryLazy" },
     build = { "cp ./*.py ~/.config/kitty/" },
