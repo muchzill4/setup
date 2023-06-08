@@ -1,3 +1,7 @@
+extend_palette {
+  { name = "github pull request", cmd = "!gh pr create -w" },
+}
+
 return {
   {
     "tpope/vim-fugitive",
