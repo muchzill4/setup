@@ -1,5 +1,8 @@
 extend_palette {
-  { name = "github pull request", cmd = "!gh pr create -w" },
+  {
+    name = "github pull request",
+    cmd = "!gh pr create --web --head (git branch --show-current)",
+  },
 }
 
 return {
@@ -14,12 +17,12 @@ return {
     },
     config = function()
       extend_palette {
-        { name = "git browse", cmd = ".GBrowse" },
-        { name = "git blame", cmd = "Git blame" },
-        { name = "git log", cmd = "Git log --oneline -100" },
-        { name = "git buffer log", cmd = "Git log --oneline -100 %" },
-        { name = "git diff", cmd = "Gvdiffsplit!" },
-        { name = "git push", cmd = "Git push" },
+        { name = "git browse",       cmd = ".GBrowse" },
+        { name = "git blame",        cmd = "Git blame" },
+        { name = "git log",          cmd = "Git log --oneline -100" },
+        { name = "git buffer log",   cmd = "Git log --oneline -100 %" },
+        { name = "git diff",         cmd = "Gvdiffsplit!" },
+        { name = "git push",         cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
       }
     end,
