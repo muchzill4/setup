@@ -18,6 +18,7 @@ vim.diagnostic.config {
     },
     source = "if_many",
     prefix = "",
+    header = "",
     scope = "cursor",
     border = border,
   },
