@@ -53,6 +53,10 @@ return {
         "<leader>J",
         "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
       },
+      {
+        "<leader>P",
+        "<Cmd>lua require('fzf-lua').builtin()<CR>",
+      },
     },
   },
 
@@ -65,13 +69,7 @@ return {
           name = "setup / dotfiles",
           cmd = "lua require('fzf-lua').files({cwd='~/Dev/my/setup'})",
         },
-        { name = "fzf-lua builtin", cmd = "lua require('fzf-lua').builtin()" },
         { name = "unload buffers", cmd = "%bd|edit#|bd#" },
-        {
-          name = "vim keymaps",
-          cmd = "lua require('fzf-lua').keymaps()",
-        },
-        { name = "vim help", cmd = "lua require('fzf-lua').help_tags()" },
       },
       enable_focus = true,
     },
