@@ -6,10 +6,19 @@ local function has_dap_configured()
   return false
 end
 
+local function starts_with_prefix(s, prefix)
+  return string.sub(s, 1, string.len(prefix)) == prefix
+end
+
+local function is_dap_window()
+  return starts_with_prefix(vim.bo.filetype, "dapui_")
+    or starts_with_prefix(vim.bo.filetype, "dap-")
+end
+
 return {
   {
     "mfussenegger/nvim-dap",
-    lazy = true,
+    event = { "VeryLazy" },
     init = function()
       extend_palette {
         {
@@ -38,10 +47,10 @@ return {
 
   {
     "rcarriga/nvim-dap-ui",
-    lazy = true,
     dependencies = {
       "mfussenegger/nvim-dap",
     },
+    event = { "VeryLazy" },
     opts = {
       icons = {
         expanded = "▾",
@@ -62,13 +71,64 @@ return {
           terminate = "▣",
         },
       },
+      expand_lines = false,
+      layouts = {
+        {
+          elements = {
+            {
+              id = "scopes",
+              size = 0.50,
+            },
+            {
+              id = "breakpoints",
+              size = 0.10,
+            },
+            {
+              id = "stacks",
+              size = 0.15,
+            },
+            {
+              id = "watches",
+              size = 0.25,
+            },
+          },
+          position = "left",
+          size = 80,
+        },
+        {
+          elements = {
+            {
+              id = "repl",
+              size = 0.5,
+            },
+            {
+              id = "console",
+              size = 0.5,
+            },
+          },
+          position = "bottom",
+          size = 10,
+        },
+      },
     },
     init = function()
+      local dap, dapui = require "dap", require "dapui"
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
       extend_palette {
         {
           name = "dap toggle ui",
           cmd = "lua require('dapui').toggle()",
-          show = has_dap_configured,
+          show = function()
+            return has_dap_configured() or is_dap_window()
+          end,
         },
       }
     end,
