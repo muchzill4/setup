@@ -65,7 +65,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = augroup_lsp_config,
   callback = function(args)
     local opts = { buffer = args.buf }
-    map("n", "<c-]>", vim.lsp.buf.definition, opts)
+    map("n", "gd", vim.lsp.buf.definition, opts)
+    map("n", "gD", vim.lsp.buf.declaration, opts)
     map("n", "K", vim.lsp.buf.hover, opts)
     map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
     map("n", "<leader>r", vim.lsp.buf.rename, opts)
