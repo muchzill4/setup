@@ -25,6 +25,7 @@ return {
     local snippy = require "snippy"
 
     cmp.setup {
+      preselect = cmp.PreselectMode.None,
       snippet = {
         expand = function(args)
           snippy.expand_snippet(args.body)
