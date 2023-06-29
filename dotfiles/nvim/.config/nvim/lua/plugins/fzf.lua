@@ -27,36 +27,41 @@ return {
     end,
     cmd = "FzfLua",
     keys = {
-      { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
-      {
-        "<Leader>F",
-        "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>",
-      },
       { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
       {
-        "<Leader>s",
-        "<Cmd>lua require('fzf-lua').live_grep()<CR>",
+        "<leader>c",
+        "<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
+        mode = { "v", "n" },
       },
-      { "<Leader>S", "<Cmd>lua require('fzf-lua').grep_cword()<CR>" },
-      {
-        "<Leader>R",
-        "<Cmd>lua require('fzf-lua').lsp_references()<CR>",
-      },
-      { "<Leader>h", "<Cmd>lua require('fzf-lua').help_tags()<CR>" },
-      { "<leader>d", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>" },
+      { "<leader>d",       "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>" },
       {
         "<leader>D",
         "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>",
       },
+      { "<Leader>h", "<Cmd>lua require('fzf-lua').help_tags()<CR>" },
       { "<leader>j", "<Cmd>lua require('fzf-lua').lsp_document_symbols()<CR>" },
       {
         "<leader>J",
         "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
       },
+      { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
+      {
+        "<Leader>F",
+        "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>",
+      },
       {
         "<leader>P",
         "<Cmd>lua require('fzf-lua').builtin()<CR>",
       },
+      {
+        "<Leader>R",
+        "<Cmd>lua require('fzf-lua').lsp_references()<CR>",
+      },
+      {
+        "<Leader>s",
+        "<Cmd>lua require('fzf-lua').live_grep()<CR>",
+      },
+      { "<Leader>S", "<Cmd>lua require('fzf-lua').grep_cword()<CR>" },
     },
   },
 
