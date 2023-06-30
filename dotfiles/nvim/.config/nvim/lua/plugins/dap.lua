@@ -12,7 +12,7 @@ end
 
 local function is_dap_window()
   return starts_with_prefix(vim.bo.filetype, "dapui_")
-    or starts_with_prefix(vim.bo.filetype, "dap-")
+      or starts_with_prefix(vim.bo.filetype, "dap-")
 end
 
 return {
@@ -32,13 +32,13 @@ return {
           show = has_dap_configured,
         },
         {
-          name = "dap clear breakpoints",
-          cmd = "lua require('dap').clear_breakpoints()",
+          name = "dap list breakpoints",
+          cmd = "lua require('fzf-lua').dap_breakpoints()",
           show = has_dap_configured,
         },
         {
-          name = "dap toggle repl",
-          cmd = "lua require('dap').repl.toggle()",
+          name = "dap clear breakpoints",
+          cmd = "lua require('dap').clear_breakpoints()",
           show = has_dap_configured,
         },
       }
