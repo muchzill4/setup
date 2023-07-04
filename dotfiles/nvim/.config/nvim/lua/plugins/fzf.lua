@@ -33,7 +33,7 @@ return {
         "<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
         mode = { "v", "n" },
       },
-      { "<leader>d",       "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>" },
+      { "<leader>d", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>" },
       {
         "<leader>D",
         "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>",

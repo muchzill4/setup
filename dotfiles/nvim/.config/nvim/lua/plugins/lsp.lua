@@ -1,10 +1,9 @@
 local border = "rounded"
 
-vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
 
 vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 
 vim.diagnostic.config {
   virtual_text = false,
@@ -133,9 +132,8 @@ return {
     },
     config = function(_, opts)
       require("neodev").setup {}
-      local capabilities = require("cmp_nvim_lsp").default_capabilities(
-        vim.lsp.protocol.make_client_capabilities()
-      )
+      local capabilities =
+        require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       local lspconfig = require "lspconfig"
       for server, config in pairs(opts.servers) do

@@ -3,9 +3,7 @@ local function lsp_diagnostics()
   local diags = { "ERROR", "WARN", "INFO", "HINT" }
   for i = 1, #diags do
     local diag = diags[i]
-    local count = vim.tbl_count(
-      vim.diagnostic.get(0, { severity = vim.diagnostic.severity[diag] })
-    )
+    local count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity[diag] }))
     if count > 0 then
       local symbol = string.sub(diag, 1, 1)
       table.insert(output, string.format("%s:%d", symbol, count))

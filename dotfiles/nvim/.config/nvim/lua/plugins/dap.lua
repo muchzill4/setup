@@ -12,7 +12,7 @@ end
 
 local function is_dap_window()
   return starts_with_prefix(vim.bo.filetype, "dapui_")
-      or starts_with_prefix(vim.bo.filetype, "dap-")
+    or starts_with_prefix(vim.bo.filetype, "dap-")
 end
 
 return {

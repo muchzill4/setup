@@ -44,10 +44,7 @@ return {
     build = { "cp ./*.py ~/.config/kitty/" },
     init = function()
       vim.api.nvim_create_autocmd("filetype", {
-        group = vim.api.nvim_create_augroup(
-          "KittyNavigatorNetrwMapOverride",
-          {}
-        ),
+        group = vim.api.nvim_create_augroup("KittyNavigatorNetrwMapOverride", {}),
         pattern = "netrw",
         -- <C-l> is used to NetrwRefresh, which I never use
         command = [[
