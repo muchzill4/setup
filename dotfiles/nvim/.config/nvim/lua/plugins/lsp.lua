@@ -71,10 +71,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>r", vim.lsp.buf.rename, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.supports_method "textDocument/documentHighlight" then
+    if client.server_capabilities.documentHighlightProvider then
       autocmd_highlight(args.buf)
     end
-    if client.name == "null-ls" then
+
+    if client.server_capabilities.documentFormattingProvider then
+      vim.api.nvim_buf_set_option(args.buf, "formatexpr", "v:lua.vim.lsp.formatexpr()")
       autocmd_format()
     end
   end,
@@ -93,10 +95,10 @@ vim.api.nvim_create_autocmd("LspDetach", {
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = "folke/neodev.nvim",
+    dependencies = { "folke/neodev.nvim", "creativenull/efmls-configs-nvim" },
     event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      servers = {
+    opts = function(_, opts)
+      opts.servers = {
         cssls = {},
         gopls = {
           settings = {
@@ -124,12 +126,37 @@ return {
               workspace = {
                 checkThirdParty = false,
               },
+              format = {
+                enable = false,
+              },
             },
           },
         },
         tsserver = {},
-      },
-    },
+        efm = {
+          init_options = {
+            documentFormatting = true,
+          },
+          settings = {
+            languages = {
+              lua = {
+                require "efmls-configs.formatters.stylua",
+              },
+              go = {
+                require "efmls-configs.formatters.goimports",
+              },
+              markdown = {
+                require "efmls-configs.formatters.prettier",
+              },
+              yaml = {
+                require "efmls-configs.formatters.prettier",
+              },
+            },
+          },
+          filetypes = { "lua", "markdown", "yaml", "go" },
+        },
+      }
+    end,
     config = function(_, opts)
       require("neodev").setup {}
       local capabilities =
@@ -142,30 +169,6 @@ return {
         }, config)
         lspconfig[server].setup(merged)
       end
-    end,
-  },
-
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      local null_ls = require "null-ls"
-      null_ls.setup {
-        sources = {
-          null_ls.builtins.diagnostics.flake8,
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.formatting.gofmt,
-          null_ls.builtins.formatting.goimports,
-          null_ls.builtins.formatting.isort,
-          null_ls.builtins.formatting.prettier,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.code_actions.gitsigns,
-          null_ls.builtins.code_actions.refactoring,
-        },
-      }
     end,
   },
 
