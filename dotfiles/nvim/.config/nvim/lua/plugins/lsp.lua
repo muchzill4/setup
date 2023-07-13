@@ -95,7 +95,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "folke/neodev.nvim", "creativenull/efmls-configs-nvim" },
+    dependencies = "folke/neodev.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = function(_, opts)
       opts.servers = {
@@ -126,35 +126,10 @@ return {
               workspace = {
                 checkThirdParty = false,
               },
-              format = {
-                enable = false,
-              },
             },
           },
         },
         tsserver = {},
-        efm = {
-          init_options = {
-            documentFormatting = true,
-          },
-          settings = {
-            languages = {
-              lua = {
-                require "efmls-configs.formatters.stylua",
-              },
-              go = {
-                require "efmls-configs.formatters.goimports",
-              },
-              markdown = {
-                require "efmls-configs.formatters.prettier",
-              },
-              yaml = {
-                require "efmls-configs.formatters.prettier",
-              },
-            },
-          },
-          filetypes = { "lua", "markdown", "yaml", "go" },
-        },
       }
     end,
     config = function(_, opts)
