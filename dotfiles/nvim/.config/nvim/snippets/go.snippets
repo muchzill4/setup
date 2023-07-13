@@ -3,6 +3,16 @@ snippet it
 		$2
 	})
 
+snippet test
+	func Test${1:Name}(t *testing.T) {
+		$2
+	})
+
+snippet bench
+	func Benchmark${1:Name}(b *testing.B) {
+		$2
+	})
+
 snippet st
 	type ${1:name} struct {
 		$2
