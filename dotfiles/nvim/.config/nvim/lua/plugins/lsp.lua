@@ -127,6 +127,9 @@ return {
               workspace = {
                 checkThirdParty = false,
               },
+              format = {
+                enable = false,
+              },
             },
           },
         },
