@@ -104,6 +104,7 @@ return {
           settings = {
             gopls = {
               experimentalPostfixCompletions = true,
+              usePlaceholders = true,
               analyses = {
                 shadow = true,
                 unusedparams = true,
