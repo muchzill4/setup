@@ -26,18 +26,6 @@ vim.diagnostic.config {
 map("n", "]d", vim.diagnostic.goto_next)
 map("n", "[d", vim.diagnostic.goto_prev)
 
-local augroup_format = vim.api.nvim_create_augroup("UserLspFormatting", {})
-
-local function autocmd_format()
-  vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = 0,
-    callback = function()
-      vim.lsp.buf.format {}
-    end,
-  })
-end
-
 local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
 
 local function clear_autocmd_highlight(bufnr)
@@ -77,7 +65,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_buf_set_option(args.buf, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-      autocmd_format()
     end
   end,
 })
@@ -126,9 +113,6 @@ return {
             Lua = {
               workspace = {
                 checkThirdParty = false,
-              },
-              format = {
-                enable = false,
               },
             },
           },
