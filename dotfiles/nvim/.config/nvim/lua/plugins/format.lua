@@ -1,5 +1,6 @@
 return {
   "elentok/format-on-save.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     -- both required for stylua custom handling
     "nvim-lua/plenary.nvim",
