@@ -56,6 +56,9 @@ return {
           cmd = { "stylua", "--config-path", find_stylua_config(), "-" },
         }
       end,
+      markdown = formatters.shell {
+        cmd = { "prettier", "--stdin-filepath", "%" },
+      },
     }
   end,
 }
