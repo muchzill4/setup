@@ -49,6 +49,7 @@ return {
     end
 
     local formatters = require "format-on-save.formatters"
+
     opts.formatter_by_ft = {
       go = formatters.lsp,
       lua = function()
@@ -56,9 +57,9 @@ return {
           cmd = { "stylua", "--config-path", find_stylua_config(), "-" },
         }
       end,
-      markdown = formatters.shell {
-        cmd = { "prettier", "--stdin-filepath", "%" },
-      },
+      markdown = formatters.prettierd,
+      json = formatters.prettierd,
+      yaml = formatters.prettierd,
     }
   end,
 }
