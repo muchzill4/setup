@@ -61,5 +61,7 @@ return {
       json = formatters.prettierd,
       yaml = formatters.prettierd,
     }
+
+    opts.parital_update = true
   end,
 }
