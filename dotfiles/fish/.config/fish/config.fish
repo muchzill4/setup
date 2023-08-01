@@ -24,6 +24,7 @@ set fish_color_valid_path normal --underline
 
 # pure
 set pure_shorten_prompt_current_directory_length 1
+set pure_shorten_window_title_current_directory_length 1
 set pure_show_jobs true
 
 if status --is-interactive
