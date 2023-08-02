@@ -2,6 +2,8 @@ return {
   {
     "ibhagwan/fzf-lua",
     opts = {
+      global_git_icons = false,
+      global_file_icons = false,
       winopts = {
         preview = {
           layout = "vertical",
