@@ -17,8 +17,10 @@ map("n", "<Leader>w", "<Cmd>w<CR>")
 map("n", "Y", "y$")
 
 -- Keeping it center
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
 map("n", "J", "mzJ`z")
 map("n", "<C-o>", "<C-o>zz")
 map("n", "<C-i>", "<C-i>zz")
