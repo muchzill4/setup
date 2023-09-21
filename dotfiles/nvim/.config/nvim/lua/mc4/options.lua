@@ -29,10 +29,6 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
--- Faster startup
-vim.g.loaded_python2_provider = false
-vim.g.python3_host_prog = "~/.venvs/neovim/bin/python"
-
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
