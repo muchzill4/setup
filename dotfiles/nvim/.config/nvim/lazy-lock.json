@@ -29,6 +29,5 @@
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-test": { "branch": "master", "commit": "a007258adc7b319943bf71dfead88d2ad721b923" },
-  "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "yacp.nvim": { "branch": "master", "commit": "ed28196961a1ec1543d6a94092bff8e0df1cfeb0" }
 }
