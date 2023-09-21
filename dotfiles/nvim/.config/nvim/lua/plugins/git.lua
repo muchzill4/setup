@@ -11,18 +11,29 @@ return {
     dependencies = {
       "tpope/vim-rhubarb",
     },
+    cmd = { "Git", "Gvdiffsplit" },
     keys = {
       { "<leader>g", "<Cmd>Git<CR>" },
     },
-    config = function()
+    init = function()
       extend_palette {
-        { name = "git browse", cmd = ".GBrowse" },
         { name = "git blame", cmd = "Git blame" },
         { name = "git log", cmd = "Git log --oneline -100" },
         { name = "git buffer log", cmd = "Git log --oneline -100 %" },
         { name = "git diff", cmd = "Gvdiffsplit!" },
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
+      }
+    end,
+  },
+
+  {
+    "tpope/vim-rhubarb",
+    cmd = { "Gbrowse" },
+    dependencies = "tpope/vim-fugitive",
+    init = function()
+      extend_palette {
+        { name = "git browse", cmd = ".GBrowse" },
       }
     end,
   },
