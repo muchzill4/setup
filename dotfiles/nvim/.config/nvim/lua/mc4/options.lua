@@ -56,13 +56,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = "%s/s+$//e",
 })
 
--- Load local vim config
-local local_config = os.getenv "LOCAL_VIM_CONFIG"
-if local_config ~= nil then
-  -- Is this horrible?
-  vim.cmd(":luafile " .. local_config)
-end
-
 -- Folds
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.foldmethod = "expr"
