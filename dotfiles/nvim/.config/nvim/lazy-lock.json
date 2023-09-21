@@ -21,6 +21,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "c29d973c40f42fdf9823c2756c330fe7c8f7ca80" },
   "nvim-treesitter-context": { "branch": "master", "commit": "b6c763db8cc486215ba96e0a67418848a710ab25" },
   "plenary.nvim": { "branch": "master", "commit": "9ce85b0f7dcfe5358c0be937ad23e456907d410b" },
+  "vim-eunuch": { "branch": "master", "commit": "67f3dd32b4dcd1c427085f42ff5f29c7adc645c6" },
   "vim-fugitive": { "branch": "master", "commit": "99db68d9b3304580bd383da7aaee05c7a954a344" },
   "vim-kitty-navigator": { "branch": "master", "commit": "c3d8aaaa61717b2c142ff39553fcab709fd606a7" },
   "vim-projectionist": { "branch": "master", "commit": "e292c4e33b2c44074c47c06e8ce8b309fd8099bc" },

@@ -1,5 +1,6 @@
 return {
   "tpope/vim-sleuth", -- Heuristically set buffer options
+  "tpope/vim-eunuch", -- Helpers for UNIX (:Remove, :Move, etc.)
   {
     "tpope/vim-surround",
     event = { "VeryLazy" },

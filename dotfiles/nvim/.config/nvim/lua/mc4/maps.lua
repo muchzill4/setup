@@ -9,8 +9,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   command = [[tnoremap <buffer> <C-o> <C-\><C-n>]],
 })
 
--- :W
-vim.cmd "command! W w"
+-- :w
 map("n", "<Leader>w", "<Cmd>w<CR>")
 
 -- Why, why, why
