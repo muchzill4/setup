@@ -5,6 +5,7 @@ return {
 
   {
     "tpope/vim-projectionist",
+    event = { "BufReadPre", "BufNewFile" }, -- projectionist needs to be loaded for cmd to be available?
     keys = {
       { "<leader>a", "<Cmd>A<CR>" },
     },
