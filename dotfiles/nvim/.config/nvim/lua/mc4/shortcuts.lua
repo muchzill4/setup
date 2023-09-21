@@ -1,6 +1,4 @@
-_G.map = function(mode, lhs, rhs, opts)
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+_G.map = vim.keymap.set
 
 _G.prequire = function(mod)
   local ok, err = pcall(require, mod)
