@@ -12,11 +12,6 @@ return {
   },
 
   {
-    "tpope/vim-vinegar",
-    keys = { "-" },
-  },
-
-  {
     "tpope/vim-projectionist",
     event = "VeryLazy",
     keys = {
