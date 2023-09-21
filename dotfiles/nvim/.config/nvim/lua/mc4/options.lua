@@ -14,7 +14,6 @@ vim.o.list = true
 vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
 vim.o.mouse = "nv"
 vim.o.scrolloff = 4
-vim.o.showmode = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.tags = vim.o.tags .. ",.git/tags"
