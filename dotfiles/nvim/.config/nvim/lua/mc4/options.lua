@@ -14,10 +14,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.inccommand = "split"
 
--- Show invisible characters
-vim.o.list = true
-vim.o.listchars = [[tab:»\ ,nbsp:␣,trail:•,extends:›,precedes:‹]]
-
 -- Mouse only in visual and normal
 vim.o.mouse = "nv"
 
