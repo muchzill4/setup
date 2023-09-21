@@ -49,13 +49,6 @@ vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
 
--- Trim dat whitespace
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {}),
-  pattern = "*",
-  command = "%s/s+$//e",
-})
-
 -- Folds
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.foldmethod = "expr"
