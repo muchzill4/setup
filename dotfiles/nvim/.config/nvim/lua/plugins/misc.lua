@@ -1,6 +1,4 @@
 return {
-  "tpope/vim-obsession",
-
   {
     "tpope/vim-surround",
     event = { "VeryLazy" },

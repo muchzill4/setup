@@ -12,14 +12,6 @@ local function lsp_diagnostics()
   return table.concat(output, " ")
 end
 
-local function obsession_status()
-  local status = vim.fn.ObsessionStatus()
-  if status == "[$]" then
-    return "[REC]"
-  end
-  return ""
-end
-
 local function vcs()
   local branch = vim.b["gitsigns_head"]
   local changes = vim.b["gitsigns_status"]
@@ -41,7 +33,6 @@ local function statusline_active()
   return table.concat {
     filename(),
     " ",
-    obsession_status(),
     "%h%m%r",
     "   %=",
     lsp_diagnostics(),
