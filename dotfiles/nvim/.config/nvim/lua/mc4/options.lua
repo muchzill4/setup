@@ -23,6 +23,7 @@ vim.o.wildmode = "longest:full,full"
 vim.o.undofile = true
 vim.o.textwidth = 100
 vim.o.colorcolumn = "+1"
+vim.o.inccommand = "split"
 vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
