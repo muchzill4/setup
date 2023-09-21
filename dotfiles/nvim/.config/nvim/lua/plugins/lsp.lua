@@ -84,7 +84,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = "folke/neodev.nvim",
-    event = { "BufReadPre", "BufNewFile" },
     opts = function(_, opts)
       opts.servers = {
         cssls = {},
@@ -139,7 +138,6 @@ return {
   {
     "j-hui/fidget.nvim",
     tag = "legacy",
-    event = "LspAttach",
     config = true,
   },
 }

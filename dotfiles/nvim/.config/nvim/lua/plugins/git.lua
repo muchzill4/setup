@@ -8,7 +8,6 @@ extend_palette {
 return {
   {
     "tpope/vim-fugitive",
-    event = "VeryLazy",
     dependencies = {
       "tpope/vim-rhubarb",
     },
@@ -30,7 +29,6 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local gitsigns = require "gitsigns"
       gitsigns.setup {
