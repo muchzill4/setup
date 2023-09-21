@@ -31,3 +31,7 @@ map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
 -- :bdelete
 map("n", "<Leader>q", "<Cmd>bdelete<CR>")
 map("n", "<Leader>Q", "<Cmd>bdelete!<CR>")
+
+-- Quickfix
+map("n", "[q", "<Cmd>cprev<CR>")
+map("n", "]q", "<Cmd>cnext<CR>")
