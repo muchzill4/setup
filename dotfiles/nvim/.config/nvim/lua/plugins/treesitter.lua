@@ -2,7 +2,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "VeryLazy" },
     main = "nvim-treesitter.configs",
     opts = {
       ensure_installed = {
@@ -42,7 +41,5 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = "BufReadPre",
-    config = true,
   },
 }

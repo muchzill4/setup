@@ -18,7 +18,6 @@ end
 return {
   {
     "mfussenegger/nvim-dap",
-    event = { "VeryLazy" },
     init = function()
       extend_palette {
         {
@@ -50,7 +49,6 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    event = { "VeryLazy" },
     opts = {
       icons = {
         expanded = "▾",
@@ -135,12 +133,11 @@ return {
   },
 
   {
-    "muchzill4/nvim-dap-go",
+    "muchzill4/nvim-dap-go", -- Configurations for launching delve and debugging individual tests
     branch = "future",
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    event = { "VeryLazy" },
     config = function()
       require("dap-go").setup()
     end,

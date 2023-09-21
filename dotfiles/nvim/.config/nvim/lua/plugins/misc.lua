@@ -1,19 +1,11 @@
 return {
   "tpope/vim-sleuth", -- Heuristically set buffer options
   "tpope/vim-eunuch", -- Helpers for UNIX (:Remove, :Move, etc.)
-  {
-    "tpope/vim-surround",
-    event = { "VeryLazy" },
-  },
-
-  {
-    "tpope/vim-unimpaired",
-    event = { "VeryLazy" },
-  },
+  "tpope/vim-surround",
+  "tpope/vim-unimpaired", -- Pairs of handy bracket mappings
 
   {
     "tpope/vim-projectionist",
-    event = "VeryLazy",
     keys = {
       { "<leader>a", "<Cmd>A<CR>" },
     },
@@ -35,7 +27,6 @@ return {
 
   {
     "knubie/vim-kitty-navigator",
-    event = { "VeryLazy" },
     build = { "cp ./*.py ~/.config/kitty/" },
     init = function()
       vim.api.nvim_create_autocmd("filetype", {
@@ -52,7 +43,6 @@ return {
 
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
 
