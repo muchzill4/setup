@@ -5,3 +5,4 @@
 .venv
 tags
 Session.vim
+.nvim.lua

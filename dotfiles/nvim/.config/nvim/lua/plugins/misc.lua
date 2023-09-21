@@ -60,14 +60,6 @@ return {
   },
 
   {
-    "windwp/nvim-projectconfig",
-    event = { "VeryLazy" },
-    opts = {
-      project_dir = "~/.local/share/projectconfig/",
-    },
-  },
-
-  {
     "iamcco/markdown-preview.nvim",
     build = function()
       vim.fn["mkdp#util#install"]()

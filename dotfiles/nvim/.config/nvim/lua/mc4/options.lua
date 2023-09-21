@@ -58,6 +58,9 @@ vim.o.completeopt = "menu,menuone,noselect"
 -- Wildmenu (TODO: can't remember what this does exactly)
 vim.o.wildmode = "longest:full,full"
 
+-- Allow project specific config
+vim.o.exrc = true
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
