@@ -1,4 +1,5 @@
 return {
+  "tpope/vim-sleuth", -- Heuristically set buffer options
   {
     "tpope/vim-surround",
     event = { "VeryLazy" },
