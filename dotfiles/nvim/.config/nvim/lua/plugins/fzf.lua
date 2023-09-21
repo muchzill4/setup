@@ -26,43 +26,38 @@ return {
       local fzf_lua = require "fzf-lua"
       fzf_lua.setup(opts)
       fzf_lua.register_ui_select()
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("FzFLuaLsp", {}),
+        callback = function(args)
+          local mopts = { buffer = args.buf }
+          map(
+            { "n", "v" },
+            "<leader>c",
+            "<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
+            mopts
+          )
+          map("n", "<leader>d", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>", mopts)
+          map("n", "<leader>D", "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", mopts)
+          map("n", "<leader>j", "<Cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", mopts)
+          map(
+            "n",
+            "<leader>J",
+            "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
+            mopts
+          )
+          map("n", "<Leader>R", "<Cmd>lua require('fzf-lua').lsp_references()<CR>", mopts)
+        end,
+      })
     end,
     cmd = "FzfLua",
     keys = {
       { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
-      {
-        "<leader>c",
-        "<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
-        mode = { "v", "n" },
-      },
-      { "<leader>d", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>" },
-      {
-        "<leader>D",
-        "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>",
-      },
       { "<Leader>h", "<Cmd>lua require('fzf-lua').help_tags()<CR>" },
-      { "<leader>j", "<Cmd>lua require('fzf-lua').lsp_document_symbols()<CR>" },
-      {
-        "<leader>J",
-        "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
-      },
       { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
-      {
-        "<Leader>F",
-        "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>",
-      },
-      {
-        "<leader>P",
-        "<Cmd>lua require('fzf-lua').builtin()<CR>",
-      },
-      {
-        "<Leader>R",
-        "<Cmd>lua require('fzf-lua').lsp_references()<CR>",
-      },
-      {
-        "<Leader>s",
-        "<Cmd>lua require('fzf-lua').live_grep()<CR>",
-      },
+      { "<Leader>F", "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>" },
+      { "<leader>P", "<Cmd>lua require('fzf-lua').builtin()<CR>" },
+      { "<Leader>s", "<Cmd>lua require('fzf-lua').live_grep()<CR>" },
       { "<Leader>S", "<Cmd>lua require('fzf-lua').grep_cword()<CR>" },
     },
   },
