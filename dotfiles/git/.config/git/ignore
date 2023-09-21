@@ -1,8 +1,5 @@
 .DS_Store
 .tool-versions
-.envrc
-.direnv
 .venv
 tags
-Session.vim
 .nvim.lua
