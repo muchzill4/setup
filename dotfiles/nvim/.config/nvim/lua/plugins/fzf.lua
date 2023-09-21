@@ -64,6 +64,7 @@ return {
 
   {
     "muchzill4/yacp.nvim",
+    dependencies = { "ibhagwan/fzf-lua" },
     opts = {
       provider = "fzf",
       palette = {
