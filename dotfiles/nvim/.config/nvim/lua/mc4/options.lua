@@ -65,9 +65,7 @@ vim.o.exrc = true
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
   pattern = "*",
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = vim.highlight.on_yank,
 })
 
 -- Scale splits when resizing terminal

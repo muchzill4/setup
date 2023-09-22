@@ -49,18 +49,14 @@ return {
 
   {
     "iamcco/markdown-preview.nvim",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+    build = function() vim.fn["mkdp#util#install"]() end,
     ft = "markdown",
     init = function()
       extend_palette {
         {
           name = "markdown preview",
           cmd = "MarkdownPreview",
-          show = function()
-            return vim.bo.filetype == "markdown"
-          end,
+          show = function() return vim.bo.filetype == "markdown" end,
         },
       }
     end,

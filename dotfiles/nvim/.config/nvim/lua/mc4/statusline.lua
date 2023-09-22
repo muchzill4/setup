@@ -43,8 +43,6 @@ local function statusline_active()
   }
 end
 
-function _G.statusline()
-  return statusline_active()
-end
+_G.statusline = statusline_active
 
 vim.go.statusline = "%{%v:lua.statusline()%}"

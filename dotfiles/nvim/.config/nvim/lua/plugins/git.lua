@@ -37,33 +37,32 @@ return {
 
   {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      local gitsigns = require "gitsigns"
-      gitsigns.setup {
-        on_attach = function(bufnr)
-          local opts = { buffer = bufnr, expr = true }
+    opts = {
+      preview_config = {
+        border = "rounded",
+      },
+      on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+        local opts = { buffer = bufnr, expr = true }
 
-          map("n", "]c", function()
-            if vim.wo.diff then
-              return "]c"
-            end
-            vim.schedule(function()
-              gitsigns.next_hunk()
-            end)
-            return "<Ignore>"
-          end, opts)
+        map("n", "]c", function()
+          if vim.wo.diff then
+            return "]c"
+          end
+          vim.schedule(function() gs.next_hunk() end)
+          return "<Ignore>"
+        end, opts)
 
-          map("n", "[c", function()
-            if vim.wo.diff then
-              return "[c"
-            end
-            vim.schedule(function()
-              gitsigns.prev_hunk()
-            end)
-            return "<Ignore>"
-          end, opts)
-        end,
-      }
-    end,
+        map("n", "[c", function()
+          if vim.wo.diff then
+            return "[c"
+          end
+          vim.schedule(function() gs.prev_hunk() end)
+          return "<Ignore>"
+        end, opts)
+
+        map("n", "<leader>h", gs.preview_hunk)
+      end,
+    },
   },
 }

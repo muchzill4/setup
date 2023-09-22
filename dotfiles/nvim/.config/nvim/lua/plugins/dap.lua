@@ -6,9 +6,7 @@ local function has_dap_configured()
   return false
 end
 
-local function starts_with_prefix(s, prefix)
-  return string.sub(s, 1, string.len(prefix)) == prefix
-end
+local function starts_with_prefix(s, prefix) return string.sub(s, 1, string.len(prefix)) == prefix end
 
 local function is_dap_window()
   return starts_with_prefix(vim.bo.filetype, "dapui_")
@@ -111,22 +109,14 @@ return {
     },
     init = function()
       local dap, dapui = require "dap", require "dapui"
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+      dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+      dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+      dap.listeners.before.event_exited["dapui_config"] = dapui.close
       extend_palette {
         {
           name = "dap toggle ui",
           cmd = "lua require('dapui').toggle()",
-          show = function()
-            return has_dap_configured() or is_dap_window()
-          end,
+          show = function() return has_dap_configured() or is_dap_window() end,
         },
       }
     end,
@@ -138,17 +128,13 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-    config = function()
-      require("dap-go").setup()
-    end,
+    config = function() require("dap-go").setup() end,
     init = function()
       extend_palette {
         {
           name = "dap debug test",
           cmd = "lua require('dap-go').debug_test()",
-          show = function()
-            return has_dap_configured() and vim.bo.filetype == "go"
-          end,
+          show = function() return has_dap_configured() and vim.bo.filetype == "go" end,
         },
       }
     end,

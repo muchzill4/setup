@@ -22,9 +22,7 @@ return {
     cmp.setup {
       preselect = cmp.PreselectMode.None,
       snippet = {
-        expand = function(args)
-          snippy.expand_snippet(args.body)
-        end,
+        expand = function(args) snippy.expand_snippet(args.body) end,
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
