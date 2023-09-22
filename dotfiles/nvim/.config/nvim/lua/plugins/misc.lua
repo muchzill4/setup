@@ -1,7 +1,8 @@
 return {
   "tpope/vim-sleuth", -- Heuristically set buffer options
   "tpope/vim-eunuch", -- Helpers for UNIX (:Remove, :Move, etc.)
-  "tpope/vim-surround",
+  "tpope/vim-unimpaired", -- Helpers for UNIX (:Remove, :Move, etc.)
+  "tpope/vim-surround", -- Pairs of handy bracket mappings
 
   {
     "tpope/vim-projectionist",
