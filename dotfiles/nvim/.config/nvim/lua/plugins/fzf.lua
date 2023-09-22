@@ -34,31 +34,31 @@ return {
           map(
             { "n", "v" },
             "<leader>c",
-            "<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
+            function() require("fzf-lua").lsp_code_actions() end,
             mopts
           )
-          map("n", "<leader>d", "<Cmd>lua require('fzf-lua').diagnostics_document()<CR>", mopts)
-          map("n", "<leader>D", "<Cmd>lua require('fzf-lua').diagnostics_workspace()<CR>", mopts)
-          map("n", "<leader>j", "<Cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", mopts)
+          map("n", "<leader>d", function() require("fzf-lua").diagnostics_document() end, mopts)
+          map("n", "<leader>D", function() require("fzf-lua").diagnostics_workspace() end, mopts)
+          map("n", "<leader>j", function() require("fzf-lua").lsp_document_symbols() end, mopts)
           map(
             "n",
             "<leader>J",
-            "<Cmd>lua require('fzf-lua').lsp_live_workspace_symbols()<CR>",
+            function() require("fzf-lua").lsp_live_workspace_symbols() end,
             mopts
           )
-          map("n", "<Leader>R", "<Cmd>lua require('fzf-lua').lsp_references()<CR>", mopts)
+          map("n", "<Leader>R", function() require("fzf-lua").lsp_references() end, mopts)
         end,
       })
     end,
     cmd = "FzfLua",
     keys = {
-      { "<Leader><space>", "<Cmd>lua require('fzf-lua').buffers()<CR>" },
-      { "<Leader>h", "<Cmd>lua require('fzf-lua').help_tags()<CR>" },
-      { "<Leader>f", "<Cmd>lua require('fzf-lua').files()<CR>" },
-      { "<Leader>F", "<Cmd>lua require('fzf-lua').files({cwd = '%:p:h' })<CR>" },
-      { "<leader>P", "<Cmd>lua require('fzf-lua').builtin()<CR>" },
-      { "<Leader>s", "<Cmd>lua require('fzf-lua').live_grep()<CR>" },
-      { "<Leader>S", "<Cmd>lua require('fzf-lua').grep_cword()<CR>" },
+      { "<Leader><space>", function() require("fzf-lua").buffers() end },
+      { "<Leader>h", function() require("fzf-lua").help_tags() end },
+      { "<Leader>f", function() require("fzf-lua").files() end },
+      { "<Leader>F", function() require("fzf-lua").files { cwd = "%:p:h" } end },
+      { "<leader>P", function() require("fzf-lua").builtin() end },
+      { "<Leader>s", function() require("fzf-lua").live_grep() end },
+      { "<Leader>S", function() require("fzf-lua").grep_cword() end },
     },
   },
 
@@ -79,10 +79,10 @@ return {
     keys = {
       {
         "<Leader>p",
-        "<Cmd>lua require('yacp').yacp()<CR>",
+        function() require("yacp").yacp() end,
         mode = { "v", "n" },
       },
-      { "@p", "<Cmd>lua require('yacp').replay()<CR>" },
+      { "@p", function() require("yacp").replay() end },
     },
   },
 }

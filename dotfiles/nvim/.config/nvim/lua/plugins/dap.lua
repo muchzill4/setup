@@ -20,22 +20,22 @@ return {
       extend_palette {
         {
           name = "dap continue",
-          cmd = "lua require('dap').continue()",
+          cmd = function() require("dap").continue() end,
           show = has_dap_configured,
         },
         {
           name = "dap toggle breakpoint",
-          cmd = "lua require('dap').toggle_breakpoint()",
+          cmd = function() require("dap").toggle_breakpoint() end,
           show = has_dap_configured,
         },
         {
           name = "dap list breakpoints",
-          cmd = "lua require('fzf-lua').dap_breakpoints()",
+          cmd = function() require("fzf-lua").dap_breakpoints() end,
           show = has_dap_configured,
         },
         {
           name = "dap clear breakpoints",
-          cmd = "lua require('dap').clear_breakpoints()",
+          cmd = function() require("dap").clear_breakpoints() end,
           show = has_dap_configured,
         },
       }
@@ -115,7 +115,7 @@ return {
       extend_palette {
         {
           name = "dap toggle ui",
-          cmd = "lua require('dapui').toggle()",
+          cmd = function() require("dapui").toggle() end,
           show = function() return has_dap_configured() or is_dap_window() end,
         },
       }
@@ -133,7 +133,7 @@ return {
       extend_palette {
         {
           name = "dap debug test",
-          cmd = "lua require('dap-go').debug_test()",
+          cmd = function() require("dap-go").debug_test() end,
           show = function() return has_dap_configured() and vim.bo.filetype == "go" end,
         },
       }
