@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gD", vim.lsp.buf.declaration, opts)
     map("n", "go", vim.lsp.buf.type_definition, opts)
     map("n", "K", vim.lsp.buf.hover, opts)
-    map({ "i", "n" }, "<C-k>", vim.lsp.buf.signature_help, opts)
+    map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
     map("n", "<leader>r", vim.lsp.buf.rename, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
