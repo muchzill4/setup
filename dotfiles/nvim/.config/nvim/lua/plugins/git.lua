@@ -8,9 +8,6 @@ extend_palette {
 return {
   {
     "tpope/vim-fugitive",
-    dependencies = {
-      "tpope/vim-rhubarb",
-    },
     cmd = { "Git", "Gvdiffsplit" },
     keys = {
       { "<leader>g", "<Cmd>Git<CR>" },
