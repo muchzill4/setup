@@ -27,7 +27,3 @@ map("n", "<C-i>", "<C-i>zz")
 -- Jumplist mutations
 map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], { expr = true })
 map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
-
--- :bdelete
-map("n", "<Leader>q", "<Cmd>bdelete<CR>")
-map("n", "<Leader>Q", "<Cmd>bdelete!<CR>")

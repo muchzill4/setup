@@ -43,6 +43,15 @@ return {
   },
 
   {
+    "famiu/bufdelete.nvim",
+    cmd = { "Bdelete", "Bwipeout" },
+    keys = {
+      { "<leader>q", "<Cmd>Bdelete<CR>" },
+      { "<leader>Q", "<Cmd>Bdelete!<CR>" },
+    },
+  },
+
+  {
     "numToStr/Comment.nvim",
     config = true,
   },
