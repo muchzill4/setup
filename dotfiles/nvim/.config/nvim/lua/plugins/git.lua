@@ -60,8 +60,6 @@ return {
           vim.schedule(function() gs.prev_hunk() end)
           return "<Ignore>"
         end, opts)
-
-        map("n", "<leader>h", gs.preview_hunk)
       end,
     },
   },
