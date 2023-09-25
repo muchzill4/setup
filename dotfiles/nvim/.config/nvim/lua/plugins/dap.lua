@@ -16,16 +16,18 @@ end
 return {
   {
     "mfussenegger/nvim-dap",
+    keys = {
+      { "<leader>b", function() require("dap").toggle_breakpoint() end },
+      {
+        "<Leader>B",
+        function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+      },
+    },
     init = function()
       extend_palette {
         {
           name = "dap continue",
           cmd = function() require("dap").continue() end,
-          show = has_dap_configured,
-        },
-        {
-          name = "dap toggle breakpoint",
-          cmd = function() require("dap").toggle_breakpoint() end,
           show = has_dap_configured,
         },
         {
