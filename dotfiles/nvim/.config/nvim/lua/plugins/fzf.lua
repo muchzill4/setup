@@ -59,7 +59,6 @@ return {
       { "<leader>P", function() require("fzf-lua").builtin() end },
       { "<Leader>s", function() require("fzf-lua").live_grep() end },
       { "<Leader>S", function() require("fzf-lua").grep_cword() end },
-      { "<Leader>h", function() require("fzf-lua").help_tags() end },
     },
   },
 
