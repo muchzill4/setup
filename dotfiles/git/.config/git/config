@@ -16,7 +16,7 @@
   templateDir = ~/.config/git/template
 
 [alias]
-  l = log --oneline
+  l = log --graph --oneline --abbrev-commit
   s = status
   p = push
   q = pull
