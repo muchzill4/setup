@@ -34,7 +34,7 @@ if status --is-interactive
   abbr -a -g dc 'docker-compose'
   abbr -a -g dce 'docker-compose exec'
   abbr -a -g dr 'docker run --rm -it'
-  abbr -a -g e 'edit'
+  abbr -a -g e 'nvim'
   abbr -a -g g 'git'
   abbr -a -g gl 'git l'
   abbr -a -g gs 'git s'
