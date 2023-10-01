@@ -2,3 +2,4 @@ yarn
 prettier
 pyright
 vscode-langservers-extracted
+@fsouza/prettierd
