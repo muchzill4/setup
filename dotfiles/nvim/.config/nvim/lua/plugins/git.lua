@@ -8,7 +8,7 @@ extend_palette {
 return {
   {
     "tpope/vim-fugitive",
-    cmd = { "Git", "Gvdiffsplit" },
+    cmd = { "Git", "Gvdiffsplit", "Gwrite", "Gread" },
     keys = {
       { "<leader>g", "<Cmd>Git<CR>" },
     },
