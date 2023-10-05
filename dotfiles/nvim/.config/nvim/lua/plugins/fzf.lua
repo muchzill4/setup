@@ -4,6 +4,11 @@ return {
     opts = {
       global_git_icons = false,
       global_file_icons = false,
+      winopts = {
+        preview = {
+          layout = "vertical",
+        },
+      },
       keymap = {
         builtin = {
           ["<C-/>"] = "toggle-help",
