@@ -55,8 +55,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gd", vim.lsp.buf.definition, opts)
     map("n", "gD", vim.lsp.buf.declaration, opts)
     map("n", "go", vim.lsp.buf.type_definition, opts)
+    map("n", "gi", vim.lsp.buf.implementation, opts)
+    map("n", "gr", vim.lsp.buf.references, opts)
+    map("n", "<leader>j", vim.lsp.buf.document_symbol, opts)
+    map("n", "<leader>J", vim.lsp.buf.workspace_symbol, opts)
     map("n", "K", vim.lsp.buf.hover, opts)
     map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+    map({ "n", "v" }, "<leader>c", vim.lsp.buf.code_action, opts)
     map("n", "<leader>r", vim.lsp.buf.rename, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
