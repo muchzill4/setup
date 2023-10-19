@@ -43,6 +43,7 @@ if status --is-interactive
   abbr -a -g gc 'git c'
   abbr -a -g ga 'git a'
   abbr -a -g gd 'git d'
+  abbr -a -g gds 'git ds'
   abbr -a -g gco 'git co'
   abbr -a -g gr 'git r'
   abbr -a -g cb 'checkout-branch'

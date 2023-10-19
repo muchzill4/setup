@@ -23,6 +23,7 @@
   c = commit
   a = add
   d = diff
+  ds = diff --stat
   co = checkout
   r = rebase
 
