@@ -92,5 +92,5 @@ for path in $paths
   contains $path $PATH; or set -x PATH $path $PATH
 end
 
-# asdf
-source (brew --prefix asdf)/libexec/asdf.fish
+# rtx
+rtx activate fish | source

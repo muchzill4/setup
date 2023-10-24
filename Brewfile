@@ -1,6 +1,5 @@
 # Homebrew
 # --------------------
-brew "asdf"
 brew "curl"
 brew "fish"
 brew "fzf"
@@ -11,6 +10,7 @@ brew "mas"
 brew "neovim"
 brew "openssl"
 brew "ripgrep"
+brew "rtx"
 brew "stow"
 brew "tmux"
 brew "wget"
