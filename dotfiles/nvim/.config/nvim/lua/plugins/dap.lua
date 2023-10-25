@@ -125,8 +125,7 @@ return {
   },
 
   {
-    "muchzill4/nvim-dap-go", -- Configurations for launching delve and debugging individual tests
-    branch = "future",
+    "leoluz/nvim-dap-go", -- Configurations for launching delve and debugging individual tests
     dependencies = {
       "mfussenegger/nvim-dap",
     },

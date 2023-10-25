@@ -16,7 +16,7 @@
   "neodev.nvim": { "branch": "main", "commit": "d617d9eb27e73e701e446874c6ea2cb528719260" },
   "nvim-cmp": { "branch": "main", "commit": "51260c02a8ffded8e16162dcf41a23ec90cfba62" },
   "nvim-dap": { "branch": "master", "commit": "b595c820018a15b6d54bf53b5cbeaa6f2d7a27e2" },
-  "nvim-dap-go": { "branch": "future", "commit": "51237f47bc56b387e448cd5a87ef4b08e90f9194" },
+  "nvim-dap-go": { "branch": "main", "commit": "a5cc8dcad43f0732585d4793deb02a25c4afb766" },
   "nvim-dap-ui": { "branch": "master", "commit": "34160a7ce6072ef332f350ae1d4a6a501daf0159" },
   "nvim-lspconfig": { "branch": "master", "commit": "6428fcab6f3c09e934bc016c329806314384a41e" },
   "nvim-snippy": { "branch": "master", "commit": "318ab244f1e69fff4ebcd95b3aeaa9879c39f299" },
