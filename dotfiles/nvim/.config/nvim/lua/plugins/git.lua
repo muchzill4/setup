@@ -26,7 +26,7 @@ return {
 
   {
     "tpope/vim-rhubarb",
-    cmd = { "GBrowse" },
+    event = "VeryLazy",
     dependencies = "tpope/vim-fugitive",
     init = function()
       extend_palette {
