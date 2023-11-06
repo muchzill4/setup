@@ -1,12 +1,14 @@
 local function lsp_diagnostics()
   local output = {}
   local diags = { "ERROR", "WARN", "INFO", "HINT" }
+  local colors = { 1, 3, 4, 7 }
   for i = 1, #diags do
     local diag = diags[i]
+    local color = colors[i]
     local count = vim.tbl_count(vim.diagnostic.get(0, { severity = vim.diagnostic.severity[diag] }))
     if count > 0 then
       local symbol = string.sub(diag, 1, 1)
-      table.insert(output, string.format("%s:%d", symbol, count))
+      table.insert(output, string.format("%%%d*%s:%d%%*", color, symbol, count))
     end
   end
   return table.concat(output, " ")
