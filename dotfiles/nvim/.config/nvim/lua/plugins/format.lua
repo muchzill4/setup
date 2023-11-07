@@ -61,6 +61,8 @@ return {
       yaml = formatters.prettierd,
     }
 
-    opts.parital_update = true
+    opts.experiments = {
+      partial_update = "diff", -- or 'line-by-line'
+    }
   end,
 }
