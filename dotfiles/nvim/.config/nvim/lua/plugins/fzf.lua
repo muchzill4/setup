@@ -66,9 +66,10 @@ return {
       palette = {
         {
           name = "setup / dotfiles",
-          cmd = "lua require('fzf-lua').files({cwd='~/Dev/my/setup'})",
+          cmd = function() require("fzf-lua").files { cwd = "~/Dev/my/setup" } end,
         },
         { name = "unload buffers", cmd = "%bd|edit#|bd#" },
+        { name = "git branch", cmd = function() require("fzf-lua").git_branches() end },
       },
       enable_focus = true,
     },
