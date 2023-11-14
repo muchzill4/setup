@@ -48,7 +48,7 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
 -- Folds
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo.foldmethod = "expr"
 vim.wo.foldenable = false -- `zi` to toggle
 
