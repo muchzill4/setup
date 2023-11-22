@@ -30,7 +30,7 @@ vim.o.splitright = true
 vim.o.tags = vim.o.tags .. ",.git/tags"
 
 -- Faster CursorHold
-vim.o.updatetime = 100
+vim.o.updatetime = 50
 
 -- Record undo stack
 vim.o.undofile = true
