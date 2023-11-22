@@ -1,9 +1,11 @@
--- Ident
+-- Ident and line wrapping
 vim.o.expandtab = true
 local indent = 2
 vim.o.shiftwidth = indent
 vim.o.tabstop = indent
 vim.o.breakindent = true
+vim.o.linebreak = true
+vim.o.showbreak = "↪ "
 
 -- Clipboard
 vim.o.clipboard = "unnamed"
