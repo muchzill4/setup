@@ -39,9 +39,6 @@ vim.o.undofile = true
 vim.o.textwidth = 100
 vim.o.colorcolumn = "+1"
 
--- Highlight current line
-vim.wo.cursorline = true
-
 -- Hybrid line numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -76,3 +73,15 @@ vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",
   command = "wincmd =",
 })
+
+-- Cursorline only in active buffer stolen from TJ
+vim.o.cursorline = true -- Highlight the current line
+local set_cursorline_group = vim.api.nvim_create_augroup("CursorLineControl", {})
+local set_cursorline = function(event, value)
+  vim.api.nvim_create_autocmd(event, {
+    group = set_cursorline_group,
+    callback = function() vim.opt_local.cursorline = value end,
+  })
+end
+set_cursorline("WinLeave", false)
+set_cursorline("WinEnter", true)
