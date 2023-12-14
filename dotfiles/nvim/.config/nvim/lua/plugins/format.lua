@@ -59,6 +59,17 @@ return {
       markdown = formatters.prettierd,
       json = formatters.prettierd,
       yaml = formatters.prettierd,
+
+      typescript = {
+        formatters.if_file_exists {
+          pattern = { ".prettierrc", ".prettierrc.*", "prettier.config.*" },
+          formatter = formatters.prettierd,
+        },
+        formatters.if_file_exists {
+          pattern = ".eslintrc.*",
+          formatter = formatters.eslint_d_fix,
+        },
+      },
     }
 
     opts.experiments = {
