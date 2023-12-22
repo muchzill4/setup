@@ -22,6 +22,16 @@ return {
             alternate = "{}.go",
           },
         },
+        ["package.json"] = {
+          ["*.ts"] = {
+            type = "source",
+            alternate = "{}.test.ts",
+          },
+          ["*.test.ts"] = {
+            type = "test",
+            alternate = "{}.ts",
+          },
+        },
       }
     end,
   },
