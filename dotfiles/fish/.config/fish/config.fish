@@ -94,4 +94,4 @@ for path in $paths
 end
 
 # rtx
-rtx activate fish | source
+mise activate fish | source
