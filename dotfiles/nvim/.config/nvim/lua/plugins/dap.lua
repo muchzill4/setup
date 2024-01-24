@@ -140,40 +140,4 @@ return {
       }
     end,
   },
-
-  {
-    "mxsdev/nvim-dap-vscode-js",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      {
-        "microsoft/vscode-js-debug",
-        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-      },
-    },
-    opts = {
-      debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
-      adapters = { "pwa-node" },
-    },
-    config = function(_, opts)
-      require("dap-vscode-js").setup(opts)
-      for _, language in ipairs { "typescript", "javascript" } do
-        require("dap").configurations[language] = {
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "Jest: current file",
-            runtimeExecutable = "node",
-            runtimeArgs = {
-              "./node_modules/.bin/jest",
-              "--runInBand",
-              "${fileBasenameNoExtension}",
-            },
-            rootPath = "${workspaceFolder}",
-            cwd = "${workspaceFolder}",
-            console = "integratedTerminal",
-          },
-        }
-      end
-    end,
-  },
 }
