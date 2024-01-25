@@ -96,6 +96,7 @@ return {
           settings = {
             gopls = {
               experimentalPostfixCompletions = true,
+              semanticTokens = true,
               usePlaceholders = true,
               analyses = {
                 shadow = true,
