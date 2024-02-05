@@ -17,6 +17,7 @@ return {
         "markdown",
         "python",
         "yaml",
+        "vimdoc",
       },
       auto_install = true,
       highlight = {
