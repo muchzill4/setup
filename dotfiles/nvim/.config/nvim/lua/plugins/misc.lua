@@ -31,6 +31,14 @@ return {
             type = "test",
             alternate = "{}.ts",
           },
+          ["*.tsx"] = {
+            type = "source",
+            alternate = "{}.test.tsx",
+          },
+          ["*.test.tsx"] = {
+            type = "test",
+            alternate = "{}.tsx",
+          },
         },
       }
     end,
