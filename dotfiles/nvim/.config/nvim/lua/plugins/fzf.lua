@@ -60,9 +60,8 @@ return {
 
   {
     "muchzill4/yacp.nvim",
-    dependencies = { "ibhagwan/fzf-lua" },
+    dependencies = { "ibhagwan/fzf-lua" }, -- ensure fzf takes over vim.ui.select for "native" provider
     opts = {
-      provider = "fzf",
       palette = {
         {
           name = "setup / dotfiles",
