@@ -48,6 +48,7 @@ vim.opt.signcolumn = "yes"
 
 -- Folds
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.foldmethod = "expr"
 vim.opt.foldenable = false -- `zi` to toggle
 
