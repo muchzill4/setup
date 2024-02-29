@@ -26,6 +26,7 @@ set fish_pager_color_progress black
 # pure
 set pure_shorten_prompt_current_directory_length 1
 set pure_shorten_window_title_current_directory_length 1
+set pure_show_subsecond_command_duration true
 set pure_show_jobs true
 
 if status --is-interactive
