@@ -27,3 +27,6 @@ map("n", "<C-i>", "<C-i>zz")
 -- Jumplist mutations
 map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], { expr = true })
 map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
+
+-- Disable search highlight
+map("n", "<Esc>", "<Cmd>nohlsearch<CR>")
