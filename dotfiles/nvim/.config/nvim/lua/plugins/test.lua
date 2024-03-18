@@ -1,5 +1,5 @@
 local function is_test_run_buf()
-  local test_matchers = { "go test", "richgo test", "gotestsum" }
+  local test_matchers = { "go test", "richgo test", "gotestsum", ".bin/jest" }
   local buf_name = vim.api.nvim_buf_get_name(0)
   for _, matcher in ipairs(test_matchers) do
     if string.find(buf_name, matcher) then
