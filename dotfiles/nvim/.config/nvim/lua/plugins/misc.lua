@@ -75,14 +75,12 @@ return {
   },
 
   {
-    "iamcco/markdown-preview.nvim",
-    build = function() vim.fn["mkdp#util#install"]() end,
-    ft = "markdown",
+    "itspriddle/vim-marked",
     init = function()
       extend_palette {
         {
           name = "markdown preview",
-          cmd = "MarkdownPreview",
+          cmd = "MarkedOpen!",
           show = function() return vim.bo.filetype == "markdown" end,
         },
       }
