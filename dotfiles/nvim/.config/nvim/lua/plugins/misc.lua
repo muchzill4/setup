@@ -86,4 +86,18 @@ return {
       }
     end,
   },
+
+  {
+    "stevearc/oil.nvim",
+    keys = {
+      { "-", "<Cmd>Oil<CR>" },
+    },
+    config = {
+      keymaps = {
+        ["<C-v>"] = "actions.select_vsplit",
+        ["<C-s>"] = "actions.select_split",
+        ["<C-h>"] = false,
+      },
+    },
+  },
 }
