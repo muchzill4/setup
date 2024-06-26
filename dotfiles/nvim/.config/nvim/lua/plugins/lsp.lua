@@ -8,17 +8,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
 vim.diagnostic.config {
   virtual_text = false,
   float = {
-    focusable = false,
-    close_events = {
-      "BufLeave",
-      "CursorMoved",
-      "InsertEnter",
-      "FocusLost",
-    },
     source = "if_many",
-    prefix = "",
-    header = "",
-    scope = "cursor",
     border = border,
   },
 }
