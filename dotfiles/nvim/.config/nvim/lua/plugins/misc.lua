@@ -69,11 +69,6 @@ return {
   },
 
   {
-    "numToStr/Comment.nvim",
-    config = true,
-  },
-
-  {
     "itspriddle/vim-marked",
     init = function()
       extend_palette {

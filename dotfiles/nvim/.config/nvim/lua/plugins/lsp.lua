@@ -23,9 +23,6 @@ vim.diagnostic.config {
   },
 }
 
-map("n", "]d", vim.diagnostic.goto_next)
-map("n", "[d", vim.diagnostic.goto_prev)
-
 local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
 
 local function clear_autocmd_highlight(bufnr)
