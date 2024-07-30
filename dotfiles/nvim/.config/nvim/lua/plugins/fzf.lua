@@ -5,6 +5,7 @@ return {
       global_git_icons = false,
       global_file_icons = false,
       winopts = {
+        backdrop = 100,
         preview = {
           layout = "vertical",
         },
