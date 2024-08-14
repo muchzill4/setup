@@ -86,11 +86,19 @@ return {
         html = {},
         pyright = {
           settings = {
+            pyright = {
+              disableOrganizeImports = true, -- Using Ruff
+            },
             python = {
               venvPath = ".venv",
+              analysis = {
+                ignore = { "*" }, -- Using Ruff
+                typeCheckingMode = "off", -- Using mypy
+              },
             },
           },
         },
+        ruff = {},
         lua_ls = {
           settings = {
             Lua = {
