@@ -91,14 +91,11 @@ return {
             },
             python = {
               venvPath = ".venv",
-              analysis = {
-                ignore = { "*" }, -- Using Ruff
-                typeCheckingMode = "off", -- Using mypy
-              },
             },
           },
         },
         ruff = {},
+        rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
