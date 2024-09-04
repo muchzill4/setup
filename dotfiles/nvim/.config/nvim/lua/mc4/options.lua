@@ -91,3 +91,14 @@ local set_cursorline = function(event, value)
 end
 set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
+
+-- No line numbers, start terminal in insert mode
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "TermOpen" }, {
+  group = vim.api.nvim_create_augroup("TerminalTweaks", {}),
+  pattern = "term://*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.cmd.startinsert()
+  end,
+})

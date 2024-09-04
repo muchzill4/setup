@@ -49,17 +49,6 @@ return {
         end
       end,
     })
-
-    -- Remove terminal line numbers
-    vim.api.nvim_create_autocmd("TermOpen", {
-      group = vim.api.nvim_create_augroup("TerminalTestRunOverrides", {}),
-      pattern = "*",
-      callback = function()
-        if is_test_run_buf() then
-          vim.cmd "setlocal nonumber norelativenumber"
-        end
-      end,
-    })
   end,
   cmd = {
     "TestSuite",
