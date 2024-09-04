@@ -70,39 +70,4 @@ return {
       end,
     },
   },
-
-  {
-    event = { "VeryLazy" },
-    "sindrets/diffview.nvim",
-    opts = {
-      use_icons = false,
-      icons = {
-        folder_closed = "▸",
-        folder_open = "▾",
-      },
-      signs = {
-        fold_closed = "▸",
-        fold_open = "▾",
-        done = "✓",
-      },
-    },
-    config = function(_, opts)
-      local dv = require "diffview"
-      dv.setup(opts)
-
-      local function DiffviewToggle()
-        local lib = require "diffview.lib"
-        local view = lib.get_current_view()
-        if view then
-          -- Current tabpage is a Diffview; close it
-          vim.cmd ":DiffviewClose"
-        else
-          -- No open Diffview exists: open a new one
-          vim.cmd ":DiffviewOpen"
-        end
-      end
-
-      map("n", "<leader>G", DiffviewToggle)
-    end,
-  },
 }
