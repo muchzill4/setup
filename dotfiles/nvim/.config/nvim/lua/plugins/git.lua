@@ -16,7 +16,7 @@ return {
       extend_palette {
         { name = "git blame", cmd = "Git blame" },
         { name = "git log", cmd = "Git log --oneline -100" },
-        { name = "git buffer log", cmd = "Git log --oneline -100 %" },
+        { name = "git file log", cmd = "Git log --oneline -100 %" },
         { name = "git diff", cmd = "Gvdiffsplit!" },
         { name = "git push", cmd = "Git push" },
         { name = "git push --force", cmd = "Git push --force" },
