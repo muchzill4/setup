@@ -102,3 +102,30 @@ vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "TermOpen" }, {
     vim.cmd.startinsert()
   end,
 })
+
+-- Handle big files with grace
+local is_big_file = function(filepath)
+  local file_is_readable = vim.fn.filereadable(filepath) == 1
+  if not file_is_readable then
+    return false
+  end
+  local lines = vim.fn.readfile(filepath)
+  local line_count = #lines
+  local first_line_length = #(lines[1] or "")
+  return line_count > 50000 or first_line_length > 1000
+end
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+  group = vim.api.nvim_create_augroup("HandleBigFiles", {}),
+  callback = function()
+    if is_big_file(vim.fn.expand "%") then
+      vim.cmd.syntax "off"
+      vim.cmd.filetype "off"
+      vim.cmd "TSBufDisable highlight"
+      vim.opt_local.foldmethod = "manual"
+      vim.opt_local.undofile = false
+      vim.opt_local.swapfile = false
+      vim.opt_local.loadplugins = false
+    end
+  end,
+})
