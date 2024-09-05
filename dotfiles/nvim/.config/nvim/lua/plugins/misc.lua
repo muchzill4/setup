@@ -21,6 +21,16 @@ return {
             alternate = "{}.go",
           },
         },
+        ["Cargo.toml"] = {
+          ["*.rs"] = {
+            type = "source",
+            alternate = "{}_test.rs",
+          },
+          ["*_test.rs"] = {
+            type = "test",
+            alternate = "{}.rs",
+          },
+        },
         ["package.json"] = {
           ["*.ts"] = {
             type = "source",
