@@ -2,12 +2,8 @@
 map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
--- C-o to exit insert in terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("TerminalExitInsertCustomMap", {}),
-  pattern = "*",
-  command = [[tnoremap <buffer> <C-o> <C-\><C-n>]],
-})
+-- <Esc> to exit insert in terminal
+map("t", "<Esc>", "<C-\\><C-n>")
 
 -- :w
 map("n", "<Leader>w", "<Cmd>w<CR>")
