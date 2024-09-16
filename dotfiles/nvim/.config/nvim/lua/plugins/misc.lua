@@ -24,9 +24,9 @@ return {
         ["Cargo.toml"] = {
           ["*.rs"] = {
             type = "source",
-            alternate = "{}_test.rs",
+            alternate = "{}_tests.rs",
           },
-          ["*_test.rs"] = {
+          ["*_tests.rs"] = {
             type = "test",
             alternate = "{}.rs",
           },
