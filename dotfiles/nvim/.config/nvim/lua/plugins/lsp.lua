@@ -110,7 +110,7 @@ return {
             },
           },
         },
-        tsserver = {},
+        ts_ls = {},
       }
     end,
     config = function(_, opts)
