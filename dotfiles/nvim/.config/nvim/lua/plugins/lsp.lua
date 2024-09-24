@@ -69,6 +69,12 @@ return {
     opts = function(_, opts)
       opts.servers = {
         cssls = {},
+        clangd = {
+          cmd = {
+            "clangd",
+            "--clang-tidy",
+          },
+        },
         gopls = {
           settings = {
             gopls = {
