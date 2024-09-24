@@ -1,6 +1,6 @@
 local function get_test_buf_info()
   local test_matchers = {
-    { pattern = "cargo test", search = "----.*" },
+    { pattern = "cargo test", search = "^----.*----$" },
     { pattern = "go test", search = "FAIL:.*" },
     { pattern = "gotestsum", search = "FAIL:.*" },
     { pattern = ".bin/jest", search = nil },
