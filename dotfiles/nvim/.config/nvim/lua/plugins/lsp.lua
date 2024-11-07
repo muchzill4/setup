@@ -41,9 +41,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = args.buf }
     map("n", "gD", vim.lsp.buf.declaration, opts)
     map("n", "go", vim.lsp.buf.type_definition, opts)
-    map("n", "gi", vim.lsp.buf.implementation, opts)
     map("n", "<leader>j", vim.lsp.buf.document_symbol, opts)
     map("n", "<leader>J", vim.lsp.buf.workspace_symbol, opts)
+    map("n", "grn", vim.lsp.buf.rename, opts)
+    map({ "n", "v" }, "gra", vim.lsp.buf.code_action, opts)
+    map("n", "grr", vim.lsp.buf.references, opts)
+    map("n", "gri", vim.lsp.buf.implementation, opts)
+    map("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client.server_capabilities.documentHighlightProvider then
