@@ -69,7 +69,6 @@ vim.api.nvim_create_autocmd("LspDetach", {
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = "folke/neodev.nvim",
     opts = function(_, opts)
       opts.servers = {
         cssls = {},
@@ -124,16 +123,10 @@ return {
       }
     end,
     config = function(_, opts)
-      require("neodev").setup {}
-      local capabilities =
-        require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
       local lspconfig = require "lspconfig"
       for server, config in pairs(opts.servers) do
-        local merged = vim.tbl_extend("error", {
-          capabilities = capabilities,
-        }, config)
-        lspconfig[server].setup(merged)
+        config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+        lspconfig[server].setup(config)
       end
     end,
   },
