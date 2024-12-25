@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.server_capabilities.documentHighlightProvider then
+    if client ~= nil and client.server_capabilities.documentHighlightProvider then
       autocmd_highlight(args.buf)
     end
   end,
@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
   group = augroup_lsp_config,
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.supports_method "textDocument/documentHighlight" then
+    if client ~= nil and client.supports_method "textDocument/documentHighlight" then
       clear_autocmd_highlight(args.buf)
     end
   end,
