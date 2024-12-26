@@ -89,6 +89,9 @@ return {
     keys = {
       { "-", "<Cmd>Oil<CR>" },
     },
+    dependencies = {
+      { "echasnovski/mini.icons", opts = {} },
+    },
     opts = {
       keymaps = {
         ["<C-v>"] = "actions.select_vsplit",
