@@ -14,11 +14,18 @@ local function lsp_diagnostics()
   return table.concat(output, " ")
 end
 
-local function vcs()
-  local branch = vim.b["gitsigns_head"]
+local function diff()
   local changes = vim.b["gitsigns_status"]
-  if branch ~= nil and changes ~= nil then
-    return "%<" .. branch .. " " .. changes
+  if changes ~= nil then
+    return changes
+  end
+  return ""
+end
+
+local function branch()
+  local head = vim.b["gitsigns_head"]
+  if head ~= nil then
+    return "%<" .. head
   end
   return ""
 end
@@ -39,8 +46,9 @@ local function statusline_active()
     "   %=",
     lsp_diagnostics(),
     "   ",
+    branch(),
     " ",
-    vcs(),
+    diff(),
     "%10(%l:%c%)",
   }
 end
