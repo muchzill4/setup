@@ -1,4 +1,5 @@
 black
 flake8
 isort
-jedi-language-server
+ruff
+pyright
