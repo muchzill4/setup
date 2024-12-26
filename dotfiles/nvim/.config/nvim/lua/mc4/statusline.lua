@@ -49,7 +49,7 @@ local function statusline_active()
     branch(),
     " ",
     diff(),
-    "%10(%l:%c%) %P",
+    "%10(%l,%c%) %P",
   }
 end
 
