@@ -13,27 +13,8 @@ vim.diagnostic.config {
   },
 }
 
-local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
-
-local function clear_autocmd_highlight(bufnr)
-  vim.api.nvim_clear_autocmds { buffer = bufnr, group = augroup_highlight }
-end
-
-local function autocmd_highlight(bufnr)
-  clear_autocmd_highlight(bufnr)
-  vim.api.nvim_create_autocmd({ "CursorHold" }, {
-    group = augroup_highlight,
-    buffer = bufnr,
-    callback = vim.lsp.buf.document_highlight,
-  })
-  vim.api.nvim_create_autocmd({ "CursorMoved", "BufLeave" }, {
-    group = augroup_highlight,
-    buffer = bufnr,
-    callback = vim.lsp.buf.clear_references,
-  })
-end
-
 local augroup_lsp_config = vim.api.nvim_create_augroup("UserLspConfig", {})
+local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = augroup_lsp_config,
@@ -50,8 +31,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client ~= nil and client.server_capabilities.documentHighlightProvider then
-      autocmd_highlight(args.buf)
+    if client == nil then
+      return
+    end
+
+    if client.supports_method "textDocument/documentHighlight" then
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        group = augroup_highlight,
+        buffer = args.buf,
+        callback = vim.lsp.buf.document_highlight,
+      })
+      vim.api.nvim_create_autocmd({ "CursorMoved", "BufLeave" }, {
+        group = augroup_highlight,
+        buffer = args.buf,
+        callback = vim.lsp.buf.clear_references,
+      })
     end
   end,
 })
@@ -60,8 +54,12 @@ vim.api.nvim_create_autocmd("LspDetach", {
   group = augroup_lsp_config,
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client ~= nil and client.supports_method "textDocument/documentHighlight" then
-      clear_autocmd_highlight(args.buf)
+    if client == nil then
+      return
+    end
+
+    if client.supports_method "textDocument/documentHighlight" then
+      vim.api.nvim_clear_autocmds { buffer = args.buf, group = augroup_highlight }
     end
   end,
 })
