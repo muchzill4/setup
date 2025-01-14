@@ -91,18 +91,6 @@ return {
           },
         },
         html = {},
-        pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true, -- Using Ruff
-            },
-            python = {
-              venvPath = ".venv",
-            },
-          },
-        },
-        ruff = {},
-        rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -117,6 +105,18 @@ return {
             },
           },
         },
+        pyright = {
+          settings = {
+            pyright = {
+              disableOrganizeImports = true, -- Using Ruff
+            },
+            python = {
+              venvPath = ".venv",
+            },
+          },
+        },
+        ruff = {},
+        rust_analyzer = {},
         ts_ls = {},
       }
     end,
