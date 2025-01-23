@@ -59,6 +59,7 @@ return {
     "knubie/vim-kitty-navigator",
     build = { "cp ./*.py ~/.config/kitty/" },
     init = function()
+      vim.g["kitty_navigator_enable_stack_layout"] = 1
       vim.api.nvim_create_autocmd("filetype", {
         group = vim.api.nvim_create_augroup("KittyNavigatorNetrwMapOverride", {}),
         pattern = "netrw",
