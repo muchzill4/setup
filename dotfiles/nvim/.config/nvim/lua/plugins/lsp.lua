@@ -105,13 +105,12 @@ return {
             },
           },
         },
-        pyright = {
+        basedpyright = {
           settings = {
-            pyright = {
-              disableOrganizeImports = true, -- Using Ruff
-            },
-            python = {
-              venvPath = ".venv",
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "standard",
+              },
             },
           },
         },
