@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #MISE dir="{{cwd}}"
-#USAGE arg "<version>"
+#USAGE arg "<version>" default="latest"
 
 mise use python@$usage_version
 mise config set env._.python.venv.path .venv
-mise config set env._.python.venv.create true -t bool
+mise config set env._.python.venv.create true
+mise config set env._.python.venv.uv_create_args --type list -- --system-site-packages

@@ -1,5 +1,4 @@
-black
-flake8
-isort
 ruff
-pyright
+uv
+basedpyright
+ipython
