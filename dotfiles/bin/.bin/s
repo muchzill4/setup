@@ -1,0 +1,14 @@
+#/bin/sh
+selected=$(
+    tmux list-sessions |
+    cut -d : -f 1 |
+    fzf-tmux -p --cycle
+)
+
+if [ -n "$selected" ]; then
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t "$selected"
+    else
+        tmux attach -t "$selected"
+    fi
+fi
