@@ -26,12 +26,19 @@ selected=$(
 )
 
 if [ -n "$selected" ]; then
-    session_name=$(echo "$selected" | sed "s~$projects_path/~~" | sed "s~$session_prefix~~")
-
+  if [ "${selected#$session_prefix}" != "$selected" ]; then
+    session_name=$(echo "$selected" | sed "s~$session_prefix~~")
     if [ -n "$TMUX" ]; then
-        tmux switch-client -t "$session_name" ||
-            (tmux new -c "$selected" -d -s "$session_name" && tmux switch-client -t "$dirname")
+      tmux switch-client -t "$session_name"
     else
-        tmux new -c "$selected" -A -s "$session_name"
+      tmux attach-session -t "$session_name"
     fi
+  else
+    directory=$(echo $selected | sed "s~^~$projects_path/~")
+    if [ -n "$TMUX" ]; then
+      tmux new -c "$directory" -d -s "$selected" && tmux switch-client -t "$selected"
+    else
+      tmux new -c "$directory" -A -s "$selected"
+    fi
+  fi
 fi
