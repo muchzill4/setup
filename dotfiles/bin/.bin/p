@@ -1,19 +1,37 @@
 #!/bin/sh
-path="$HOME/Dev"
+sessions=$(
+    tmux list-sessions |
+    cut -d : -f 1 |
+    sort
+)
+
+projects_path="$HOME/Dev"
+projects=$(
+    find "$projects_path"/* -maxdepth 1 -mindepth 1 -type d |
+    sed "s~$projects_path/~~" |
+    sort
+)
+
+projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
+
+session_prefix="! "
+prefixed_sessions=$(echo "$sessions" | sed "s~^~$session_prefix~")
+
 selected=$(
-    find "$path"/* -maxdepth 1 -mindepth 1 -type d |
-    sed "s~$path/~~" |
-    fzf --tmux 30% --cycle --layout=reverse |
-    sed "s~^~$path/~"
+  (
+    echo "$prefixed_sessions";
+    echo "$projects_without_sessions"
+  ) |
+  fzf --tmux 30% --cycle --layout=reverse
 )
 
 if [ -n "$selected" ]; then
-    dirname=$(echo "$selected" | sed "s~$path/~~")
+    session_name=$(echo "$selected" | sed "s~$projects_path/~~" | sed "s~$session_prefix~~")
 
     if [ -n "$TMUX" ]; then
-        tmux switch-client -t "$dirname" ||
-            (tmux new -c "$selected" -d -s "$dirname" && tmux switch-client -t "$dirname")
+        tmux switch-client -t "$session_name" ||
+            (tmux new -c "$selected" -d -s "$session_name" && tmux switch-client -t "$dirname")
     else
-        tmux new -c "$selected" -A -s "$dirname"
+        tmux new -c "$selected" -A -s "$session_name"
     fi
 fi
