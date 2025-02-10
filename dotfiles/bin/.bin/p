@@ -1,21 +1,21 @@
 #!/bin/sh
+PROJECTS_PATH="$HOME/Dev"
+SESSION_PREFIX="! "
+
 sessions=$(
     tmux list-sessions |
     cut -d : -f 1 |
     sort
 )
 
-projects_path="$HOME/Dev"
 projects=$(
-    find "$projects_path"/* -maxdepth 1 -mindepth 1 -type d |
-    sed "s~$projects_path/~~" |
+    find "$PROJECTS_PATH"/* -maxdepth 1 -mindepth 1 -type d |
+    sed "s~$PROJECTS_PATH/~~" |
     sort
 )
 
 projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
-
-session_prefix="! "
-prefixed_sessions=$(echo "$sessions" | sed "s~^~$session_prefix~")
+prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
 
 selected=$(
   (
@@ -25,20 +25,24 @@ selected=$(
   fzf --tmux 30% --cycle --layout=reverse
 )
 
-if [ -n "$selected" ]; then
-  if [ "${selected#$session_prefix}" != "$selected" ]; then
-    session_name=$(echo "$selected" | sed "s~$session_prefix~~")
+
+[ -n "$selected" ] || exit 0
+
+case "$selected" in
+  "$SESSION_PREFIX"*)
+    session_name="${selected#$SESSION_PREFIX}"
     if [ -n "$TMUX" ]; then
       tmux switch-client -t "$session_name"
     else
       tmux attach-session -t "$session_name"
     fi
-  else
-    directory=$(echo $selected | sed "s~^~$projects_path/~")
+    ;;
+  *)
+    directory="$PROJECTS_PATH/$selected"
     if [ -n "$TMUX" ]; then
       tmux new -c "$directory" -d -s "$selected" && tmux switch-client -t "$selected"
     else
       tmux new -c "$directory" -A -s "$selected"
     fi
-  fi
-fi
+    ;;
+esac
