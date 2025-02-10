@@ -3,7 +3,7 @@ path="$HOME/Dev"
 selected=$(
     find "$path"/* -maxdepth 1 -mindepth 1 -type d |
     sed "s~$path/~~" |
-    fzf --tmux 30% --cycle |
+    fzf --tmux 30% --cycle --layout=reverse |
     sed "s~^~$path/~"
 )
 

@@ -2,7 +2,7 @@
 selected=$(
     tmux list-sessions |
     cut -d : -f 1 |
-    fzf --tmux 30% --cycle
+    fzf --tmux 30% --cycle --layout=reverse
 )
 
 if [ -n "$selected" ]; then

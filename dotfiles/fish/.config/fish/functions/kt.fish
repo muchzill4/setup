@@ -3,7 +3,7 @@ function kt -d "Kitty tab from ~/Dev/*"
   set -l selected_dir (
     find $path/* -maxdepth 1 -mindepth 1 -type d |
       sed "s~$path/~~" |
-      fzf-tmux -p --cycle --layout=reverse --prompt 't> ' |
+      fzf --cycle --layout=reverse |
       sed "s~^~$path/~"
   )
 
