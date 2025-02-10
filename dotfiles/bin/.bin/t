@@ -15,13 +15,15 @@ projects=$(
 )
 
 projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
-prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
+if [ -n "$sessions" ]; then
+  prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
+  options="$prefixed_sessions\n$projects_without_sessions"
+else
+  options=$projects_without_sessions
+fi
 
 selected=$(
-  (
-    echo "$prefixed_sessions";
-    echo "$projects_without_sessions"
-  ) |
+  echo "$options" |
   fzf --tmux 30% --cycle --layout=reverse
 )
 
