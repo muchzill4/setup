@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 path="$HOME/Dev"
 selected=$(
     find "$path"/* -maxdepth 1 -mindepth 1 -type d |
