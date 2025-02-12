@@ -1,0 +1,14 @@
+#!/bin/sh
+PROJECTS_PATH="$HOME/Dev"
+
+selected=$(
+  find $PROJECTS_PATH/* -maxdepth 1 -mindepth 1 -type d |
+  sort |
+  sed "s~$PROJECTS_PATH/~~" |
+  fzf --cycle --layout=reverse
+)
+
+[ -n "$selected" ] || exit 0
+
+directory="$PROJECTS_PATH/$selected"
+kitty @ focus-tab --match title:$selected 2>/dev/null || kitty @ launch --type=tab --tab-title $selected --cwd $directory
