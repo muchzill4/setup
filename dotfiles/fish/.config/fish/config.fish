@@ -82,13 +82,6 @@ fzf --fish | source
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
 
-# local venvs please
-set -x PIPENV_VENV_IN_PROJECT 1
-
-function gpip
-  PIP_REQUIRE_VIRTUALENV="" pip $argv
-end
-
 # path    # dotfiles
 set paths $HOME/.bin
 for path in $paths
