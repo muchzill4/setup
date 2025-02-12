@@ -87,6 +87,3 @@ set paths $HOME/.bin
 for path in $paths
   contains $path $PATH; or set -x PATH $path $PATH
 end
-
-# rtx
-mise activate fish | source
