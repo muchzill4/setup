@@ -48,6 +48,16 @@ return {
             alternate = "{}.tsx",
           },
         },
+        ["requirements.txt|pyproject.toml|uv.lock"] = {
+          ["*.py"] = {
+            type = "source",
+            alternate = "test_{}.py",
+          },
+          ["test_*.py"] = {
+            type = "test",
+            alternate = "{}.py",
+          },
+        },
       }
     end,
   },
