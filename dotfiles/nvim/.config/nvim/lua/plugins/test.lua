@@ -36,6 +36,7 @@ return {
       vim.g["test#go#gotest#executable"] = "gotestsum --"
     end
     vim.g["test#strategy"] = "neovim"
+    vim.g["test#python#pytest#options"] = "-vv"
 
     extend_palette {
       { name = "test suite", cmd = "TestSuite" },
