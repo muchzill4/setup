@@ -1,7 +1,30 @@
 config-file = doubletrouble
+
 font-family = Berkeley Mono
 font-size = 11.5
+font-thicken = true
+font-thicken-strength = 0
 adjust-box-thickness = -2
 adjust-underline-thickness = -1
+
 macos-titlebar-style = hidden
 macos-option-as-alt = true
+
+window-padding-balance = true
+
+# tmux
+## tab switching
+keybind = cmd+1=text:\x021
+keybind = cmd+2=text:\x022
+keybind = cmd+3=text:\x023
+keybind = cmd+4=text:\x024
+keybind = cmd+5=text:\x025
+
+## pane management
+keybind = cmd+p=text:\x02t
+keybind = cmd+enter=text:\x02s
+keybind = cmd+t=text:\x02c
+keybind = cmd+z=text:\x02z
+
+## tmux-fingers
+keybind = cmd+f=text:\x02F
