@@ -5,6 +5,7 @@ local function get_test_buf_info()
     { pattern = "gotestsum", search = "FAIL:.*" },
     { pattern = ".bin/jest", search = nil },
     { pattern = "pytest", search = [[^_\+ .* _\+$]] },
+    { pattern = "mix test", search = [[^\s\+\d\+) test.*$]] },
   }
   local buf_name = vim.api.nvim_buf_get_name(0)
   for _, matcher in ipairs(test_matchers) do

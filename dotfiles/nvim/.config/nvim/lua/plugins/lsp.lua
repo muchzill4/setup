@@ -76,6 +76,9 @@ return {
             "--clang-tidy",
           },
         },
+        elixirls = {
+          cmd = { os.getenv "HOME" .. "/Dev/vcs/elixir-ls/language_server.sh" },
+        },
         gopls = {
           settings = {
             gopls = {

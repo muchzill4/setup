@@ -58,6 +58,16 @@ return {
             alternate = "{}.py",
           },
         },
+        ["mix.exs"] = {
+          ["lib/*.ex"] = {
+            type = "source",
+            alternate = "test/{}_test.exs",
+          },
+          ["test/*_test.exs"] = {
+            type = "test",
+            alternate = "lib/{}.ex",
+          },
+        },
       }
     end,
   },
