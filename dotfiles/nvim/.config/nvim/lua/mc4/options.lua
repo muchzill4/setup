@@ -40,10 +40,6 @@ vim.opt.timeoutlen = 300
 -- Record undo stack
 vim.opt.undofile = true
 
--- Hint when line is too long
-vim.opt.textwidth = 100
-vim.opt.colorcolumn = "+1"
-
 -- Hybrid line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
