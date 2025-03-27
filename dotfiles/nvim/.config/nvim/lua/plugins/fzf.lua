@@ -19,6 +19,7 @@ return {
         rg_glob = true,
         glob_flag = "--iglob",
         glob_separator = "%s%-%-",
+        RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
       },
     },
     config = function(_, opts)
