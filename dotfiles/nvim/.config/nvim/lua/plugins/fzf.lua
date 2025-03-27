@@ -67,8 +67,6 @@ return {
           cmd = function() require("fzf-lua").files { cwd = "~/Dev/my/setup" } end,
         },
         { name = "unload buffers", cmd = "%bd|edit#|bd#" },
-        { name = "git branch", cmd = function() require("fzf-lua").git_branches() end },
-        { name = "lsp restart", cmd = "LspRestart" },
       },
       enable_focus = true,
     },
