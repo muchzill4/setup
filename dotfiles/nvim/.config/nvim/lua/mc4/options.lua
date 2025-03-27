@@ -62,6 +62,9 @@ vim.opt.wildmode = "longest:full,full"
 -- Allow project specific config
 vim.opt.exrc = true
 
+-- Float borders
+vim.opt.winborder = "rounded"
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),

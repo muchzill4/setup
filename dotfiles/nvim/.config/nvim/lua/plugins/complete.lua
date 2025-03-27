@@ -3,12 +3,8 @@ return {
   version = "v0.*",
   opts = {
     completion = {
+      menu = { border = "none" },
       accept = { auto_brackets = { enabled = false } },
-      documentation = {
-        window = {
-          border = "rounded",
-        },
-      },
     },
   },
 }

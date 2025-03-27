@@ -45,9 +45,6 @@ return {
         topdelete = { text = "‾" },
         changedelete = { text = "~" },
       },
-      preview_config = {
-        border = "rounded",
-      },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
         local opts = { buffer = bufnr, expr = true }

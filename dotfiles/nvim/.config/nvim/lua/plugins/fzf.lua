@@ -26,22 +26,21 @@ return {
       fzf_lua.setup(opts)
       fzf_lua.register_ui_select()
 
-      vim.lsp.handlers["textDocument/references"] = require("fzf-lua").lsp_references
-      vim.lsp.handlers["textDocument/documentSymbol"] = require("fzf-lua").lsp_document_symbols
-      vim.lsp.handlers["textDocument/implementation"] = require("fzf-lua").lsp_implementations
-
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("FzFLuaLsp", {}),
         callback = function(args)
           local mopts = { buffer = args.buf }
           map("n", "<leader>d", function() require("fzf-lua").diagnostics_document() end, mopts)
           map("n", "<leader>D", function() require("fzf-lua").diagnostics_workspace() end, mopts)
+          map("n", "<leader>j", function() require("fzf-lua").lsp_document_symbols() end)
           map(
             "n",
             "<leader>J",
             function() require("fzf-lua").lsp_live_workspace_symbols() end,
             mopts
           )
+          map("n", "grr", function() require("fzf-lua").lsp_references() end)
+          map("n", "gri", function() require("fzf-lua").lsp_implementations() end)
         end,
       })
     end,
