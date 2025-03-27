@@ -1,7 +1,7 @@
 config-file = doubletrouble
 
-font-family = Berkeley Mono SemiCondensed
-font-family = Berkeley Mono Bold SemiCondensed
+font-family = Berkeley Mono Medium SemiCondensed
+font-family = Berkeley Mono ExtraBold SemiCondensed
 font-size = 12.0
 adjust-box-thickness = -2
 adjust-underline-thickness = -1
