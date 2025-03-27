@@ -1,6 +1,7 @@
 return {
   "tpope/vim-eunuch", -- Helpers for UNIX (:Remove, :Move, etc.)
   "tpope/vim-unimpaired", -- Pairs of handy bracket mappings
+  "tpope/vim-surround", -- Delete/change/add parentheses/quotes/XML-tags/much more with ease
 
   {
     "tpope/vim-projectionist",
@@ -71,9 +72,6 @@ return {
       }
     end,
   },
-
-  { "echasnovski/mini.ai", version = false, config = true }, -- extend and create `a`/`i` textobjects
-  { "echasnovski/mini.surround", version = false, config = true }, -- fast and feature-rich surround actions
 
   {
     "christoomey/vim-tmux-navigator",
