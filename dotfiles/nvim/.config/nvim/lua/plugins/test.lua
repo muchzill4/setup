@@ -67,19 +67,6 @@ return {
     extend_palette {
       { name = "test suite", cmd = "TestSuite" },
     }
-
-    local function set_test_split_size()
-      local test_split_size = math.floor(vim.o.lines / 3)
-      if test_split_size < 20 then
-        test_split_size = math.floor(vim.o.lines / 2)
-      end
-      vim.g["test#neovim#term_position"] = "bo " .. test_split_size
-    end
-    vim.api.nvim_create_autocmd("VimResized", {
-      group = vim.api.nvim_create_augroup("SetTestSplitSize", {}),
-      callback = set_test_split_size,
-    })
-    set_test_split_size()
   end,
   cmd = {
     "TestSuite",
