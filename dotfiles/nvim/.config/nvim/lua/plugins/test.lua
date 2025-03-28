@@ -1,12 +1,16 @@
+local test_matchers = {
+  { pattern = "cargo test", search = "^----.*----$" },
+  { pattern = "go test", search = "FAIL:.*" },
+  { pattern = "gotestsum", search = "FAIL:.*" },
+  { pattern = ".bin/jest" },
+  { pattern = "pytest", search = [[^_\+ .* _\+$]] },
+  { pattern = "mix test", search = {
+    "warning:",
+    [[^\s\+\d\+) test.*$]],
+  } },
+}
+
 local function get_test_buf_info()
-  local test_matchers = {
-    { pattern = "cargo test", search = "^----.*----$" },
-    { pattern = "go test", search = "FAIL:.*" },
-    { pattern = "gotestsum", search = "FAIL:.*" },
-    { pattern = ".bin/jest", search = nil },
-    { pattern = "pytest", search = [[^_\+ .* _\+$]] },
-    { pattern = "mix test", search = [[^\s\+\d\+) test.*$]] },
-  }
   local buf_name = vim.api.nvim_buf_get_name(0)
   for _, matcher in ipairs(test_matchers) do
     if string.find(buf_name, matcher.pattern) then
@@ -19,16 +23,36 @@ local function get_test_buf_info()
   end
   return {
     is_test_run = false,
-    matcher = nil,
-    search_pattern = nil,
   }
 end
 
-local function focus_first_search_match(pattern)
-  vim.fn.setreg("/", pattern)
+local function focus_first_match(search_pattern)
+  if type(search_pattern) == "table" then
+    search_pattern = table.concat(search_pattern, "\\|")
+  end
+  vim.fn.setreg("/", search_pattern)
+
   local escaped_keys = vim.api.nvim_replace_termcodes("<C-\\><C-n>n", true, true, true)
   vim.api.nvim_feedkeys(escaped_keys, "n", true)
 end
+
+vim.api.nvim_create_autocmd("TermClose", {
+  group = vim.api.nvim_create_augroup("TestRunAutocloseOrFocusFirstFailure", {}),
+  pattern = "*",
+  callback = function()
+    local test_buf_info = get_test_buf_info()
+    if not test_buf_info.is_test_run then
+      return
+    end
+
+    if vim.v.event["status"] == 0 then
+      -- Close test window
+      vim.fn.feedkeys "i"
+    elseif test_buf_info.search_pattern then
+      focus_first_match(test_buf_info.search_pattern)
+    end
+  end,
+})
 
 return {
   "vim-test/vim-test",
@@ -38,6 +62,7 @@ return {
     end
     vim.g["test#strategy"] = "neovim"
     vim.g["test#python#pytest#options"] = "-vv"
+    vim.g["test#elixir#exunit#options"] = "--warnings-as-errors"
 
     extend_palette {
       { name = "test suite", cmd = "TestSuite" },
@@ -55,24 +80,6 @@ return {
       callback = set_test_split_size,
     })
     set_test_split_size()
-
-    vim.api.nvim_create_autocmd("TermClose", {
-      group = vim.api.nvim_create_augroup("TestRunAutocloseOrFocusFirstFailure", {}),
-      pattern = "*",
-      callback = function()
-        local test_buf_info = get_test_buf_info()
-        if not test_buf_info.is_test_run then
-          return
-        end
-
-        if vim.v.event["status"] == 0 then
-          -- Close test window
-          vim.fn.feedkeys "i"
-        elseif test_buf_info.search_pattern then
-          focus_first_search_match(test_buf_info.search_pattern)
-        end
-      end,
-    })
   end,
   cmd = {
     "TestSuite",
