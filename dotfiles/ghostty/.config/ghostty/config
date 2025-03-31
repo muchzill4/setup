@@ -3,8 +3,7 @@ config-file = doubletrouble
 font-family = Berkeley Mono Medium SemiCondensed
 font-family = Berkeley Mono ExtraBold SemiCondensed
 font-size = 12.0
-adjust-box-thickness = -2
-adjust-underline-thickness = -1
+adjust-box-thickness = -1
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true
