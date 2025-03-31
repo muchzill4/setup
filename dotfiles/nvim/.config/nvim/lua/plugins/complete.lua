@@ -3,8 +3,18 @@ return {
   version = "v0.*",
   opts = {
     completion = {
-      menu = { border = "none" },
-      accept = { auto_brackets = { enabled = false } },
+      menu = {
+        border = "none",
+      },
+      accept = {
+        auto_brackets = {
+          enabled = false,
+        },
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      },
     },
   },
   config = function(_, opts)
