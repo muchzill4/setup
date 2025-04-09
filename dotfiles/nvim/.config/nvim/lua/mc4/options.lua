@@ -65,6 +65,9 @@ vim.opt.exrc = true
 -- Float borders
 vim.opt.winborder = "rounded"
 
+-- Use open buffers for `C-w f`
+vim.opt.switchbuf = "useopen"
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
