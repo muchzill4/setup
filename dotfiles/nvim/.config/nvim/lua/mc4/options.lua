@@ -91,17 +91,6 @@ end
 set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
 
--- No line numbers, start terminal in insert mode
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "TermOpen" }, {
-  group = vim.api.nvim_create_augroup("TerminalTweaks", {}),
-  pattern = "term://*",
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.cmd.startinsert()
-  end,
-})
-
 -- Handle big files with grace
 local is_big_file = function(filepath)
   local file_is_readable = vim.fn.filereadable(filepath) == 1
