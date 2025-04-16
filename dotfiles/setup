@@ -10,7 +10,7 @@ fi
 
 cd $my_dir
 
-managed_by_stow=$(find . -type d -d 1 | cut -d / -f 2)
+managed_by_stow=$(find . -type d -maxdepth 1 | cut -d / -f 2)
 for package in $managed_by_stow; do
   stow -t $HOME -D $package
   if [ "$action" == "install" ]; then

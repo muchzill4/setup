@@ -1,5 +1,8 @@
 local test_matchers = {
-  { pattern = "cargo test", search = "^----.*----$" },
+  {
+    pattern = "cargo test",
+    search = [[thread.*panicked at \zs.*.rs:\d\+]],
+  },
   {
     pattern = "go test",
     search = [[Error Trace:\s\+\zs.*.go:\d\+]],
