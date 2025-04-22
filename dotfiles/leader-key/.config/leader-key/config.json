@@ -127,6 +127,11 @@
       "key" : "b",
       "label" : "bear",
       "type" : "group"
+    },
+    {
+      "key" : "r",
+      "type" : "application",
+      "value" : "/System/Applications/Books.app"
     }
   ],
   "type" : "group"
