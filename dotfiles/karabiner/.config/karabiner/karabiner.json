@@ -7,12 +7,12 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change cmd to f12 when tapped",
+                                "description": "Change alt to f12 when tapped",
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "left_alt",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_command" }],
+                                "to": [{ "key_code": "left_alt" }],
                                 "to_if_alone": [{ "key_code": "f12" }],
                                 "type": "basic"
                             }
