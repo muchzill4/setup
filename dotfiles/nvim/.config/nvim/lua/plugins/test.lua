@@ -1,22 +1,10 @@
 local test_matchers = {
-  {
-    pattern = "cargo test",
-    search = [[thread.*panicked at \zs.*.rs:\d\+]],
-  },
-  {
-    pattern = "go test",
-    search = [[Error Trace:\s\+\zs.*.go:\d\+]],
-  },
-  {
-    pattern = "gotestsum",
-    search = [[Error Trace:\s\+\zs.*.go:\d\+]],
-  },
+  { pattern = "cargo test", search = "^----.*----$" },
+  { pattern = "go test", search = "FAIL:.*" },
+  { pattern = "gotestsum", search = "FAIL:.*" },
   { pattern = ".bin/jest" },
-  { pattern = "pytest", search = [[^.*\.py:\d\+]] },
-  {
-    pattern = "mix test",
-    search = [[\s\+\zs.*\.exs:\d\+$]],
-  },
+  { pattern = "pytest", search = [[^_\+ .* _\+$]] },
+  { pattern = "mix test", search = [[^\s\+\d\+) test.*$]] },
 }
 
 local function get_test_buf_info()
@@ -71,7 +59,6 @@ return {
     end
     vim.g["test#strategy"] = "neovim"
     vim.g["test#python#pytest#options"] = "-vv"
-    -- vim.g["test#elixir#exunit#options"] = "--warnings-as-errors"
 
     extend_palette {
       { name = "test suite", cmd = "TestSuite" },
