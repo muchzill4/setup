@@ -51,7 +51,17 @@ vim.api.nvim_create_autocmd("LspDetach", {
   end,
 })
 
-vim.lsp.enable { "elixirls", "luals", "basedpyright", "ruff", "css", "html", "gopls", "tsls" }
+vim.lsp.enable {
+  "elixirls",
+  "luals",
+  "basedpyright",
+  "ruff",
+  "css",
+  "html",
+  "gopls",
+  "tsls",
+  "rust_analyzer",
+}
 
 local api, lsp = vim.api, vim.lsp
 local get_clients = vim.lsp.get_clients
