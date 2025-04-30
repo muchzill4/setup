@@ -1,8 +1,10 @@
 config-file = doubletrouble
 
-font-family = Berkeley Mono SemiCondensed
-font-family-bold = Berkeley Mono Bold SemiCondensed
-font-size = 12.0
+font-family = Berkeley Mono
+font-synthetic-style = false
+
+font-size = 11.5
+
 adjust-box-thickness = -1
 adjust-underline-thickness = -1
 
@@ -11,6 +13,7 @@ macos-option-as-alt = true
 
 window-padding-balance = true
 window-padding-y = 0
+window-padding-x = 0
 
 # tmux
 ## tab switching
