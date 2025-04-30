@@ -168,5 +168,20 @@ automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
     if.app-id = 'com.kapeli.dashdoc'
-    check-further-callbacks = true
+    check-further-callbacks = false
     run = ['move-node-to-workspace 0']
+
+[[on-window-detected]]
+    if.app-id = 'com.mitchellh.ghostty'
+    check-further-callbacks = false
+    run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Safari'
+    check-further-callbacks = false
+    run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+    if.app-id = 'com.anthropic.claudefordesktop'
+    check-further-callbacks = false
+    run = ['move-node-to-workspace §']
