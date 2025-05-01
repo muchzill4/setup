@@ -24,7 +24,7 @@ fi
 
 selected=$(
   echo "$options" |
-  fzf --tmux 30% --cycle --layout=reverse
+  fzf --tmux 40% --cycle --layout=reverse
 )
 
 
