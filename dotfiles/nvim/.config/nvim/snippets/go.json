@@ -1,0 +1,26 @@
+{
+  "fum": {
+    "prefix": "fum",
+    "body": "func (${1:var} ${2:type}) ${3:fname}($4) $5{\n\t$0\n}"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": "func $1($2) {\n\t$0\n}"
+  },
+  "ierr": {
+    "prefix": "ierr",
+    "body": "if err != nil {\n\t${0:return err}\n}"
+  },
+  "in": {
+    "prefix": "in",
+    "body": "type ${1:name} interface {\n\t$0\n}"
+  },
+  "it": {
+    "prefix": "it",
+    "body": "t.Run(\"${1:description}\", func(t *testing.T) {\n\t$0\n})"
+  },
+  "st": {
+    "prefix": "st",
+    "body": "type ${1:name} struct {\n\t$0\n}"
+  }
+}
