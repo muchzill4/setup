@@ -1,26 +1,19 @@
-local test_matchers = {
-  { pattern = "cargo test", search = "^----.*----$" },
-  { pattern = "go test", search = "FAIL:.*" },
-  { pattern = "gotestsum", search = "FAIL:.*" },
-  { pattern = ".bin/jest" },
-  { pattern = "pytest", search = [[^_\+ .* _\+$]] },
-  { pattern = "mix test", search = [[^\s\+\d\+) test.*$]] },
+local test_runs = {
+  { cmd = "cargo test", failure_pattern = "^----.*----$" },
+  { cmd = "go test", failure_pattern = "FAIL:.*" },
+  { cmd = "gotestsum", failure_pattern = "FAIL:.*" },
+  { cmd = ".bin/jest" },
+  { cmd = "pytest", failure_pattern = [[^_\+ .* _\+$]] },
+  { cmd = "mix test", failure_pattern = [[^\s\+\d\+) test.*$]] },
 }
 
 local function get_test_buf_info()
   local buf_name = vim.api.nvim_buf_get_name(0)
-  for _, matcher in ipairs(test_matchers) do
-    if string.find(buf_name, matcher.pattern) then
-      return {
-        is_test_run = true,
-        matcher = matcher.pattern,
-        search_pattern = matcher.search,
-      }
+  for _, t in ipairs(test_runs) do
+    if string.find(buf_name, t.cmd) then
+      return vim.tbl_extend("error", t, { is_success = vim.v.event["status"] == 0 })
     end
   end
-  return {
-    is_test_run = false,
-  }
 end
 
 local function focus_first_match(search_pattern)
@@ -31,6 +24,7 @@ local function focus_first_match(search_pattern)
 
   local escaped_keys = vim.api.nvim_replace_termcodes("<C-\\><C-n>n", true, true, true)
   vim.api.nvim_feedkeys(escaped_keys, "n", true)
+  vim.defer_fn(function() vim.cmd "silent! nohl" end, 10) -- 10ms delay
 end
 
 vim.api.nvim_create_autocmd("TermClose", {
@@ -38,16 +32,10 @@ vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
   callback = function()
     local test_buf_info = get_test_buf_info()
-    if not test_buf_info.is_test_run then
+    if test_buf_info == nil or test_buf_info.is_success then
       return
     end
-
-    if vim.v.event["status"] == 0 then
-      -- Close test window
-      vim.fn.feedkeys "i"
-    elseif test_buf_info.search_pattern then
-      focus_first_match(test_buf_info.search_pattern)
-    end
+    focus_first_match(test_buf_info.failure_pattern)
   end,
 })
 
