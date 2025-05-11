@@ -120,3 +120,16 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
     end
   end,
 })
+
+-- https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436
+-- vim.api.nvim_create_autocmd("ModeChanged", {
+--   group = vim.api.nvim_create_augroup("ExitSnippetSession", {}),
+--   pattern = "*",
+--   callback = function()
+--     local old_mode = vim.v.event.old_mode
+--     local new_mode = vim.v.event.new_mode
+--     if ((old_mode == "s" and new_mode == "n") or old_mode == "i") and vim.snippet.active() then
+--       vim.snippet.stop()
+--     end
+--   end,
+-- })
