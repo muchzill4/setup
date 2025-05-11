@@ -26,3 +26,9 @@ map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
 
 -- Disable search highlight
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>")
+
+-- Exit annoying snippet mode
+map({ "i", "s" }, "<Esc>", function()
+  vim.snippet.stop()
+  return "<Esc>"
+end, { expr = true })
