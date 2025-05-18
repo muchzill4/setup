@@ -63,6 +63,9 @@ vim.api.nvim_create_autocmd("TermClose", {
     if test_run_info.has_failing_tests then
       focus_first_match(test_run_info.failing_test_pattern)
       setup_navigation_shortcuts(args.buf, test_run_info)
+    else
+      -- Close test window
+      vim.fn.feedkeys "i"
     end
   end,
 })
