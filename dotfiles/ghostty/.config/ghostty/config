@@ -26,6 +26,3 @@ keybind = cmd+p=text:\x02t
 keybind = cmd+enter=text:\x02s
 keybind = cmd+t=text:\x02c
 keybind = cmd+z=text:\x02z
-
-## tmux-fingers
-keybind = cmd+f=text:\x02F
