@@ -120,3 +120,8 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("AutoInsertInTerminal", {}),
+  command = "startinsert",
+})

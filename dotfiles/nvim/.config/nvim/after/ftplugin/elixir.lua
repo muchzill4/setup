@@ -1,2 +1,2 @@
-map("n", "<leader>r", ":sp | term elixir %<CR>")
-map("n", "<leader>R", ":sp | term iex -S mix<CR>")
+map("n", "<leader>r", ":botright split | term elixir %<CR>")
+map("n", "<leader>R", ":botright split | term iex -S mix<CR>")
