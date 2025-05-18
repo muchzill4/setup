@@ -23,11 +23,10 @@ local test_runs = {
   },
 }
 
-local function get_test_run_info(buffer)
-  local buf_name = vim.api.nvim_buf_get_name(buffer)
+local function get_test_run_info(cmd, status_code)
   for _, t in ipairs(test_runs) do
-    if string.find(buf_name, t.cmd) then
-      return vim.tbl_extend("error", t, { has_failing_tests = vim.v.event["status"] ~= 0 })
+    if string.find(cmd, t.cmd) then
+      return vim.tbl_extend("error", t, { has_failing_tests = status_code ~= 0 })
     end
   end
 end
@@ -54,7 +53,9 @@ vim.api.nvim_create_autocmd("TermClose", {
   group = vim.api.nvim_create_augroup("TestRunAutocloseOrFocusFirstFailure", {}),
   pattern = "term://*",
   callback = function(args)
-    local test_run_info = get_test_run_info(args.buf)
+    local cmd = args["file"]
+    local status_code = vim.v.event["status"]
+    local test_run_info = get_test_run_info(cmd, status_code)
     if test_run_info == nil then
       return
     end
