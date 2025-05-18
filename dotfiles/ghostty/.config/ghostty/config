@@ -14,15 +14,18 @@ macos-option-as-alt = true
 window-padding-balance = true
 
 # tmux
-## tab switching
+## sessions
+keybind = cmd+p=text:\x02t
+keybind = cmd+l=text:\x02L
+
+## tabs
 keybind = cmd+1=text:\x021
 keybind = cmd+2=text:\x022
 keybind = cmd+3=text:\x023
 keybind = cmd+4=text:\x024
 keybind = cmd+5=text:\x025
 
-## pane management
-keybind = cmd+p=text:\x02t
+## windows/panes/tabs
 keybind = cmd+enter=text:\x02s
-keybind = cmd+t=text:\x02c
 keybind = cmd+z=text:\x02z
+keybind = cmd+t=text:\x02c
