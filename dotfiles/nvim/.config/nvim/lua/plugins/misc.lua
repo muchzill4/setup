@@ -107,6 +107,7 @@ return {
 
   {
     "stevearc/oil.nvim",
+    lazy = false,
     keys = {
       { "-", "<Cmd>Oil<CR>" },
     },
