@@ -1,4 +1,5 @@
 require "mc4.shortcuts"
+require "mc4.commands"
 require "mc4.maps"
 require "mc4.lazy"
 require "mc4.options"
