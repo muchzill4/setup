@@ -23,30 +23,18 @@ cask "1password"
 cask "betaflight-configurator"
 cask "dash"
 cask "discord"
-cask "docker"
-cask "imagealpha"
 cask "imageoptim"
-cask "istat-menus"
-cask "ghostty"
 cask "kitty"
-cask "ngrok"
-cask "paw"
-cask "slack"
 cask "spotify"
 cask "steermouse"
 cask "tableplus"
 cask "whatsapp"
-cask "zoom"
 
 # Mac App Store
 # --------------------
 mas "1Blocker", id: 1365531024
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
-mas "Affinity Publisher", id: 881418622
 mas "Bear", id: 1091189122
 mas "Color Picker", id: 1545870783
-mas "GoodLinks", id: 1474335294
 mas "Keynote", id: 409183694
 mas "Marked 2", id: 890031187
 mas "Notability", id: 360593530
