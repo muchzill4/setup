@@ -173,6 +173,11 @@ automatically-unhide-macos-hidden-apps = true
     run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
+    if.app-id = 'com.kovidgoyal.kitty'
+    check-further-callbacks = false
+    run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
     if.app-id = 'com.apple.Safari'
     check-further-callbacks = false
     run = ['move-node-to-workspace 2']
