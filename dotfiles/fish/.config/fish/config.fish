@@ -57,6 +57,7 @@ if status --is-interactive
   abbr -a -g vp '.venv/bin/python'
   abbr -a -g va 'source .venv/bin/activate.fish'
   abbr -a -g vd 'deactivate'
+  alias ssh='kitty +kitten ssh'
 end
 
 # brew
