@@ -3,7 +3,7 @@ config-file = doubletrouble
 font-family = Rec Mono Duotone
 font-synthetic-style = false
 
-font-size = 11.5
+font-size = 12.0
 
 font-thicken = true
 font-thicken-strength = 0
@@ -14,6 +14,7 @@ macos-titlebar-style = hidden
 macos-option-as-alt = true
 
 window-padding-balance = true
+window-padding-y = 0
 
 # tmux
 ## sessions
