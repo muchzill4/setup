@@ -1,8 +1,6 @@
-@fsouza/prettierd
-eslint_d
-prettier
 pyright
 vscode-langservers-extracted
 yarn
 typescript
 typescript-language-server
+biome
