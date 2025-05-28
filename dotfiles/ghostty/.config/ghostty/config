@@ -28,6 +28,5 @@ keybind = cmd+4=text:\x024
 keybind = cmd+5=text:\x025
 
 ## windows/panes/tabs
-keybind = cmd+enter=text:\x02s
 keybind = cmd+z=text:\x02z
 keybind = cmd+t=text:\x02c
