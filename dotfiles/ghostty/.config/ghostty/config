@@ -1,33 +1,25 @@
 config-file = doubletrouble
 
 font-family = Rec Mono Duotone
-font-synthetic-style = false
-
 font-size = 12.0
-
-font-thicken = true
-font-thicken-strength = 0
-adjust-box-thickness = -1
-adjust-underline-thickness = -1
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true
 
 window-padding-balance = true
-window-padding-y = 0
 
 # tmux
 ## sessions
-keybind = cmd+p=text:\x02t
-keybind = cmd+l=text:\x02L
+keybind = super+p=text:\x02t
+keybind = super+l=text:\x02L
 
 ## tabs
-keybind = cmd+1=text:\x021
-keybind = cmd+2=text:\x022
-keybind = cmd+3=text:\x023
-keybind = cmd+4=text:\x024
-keybind = cmd+5=text:\x025
+keybind = super+1=text:\x021
+keybind = super+2=text:\x022
+keybind = super+3=text:\x023
+keybind = super+4=text:\x024
+keybind = super+5=text:\x025
 
 ## windows/panes/tabs
-keybind = cmd+z=text:\x02z
-keybind = cmd+t=text:\x02c
+keybind = super+z=text:\x02z
+keybind = super+t=text:\x02c
