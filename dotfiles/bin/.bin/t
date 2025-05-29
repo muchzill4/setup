@@ -1,6 +1,6 @@
 #!/bin/sh
 PROJECTS_PATH="$HOME/Dev"
-SESSION_PREFIX="! "
+SESSION_PREFIX="+ "
 
 sessions=$(
     tmux list-sessions |
