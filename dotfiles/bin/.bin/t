@@ -2,31 +2,36 @@
 PROJECTS_PATH="$HOME/Dev"
 SESSION_PREFIX="+ "
 
-sessions=$(
-    tmux list-sessions |
-    cut -d : -f 1 |
-    sort
-)
+if [ "$1" = "list" ]; then
+  sessions=$(
+      tmux list-sessions |
+      cut -d : -f 1 |
+      sort
+  )
 
-projects=$(
-    find "$PROJECTS_PATH"/* -maxdepth 1 -mindepth 1 -type d |
-    sed "s~$PROJECTS_PATH/~~" |
-    sort
-)
+  projects=$(
+      find "$PROJECTS_PATH"/* -maxdepth 1 -mindepth 1 -type d |
+      sed "s~$PROJECTS_PATH/~~" |
+      sort
+  )
 
-projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
-if [ -n "$sessions" ]; then
-  prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
-  options="$prefixed_sessions\n$projects_without_sessions"
-else
-  options=$projects_without_sessions
+  projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
+  if [ -n "$sessions" ]; then
+    prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
+    options="$prefixed_sessions\n$projects_without_sessions"
+  else
+    options=$projects_without_sessions
+  fi
+
+  echo "$options"
+  exit 0
 fi
 
 selected=$(
-  echo "$options" |
-  fzf --tmux 40% --cycle --layout=reverse
+  fzf --tmux 40% --cycle --layout=reverse \
+    --bind="start:reload(t list)" \
+    --bind="ctrl-x:reload([ {1} = $SESSION_PREFIX ] && tmux kill-session -t {2}; t list)+clear-query"
 )
-
 
 [ -n "$selected" ] || exit 0
 
