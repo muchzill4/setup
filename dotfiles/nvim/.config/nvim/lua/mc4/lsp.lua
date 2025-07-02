@@ -63,6 +63,7 @@ vim.lsp.enable {
   "css",
   "html",
   "gopls",
+  "golangci_lint",
   "tsls",
   "rust_analyzer",
 }
