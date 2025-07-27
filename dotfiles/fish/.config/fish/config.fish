@@ -14,6 +14,7 @@ end
 
 # colorscheme
 set fish_color_command 7FC79B
+set fish_color_cwd 6CA9EF
 set fish_color_error E25A6A
 set fish_color_host 9C9FC9
 set fish_color_normal CDCFE4
