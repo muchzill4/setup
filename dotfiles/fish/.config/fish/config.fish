@@ -22,7 +22,7 @@ set pure_shorten_prompt_current_directory_length 1
 set pure_shorten_window_title_current_directory_length 1
 set pure_show_subsecond_command_duration true
 set pure_show_jobs true
-set pure_enable_git false
+set -g async_prompt_functions _pure_prompt_git
 
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
