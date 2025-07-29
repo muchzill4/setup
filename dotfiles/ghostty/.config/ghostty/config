@@ -1,12 +1,10 @@
+window-padding-balance = true
 config-file = doubletrouble
-
-font-family = Rec Mono Duotone
+font-family = Rec Mono Custom
 font-size = 12.0
-
+window-padding-y = 0
 macos-titlebar-style = hidden
 macos-option-as-alt = true
-
-window-padding-balance = true
 
 # tmux
 ## sessions
