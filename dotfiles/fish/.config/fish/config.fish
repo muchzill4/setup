@@ -13,18 +13,16 @@ if status is-interactive && ! functions --query fisher
 end
 
 # colorscheme
-set fish_color_command 7FC79B
-set fish_color_cwd 6CA9EF
-set fish_color_error E25A6A
-set fish_color_host 9C9FC9
-set fish_color_normal CDCFE4
-set fish_color_operator 9C9FC9
-set fish_color_param normal
-set fish_color_quote D1AF9F
 set fish_color_search_match 191929 --background=E6A64C
-set fish_color_user 9C9FC9
-set fish_color_valid_path normal --underline
-set fish_pager_color_progress 565B8F
+set fish_color_param BB781B
+set fish_color_quote D1AF9F
+
+# pure
+set pure_shorten_prompt_current_directory_length 1
+set pure_shorten_window_title_current_directory_length 1
+set pure_show_subsecond_command_duration true
+set pure_show_jobs true
+set pure_enable_git false
 
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
