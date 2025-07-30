@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+
+mise use elixir
+mise use erlang
