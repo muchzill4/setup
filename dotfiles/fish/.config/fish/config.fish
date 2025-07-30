@@ -73,3 +73,9 @@ fzf --fish | source
 # docker
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
+
+# mise
+set -x MISE_FISH_AUTO_ACTIVATE 0
+if status --is-interactive
+  mise activate fish | source
+end
