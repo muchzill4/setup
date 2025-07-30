@@ -68,7 +68,8 @@ end
 
 # env
 set -x EDITOR 'nvim'
-set -x VISUAL $EDITOR
+set -x VISUAL 'nvim'
+set -x MANPAGER 'nvim +Man!'
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
