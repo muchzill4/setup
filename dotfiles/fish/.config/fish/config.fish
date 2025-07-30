@@ -60,12 +60,6 @@ if test -e /opt/homebrew/bin/brew && test ! -n "$BREW_INITIALISED"
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
-# path    # dotfiles
-set paths $HOME/.bin
-for path in $paths
-  contains $path $PATH; or set -x PATH $path $PATH
-end
-
 # env
 set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
