@@ -1,14 +1,46 @@
 #!/bin/sh
 PROJECTS_PATH="$HOME/Dev"
+SESSION_PREFIX="+ "
+
+kitty_ls=$(kitty @ ls)
+
+sessions=$(
+  echo "$kitty_ls" |
+  jq --raw-output '.[].wm_name' |
+  sort
+)
+
+projects=$(
+  find "$PROJECTS_PATH"/* -maxdepth 1 -mindepth 1 -type d |
+  sed "s~$PROJECTS_PATH/~~" |
+  sort
+)
+
+projects_without_sessions=$(echo "$projects" | grep -vxF "$sessions")
+if [ -n "$sessions" ]; then
+  prefixed_sessions=$(echo "$sessions" | sed "s~^~$SESSION_PREFIX~")
+  options="$prefixed_sessions\n$projects_without_sessions"
+else
+  options=$projects_without_sessions
+fi
 
 selected=$(
-  find $PROJECTS_PATH/* -maxdepth 1 -mindepth 1 -type d |
-  sort |
-  sed "s~$PROJECTS_PATH/~~" |
-  fzf --cycle --layout=reverse
+  echo "$options" | fzf --cycle --layout=reverse
 )
 
 [ -n "$selected" ] || exit 0
 
-directory="$PROJECTS_PATH/$selected"
-kitty @ focus-tab --match title:$selected 2>/dev/null || kitty @ launch --type=tab --tab-title $selected --cwd $directory
+case "$selected" in
+  "$SESSION_PREFIX"*)
+    session_name="${selected#$SESSION_PREFIX}"
+    id_to_focus=$(
+      echo "$kitty_ls" |
+      jq --arg wm_name $session_name 'first(.[] | select(.wm_name == $wm_name) | .tabs[] | select(.is_active) | .windows[] | select(.is_active) | .id)'
+    )
+    kitty @ focus-window --match=id:$id_to_focus
+    ;;
+  *)
+    directory="$PROJECTS_PATH/$selected"
+    kitty @ launch --type=os-window --os-window-name=$selected --cwd=$directory
+    ;;
+esac
