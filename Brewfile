@@ -12,7 +12,6 @@ brew "neovim"
 brew "openssl"
 brew "ripgrep"
 brew "stow"
-brew "tmux"
 brew "wget"
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
