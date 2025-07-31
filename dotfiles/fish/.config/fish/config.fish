@@ -8,7 +8,7 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
   builtin source $file 2> /dev/null
 end
-if status is-interactive && ! functions --query fisher
+if status --is-interactive && ! functions --query fisher
   curl --silent --location https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
