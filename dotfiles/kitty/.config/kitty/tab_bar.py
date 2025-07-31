@@ -3,9 +3,6 @@ from kitty.tab_bar import (
     DrawData,
     ExtraData,
     TabBarData,
-    draw_title,
-    as_rgb,
-    color_as_int,
     draw_tab_with_slant,
 )
 
@@ -18,16 +15,13 @@ def get_session_name() -> str:
 
 
 def draw_right_status(
-    draw_data: DrawData,
     screen: Screen,
     is_last: bool,
 ) -> int:
     if not is_last:
         return screen.cursor.x
-
     right_status = f"{get_session_name()} "
     right_status_length = len(right_status)
-
     screen.cursor.x = max(screen.cursor.x, screen.columns - right_status_length)
     screen.cursor.bg = 0
     screen.cursor.bold = False
@@ -48,7 +42,5 @@ def draw_tab(
     draw_tab_with_slant(
         draw_data, screen, tab, before, max_tab_length, index, is_last, extra_data
     )
-
-    draw_right_status(draw_data, screen, is_last)
-
+    draw_right_status(screen, is_last)
     return screen.cursor.x
