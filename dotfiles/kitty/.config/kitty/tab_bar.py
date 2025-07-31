@@ -45,10 +45,10 @@ def draw_tab(
     is_last: bool,
     extra_data: ExtraData,
 ) -> int:
-    x = draw_tab_with_slant(
+    draw_tab_with_slant(
         draw_data, screen, tab, before, max_tab_length, index, is_last, extra_data
     )
 
     draw_right_status(draw_data, screen, is_last)
 
-    return x
+    return screen.cursor.x
