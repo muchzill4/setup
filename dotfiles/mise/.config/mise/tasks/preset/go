@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+#USAGE arg "<version>" default="latest"
+
+mise use go@$usage_version
