@@ -1,0 +1,6 @@
+#!/bin/sh
+read -p "Session name: " session_name
+
+if [ -n "$session_name" ]; then
+  kitty @ launch --type=os-window --os-window-name=$session_name
+fi
