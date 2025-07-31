@@ -10,6 +10,13 @@ from kitty.tab_bar import (
 )
 
 
+def get_session_name() -> str:
+    id = current_os_window()
+    boss = get_boss()
+    name = boss.os_window_map.get(id).wm_name
+    return name
+
+
 def draw_right_status(
     draw_data: DrawData,
     screen: Screen,
@@ -18,14 +25,11 @@ def draw_right_status(
     if not is_last:
         return screen.cursor.x
 
-    id = current_os_window()
-    boss = get_boss()
-    name = boss.os_window_map.get(id).wm_name
-    right_status = f"{name} "
+    right_status = f"{get_session_name()} "
     right_status_length = len(right_status)
 
     screen.cursor.x = max(screen.cursor.x, screen.columns - right_status_length)
-    screen.cursor.bg = 0  # (draw_data.default_bg)
+    screen.cursor.bg = 0
     screen.cursor.bold = False
     screen.draw(right_status)
     return screen.cursor.x
