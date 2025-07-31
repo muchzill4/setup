@@ -25,11 +25,13 @@ def draw_right_status(
     screen: Screen,
 ):
     os_window = find_matching_os_window(last_tab)
-    right_status = f"{os_window['wm_name']} "
+    right_status = f" {os_window['wm_name']} "
     right_status_length = len(right_status)
-    screen.cursor.x = max(screen.cursor.x, screen.columns - right_status_length)
+
+    padding = screen.columns - right_status_length - screen.cursor.x
     screen.cursor.bg = 0
     screen.cursor.bold = False
+    screen.draw(" " * padding)
     screen.draw(right_status)
 
 
