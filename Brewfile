@@ -13,6 +13,7 @@ brew "openssl"
 brew "ripgrep"
 brew "stow"
 brew "wget"
+brew "zoxide"
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 
