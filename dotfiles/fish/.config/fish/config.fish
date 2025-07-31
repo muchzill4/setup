@@ -17,12 +17,12 @@ set fish_color_search_match 191929 --background=E6A64C
 set fish_color_param BB781B
 set fish_color_quote D1AF9F
 
-# pure
-set pure_shorten_prompt_current_directory_length 1
-set pure_shorten_window_title_current_directory_length 1
-set pure_show_subsecond_command_duration true
-set pure_show_jobs true
-set -g async_prompt_functions _pure_prompt_git
+# hydro
+set hydro_color_pwd blue
+set hydro_color_prompt purple
+set hydro_color_git black
+set hydro_color_duration yellow
+set hydro_multiline true
 
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
