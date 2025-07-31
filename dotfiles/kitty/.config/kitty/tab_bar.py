@@ -1,4 +1,6 @@
-from kitty.fast_data_types import Screen, get_boss, current_os_window
+from kitty.fast_data_types import Screen, get_boss
+from kitty.tabs import TabDict
+from kitty.boss import OSWindowDict
 from kitty.tab_bar import (
     DrawData,
     ExtraData,
@@ -7,26 +9,38 @@ from kitty.tab_bar import (
 )
 
 
-def get_session_name() -> str:
-    id = current_os_window()
+def is_same_tab(drawn_tab: TabBarData, os_window_tab: TabDict) -> bool:
+    return (
+        os_window_tab["id"] == drawn_tab.tab_id
+        and os_window_tab["title"] == drawn_tab.title
+    )
+
+
+# This is a bit jank, but it seems kitty doesn't expose the information about what os window we're drawing the tab bar for.
+# So, the only way to identify the os window the tab bar is drawn for is to compare its tabs.
+# Here, I'm only using the last tab to find a matching os window.
+def find_matching_os_window(last_tab: TabBarData) -> OSWindowDict:
     boss = get_boss()
-    name = boss.os_window_map.get(id).wm_name
-    return name
+    os_windows = boss.list_os_windows()
+    for os_window in os_windows:
+        last_os_window_tab = os_window["tabs"][-1]
+        if is_same_tab(last_tab, last_os_window_tab):
+            return os_window
 
 
 def draw_right_status(
+    last_tab: TabBarData,
     screen: Screen,
-    is_last: bool,
-) -> int:
-    if not is_last:
-        return screen.cursor.x
-    right_status = f"{get_session_name()} "
+):
+    os_window = find_matching_os_window(last_tab)
+
+    right_status = f"{os_window['wm_name']} "
     right_status_length = len(right_status)
+
     screen.cursor.x = max(screen.cursor.x, screen.columns - right_status_length)
     screen.cursor.bg = 0
     screen.cursor.bold = False
     screen.draw(right_status)
-    return screen.cursor.x
 
 
 def draw_tab(
@@ -42,5 +56,6 @@ def draw_tab(
     draw_tab_with_slant(
         draw_data, screen, tab, before, max_tab_length, index, is_last, extra_data
     )
-    draw_right_status(screen, is_last)
+    if is_last:
+        draw_right_status(tab, screen)
     return screen.cursor.x
