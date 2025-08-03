@@ -73,5 +73,5 @@ if status --is-interactive
   zoxide init fish | source
 end
 
-# force lima to use ssh kitten, not /usr/bin/ssh
-set -x SSH ssh
+# lima
+set -x SSH "kitten ssh"
