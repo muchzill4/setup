@@ -3,3 +3,4 @@
 #USAGE arg "<version>" default="latest"
 
 mise use go@$usage_version
+mise use golangci-lint
