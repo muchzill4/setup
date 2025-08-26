@@ -40,10 +40,15 @@ if status --is-interactive
   abbr -a -g md 'mkdir -p'
 end
 
+fish_add_path ~/.local/bin /opt/homebrew/bin /opt/homebrew/sbin
+
 # brew
-if test -e /opt/homebrew/bin/brew && test ! -n "$BREW_INITIALISED"
-  set -x BREW_INITIALISED 'aye'
-  eval (/opt/homebrew/bin/brew shellenv)
+if test -e /opt/homebrew/bin/brew
+  set -x HOMEBREW_PREFIX "/opt/homebrew";
+  set -x HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+  set -x HOMEBREW_REPOSITORY "/opt/homebrew";
+  if test -n "$MANPATH[1]"; set -x MANPATH '' $MANPATH; end;
+  if not contains "/opt/homebrew/share/info" $INFOPATH; set -x INFOPATH "/opt/homebrew/share/info" $INFOPATH; end;
 end
 
 # env
