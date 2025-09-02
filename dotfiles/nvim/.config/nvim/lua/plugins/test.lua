@@ -73,9 +73,7 @@ vim.api.nvim_create_autocmd("TermClose", {
 return {
   "vim-test/vim-test",
   init = function()
-    if vim.fn.executable "gotestsum" == 1 then
-      vim.g["test#go#gotest#executable"] = "gotestsum --"
-    end
+    vim.g["test#go#gotest#options"] = "-v"
     vim.g["test#strategy"] = "neovim"
     vim.g["test#python#pytest#options"] = "-vv"
 
