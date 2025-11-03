@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 -- <Esc> to exit insert in terminal
 map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "<C-[>", "<C-\\><C-n>")
 
 -- :w
 map("n", "<Leader>w", "<Cmd>w<CR>")
