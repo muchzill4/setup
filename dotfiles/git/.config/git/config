@@ -12,7 +12,6 @@
   ff = only
 
 [init]
-  defaultBranch = master
   templateDir = ~/.config/git/template
 
 [include]
