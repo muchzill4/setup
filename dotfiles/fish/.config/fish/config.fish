@@ -31,7 +31,6 @@ if status --is-interactive
   abbr -a -g gd 'git diff'
   abbr -a -g gds 'git diff --stat'
   abbr -a -g gco 'git checkout'
-  abbr -a -g gr 'git rebase'
   abbr -a -g cb 'checkout-branch'
   abbr -a -g db 'delete-branches'
   abbr -a -g cpr 'checkout-pr'
