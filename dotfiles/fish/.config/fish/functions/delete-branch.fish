@@ -1,4 +1,4 @@
-function delete-branches -d "Delete selected branches"
+function delete-branch -d "Delete selected branches"
   set -l branches (
     git branch |
     rg -v '\*' |

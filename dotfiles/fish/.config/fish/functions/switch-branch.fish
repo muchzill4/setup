@@ -1,4 +1,4 @@
-function checkout-branch -d "Checkout selected branch"
+function switch-branch -d "Switch to selected branch"
   set -l branch (
     git branch |
     rg -v '\*' |
@@ -6,5 +6,5 @@ function checkout-branch -d "Checkout selected branch"
     fzf --prompt "Checkout: "
   )
   test -z "$branch"; and return 1
-  git checkout "$branch"
+  git switch "$branch"
 end
