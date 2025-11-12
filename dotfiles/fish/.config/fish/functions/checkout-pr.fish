@@ -1,6 +1,6 @@
 function checkout-pr -d "Checkout selected pull request"
   set -l pr_number (
-    gh api 'repos/:owner/:repo/pulls' |
+    gh pr list --json number,title --limit 100 |
     jq --raw-output '.[] |
     "#\(.number) \(.title)"' |
     fzf --prompt "Checkout PR: " |
