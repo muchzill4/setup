@@ -9,23 +9,17 @@ function git
     echo "💡 git restore <file>"
     return 1
   else if test "$argv[1]" = "switch"; and test (count $argv) -eq 1
-    set -l branch (
-      command git branch |
+    command git branch |
       rg -v '\*' |
       cut -c 3- |
-      fzf --prompt "Checkout: "
-    )
-    test -z "$branch"; and return 1
-    command git switch "$branch"
+      fzf --prompt "Checkout: " |
+      xargs -r git switch
   else if test "$argv[1]" = "branch"; and test (count $argv) -eq 2; and test "$argv[2]" = "-D"
-    set -l branch (
-      command git branch |
+    command git branch |
       rg -v '\*' |
       cut -c 3- |
-      fzf --prompt "Delete branch: "
-    )
-    test -z "$branch"; and return 1
-    command git branch -D "$branch"
+      fzf --multi --prompt "Delete branches: " |
+      xargs -r git branch -D
   else
     command git $argv
   end
