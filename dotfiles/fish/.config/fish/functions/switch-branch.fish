@@ -1,4 +1,9 @@
 function switch-branch -d "Switch to selected branch"
+  if test (count $argv) -gt 0
+    git switch $argv[1]
+    return $status
+  end
+
   set -l branch (
     git branch |
     rg -v '\*' |
