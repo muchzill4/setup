@@ -22,6 +22,7 @@ if status --is-interactive
   abbr -a -g dr 'docker run --rm -it'
   abbr -a -g e 'nvim'
   abbr -a -g g 'git'
+  abbr -a -g ga 'git add'
   abbr -a -g gl 'git log --graph --oneline --abbrev-commit'
   abbr -a -g gs 'git status'
   abbr -a -g gp 'git push'
