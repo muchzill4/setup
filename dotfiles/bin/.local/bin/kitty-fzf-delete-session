@@ -1,0 +1,27 @@
+#!/bin/sh
+kitty_ls=$(kitty @ ls)
+
+sessions=$(
+  printf '%s' "$kitty_ls" |
+  jq --raw-output '.[].wm_name' |
+  sort
+)
+
+[ -n "$sessions" ] || exit 0
+
+selected=$(
+  printf '%s' "$sessions" | fzf --cycle --layout=reverse --multi --prompt="Delete session: "
+)
+
+[ -n "$selected" ] || exit 0
+
+printf '%s\n' "$selected" | while read -r session; do
+  window_ids=$(
+    printf '%s' "$kitty_ls" |
+    jq --raw-output --arg wm_name "$session" '.[] | select(.wm_name == $wm_name) | .tabs[].windows[].id'
+  )
+
+  printf '%s\n' "$window_ids" | while read -r id; do
+    kitty @ close-window --match "id:$id"
+  done
+done
