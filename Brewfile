@@ -14,17 +14,25 @@ brew "ripgrep"
 brew "stow"
 brew "wget"
 brew "zoxide"
+
+# Docker (via lima)
+brew "lima"
+brew "docker"
+brew "docker-buildx"
+brew "docker-completion"
+brew "docker-credential-helper"
+
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 
 # Cask
 # --------------------
 cask "1password"
-cask "betaflight-configurator"
 cask "dash"
 cask "discord"
 cask "imageoptim"
 cask "kitty"
+cask "raycast"
 cask "spotify"
 cask "steermouse"
 cask "tableplus"
