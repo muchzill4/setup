@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 })
 
 vim.lsp.enable {
-  "elixirls",
+  "expert",
   "luals",
   "basedpyright",
   "ruff",
