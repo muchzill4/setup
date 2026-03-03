@@ -1,6 +1,4 @@
-pyright
 vscode-langservers-extracted
 yarn
 typescript
 typescript-language-server
-@biomejs/biome
