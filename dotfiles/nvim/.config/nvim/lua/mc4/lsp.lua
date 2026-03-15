@@ -62,6 +62,7 @@ vim.lsp.enable {
   "golangci_lint",
   "tsls",
   "rust_analyzer",
+  "ruby_lsp",
 }
 
 local api, lsp = vim.api, vim.lsp
