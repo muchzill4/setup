@@ -1,5 +1,5 @@
 return {
-  filetypes = { "elixir", "eelixir", "heex", "surface" },
-  cmd = { os.getenv "HOME" .. "/.local/bin/expert" },
-  root_markers = { "mix.exs" },
+  cmd = { "expert", "--stdio" },
+  root_markers = { "mix.exs", ".git" },
+  filetypes = { "elixir", "eelixir", "heex" },
 }
