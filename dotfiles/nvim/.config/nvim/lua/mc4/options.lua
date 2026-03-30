@@ -54,7 +54,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldenable = false -- `zi` to toggle
 
 -- Completion (TODO: can't remember what this does exactly)
-vim.opt.completeopt = "fuzzy,menuone,noselect"
+vim.opt.completeopt = "menuone,noselect,popup"
+vim.opt.autocomplete = true
+vim.opt.complete=".^5,w^5,b^5,u^5"
 
 -- Wildmenu (TODO: can't remember what this does exactly)
 vim.opt.wildmode = "longest:full,full"
