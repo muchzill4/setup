@@ -1,10 +1,11 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
-    opts = {
-      ensure_installed = {
+    lazy = false,
+    init = function()
+      require("nvim-treesitter").install {
         "bash",
         "comment",
         "fish",
@@ -19,12 +20,8 @@ return {
         "python",
         "vimdoc",
         "yaml",
-      },
-      auto_install = false,
-      highlight = {
-        enable = true,
-      },
-    },
+      }
+    end,
   },
 
   {
