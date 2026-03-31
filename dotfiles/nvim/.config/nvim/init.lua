@@ -300,7 +300,18 @@ extend_palette {
   { name = "git blame", cmd = "Git blame" },
   { name = "git log", cmd = "Git log --oneline -100" },
   { name = "git file log", cmd = "Git log --oneline -100 %" },
-  { name = "git diff", cmd = "Gvdiffsplit!" },
+  { name = "git diff current file", cmd = "Gvdiffsplit!" },
+  { name = "git diff default branch", cmd = "Git difftool -y origin/HEAD" },
+  {
+    name = "git difftool close",
+    cmd = function()
+      for i = vim.fn.tabpagenr("$"), 1, -1 do
+        if vim.fn.gettabwinvar(i, 1, "&diff") == 1 then
+          vim.cmd("tabclose " .. i)
+        end
+      end
+    end,
+  },
   { name = "git push", cmd = "Git push" },
   { name = "git push --force", cmd = "Git push --force" },
 }
