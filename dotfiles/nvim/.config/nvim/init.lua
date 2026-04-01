@@ -305,7 +305,7 @@ extend_palette {
   {
     name = "git difftool close",
     cmd = function()
-      for i = vim.fn.tabpagenr("$"), 1, -1 do
+      for i = vim.fn.tabpagenr "$", 1, -1 do
         if vim.fn.gettabwinvar(i, 1, "&diff") == 1 then
           vim.cmd("tabclose " .. i)
         end
@@ -497,6 +497,23 @@ vim.diagnostic.config {
   float = { severity_sort = true },
   jump = { float = true },
 }
+
+-- don't attach lsp to fugitive buffers
+vim.lsp.start = (function()
+  local original_start = vim.lsp.start
+  return function(config, opts, ...)
+    local bufnr = opts and opts.bufnr
+    if bufnr then
+      local is_invalid = not vim.api.nvim_buf_is_valid(bufnr)
+      local is_fugitive = vim.b[bufnr].fugitive_type
+        or vim.startswith(vim.api.nvim_buf_get_name(bufnr), "fugitive://")
+      if is_invalid or is_fugitive then
+        return
+      end
+    end
+    original_start(config, opts, ...)
+  end
+end)()
 
 local augroup_lsp_config = vim.api.nvim_create_augroup("UserLspConfig", {})
 local augroup_highlight = vim.api.nvim_create_augroup("UserLspHighlight", {})
