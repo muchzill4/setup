@@ -1,0 +1,17 @@
+{
+  "alwaysThinkingEnabled": true,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "defaultView": "chat",
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "showThinkingSummaries": true,
+  "syntaxHighlightingDisabled": true,
+  "voiceEnabled": true
+}
