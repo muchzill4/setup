@@ -1,5 +1,6 @@
 # Homebrew
 # --------------------
+brew "ast-grep"
 brew "curl"
 brew "fish"
 brew "fzf"
