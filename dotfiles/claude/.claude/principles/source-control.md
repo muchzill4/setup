@@ -33,4 +33,5 @@ Prefix branches with type: `feat/user-auth`, `fix/login-bug`, `chore/update-deps
 ## Workflow
 
 - Prefer rebase over merge to keep linear history
+- Use `--ff-only` when merging branches — no merge commits
 - Use `--force-with-lease` instead of `--force` on shared branches
