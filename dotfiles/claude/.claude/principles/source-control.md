@@ -1,10 +1,3 @@
----
-name: source-control
-description: Git commit conventions and workflow
-paths:
-  - "**/*"
----
-
 # Source Control
 
 ## Conventional Commits

@@ -1,10 +1,3 @@
----
-name: programming
-description: General programming principles — architecture, testing, refactoring, and design
-paths:
-  - "**/*"
----
-
 # General Programming Principles
 
 ## Architecture: Functional Core, Imperative Shell
