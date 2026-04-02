@@ -10,6 +10,15 @@ Values cross the boundary, not objects. The shell passes plain data to the core 
 
 ## Testing
 
+### TDD Workflow
+
+1. Write a failing test
+2. Run the test, see it fail, check the failure message reads well — fix the test before fixing the code
+3. Write the minimum code to make the test pass
+4. Refactor while green
+
+For larger features, start with a failing acceptance test as a "north star", then drill into unit tests. The acceptance test stays red while building internals.
+
 ### Mocks are a design signal
 
 If you need mocks to test something, the architecture is wrong. Restructure the code so the logic under test is pure and takes plain values. Mock only at hard architectural boundaries (network, database, filesystem, time).

@@ -8,16 +8,9 @@ paths:
 
 # Go development
 
-## TDD Workflow
+## TDD Additions
 
-Follow a 5-step cycle:
-1. Write a failing test
-2. Make the compiler pass — let compiler errors guide what to build
-3. Run the test, see it fail, check the failure message reads well — fix the test before fixing the code
-4. Write the minimum code to make the test pass
-5. Refactor while green
-
-For larger features, start with a failing acceptance test as a "north star", then drill into unit tests. The acceptance test stays red while building internals.
+In Go, add a step after "write a failing test": make the compiler pass — let compiler errors guide what to build.
 
 ## Testing
 
@@ -133,10 +126,6 @@ func TestArea(t *testing.T) {
 ```
 
 Do not overstuff table tests with boolean flags like `shouldErr` or `mockReturnValue`. If cases need different setup or different assertions, use separate `t.Run` blocks instead.
-
-### Test Doubles
-
-**Prefer fakes over mocks for anything stateful.** A fake is a fully functional in-memory implementation (e.g. an in-memory store instead of Postgres).
 
 ### Acceptance Tests
 
