@@ -1,6 +1,10 @@
 # Source Control
 
-## Conventional Commits
+## Commit Messages
+
+Match the repo's existing commit style. Default to conventional commits when there is no established convention.
+
+### Conventional Commits
 
 Format: `<type>(<scope>): <subject>` (scope is optional)
 
