@@ -6,3 +6,4 @@ tags
 !/.github/
 mise.toml
 __pycache__/
+**/.claude/settings.local.json
