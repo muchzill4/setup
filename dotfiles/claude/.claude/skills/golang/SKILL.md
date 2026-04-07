@@ -1,6 +1,9 @@
 ---
 name: golang
 description: Go development conventions and testing best practices
+allowed-tools:
+  - Bash
+  - Read
 paths:
   - "**/*.go"
   - "**/go.mod"
