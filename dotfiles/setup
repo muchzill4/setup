@@ -4,20 +4,20 @@ my_dir=$(dirname "$0")
 
 action=${1:-install}
 
-if [ "$action" != "install" ] && [ "$action" != "uninstall" ]; then
-  echo "Usage: $me [install|uninstall]"
-  exit 1
-fi
+case "$action" in
+  install|reinstall|uninstall) ;;
+  *) echo "Usage: $me [install|reinstall|uninstall]"; exit 1 ;;
+esac
 
 cd "$my_dir"
 
 managed_by_stow=$(find . -maxdepth 1 -mindepth 1 -type d | sed 's|^\./||')
 for package in $managed_by_stow; do
-  if [ "$action" = "install" ]; then
-    stow -t "$HOME" -R "$package"
-  else
-    stow -t "$HOME" -D "$package"
-  fi
+  case "$action" in
+    install)   stow -t "$HOME" -S "$package" ;;
+    reinstall) stow -t "$HOME" -R "$package" ;;
+    uninstall) stow -t "$HOME" -D "$package" ;;
+  esac
 done
 
 cd ~-
