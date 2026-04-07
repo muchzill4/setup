@@ -1,0 +1,51 @@
+#!/bin/sh
+kitty_ls=$(kitty @ ls)
+
+sessions=$(
+  printf '%s' "$kitty_ls" |
+  jq --raw-output '.[].wm_name' |
+  sort
+)
+
+[ -n "$sessions" ] || exit 0
+
+result=$(
+  printf '%s' "$sessions" |
+  fzf --cycle --layout=reverse --multi --expect=ctrl-d \
+    --header="enter: focus | ctrl-d: delete | tab: mark"
+)
+
+[ -n "$result" ] || exit 0
+
+key=$(printf '%s\n' "$result" | head -1)
+selected=$(printf '%s\n' "$result" | tail -n +2)
+
+[ -n "$selected" ] || exit 0
+
+case "$key" in
+  ctrl-d)
+    printf 'Delete sessions:\n'
+    printf '  %s\n' $selected
+    printf 'Confirm? [y/N] '
+    read -r confirm
+    [ "$confirm" = "y" ] || exit 0
+
+    printf '%s\n' "$selected" | while read -r session; do
+      window_ids=$(
+        printf '%s' "$kitty_ls" |
+        jq --raw-output --arg wm_name "$session" '.[] | select(.wm_name == $wm_name) | .tabs[].windows[].id'
+      )
+      printf '%s\n' "$window_ids" | while read -r id; do
+        kitty @ close-window --match "id:$id"
+      done
+    done
+    ;;
+  *)
+    session=$(printf '%s\n' "$selected" | head -1)
+    id_to_focus=$(
+      printf '%s' "$kitty_ls" |
+      jq --arg wm_name "$session" 'first(.[] | select(.wm_name == $wm_name) | .tabs[] | select(.is_active) | .windows[] | select(.is_active) | .id)'
+    )
+    kitty @ focus-window --match=id:$id_to_focus
+    ;;
+esac
