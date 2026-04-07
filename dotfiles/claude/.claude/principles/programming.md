@@ -35,6 +35,10 @@ Never mock internal collaborators or domain objects. Never verify that specific 
 
 Slow tests mean poor separation of logic from effects. The fix is restructuring the code, not parallelizing the suite.
 
+### Minimal test diffs
+
+When adding a test for a fix, add a new `t.Run` case or test function. Do not modify, rewrite, or "improve" existing passing tests that are unrelated to the change.
+
 ## Refactoring
 
 ### Two Hats

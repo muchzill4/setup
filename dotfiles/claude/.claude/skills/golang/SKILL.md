@@ -130,6 +130,18 @@ func TestArea(t *testing.T) {
 
 Do not overstuff table tests with boolean flags like `shouldErr` or `mockReturnValue`. If cases need different setup or different assertions, use separate `t.Run` blocks instead.
 
+### Mock Expectations
+
+Be specific about expected arguments when setting up testify mocks. Avoid `mock.AnythingOfType` and other wildcard matchers — they weaken the test.
+
+```go
+// Prefer
+r.On("Welcome", "World").Return("Hello World")
+
+// Avoid
+r.On("Welcome", mock.AnythingOfType("string")).Return("Hello World")
+```
+
 ### Acceptance Tests
 
 - Black-box only: use `package foo_test` to enforce tests only touch the public API
