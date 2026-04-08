@@ -1,0 +1,13 @@
+#!/bin/sh
+[ -n "$1" ] || exit 1
+
+kitty_ls=$(kitty @ ls 2>/dev/null) || exit 0
+
+window_ids=$(
+  printf '%s' "$kitty_ls" |
+  jq --raw-output --arg wm_name "$1" '.[] | select(.wm_name == $wm_name) | .tabs[].windows[].id'
+)
+
+for id in $window_ids; do
+  kitty @ close-window --match "id:$id" 2>/dev/null
+done

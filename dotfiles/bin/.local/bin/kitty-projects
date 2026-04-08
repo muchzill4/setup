@@ -27,8 +27,8 @@ fi
 
 result=$(
   printf '%s' "$options" |
-  fzf --cycle --layout=reverse --print-query --expect=ctrl-n \
-    --header="enter: open | ctrl-n: new session"
+  fzf --cycle --layout=reverse --print-query --expect=alt-n \
+    --header="enter: open | alt-n: new session"
 )
 
 [ -n "$result" ] || exit 0
@@ -38,7 +38,7 @@ key=$(printf '%s\n' "$result" | sed -n '2p')
 selected=$(printf '%s\n' "$result" | sed -n '3p')
 
 case "$key" in
-  ctrl-n)
+  alt-n)
     [ -n "$query" ] || exit 0
     kitty @ launch --type=os-window --os-window-name="$query"
     ;;
