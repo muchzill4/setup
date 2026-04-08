@@ -7,3 +7,4 @@ tags
 mise.toml
 __pycache__/
 **/.claude/settings.local.json
+.worktrees

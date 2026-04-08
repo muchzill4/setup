@@ -16,7 +16,24 @@ projects=$(
   sort
 )
 
-projects_without_sessions=$(printf '%s' "$projects" | grep -vxF "$sessions")
+worktrees=$(
+  for wt in "$PROJECTS_PATH"/*/*/.worktrees/*/; do
+    [ -d "$wt" ] || continue
+    project="${wt#$PROJECTS_PATH/}"
+    project="${project%%/.worktrees/*}"
+    name="${wt%/}"
+    name="${name##*/}"
+    printf '%s @ %s\n' "$project" "$name"
+  done | sort
+)
+
+all_projects="$projects"
+if [ -n "$worktrees" ]; then
+  all_projects="$projects
+$worktrees"
+fi
+
+projects_without_sessions=$(printf '%s' "$all_projects" | grep -vxF "$sessions")
 if [ -n "$sessions" ]; then
   prefixed_sessions=$(printf '%s' "$sessions" | sed "s~^~$SESSION_PREFIX~")
   options="$prefixed_sessions
@@ -52,6 +69,12 @@ case "$key" in
           jq --arg wm_name "$session_name" 'first(.[] | select(.wm_name == $wm_name) | .tabs[] | select(.is_active) | .windows[] | select(.is_active) | .id)'
         )
         kitty @ focus-window --match=id:$id_to_focus
+        ;;
+      *" @ "*)
+        project="${selected%% @ *}"
+        wt_name="${selected#* @ }"
+        directory="$PROJECTS_PATH/$project/.worktrees/$wt_name"
+        kitty @ launch --type=os-window --os-window-name="$selected" --cwd="$directory"
         ;;
       *)
         directory="$PROJECTS_PATH/$selected"

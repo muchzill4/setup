@@ -1,0 +1,83 @@
+#!/bin/sh
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+  echo "Not in a git repository"
+  exit 1
+}
+
+wt_dir="$repo_root/.worktrees"
+project_name="${repo_root#$HOME/Dev/}"
+
+# Direct create if argument given
+if [ -n "$1" ]; then
+  branch="$1"
+  dir_name=$(printf '%s' "$branch" | tr '/' '-')
+  wt_path="$wt_dir/$dir_name"
+
+  if [ -d "$wt_path" ]; then
+    echo "Worktree already exists at $wt_path"
+    exit 1
+  fi
+
+  mkdir -p "$wt_dir"
+
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git worktree add "$wt_path" "$branch"
+  elif git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    git worktree add "$wt_path" "$branch"
+  else
+    git worktree add -b "$branch" "$wt_path"
+  fi || exit 1
+
+  session_name="$project_name @ $dir_name"
+  kitty @ launch --type=os-window --os-window-name="$session_name" --cwd="$wt_path"
+  exit 0
+fi
+
+# Picker mode
+dirs=""
+if [ -d "$wt_dir" ]; then
+  dirs=$(find "$wt_dir" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)
+fi
+
+result=$(
+  printf '%s' "$dirs" |
+  fzf --cycle --layout=reverse --multi --print-query --expect=alt-c,alt-x \
+    --header="enter: open | alt-c: create | alt-x: delete | tab: mark"
+)
+
+[ -n "$result" ] || exit 0
+
+query=$(printf '%s\n' "$result" | head -1)
+key=$(printf '%s\n' "$result" | sed -n '2p')
+selected=$(printf '%s\n' "$result" | tail -n +3)
+
+case "$key" in
+  alt-c)
+    [ -n "$query" ] || exit 0
+    exec "$0" "$query"
+    ;;
+  alt-x)
+    [ -n "$selected" ] || exit 0
+    printf 'Delete worktrees:\n'
+    printf '%s\n' "$selected" | sed 's/^/  /'
+    printf 'Confirm? [y/N] '
+    read -r confirm
+    [ "$confirm" = "y" ] || exit 0
+
+    printf '%s\n' "$selected" | while read -r name; do
+      wt_path="$wt_dir/$name"
+      session_name="$project_name @ $name"
+
+      git worktree remove "$wt_path" 2>/dev/null ||
+        git worktree remove --force "$wt_path"
+
+      kitty-close-session "$session_name"
+    done
+    ;;
+  *)
+    [ -n "$selected" ] || exit 0
+    name=$(printf '%s\n' "$selected" | head -1)
+    session_name="$project_name @ $name"
+    kitty @ launch --type=os-window --os-window-name="$session_name" --cwd="$wt_dir/$name"
+    ;;
+esac
