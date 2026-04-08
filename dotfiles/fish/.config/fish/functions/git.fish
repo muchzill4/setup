@@ -13,19 +13,22 @@ function git
       command git branch |
         rg -v '\*' |
         cut -c 3- |
-        fzf --cycle --layout=reverse --multi --expect=alt-x \
-          --header="enter: switch | alt-x: delete | tab: mark"
+        fzf --cycle --layout=reverse --multi --print-query --expect=alt-c,alt-x \
+          --header="enter: switch | alt-c: create | alt-x: delete | tab: mark"
     )
 
     test -n "$result"; or return 0
 
-    set -l key $result[1]
-    set -l selected $result[2..]
-
-    test -n "$selected"; or return 0
+    set -l query $result[1]
+    set -l key $result[2]
+    set -l selected $result[3..]
 
     switch "$key"
+      case alt-c
+        test -n "$query"; or return 0
+        command git switch -c "$query"
       case alt-x
+        test -n "$selected"; or return 0
         printf 'Delete branches:\n'
         printf '  %s\n' $selected
         read -l -P 'Confirm? [y/N] ' confirm
@@ -35,6 +38,7 @@ function git
           command git branch -D "$branch"
         end
       case '*'
+        test -n "$selected"; or return 0
         command git switch "$selected[1]"
     end
   else
