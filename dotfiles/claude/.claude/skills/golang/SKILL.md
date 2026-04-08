@@ -105,6 +105,10 @@ func TestUserService(t *testing.T) {
 func TestUserService_GetUser(t *testing.T) { /* ... */ }
 ```
 
+### Test File Placement
+
+Tests for `foo.go` live in `foo_test.go`. Don't create separate test files for individual functions — keep tests as siblings of the source they exercise.
+
 ### Table-Driven Tests
 
 Use tables when cases share identical setup and assertions, varying only inputs and expected outputs:
