@@ -1,0 +1,9 @@
+#!/bin/sh
+wm_name=$(kitty @ --to "$KITTY_LISTEN_ON" ls | jq -r '.[] | select(.is_active) | .wm_name')
+root="$HOME/Dev/$wm_name"
+
+if [ -d "$root" ]; then
+  kitty @ launch ${1:+--type=$1} --cwd="$root"
+else
+  kitty @ launch ${1:+--type=$1} --cwd=oldest
+fi
