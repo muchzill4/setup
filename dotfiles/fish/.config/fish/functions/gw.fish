@@ -1,6 +1,8 @@
 function gw
   if test (count $argv) -eq 0
     _gw_picker
+  else if test "$argv[1]" = "-c"; and test (count $argv) -eq 2
+    _gw_create $argv[2]
   else
     command git worktree $argv
   end
@@ -52,8 +54,8 @@ function _gw_picker
 
   set -l result (
     printf '%s\n' $dirs |
-    fzf --cycle --layout=reverse --multi --print-query --expect=alt-c,alt-x \
-      --header="enter: open | alt-c: create | alt-x: delete | tab: mark"
+    fzf --cycle --layout=reverse --multi --print-query --expect=alt-n,alt-x \
+      --header="enter: open | alt-n: new | alt-x: delete | tab: mark"
   )
 
   test -n "$result"; or return 0
@@ -63,7 +65,7 @@ function _gw_picker
   set -l selected $result[3..]
 
   switch "$key"
-    case alt-c
+    case alt-n
       test -n "$query"; or return 0
       _gw_create "$query"
     case alt-x

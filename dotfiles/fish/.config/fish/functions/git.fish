@@ -20,8 +20,8 @@ function _git_switch_picker
     command git branch |
       rg -v '\*' |
       cut -c 3- |
-      fzf --cycle --layout=reverse --multi --print-query --expect=alt-c,alt-x \
-        --header="enter: switch | alt-c: create | alt-x: delete | tab: mark"
+      fzf --cycle --layout=reverse --multi --print-query --expect=alt-n,alt-x \
+        --header="enter: switch | alt-n: new | alt-x: delete | tab: mark"
   )
 
   test -n "$result"; or return 0
@@ -31,7 +31,7 @@ function _git_switch_picker
   set -l selected $result[3..]
 
   switch "$key"
-    case alt-c
+    case alt-n
       test -n "$query"; or return 0
       command git switch -c "$query"
     case alt-x
