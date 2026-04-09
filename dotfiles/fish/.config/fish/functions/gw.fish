@@ -1,10 +1,10 @@
 function gw
   if test (count $argv) -eq 0
     _gw_picker
-  else if test "$argv[1]" = "-c"; and test (count $argv) -eq 2
-    _gw_create $argv[2]
   else if test "$argv[1]" = "--clean"
     _gw_clean
+  else if test (count $argv) -eq 1
+    _gw_create $argv[1]
   else
     command git worktree $argv
   end
