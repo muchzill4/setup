@@ -3,6 +3,8 @@ function gw
     _gw_picker
   else if test "$argv[1]" = "-c"; and test (count $argv) -eq 2
     _gw_create $argv[2]
+  else if test "$argv[1]" = "--clean"
+    _gw_clean
   else
     command git worktree $argv
   end
@@ -80,11 +82,63 @@ function _gw_picker
       test "$confirm" = "y"; or return 0
 
       for name in $selected
-        command git worktree remove "$wt_dir/$name" 2>/dev/null
-        or command git worktree remove --force "$wt_dir/$name"
+        _gw_remove "$wt_dir/$name"
       end
     case '*'
       test -n "$selected"; or return 0
       cd "$wt_dir/$selected[1]"
+  end
+end
+
+function _gw_remove -a wt_path
+  set -l branch (command git -C "$wt_path" rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+  command git worktree remove "$wt_path" 2>/dev/null
+  or command git worktree remove --force "$wt_path"
+  or return 1
+
+  if test -n "$branch"; and test "$branch" != HEAD
+    command git branch -D "$branch" 2>/dev/null
+  end
+end
+
+function _gw_clean
+  set -l repo_root (command git rev-parse --show-toplevel 2>/dev/null)
+  or begin
+    echo "Not in a git repository"
+    return 1
+  end
+
+  set -l wt_dir "$repo_root/.worktrees"
+  test -d "$wt_dir"; or return 0
+
+  set -l removed 0
+  for wt_path in "$wt_dir"/*/
+    set wt_path (string trim -r -c "/" "$wt_path")
+    test -d "$wt_path"; or continue
+
+    # Skip worktrees with uncommitted changes
+    test -z (command git -C "$wt_path" status --porcelain 2>/dev/null); or continue
+
+    # Skip worktrees with unpushed commits
+    set -l branch (command git -C "$wt_path" rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if test -n "$branch"; and test "$branch" != HEAD
+      set -l upstream (command git -C "$wt_path" rev-parse --abbrev-ref "$branch@{upstream}" 2>/dev/null)
+      if test -n "$upstream"
+        set -l unpushed (command git -C "$wt_path" log "$upstream..$branch" --oneline 2>/dev/null)
+        test -z "$unpushed"; or continue
+      else
+        # No upstream means all commits are unpushed
+        continue
+      end
+    end
+
+    echo "Removing $(basename $wt_path)"
+    _gw_remove "$wt_path"
+    set removed (math $removed + 1)
+  end
+
+  if test $removed -eq 0
+    echo "No stale worktrees found"
   end
 end
