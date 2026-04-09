@@ -36,7 +36,6 @@ if status --is-interactive
   abbr -a -g gc 'git commit'
   abbr -a -g gb 'git branch'
   abbr -a -g gsw 'git switch'
-  abbr -a -g kw 'kitty-worktrees'
   abbr -a -g gr 'git restore'
   abbr -a -g gd 'git diff'
   abbr -a -g gds 'git diff --stat'
