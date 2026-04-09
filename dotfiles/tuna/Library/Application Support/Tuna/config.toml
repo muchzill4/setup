@@ -8,12 +8,21 @@ scriptsDirectories = []
     catalogIdentifier = 'TunaCore.UserFoldersCatalog'
     depthRawValue = 1
 
-[extensions]
-enabledIdentifiers = [ 'com.brnbw.tuna.plugins.safari' ]
-
 [hotkeys.app.activate]
 carbonKeyCode = 49
 carbonModifiers = 256
+
+[[hotkeys.custom]]
+id = '599AA7D2-CE16-4E91-A977-3B53B3DFC630'
+presentation = 'hidden'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Open'
+    subjectIdentifier = 'TunaCore.AllApplicationsCatalog.Bear'
+
+    [hotkeys.custom.shortcut]
+    carbonKeyCode = 20
+    carbonModifiers = 2048
 
 [[hotkeys.custom]]
 id = '5E3BF8B7-FEB3-4659-AD70-94A94A39A59C'
