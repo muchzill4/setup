@@ -31,7 +31,11 @@ function _gw_create -a branch
   else if command git show-ref --verify --quiet "refs/remotes/origin/$branch"
     command git worktree add "$wt_path" "$branch"
   else
-    command git worktree add -b "$branch" "$wt_path"
+    set -l default_branch (command git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | string replace "refs/remotes/" "")
+    if test -z "$default_branch"
+      set default_branch origin/main
+    end
+    command git worktree add -b "$branch" "$wt_path" "$default_branch"
   end
   or return 1
 
