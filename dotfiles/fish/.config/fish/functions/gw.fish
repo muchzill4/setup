@@ -10,12 +10,18 @@ function gw
   end
 end
 
-function _gw_create -a branch
-  set -l repo_root (command git rev-parse --show-toplevel 2>/dev/null)
-  or begin
+function _gw_repo_root
+  set -l root (command git rev-parse --path-format=absolute --git-common-dir 2>/dev/null | string replace -r '/\.git/?$' '')
+  if test -z "$root"
     echo "Not in a git repository"
     return 1
   end
+  echo $root
+end
+
+function _gw_create -a branch
+  set -l repo_root (_gw_repo_root)
+  or return 1
 
   set -l wt_dir "$repo_root/.worktrees"
   set -l dir_name (string replace -a "/" "-" "$branch")
@@ -45,11 +51,8 @@ function _gw_create -a branch
 end
 
 function _gw_picker
-  set -l repo_root (command git rev-parse --show-toplevel 2>/dev/null)
-  or begin
-    echo "Not in a git repository"
-    return 1
-  end
+  set -l repo_root (_gw_repo_root)
+  or return 1
 
   set -l wt_dir "$repo_root/.worktrees"
 
@@ -103,11 +106,8 @@ function _gw_remove -a wt_path
 end
 
 function _gw_clean
-  set -l repo_root (command git rev-parse --show-toplevel 2>/dev/null)
-  or begin
-    echo "Not in a git repository"
-    return 1
-  end
+  set -l repo_root (_gw_repo_root)
+  or return 1
 
   set -l wt_dir "$repo_root/.worktrees"
   test -d "$wt_dir"; or return 0
