@@ -14,7 +14,7 @@ function gpc -d "Checkout a PR into a worktree"
   set -l branch (gh pr view "$pr_number" --json headRefName -q .headRefName)
   or return 1
 
-  gw "$branch"
+  wo "$branch"
   or return 1
 
   gh pr checkout "$pr_number"
