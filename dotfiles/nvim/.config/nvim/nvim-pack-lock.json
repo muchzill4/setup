@@ -13,11 +13,11 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
+      "rev": "657c1bbb7357c61e26a20d868b53a460b05c18c0",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "db486b42299b2e3f5831809617af21becf268a39",
+      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "nvim-treesitter": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "6eb2e5e7b32c321d373d2954199f4510be804713",
+      "rev": "c6c74fa3fcc6d9687362b407245aea580f17d922",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-unimpaired": {
