@@ -62,7 +62,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "c6c74fa3fcc6d9687362b407245aea580f17d922",
+      "rev": "bca51394b5febc6e50492d88e8e124f5c5147087",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-unimpaired": {
