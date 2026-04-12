@@ -1,21 +1,22 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "sh ~/.claude/statusline.sh"
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
   },
-  "alwaysThinkingEnabled": true,
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "defaultView": "chat",
-  "env": {
-    "DISABLE_AUTOUPDATER": "1"
+  "statusLine": {
+    "type": "command",
+    "command": "sh ~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
-  "showThinkingSummaries": true,
   "syntaxHighlightingDisabled": true,
-  "voiceEnabled": true
+  "alwaysThinkingEnabled": true,
+  "voiceEnabled": true,
+  "defaultView": "chat",
+  "showThinkingSummaries": true
 }
