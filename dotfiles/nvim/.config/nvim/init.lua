@@ -511,7 +511,7 @@ vim.lsp.start = (function()
         return
       end
     end
-    original_start(config, opts, ...)
+    return original_start(config, opts, ...)
   end
 end)()
 
