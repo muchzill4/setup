@@ -81,6 +81,22 @@ Easy-to-reverse decisions (internal implementation details): make the simplest c
 
 Every layer of abstraction costs comprehension. Only add indirection when it enables a change you need now, not changes you might need someday. Speculative generality — abstract base classes with one implementation, hooks never overridden, parameters always passed the same value — is a smell to be removed.
 
+## UI Development
+
+### Functionality before aesthetics
+
+Build the interaction loop with raw, unstyled HTML first. Add styling as a separate pass
+once the behavior is correct. When styling IS the task, match the reference exactly.
+
+### Prefer server-side over client-side
+
+Minimize client-side JavaScript. Prefer server-rendered HTML and server-side validation.
+Use hypermedia approaches (htmx) over JS frameworks when possible.
+
+## Plans and TODOs
+
+Tick off plan items and TODOs as each is completed, not in batches at the end.
+
 ## Assertions and Invariants
 
 Assert preconditions, postconditions, and invariants — not just in tests, but in production code. Assertions convert silent corruption into loud, debuggable failures.

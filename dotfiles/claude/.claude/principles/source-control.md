@@ -24,6 +24,9 @@ Format: `<type>(<scope>): <subject>` (scope is optional)
 
 Rules: imperative mood, present tense, lowercase, no period, max 50 chars.
 
+Describe *what* changed, not *how* you worked. Never reference methodology
+(TDD, pair programming) or process in commit messages.
+
 ```
 feat(auth): add JWT validation
 fix: resolve race condition in worker pool
@@ -39,3 +42,5 @@ Prefix branches with type: `feat/user-auth`, `fix/login-bug`, `chore/update-deps
 - Prefer rebase over merge to keep linear history
 - Use `--ff-only` when merging branches — no merge commits
 - Use `--force-with-lease` instead of `--force` on shared branches
+- Commit incrementally — after each meaningful unit of work, not in batches
+- When multiple unrelated changes exist in the working tree, commit them separately
