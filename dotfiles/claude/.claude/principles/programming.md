@@ -12,6 +12,8 @@ Values cross the boundary, not objects. The shell passes plain data to the core 
 
 ### TDD Workflow
 
+The test is the first deliverable, not an afterthought.
+
 1. Write a failing test
 2. Run the test, see it fail, check the failure message reads well — fix the test before fixing the code
 3. Write the minimum code to make the test pass
@@ -68,6 +70,8 @@ A method that reads at one level of abstraction is fine regardless of length. A 
 ### YAGNI applies to features, not quality
 
 Do not build features on speculation. But always invest in clean structure, good naming, and small functions. Skipping a speculative feature is YAGNI; skipping refactoring is negligence.
+
+Don't pre-create empty directories or add dependencies speculatively. Create files, directories, and dependencies as the code that needs them is written — not before.
 
 ### Reversibility as heuristic
 
