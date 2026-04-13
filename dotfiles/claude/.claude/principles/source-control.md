@@ -42,5 +42,4 @@ Prefix branches with type: `feat/user-auth`, `fix/login-bug`, `chore/update-deps
 - Prefer rebase over merge to keep linear history
 - Use `--ff-only` when merging branches — no merge commits
 - Use `--force-with-lease` instead of `--force` on shared branches
-- Commit incrementally — after each meaningful unit of work, not in batches
-- When multiple unrelated changes exist in the working tree, commit them separately
+- Commit as you go — after each meaningful step, not at the end. Split unrelated changes into separate commits
