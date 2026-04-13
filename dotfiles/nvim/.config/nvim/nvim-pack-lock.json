@@ -13,7 +13,7 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "657c1bbb7357c61e26a20d868b53a460b05c18c0",
+      "rev": "1e866cce085cc6df3d3e4fb59f00105fa84cef6c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
