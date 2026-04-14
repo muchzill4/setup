@@ -33,13 +33,13 @@ Never mock internal collaborators or domain objects. Never verify that specific 
 - **Integration tests (the shell):** verify wiring works against real external systems. Test very little business logic here — just that the pieces connect.
 - **Avoid the middle layer:** tests that mock collaborators to test logic are the worst of both worlds. They are slow to write, brittle to maintain, and miss real integration bugs.
 
-### Test speed is a design issue
+### Slow tests are a design issue
 
-Slow tests mean poor separation of logic from effects. The fix is restructuring the code, not parallelizing the suite.
+Slow tests mean poor separation of logic from effects. Fix the structure, not the parallelism.
 
 ### Minimal test diffs
 
-When adding a test for a fix, add a new `t.Run` case or test function. Do not modify, rewrite, or "improve" existing passing tests that are unrelated to the change.
+When adding a test for a fix, add a new test case or function. Don't touch existing passing tests unrelated to the change.
 
 ## Refactoring
 
@@ -49,15 +49,15 @@ You are either adding functionality or refactoring — never both at once. When 
 
 ### Make the change easy, then make the easy change
 
-Before implementing a feature, restructure existing code so the feature becomes trivial to add. This feels unproductive but consistently produces better outcomes.
+Before implementing a feature, restructure existing code so the feature becomes trivial to add.
 
 ### Tolerate duplication over the wrong abstraction
 
-If the right abstraction is not yet clear, prefer duplicated code over a premature shared module. The wrong abstraction is more expensive to undo than duplication is to merge later.
+Prefer duplicated code over a premature shared module. The wrong abstraction is more expensive to undo than duplication is to merge later.
 
 ### Mixed abstraction levels are the real smell
 
-A method that reads at one level of abstraction is fine regardless of length. A short method that mixes policy and mechanism is worse. Refactor to separate abstraction levels, not to hit a line count.
+A method at one level of abstraction is fine regardless of length. A short method mixing policy and mechanism is worse. Refactor to separate abstraction levels, not to hit a line count.
 
 ## Code Style
 
@@ -69,17 +69,15 @@ A method that reads at one level of abstraction is fine regardless of length. A 
 
 ### YAGNI applies to features, not quality
 
-Do not build features on speculation. But always invest in clean structure, good naming, and small functions. Skipping a speculative feature is YAGNI; skipping refactoring is negligence.
-
-Don't pre-create empty directories or add dependencies speculatively. Create files, directories, and dependencies as the code that needs them is written — not before.
+Don't build features on speculation, but always invest in clean structure and good naming. Don't pre-create empty directories or add dependencies speculatively.
 
 ### Reversibility as heuristic
 
-Easy-to-reverse decisions (internal implementation details): make the simplest choice now. Hard-to-reverse decisions (public APIs, data formats, messaging protocols): invest more thought upfront.
+Easy-to-reverse decisions: make the simplest choice now. Hard-to-reverse decisions (public APIs, data formats): invest more thought upfront.
 
 ### Indirection has a cost
 
-Every layer of abstraction costs comprehension. Only add indirection when it enables a change you need now, not changes you might need someday. Speculative generality — abstract base classes with one implementation, hooks never overridden, parameters always passed the same value — is a smell to be removed.
+Every layer of abstraction costs comprehension. Only add indirection when it enables a change you need now. Speculative generality — one implementation behind an interface, hooks never overridden — is a smell to be removed.
 
 ## UI Development
 
