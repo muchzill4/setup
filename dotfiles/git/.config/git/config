@@ -11,8 +11,5 @@
 [pull]
   ff = only
 
-[init]
-  templateDir = ~/.config/git/template
-
 [include]
   path = ~/.config/git/config.local
