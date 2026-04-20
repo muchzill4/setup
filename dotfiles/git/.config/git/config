@@ -8,11 +8,21 @@
   branch = auto
 
 [push]
-  default = simple
+  default = current
   autoSetupRemote = true
 
 [pull]
   ff = only
+  rebase = true
+
+[remote]
+  pushDefault = origin
+
+[rebase]
+  autoStash = true
+
+[fetch]
+  prune = true
 
 [include]
   path = ~/.config/git/config.local
