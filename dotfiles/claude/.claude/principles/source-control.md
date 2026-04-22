@@ -10,6 +10,10 @@ Rules: imperative mood, present tense, lowercase, no period, max 50 chars. Descr
 
 Prefix with type: `feat/user-auth`, `fix/login-bug`, `chore/update-deps`.
 
+## Pull Requests
+
+Keep PRs small — aim for ≤250 LOC. Split large changes into a stack of incremental, independently reviewable PRs.
+
 ## Workflow
 
 - Prefer rebase over merge to keep linear history

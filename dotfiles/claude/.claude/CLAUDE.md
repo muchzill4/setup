@@ -2,3 +2,4 @@
 @principles/source-control.md
 @principles/code-navigation.md
 @principles/project-setup.md
+@principles/communication.md
