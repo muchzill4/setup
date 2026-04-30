@@ -1,11 +1,11 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "doubletrouble": {
-      "rev": "ba06d2e84052033aa36db7ceed75d1847d0c1f56",
+      "rev": "8f7b368277fa97df8341012a7dc1a4323c9ff8e0",
       "src": "https://github.com/muchzill4/doubletrouble"
     },
     "fidget.nvim": {
@@ -13,11 +13,11 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "1e866cce085cc6df3d3e4fb59f00105fa84cef6c",
+      "rev": "b437bafc981a180d609bb4092c56ce8999f7a2c4",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
+      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "nvim-treesitter": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "bca51394b5febc6e50492d88e8e124f5c5147087",
+      "rev": "bc0e94059de40641d163516a83c63bc45c716acf",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-unimpaired": {
