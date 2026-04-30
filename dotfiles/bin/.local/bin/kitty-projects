@@ -27,26 +27,40 @@ fi
 
 result=$(
   printf '%s' "$options" |
-  fzf --cycle --layout=reverse --print-query --expect=alt-n \
-    --header="enter: open | alt-n: new session"
+  fzf --cycle --layout=reverse --multi --print-query --expect=alt-n,alt-x \
+    --header="enter: open | alt-n: new session | alt-x: close session | tab: mark"
 )
 
 [ -n "$result" ] || exit 0
 
 query=$(printf '%s\n' "$result" | head -1)
 key=$(printf '%s\n' "$result" | sed -n '2p')
-selected=$(printf '%s\n' "$result" | sed -n '3p')
+selected=$(printf '%s\n' "$result" | tail -n +3)
 
 case "$key" in
   alt-n)
     [ -n "$query" ] || exit 0
     kitty @ launch --type=os-window --os-window-name="$query"
     ;;
+  alt-x)
+    sessions_to_close=$(printf '%s\n' "$selected" | grep "^$SESSION_PREFIX" | sed "s~^$SESSION_PREFIX~~")
+    [ -n "$sessions_to_close" ] || exit 0
+    printf 'Delete sessions:\n'
+    printf '%s\n' "$sessions_to_close" | sed 's/^/  /'
+    printf 'Confirm? [y/N] '
+    read -r confirm
+    [ "$confirm" = "y" ] || exit 0
+
+    printf '%s\n' "$sessions_to_close" | while read -r session; do
+      kitty-close-session "$session"
+    done
+    ;;
   *)
     [ -n "$selected" ] || exit 0
-    case "$selected" in
+    first=$(printf '%s\n' "$selected" | head -1)
+    case "$first" in
       "$SESSION_PREFIX"*)
-        session_name="${selected#$SESSION_PREFIX}"
+        session_name="${first#$SESSION_PREFIX}"
         id_to_focus=$(
           printf '%s' "$kitty_ls" |
           jq --arg wm_name "$session_name" 'first(.[] | select(.wm_name == $wm_name) | .tabs[] | select(.is_active) | .windows[] | select(.is_active) | .id)'
@@ -54,8 +68,8 @@ case "$key" in
         kitty @ focus-window --match=id:$id_to_focus
         ;;
       *)
-        directory="$PROJECTS_PATH/$selected"
-        kitty @ launch --type=os-window --os-window-name="$selected" --cwd="$directory"
+        directory="$PROJECTS_PATH/$first"
+        kitty @ launch --type=os-window --os-window-name="$first" --cwd="$directory"
         ;;
     esac
     ;;
