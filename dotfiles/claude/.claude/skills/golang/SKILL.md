@@ -1,6 +1,13 @@
 ---
 name: golang
-description: Go development conventions and testing best practices
+description: |
+  Go development conventions, idioms, and testing practices.
+  TRIGGER when: editing or creating `*.go` files; modifying `go.mod`/`go.sum`;
+  writing or reviewing Go tests; designing Go interfaces, error types, or
+  package layout; questions about `testing.T`, `testify`, table-driven tests,
+  fakes vs mocks, `fs.FS`, or Go-specific TDD flow.
+  SKIP: non-Go code, generic programming questions, build/CI tooling that
+  doesn't touch Go source.
 allowed-tools:
   - Bash
   - Read
