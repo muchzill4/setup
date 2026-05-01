@@ -1,4 +1,6 @@
 @principles/programming.md
+@principles/testing.md
+@principles/refactoring.md
 @principles/source-control.md
 @principles/code-navigation.md
 @principles/project-setup.md

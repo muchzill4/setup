@@ -1,0 +1,1 @@
+For load-bearing factual claims about third-party tools (capabilities, APIs, syntax, pricing, behaviour), invoke the `researcher` subagent rather than answering from training data. Inline WebSearch is fine for exploration; the subagent is for claims the user will act on. Hedge explicitly when not using it.
