@@ -20,11 +20,6 @@
       "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
-    "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'main'"
-    },
     "nvim-treesitter-context": {
       "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
@@ -32,6 +27,10 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "tree-sitter-manager.nvim": {
+      "rev": "33a94d022e3a5a500d878b784ba7fec61559c70a",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vim-eunuch": {
       "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",

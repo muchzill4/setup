@@ -37,10 +37,6 @@ vim.opt.relativenumber = true
 
 vim.opt.signcolumn = "yes"
 
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldmethod = "expr"
-vim.opt.foldenable = false
-
 vim.opt.completeopt = "menuone,noselect,popup"
 vim.opt.autocomplete = true
 vim.opt.complete = ".^5,w^5,b^5,u^5"
@@ -52,6 +48,21 @@ vim.opt.exrc = true
 vim.opt.winborder = "rounded"
 
 vim.opt.switchbuf = "useopen"
+
+vim.opt.foldnestmax = 3
+vim.opt.foldminlines = 4
+vim.opt.foldlevel = 99
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    if not pcall(vim.treesitter.start, args.buf) then
+      return
+    end
+    vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
+  end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
@@ -460,30 +471,22 @@ vim.api.nvim_create_autocmd("TermClose", {
 })
 --- }}}
 --- treesitter {{{
-vim.api.nvim_create_autocmd("PackChanged", {
-  callback = function(ev)
-    if ev.data.kind ~= "delete" and ev.data.spec.name == "nvim-treesitter" then
-      vim.cmd "TSUpdate"
-    end
-  end,
-})
-
-vim.pack.add { { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" } }
-require("nvim-treesitter").install {
-  "bash",
-  "comment",
-  "fish",
-  "go",
-  "gomod",
-  "gowork",
-  "javascript",
-  "lua",
-  "make",
-  "markdown",
-  "markdown_inline",
-  "python",
-  "vimdoc",
-  "yaml",
+vim.pack.add {
+  { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
+}
+require("tree-sitter-manager").setup {
+  ensure_installed = {
+    "bash",
+    "comment",
+    "fish",
+    "go",
+    "gomod",
+    "gowork",
+    "javascript",
+    "make",
+    "python",
+    "yaml",
+  },
 }
 
 vim.pack.add { "https://github.com/nvim-treesitter/nvim-treesitter-context" }
