@@ -13,6 +13,7 @@ brew "neovim"
 brew "openssl"
 brew "ripgrep"
 brew "stow"
+brew "tree-sitter-cli"
 brew "wget"
 brew "zoxide"
 
