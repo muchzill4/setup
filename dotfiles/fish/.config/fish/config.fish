@@ -44,6 +44,7 @@ if status --is-interactive
   abbr -a -g la 'ls -AF'
   abbr -a -g ll 'ls -alh'
   abbr -a -g md 'mkdir -p'
+  abbr -a -g t 'tmux-projects'
 end
 
 fish_add_path ~/.local/bin /opt/homebrew/bin /opt/homebrew/sbin

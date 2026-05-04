@@ -227,8 +227,7 @@ vim.g["projectionist_heuristics"] = {
   },
 }
 
-vim.pack.add { "https://github.com/knubie/vim-kitty-navigator" }
-vim.g["kitty_navigator_enable_stack_layout"] = 1
+vim.pack.add { "https://github.com/christoomey/vim-tmux-navigator" }
 
 vim.pack.add { "https://github.com/itspriddle/vim-marked" }
 extend_palette {

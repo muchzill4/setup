@@ -1,0 +1,96 @@
+#!/bin/sh
+PROJECTS_PATH="$HOME/Dev"
+SESSION_PREFIX="+ "
+BELL_PREFIX="! "
+
+prefixed_sessions=$(
+  tmux list-windows -a -F '#{session_name}:#{window_bell_flag}' 2>/dev/null \
+    | awk -F: -v sp="$SESSION_PREFIX" -v bp="$BELL_PREFIX" \
+        '{ b[$1] = b[$1] || $2 } END { for (s in b) print (b[s] ? sp bp : sp) s }' \
+    | sort
+)
+
+sessions=$(printf '%s\n' "$prefixed_sessions" | sed "s~^$SESSION_PREFIX~~;s~^$BELL_PREFIX~~")
+
+projects=$(
+  find $PROJECTS_PATH -maxdepth 2 -mindepth 2 -type d |
+  sed "s~$PROJECTS_PATH/~~" |
+  sort
+)
+
+projects_without_sessions=$(printf '%s' "$projects" | grep -vxF "$sessions")
+if [ -n "$prefixed_sessions" ]; then
+  options="$prefixed_sessions
+$projects_without_sessions"
+else
+  options=$projects_without_sessions
+fi
+
+if [ -n "$TMUX" ]; then
+  fzf_cmd="fzf --tmux 40%"
+else
+  fzf_cmd="fzf"
+fi
+
+result=$(
+  printf '%s' "$options" |
+  $fzf_cmd --cycle --layout=reverse --multi --print-query --expect=alt-n,alt-x \
+    --header="enter: switch | alt-n: new session | alt-x: kill session | tab: mark"
+)
+
+[ -n "$result" ] || exit 0
+
+query=$(printf '%s\n' "$result" | head -1)
+key=$(printf '%s\n' "$result" | sed -n '2p')
+selected=$(printf '%s\n' "$result" | tail -n +3)
+
+attach() {
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$1"
+  else
+    tmux attach-session -t "$1"
+  fi
+}
+
+confirm_kill() {
+  if [ -n "$TMUX" ]; then
+    kill_cmd=$(printf '%s\n' "$1" | awk '{printf "kill-session -t %s; ", $0}')
+    tmux confirm-before -p "Kill: $(printf '%s\n' "$1" | tr '\n' ' ')(y/n)" "$kill_cmd"
+  else
+    printf 'Kill sessions:\n%s\n[y/N] ' "$1"
+    read -r answer
+    [ "$answer" = y ] || [ "$answer" = Y ] || return
+    printf '%s\n' "$1" | while read -r session; do
+      tmux kill-session -t "$session"
+    done
+  fi
+}
+
+case "$key" in
+  alt-n)
+    [ -n "$query" ] || exit 0
+    directory="$PROJECTS_PATH/$query"
+    [ -d "$directory" ] && tmux new -c "$directory" -d -s "$query" 2>/dev/null || tmux new -d -s "$query" 2>/dev/null
+    attach "$query"
+    ;;
+  alt-x)
+    sessions_to_kill=$(printf '%s\n' "$selected" | grep "^$SESSION_PREFIX" | sed "s~^$SESSION_PREFIX~~;s~^$BELL_PREFIX~~")
+    [ -n "$sessions_to_kill" ] || exit 0
+    confirm_kill "$sessions_to_kill"
+    ;;
+  *)
+    [ -n "$selected" ] || exit 0
+    first=$(printf '%s\n' "$selected" | head -1)
+    case "$first" in
+      "$SESSION_PREFIX"*)
+        session="${first#$SESSION_PREFIX}"
+        attach "${session#$BELL_PREFIX}"
+        ;;
+      *)
+        directory="$PROJECTS_PATH/$first"
+        tmux new -c "$directory" -d -s "$first" 2>/dev/null
+        attach "$first"
+        ;;
+    esac
+    ;;
+esac
