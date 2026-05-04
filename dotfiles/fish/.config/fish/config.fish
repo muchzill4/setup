@@ -18,6 +18,7 @@ set hydro_color_prompt purple
 set hydro_color_git black
 set hydro_color_duration yellow
 set hydro_multiline true
+set hydro_symbol_prompt ❯
 
 if status --is-interactive
   abbr -a -g brew-up 'brew update && brew upgrade && brew cleanup'
