@@ -1,8 +1,0 @@
-dotfiles/fish/.config/fish/fish_variables
-dotfiles/fish/.config/fish/config.local.fish
-
-dotfiles/git/.config/git/allowed_signers
-dotfiles/git/.config/git/config.local
-dotfiles/git/.config/git/config.work
-
-dotfiles/mise/.config/mise/config.toml

@@ -1,7 +1,8 @@
 #!/bin/sh
-me=$(basename "$0")
-my_dir=$(dirname "$0")
+set -eu
 
+me=$(basename "$0")
+my_dir=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 action=${1:-install}
 
 case "$action" in
@@ -11,13 +12,23 @@ esac
 
 cd "$my_dir"
 
-managed_by_stow=$(find . -maxdepth 1 -mindepth 1 -type d | sed 's|^\./||')
+stow_base_args="--target=$HOME"
+managed_by_stow=$(find . -maxdepth 1 -mindepth 1 -type d | sed 's|^\./||' | sort)
+
+case "$action" in
+  install|reinstall)
+    # Prevent Stow from "folding" these into a single symlink (e.g. ~/.config/fish → dotfiles/fish).
+    # We keep them as real directories so local, unmanaged files can coexist with stowed ones.
+    mkdir -p "$HOME/.config/mise"
+    mkdir -p "$HOME/.config/fish"
+    mkdir -p "$HOME/.config/git"
+    ;;
+esac
+
 for package in $managed_by_stow; do
   case "$action" in
-    install)   stow -t "$HOME" -S "$package" ;;
-    reinstall) stow -t "$HOME" -R "$package" ;;
-    uninstall) stow -t "$HOME" -D "$package" ;;
+    install)   stow $stow_base_args --stow "$package" ;;
+    reinstall) stow $stow_base_args --restow "$package" ;;
+    uninstall) stow $stow_base_args --delete "$package" ;;
   esac
 done
-
-cd ~-
