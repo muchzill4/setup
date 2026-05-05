@@ -87,3 +87,8 @@ end
 
 # lima
 set -x SSH "kitten ssh"
+
+# local config
+if test -e ~/.config/fish/config.local.fish
+  source ~/.config/fish/config.local.fish
+end
