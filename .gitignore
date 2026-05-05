@@ -5,4 +5,4 @@ dotfiles/git/.config/git/allowed_signers
 dotfiles/git/.config/git/config.local
 dotfiles/git/.config/git/config.work
 
-# Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
+dotfiles/mise/.config/mise/config.toml
