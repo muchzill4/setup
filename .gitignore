@@ -1,8 +1,8 @@
-# Fish
-fish_variables
+dotfiles/fish/.config/fish/fish_variables
+dotfiles/fish/.config/fish/config.local.fish
 
-# packer.nvim
-packer_compiled.lua
+dotfiles/git/.config/git/allowed_signers
+dotfiles/git/.config/git/config.local
+dotfiles/git/.config/git/config.work
 
 # Shouldn't this be in ~/.local? (╯°□°）╯︵ ┻━┻
-.netrwhist
