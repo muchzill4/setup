@@ -1,13 +1,6 @@
 ---
 name: golang
-description: |
-  Go development conventions, idioms, and testing practices.
-  TRIGGER when: editing or creating `*.go` files; modifying `go.mod`/`go.sum`;
-  writing or reviewing Go tests; designing Go interfaces, error types, or
-  package layout; questions about `testing.T`, `testify`, table-driven tests,
-  fakes vs mocks, `fs.FS`, or Go-specific TDD flow.
-  SKIP: non-Go code, generic programming questions, build/CI tooling that
-  doesn't touch Go source.
+description: Go development conventions, testing practices, and design guidance. Use when editing or creating `.go` files, modifying `go.mod` or `go.sum`, writing or reviewing Go tests, designing Go interfaces or error types, or working on Go package structure. Do not use for non-Go code or generic build or CI work that does not touch Go source.
 allowed-tools:
   - Bash
   - Read
@@ -18,69 +11,40 @@ paths:
 
 # Go development
 
-## File Organization
-
-1. Constructor (`NewFoo`)
-2. Public methods — grouped by struct
-3. Private methods — grouped by struct, at the bottom
-
-Methods of the same struct stay together. Don't interleave methods from different types.
-
-## TDD Additions
-
-In Go, add a step after "write a failing test": make the compiler pass — let compiler errors guide what to build.
-
-## Testing
-
-- Prefer `stretchr/testify` assertions over bare `if` statements
-- Custom assertion helpers take `testing.TB` (not `*testing.T`) and call `t.Helper()` first
-- Compare entire structs over field-by-field checks. Use field-by-field only for unpredictable values (time, IDs)
-- `t.Run` names are descriptive, no underscores in test function names. Each `t.Run` is an isolated, independent case — never sequential dependent steps
-- Tests for `foo.go` live in `foo_test.go` — keep tests as siblings of source
-- Use table-driven tests when cases share setup/assertions, varying only inputs and expected outputs. Don't overstuff tables with flags like `shouldErr` — use separate `t.Run` blocks instead
-- Use raw string literals (backticks) over escaped strings in tests
-- Low-level helpers return errors, not accept `*testing.T`. Only top-level assertion helpers take `testing.TB`
-- Use `t.Fatal` (not `t.Error`) when failure would cause nil-pointer panic later
-
-### Prefer Fakes Over Mocks
-
-Use fake implementations instead of testify mocks — simpler, no call-order coupling.
-
-```go
-type FakeRunner struct {
-    Output string
-    Err    error
-}
-
-func (f FakeRunner) Run(cmd string) (string, error) {
-    return f.Output, f.Err
-}
-```
-
-Reserve mocks for hard architectural boundaries. When mocks are necessary, be specific about expected arguments — avoid `mock.AnythingOfType` and wildcard matchers.
-
-### Acceptance Tests
-
-- Black-box only: `package foo_test`
-- Skip slow tests with `testing.Short()`
-- Place acceptance tests next to `main()` in `cmd/`
+## Code organization
+- Group methods by type.
+- Prefer constructors near the top.
+- Keep public methods above private methods when practical.
+- Do not interleave methods from different types.
 
 ## Design
+- No DI frameworks.
+- Wire dependencies in `main()` or the composition root.
+- Prefer standard library interfaces before custom ones.
+- Keep custom interfaces minimal.
+- Inject a function instead of an interface when that is sufficient.
 
-### Dependency Injection
+## Error handling
+- Use sentinel errors for stable categories.
+- Test errors with `errors.Is` and `errors.As`, never string matching.
+- Use custom error types only when callers need structured data.
 
-No DI frameworks. Accept interfaces as parameters, wire in `main()`.
+## Testing
+- After writing a failing test, make the compiler pass before completing the implementation.
+- Prefer `stretchr/testify` assertions over repetitive manual checks.
+- Compare whole structs when possible; use field-by-field checks only for unpredictable values.
+- Use descriptive `t.Run` names.
+- Keep tests beside source files in `*_test.go`.
+- Use table-driven tests when cases mainly vary by input and expected output.
+- Prefer raw string literals in tests when they improve readability.
+- Low-level helpers should return errors; top-level assertion helpers should take `testing.TB`.
+- Use `require.*` when continuing would make the test invalid.
 
-- Prefer stdlib interfaces (`io.Writer`, `io.Reader`, `fs.FS`, `http.Handler`) before custom ones
-- Keep custom interfaces minimal (1-2 methods)
-- Inject behavior as functions when a full interface is overkill
+## Fakes over mocks
+- Prefer fake implementations over mocks.
+- Mock only at hard architectural boundaries.
+- When mocks are unavoidable, be specific about expected arguments.
 
-### Error Handling
-
-- Sentinel errors as package-level vars: `var ErrNotFound = errors.New("not found")`
-- Test errors with `errors.Is` / `errors.As` — never match on strings
-- Custom error types when callers need structured data
-
-### Filesystem Testing
-
-Accept `fs.FS` instead of real paths. Test with `fstest.MapFS`.
+## Acceptance tests
+- Prefer black-box tests with `package foo_test`.
+- Skip slow tests with `testing.Short()`.
