@@ -1,116 +1,61 @@
 ---
 name: reflect
-description: Persist durable user preferences from Pi conversations into ~/.pi/agent/AGENTS.md or skill files. Use when the user asks to reflect, absorb, remember lessons/preferences, review recent sessions, update agent guidance from conversation history, or explicitly prune old Pi session logs.
+description: Persist durable user preferences from Pi conversations into global or local AGENTS.md files or skill files. Use when the user asks to reflect, absorb, remember lessons/preferences, review conversations from a date/window, update agent guidance, or prune old Pi session logs.
 ---
 
 # Reflect
 
-Review conversations for reusable guidance and update the agent's persistent instructions only with durable, evidence-backed preferences.
+Turn conversation evidence into durable, reusable agent guidance in the right instruction file.
 
-## Modes
+## Input model
 
-- **Absorb mode**: no argument, or wording like "absorb this" / "remember from this chat". Review the current conversation only.
-- **Reflect mode**: a time window like `7 days`, `2 hours`, or `30 minutes`. Scan recent session logs across projects.
-- **Cleanup mode**: only when the user explicitly asks to delete or prune old session logs.
+- No date/window/filter: use the current visible conversation by default.
+- Date, date range, or relative window (`today`, `yesterday`, `2026-05-14`, `last week`, `7 days`, `2 hours`): inspect matching past Pi sessions.
+- Topic/project/filter text: narrow evidence to relevant sessions or messages when possible.
 
-## Core rules
+Ask a brief clarifying question only when the requested scope is ambiguous enough that it could cause wrong edits or deletion.
 
-- Persist behavior guidance, not project facts.
-- Prefer small, concrete rules the agent can apply in future sessions.
-- Do not add secrets, credentials, private operational details, or one-off task context.
-- Do not duplicate guidance that already exists in `~/.pi/agent/AGENTS.md` or relevant skill files.
-- Propose edits before applying unless the user explicitly requested direct edits.
-- Require explicit confirmation before deleting any session files.
-- If evidence is ambiguous, present it as a skipped candidate or ask one clarifying question instead of writing a rule.
+## What to persist
 
-## What counts as durable guidance
+Persist only durable behavior guidance:
 
-Keep candidates that are at least one of:
+- user preferences about collaboration, tone, planning, implementation, testing, or tool use
+- repeated corrections or confirmed workflows
+- project/repository conventions that future agents should follow
+- language/tool/domain-specific agent behavior that belongs in an existing skill
 
-- An explicit preference: "always...", "prefer...", "don't...", "use X instead of Y".
-- A correction or pushback that should change future behavior.
-- A confirmed workflow, style, or tool choice that is likely reusable.
-- A repeated pattern across sessions.
-
-Discard:
-
-- One-off implementation instructions.
-- Codebase-specific facts that belong in project docs.
-- Troubleshooting details, temporary decisions, or resolved bugs.
-- Vague praise without a specific repeatable behavior.
+Do not persist one-off task facts, secrets, credentials, transient project state, or guesses.
 
 ## Placement
 
-- Cross-language workflow, collaboration, tone, and general tool preferences → `~/.pi/agent/AGENTS.md`.
-- Language/tool/domain-specific guidance → the matching `~/.pi/agent/skills/<name>/SKILL.md`.
-- New skill files → only if the preference clearly needs a distinct reusable workflow and the user approves creating it.
+- General workflow, collaboration, tone, and tool preferences → `~/.pi/agent/AGENTS.md`.
+- Project/repository-specific conventions, commands, or constraints → nearest relevant local/project `AGENTS.md`.
+- Language/tool/domain-specific workflow → matching `~/.pi/agent/skills/<name>/SKILL.md`.
+- New skills → only when clearly warranted and user-approved.
 
-## Script paths
+Prefer updating existing guidance over adding duplicates.
 
-Helper scripts live in `scripts/` relative to this `SKILL.md`. Resolve these paths from the skill directory when running them.
+## Workflow
 
-## Absorb mode workflow
+1. Determine scope from the user's free-form request.
+2. Gather evidence:
+   - current-context reflection: use the visible conversation;
+   - past-date/window reflection: inspect Pi session logs under `~/.pi/agent/sessions/` using available shell tools. Session filenames begin with timestamps; directories encode working directories.
+4. Extract only high-confidence candidates. Each candidate must have explicit evidence.
+5. Propose edits with destination, rationale, and a small diff/snippet.
+6. Apply edits only after explicit approval.
+7. Report files changed, why each destination was chosen, and skipped candidates with reasons.
 
-1. Use the visible conversation as evidence.
-2. Read `~/.pi/agent/AGENTS.md`.
-3. List `~/.pi/agent/skills/` and read only skill files relevant to the candidate guidance.
-4. Identify up to 5 high-confidence durable updates; if none, say so and stop.
-5. Propose changes with evidence and destination files.
-6. After approval, apply the accepted edits.
+## Proposal format
 
-## Reflect mode workflow
+````markdown
+### [Add/Update]: <file path>
 
-1. Extract recent user messages:
+**What:** <durable preference or rule>
+**Why:** <how future agents should use it>
+**Evidence:** "<short quote>" (<session/project if available>)
 
-   ```bash
-   python3 scripts/extract-messages.py "<time window>"
-   ```
-
-   Pass the user's window exactly, e.g. `"7 days"`.
-
-2. Read current guidance:
-   - `~/.pi/agent/AGENTS.md`
-   - relevant skill files from `~/.pi/agent/skills/`
-   - use search/listing first; avoid reading unrelated large files unless needed to check duplicates.
-
-3. Extract durable candidates using the rules above.
-4. Group similar evidence across sessions before proposing an edit.
-5. Propose changes in this format:
-
-   ````markdown
-   ### [Add/Update]: <file path>
-
-   **What:** <durable preference or rule>
-   **Why:** <how future agents should use it>
-   **Evidence:** "<short quote>" (<session/project if available>)
-
-   ```diff
-   + <line(s) to add>
-   ```
-   ````
-
-6. Wait for user confirmation, then apply only the approved changes.
-
-## Cleanup mode
-
-Use only when the user explicitly asks to prune or delete old session files.
-
-Preview first:
-
-```bash
-python3 scripts/delete-sessions.py --dry-run "<time window>"
+```diff
++ <line(s) to add>
 ```
-
-If files are listed, ask for explicit confirmation. Only then run:
-
-```bash
-python3 scripts/delete-sessions.py "<time window>"
-```
-
-## Reporting
-
-End with:
-
-- Files changed, or "No durable updates found".
-- A short reason each change belongs where it was placed.
-- Any candidate guidance intentionally skipped because it was one-off, duplicate, or too ambiguous.
+````
