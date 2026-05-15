@@ -1,75 +1,48 @@
 ---
 name: kitty
-description: Kitty terminal integration for launching commands in new tabs or windows. Use when running interactive terminal programs without blocking the current Pi terminal session.
+description: Launch interactive, long-running, or user-facing commands in separate Kitty tabs/windows. Use for editors, REPLs, debuggers, dev servers, log tails, watchers, or commands the user should interact with outside the agent terminal.
 ---
 
-# Kitty Terminal Integration
+# Kitty
 
-Use Kitty remote control to launch commands in a separate Kitty tab or window, especially interactive tools such as Neovim, REPLs, debuggers, or long-running processes.
+Use Kitty when a command would block the agent session or needs user interaction. Do not use it for ordinary commands whose stdout/stderr the agent should capture.
 
 ## Requirements
 
-- Kitty must be the terminal emulator.
-- The `kitty` CLI must be available in PATH.
-- Kitty remote control must be enabled for `kitty @ ...` commands to work.
-
-Typical Kitty config:
-
-```conf
-allow_remote_control yes
-```
-
-More restrictive setups may use a configured remote-control socket. If `kitty @ ...` fails, check the user's Kitty config before relying on this skill.
-
-## Launch in a New Tab
-
-Run a command in a new Kitty tab using the current working directory:
+Kitty remote control must work:
 
 ```bash
-kitty @ launch --type=tab --cwd "$(pwd)" <command> <args...>
+command -v kitty && kitty @ ls >/dev/null
 ```
 
-Example:
+If unavailable, report that and use normal tools or ask for guidance.
+
+## Launch rule
+
+Always launch commands through the user's shell so environment setup is available:
 
 ```bash
-kitty @ launch --type=tab --cwd "$(pwd)" nvim -d old.txt new.txt
+kitty @ launch --type=tab --cwd "$(pwd)" --title "<title>" "$SHELL" -c '<command>'
 ```
 
-## Launch in a New Window
-
-Run a command in a new Kitty window using the current working directory:
+Use `--keep-focus` when the agent should continue working immediately:
 
 ```bash
-kitty @ launch --type=window --cwd "$(pwd)" <command> <args...>
+kitty @ launch --keep-focus --type=tab --cwd "$(pwd)" --title "<title>" "$SHELL" -c '<command>'
 ```
 
-Example:
+Use `--type=window` only when a separate OS window is clearly useful.
+
+## Examples
 
 ```bash
-kitty @ launch --type=window --cwd "$(pwd)" nvim -d old.txt new.txt
+kitty @ launch --type=tab --cwd "$(pwd)" --title "nvim" "$SHELL" -c 'nvim path/to/file'
+kitty @ launch --keep-focus --type=tab --cwd "$(pwd)" --title "dev server" "$SHELL" -c 'npm run dev'
+kitty @ launch --type=tab --cwd "$(pwd)" --title "logs" "$SHELL" -c 'tail -f logs/app.log'
 ```
 
-## Focus Behavior
+## Notes
 
-By default, Kitty may focus the launched tab/window. To keep focus on the current Pi terminal, add `--keep-focus`:
-
-```bash
-kitty @ launch --keep-focus --type=tab --cwd "$(pwd)" <command> <args...>
-```
-
-## Why Use This From Pi
-
-Pi runs inside the current terminal. Starting an interactive program directly can block Pi until the program exits. Launching the program in a separate Kitty tab/window lets the user interact with it while Pi remains available.
-
-## Gotchas
-
-- Remote control may be disabled; `kitty @ launch ...` will fail until enabled.
-- Quote paths and command arguments carefully.
-- Prefer `--cwd "$(pwd)"` so the launched command starts in the same project directory as Pi.
-- For temporary files that must remain available after the command returns, write them to stable paths such as `/tmp` or a project `.scratch` directory.
-
-## When to Use
-
-- Opening Neovim diffs without blocking Pi.
-- Running interactive terminal applications alongside Pi.
-- Starting long-running commands in a separate visible terminal context.
+- Quote user-provided paths/args carefully inside the shell command.
+- Launching returns immediately; ongoing output is not captured.
+- Destructive or privileged commands still require confirmation.
