@@ -17,7 +17,8 @@
   },
   "syntaxHighlightingDisabled": true,
   "alwaysThinkingEnabled": true,
+  "showThinkingSummaries": true,
   "voiceEnabled": true,
   "defaultView": "chat",
-  "showThinkingSummaries": true
+  "preferredNotifChannel": "terminal_bell"
 }
