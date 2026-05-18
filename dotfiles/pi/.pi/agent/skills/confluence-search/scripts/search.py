@@ -87,27 +87,18 @@ def request_json(url: str) -> dict[str, Any]:
 
 
 def cql_quote(value: str) -> str:
-    return '"' + value.replace('\\', '\\\\').replace('"', '\\"') + '"'
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
 def build_cql(args: argparse.Namespace) -> str:
-    if args.cql:
-        return args.cql
-
-    if not args.query:
-        die("provide search terms or --cql")
-
-    clauses = [f"text ~ {cql_quote(args.query)}"]
-    if args.space:
-        clauses.append(f"space = {cql_quote(args.space)}")
-    if args.content_type:
-        clauses.append(f"type = {cql_quote(args.content_type)}")
-    return " AND ".join(clauses) + " ORDER BY lastmodified DESC"
+    return args.cql
 
 
 def content_text(result: dict[str, Any]) -> str:
     body = result.get("body") or {}
-    rendered = body.get("view", {}).get("value") or body.get("storage", {}).get("value") or ""
+    rendered = (
+        body.get("view", {}).get("value") or body.get("storage", {}).get("value") or ""
+    )
     if not rendered:
         return ""
     parser = HTMLTextExtractor()
@@ -130,7 +121,9 @@ def web_url(base_url: str, result: dict[str, Any]) -> str:
     return ""
 
 
-def format_result(base_url: str, result: dict[str, Any], index: int, include_content: bool) -> str:
+def format_result(
+    base_url: str, result: dict[str, Any], index: int, include_content: bool
+) -> str:
     space = result.get("space") or {}
     version = result.get("version") or {}
     lines = [
@@ -140,7 +133,9 @@ def format_result(base_url: str, result: dict[str, Any], index: int, include_con
     ]
 
     if space:
-        lines.append(f"Space: {space.get('key', '')} - {space.get('name', '')}".rstrip(" -"))
+        lines.append(
+            f"Space: {space.get('key', '')} - {space.get('name', '')}".rstrip(" -")
+        )
     if version.get("when"):
         lines.append(f"Last Modified: {version['when']}")
 
@@ -158,13 +153,14 @@ def format_result(base_url: str, result: dict[str, Any], index: int, include_con
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Search Confluence using CQL")
-    parser.add_argument("query", nargs="?", help="search terms; converted to CQL text search")
-    parser.add_argument("--cql", help="raw CQL query to run")
-    parser.add_argument("-n", "--limit", type=int, default=5, help="number of results (default: 5)")
-    parser.add_argument("--space", help="restrict to a Confluence space key")
-    parser.add_argument("--type", dest="content_type", help="restrict to a content type, e.g. page or blogpost")
-    parser.add_argument("--content", action="store_true", help="include rendered body text excerpts")
+    parser = argparse.ArgumentParser(description="Search Confluence using a CQL query")
+    parser.add_argument("cql", help="CQL query to run")
+    parser.add_argument(
+        "-n", "--limit", type=int, default=5, help="number of results (default: 5)"
+    )
+    parser.add_argument(
+        "--content", action="store_true", help="include rendered body text excerpts"
+    )
     parser.add_argument("--base-url", help="override CONFLUENCE_BASE_URL")
     return parser.parse_args()
 
@@ -174,7 +170,11 @@ def main() -> None:
     if args.limit < 1:
         die("--limit must be at least 1")
 
-    base_url = (args.base_url or os.environ.get("CONFLUENCE_BASE_URL") or "").strip().rstrip("/")
+    base_url = (
+        (args.base_url or os.environ.get("CONFLUENCE_BASE_URL") or "")
+        .strip()
+        .rstrip("/")
+    )
     if not base_url:
         die("set CONFLUENCE_BASE_URL or pass --base-url")
 
@@ -183,8 +183,10 @@ def main() -> None:
     if args.content:
         expand += ",body.view"
 
-    endpoint = base_url + "/rest/api/content/search?" + urlencode(
-        {"cql": cql, "limit": str(args.limit), "expand": expand}
+    endpoint = (
+        base_url
+        + "/rest/api/content/search?"
+        + urlencode({"cql": cql, "limit": str(args.limit), "expand": expand})
     )
 
     data = request_json(endpoint)
@@ -195,7 +197,12 @@ def main() -> None:
 
     print(f"CQL: {cql}")
     print()
-    print("\n\n".join(format_result(base_url, result, idx, args.content) for idx, result in enumerate(results, 1)))
+    print(
+        "\n\n".join(
+            format_result(base_url, result, idx, args.content)
+            for idx, result in enumerate(results, 1)
+        )
+    )
 
 
 if __name__ == "__main__":

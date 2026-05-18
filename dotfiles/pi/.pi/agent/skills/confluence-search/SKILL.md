@@ -10,8 +10,8 @@ Use the bundled `search.py` helper to search internal Confluence. Do not answer 
 ## Use for
 
 - Finding Confluence pages, runbooks, ADRs, design docs, meeting notes, or operational docs.
-- Searching by keywords, space, content type, labels, recency, or raw CQL.
-- Fetching short excerpts with `--content` to judge relevance.
+- Searching by keywords, space, content type, labels, recency, title, or other Confluence CQL fields.
+- Fetching short excerpts with `--content` to judge relevance or summarize a small set of likely matches.
 
 Do not use for public web search, Jira, or unrelated internal systems.
 
@@ -29,20 +29,32 @@ Never ask the user to paste credentials into chat.
 
 ## Workflow
 
-1. Infer useful search terms and constraints from the user request.
-2. Start broad, then narrow by space/type/CQL if results are noisy.
-3. Use `--content` only when excerpts are needed for relevance or summary.
-4. If results are poor, try synonyms, more results, title/label searches, or recency filters.
-5. Report concise findings: title, space, link, relevance, and caveats.
-6. In case of failure, state the blocker and required setup.
+1. Convert the request into explicit Confluence CQL. Pass the CQL as the required positional argument.
+2. Start broad with `text ~ "..."`, then narrow with `space`, `type`, `title`, `label`, or `lastmodified` when results are noisy.
+3. Prefer `ORDER BY lastmodified DESC` unless another ordering is clearly better.
+4. Use `--content` only for a few likely matches when excerpts are needed for relevance or summary.
+5. If results are poor, try synonyms, title search, label search, broader/narrower spaces, higher `-n`, or recency filters.
+6. Report concise findings: title, space, link, last modified, relevance, CQL used when helpful, and caveats.
+7. Do not dump large internal excerpts. Prefer links plus brief relevance notes.
+8. In case of failure, state the blocker and required setup, such as VPN/network access, missing environment variables, or authorization errors.
+
+## CQL recipes
+
+```text
+text ~ "incident runbook" ORDER BY lastmodified DESC
+title ~ "deployment" AND type = page ORDER BY lastmodified DESC
+text ~ "architecture decision" AND label = "adr" AND type = page ORDER BY lastmodified DESC
+text ~ "release" AND space = "ENG" ORDER BY lastmodified DESC
+text ~ "postmortem" AND lastmodified >= "2025-01-01" ORDER BY lastmodified DESC
+```
 
 ## Commands
 
 ```bash
-{baseDir}/scripts/search.py "incident runbook" -n 10
-{baseDir}/scripts/search.py "deployment" --space ENG
-{baseDir}/scripts/search.py "architecture decision" --type page --content
-{baseDir}/scripts/search.py --cql 'label = "adr" AND type = page ORDER BY lastmodified DESC'
+{baseDir}/scripts/search.py 'text ~ "incident runbook" ORDER BY lastmodified DESC' -n 10
+{baseDir}/scripts/search.py 'text ~ "deployment" AND space = "ENG" ORDER BY lastmodified DESC'
+{baseDir}/scripts/search.py 'text ~ "architecture decision" AND type = page ORDER BY lastmodified DESC' --content
+{baseDir}/scripts/search.py 'label = "adr" AND type = page ORDER BY lastmodified DESC'
 ```
 
 Run `{baseDir}/scripts/search.py --help` for all options.
