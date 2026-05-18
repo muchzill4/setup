@@ -1,6 +1,6 @@
 ---
 name: reflect
-description: Persist durable user preferences from Pi conversations into global or local AGENTS.md files or skill files. Use when the user asks to reflect, absorb, remember lessons/preferences, review conversations from a date/window, update agent guidance, or prune old Pi session logs.
+description: Persist durable user preferences from Pi conversations into global or local AGENTS.md files or skill files. Use when the user asks to reflect, absorb, remember lessons/preferences, review conversations from a date/window, or update agent guidance.
 ---
 
 # Reflect
@@ -26,6 +26,8 @@ Persist only durable behavior guidance:
 
 Do not persist one-off task facts, secrets, credentials, transient project state, or guesses.
 
+When evidence is weak, conflicting, or only implied, ask a focused follow-up or skip it.
+
 ## Placement
 
 - General workflow, collaboration, tone, and tool preferences → `~/.pi/agent/AGENTS.md`.
@@ -41,10 +43,12 @@ Prefer updating existing guidance over adding duplicates.
 2. Gather evidence:
    - current-context reflection: use the visible conversation;
    - past-date/window reflection: inspect Pi session logs under `~/.pi/agent/sessions/` using available shell tools. Session filenames begin with timestamps; directories encode working directories.
-4. Extract only high-confidence candidates. Each candidate must have explicit evidence.
-5. Propose edits with destination, rationale, and a small diff/snippet.
-6. Apply edits only after explicit approval.
-7. Report files changed, why each destination was chosen, and skipped candidates with reasons.
+3. Extract only high-confidence candidates. Each candidate must have explicit evidence.
+4. Discard or list uncertain candidates instead of persisting them.
+5. Choose the narrowest correct destination; prefer existing guidance over duplicates.
+6. Propose edits with destination, rationale, and a small diff/snippet.
+7. Apply edits only after explicit approval of the proposed change.
+8. Report files changed, why each destination was chosen, and skipped candidates with reasons.
 
 ## Proposal format
 
