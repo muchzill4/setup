@@ -4,8 +4,5 @@
   "enableInstallTelemetry": false,
   "packages": [
     "git:github.com/earendil-works/pi-review"
-  ],
-  "terminal": {
-    "showTerminalProgress": true
-  }
+  ]
 }
