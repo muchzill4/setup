@@ -1,120 +1,95 @@
 ---
 name: skill-builder
-description: Create, improve, evaluate, or refactor agent skills. Use when the user asks to make a new skill, update a SKILL.md, design skill routing, add progressive disclosure references/scripts, or review a skill for quality.
+description: Create or improve an agent skill when the user asks to define, package, revise, or evaluate repeatable task-specific instructions, workflows, references, or scripts.
 ---
 
-# Skill Builder
+# Skill Creator
 
-Build high-quality agent skills that are small, well-routed, reusable, and easy to iterate.
+Create skills that are small, testable, and easy to maintain.
 
-## Core rules
+A skill is a folder containing:
+- `SKILL.md`: concise runtime instructions
+- optional `references/`: longer explanations, examples, schemas, checklists
+- optional `scripts/`: executable helpers for repeatable work
+- optional `examples/`: sample inputs and outputs
 
-- Do **not** create or edit files until the user explicitly asks to create, implement, install, update, or modify a skill.
-- Before designing or editing skills, identify the target agent/harness and try to read its skill construction, discovery, and validation documentation. If no harness-specific docs are available, fall back to the Agent Skills standard and clearly note assumptions.
-- Skill names must be lowercase letters, numbers, and hyphens only; no leading/trailing hyphen; no consecutive hyphens; max 64 characters; the `name` frontmatter must match the parent directory.
-- Descriptions are routing rules for the model. Make them specific about when to use the skill.
-- Keep `SKILL.md` concise. Put long rubrics, examples, API notes, and templates in `references/` and instruct the agent when to load them.
-- Prefer constraints and success criteria over brittle step-by-step micromanagement.
-- Use scripts when facts must be deterministic or repeatable.
-- Never include secrets or credentials in a skill.
+## Core workflow
 
-## Workflow
+1. Clarify the task only when required.
+   - Ask at most one question if the user’s goal, target environment, or success criteria are unclear.
+   - Otherwise make reasonable assumptions and proceed.
 
-### 1. Understand the desired skill
+2. Define the skill contract.
+   - What user requests should trigger the skill?
+   - What inputs does it need?
+   - What output should it produce?
+   - What tools or files may it use?
+   - What should it refuse or avoid?
 
-Work from the conversation context first. If important details are missing, ask concise questions before drafting.
+3. Draft a minimal `SKILL.md`.
+   - Keep runtime instructions short.
+   - Put background, long examples, schemas, and edge cases in `references/`.
+   - Prefer decision rules over prose.
+   - Prefer checklists over paragraphs.
+   - Avoid repeating rules already covered by the surrounding system.
 
-Gather:
+4. Add supporting files only when useful.
+   - Use `references/` for material the model should consult only sometimes.
+   - Use `scripts/` for deterministic or repeated operations.
+   - Use `examples/` when examples materially improve behavior.
+   - Do not add files just to look complete.
 
-- Skill purpose and target users
-- Trigger phrases / situations where the skill should load
-- What the skill must produce or accomplish
-- Required inputs and expected outputs
-- Constraints, safety rules, and things to avoid
-- Whether the skill needs scripts, references, templates, or examples
-- Where it should be installed: global `~/.pi/agent/skills`, project `.pi/skills`, or another harness-specific path
+5. Create evaluation prompts.
+   Include:
+   - positive trigger cases
+   - negative trigger cases
+   - easy normal cases
+   - hard edge cases
+   - one case that should be refused or redirected, if relevant
 
-### 2. Score confidence before implementation
+6. Test and revise.
+   - Compare behavior with and without the skill when possible.
+   - Check whether the skill improves output quality without causing over-triggering.
+   - Remove instructions that do not improve the evals.
+   - Prefer deletion over adding compensating instructions.
 
-Before creating files, estimate confidence from 0-100 using this rubric:
+## `SKILL.md` quality bar
 
-- Purpose clarity
-- Routing / trigger clarity
-- Output clarity
-- Constraint clarity
-- File location clarity
-- Reference/script needs clarity
+A good `SKILL.md` is:
+- actionable
+- short enough to read quickly
+- specific about when to activate
+- explicit about success criteria
+- clear about tool/file boundaries
+- free of motivational prose
+- free of duplicated instructions
+- supported by evals for non-obvious rules
 
-If confidence is below 90, ask targeted questions. If confidence is 90 or above and the user explicitly asked to create/implement, proceed.
+## Instruction hygiene
 
-### 3. Design the skill shape
+For every non-obvious instruction, know why it exists.
 
-For simple skills, create only:
+Use this standard:
+
+| Instruction type | Keep only if |
+|---|---|
+| trigger rule | it improves activation precision or recall |
+| process step | it prevents a demonstrated failure |
+| formatting rule | the output format matters to the user or downstream tooling |
+| safety rule | it blocks a realistic unsafe or unauthorized behavior |
+| example | it improves behavior beyond the written rule |
+| script | it saves repeated effort or improves reliability |
+
+Delete instructions that are obsolete, redundant, vague, or only stylistic.
+
+## Output format
+
+When creating a new skill, provide:
 
 ```text
-<skill-name>/
-└── SKILL.md
-```
-
-For richer skills, use progressive disclosure:
-
-```text
-<skill-name>/
-├── SKILL.md
-├── references/
-│   ├── rubric.md
-│   └── examples.md
-└── scripts/
-    └── helper.py
-```
-
-Load detailed guidance only when relevant. Example: "If evaluating an existing skill, read `references/quality-rubric.md`."
-
-### 4. Draft `SKILL.md`
-
-A good `SKILL.md` includes:
-
-- Frontmatter with `name` and `description`
-- A short mission statement
-- Routing or mode selection if the skill handles multiple tasks
-- Inputs to inspect
-- Workflow steps
-- Constraints / safety rules
-- Output format
-- Pointers to references/scripts using relative paths
-
-Read `references/templates.md` if you need starter templates.
-
-### 5. Evaluate the draft
-
-Before finalizing, check the skill against `references/quality-rubric.md`.
-
-The minimum bar:
-
-- The description clearly tells the model when to use the skill
-- The workflow is actionable but not over-prescriptive
-- The skill asks clarifying questions when needed
-- Long context is moved to references
-- Scripts are documented with exact usage if included
-- File paths are correct for the target harness
-
-### 6. Create or update files
-
-When creating a new skill, you may use the scaffold script:
-
-```bash
-python3 <skill-dir>/scripts/scaffold.py <skill-name> --root ~/.pi/agent/skills --description "Use when ..."
-```
-
-Then edit the generated files with the finalized content.
-
-When updating an existing skill, read the current `SKILL.md` and nearby references first. Preserve useful existing behavior unless the user asks to replace it.
-
-### 7. Report back
-
-Summarize:
-
-- Files created or changed
-- Why the description should route correctly
-- How to invoke/test the skill, e.g. `/skill:<name>` or a natural-language trigger
-- Any follow-up improvements or eval ideas
+skill-name/
+  SKILL.md
+  references/
+  scripts/
+  examples/
+  evals/
