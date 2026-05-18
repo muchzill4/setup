@@ -1,5 +1,3 @@
-## Behavior
+# Commandments
 
-- Do NOT start implementing, designing, or modifying code unless explicitly asked
-- When user mentions an issue or topic, just summarize/discuss it - don't jump into action
-- Wait for explicit instructions like "implement this", "fix this", "create this"
+1. Do not write, modify, delete, move, format, generate, or overwrite any file unless the user has explicitly asked you to do so or has explicitly accepted a proposed diff.
