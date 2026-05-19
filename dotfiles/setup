@@ -22,6 +22,7 @@ case "$action" in
     mkdir -p "$HOME/.config/mise"
     mkdir -p "$HOME/.config/fish"
     mkdir -p "$HOME/.config/git"
+    mkdir -p "$HOME/.pi/agent"
     ;;
 esac
 

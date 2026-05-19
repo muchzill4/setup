@@ -1,0 +1,9 @@
+{
+  "editorPaddingX": 1,
+  "showHardwareCursor": true,
+  "enableInstallTelemetry": false,
+  "packages": [
+    "git:github.com/earendil-works/pi-review"
+  ],
+  "lastChangelogVersion": "0.75.3"
+}
