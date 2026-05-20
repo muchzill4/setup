@@ -1,6 +1,7 @@
 #!/bin/sh
 PROJECTS_PATH="$HOME/Dev"
 SESSION_PREFIX="+ "
+ATTENTION_SUFFIX=" 🔔"
 
 kitty_ls=$(kitty @ ls)
 
@@ -18,8 +19,15 @@ projects=$(
 
 projects_without_sessions=$(printf '%s' "$projects" | grep -vxF "$sessions")
 if [ -n "$sessions" ]; then
-  prefixed_sessions=$(printf '%s' "$sessions" | sed "s~^~$SESSION_PREFIX~")
-  options="$prefixed_sessions
+  session_options=$(
+    printf '%s' "$kitty_ls" |
+    jq --raw-output --arg prefix "$SESSION_PREFIX" --arg attention_suffix "$ATTENTION_SUFFIX" '
+      .[]
+      | $prefix + .wm_name + (if ([.tabs[].windows[].needs_attention] | any) then $attention_suffix else "" end)
+    ' |
+    sort
+  )
+  options="$session_options
 $projects_without_sessions"
 else
   options=$projects_without_sessions
@@ -43,7 +51,7 @@ case "$key" in
     kitty @ launch --type=os-window --os-window-name="$query"
     ;;
   alt-x)
-    sessions_to_close=$(printf '%s\n' "$selected" | grep "^$SESSION_PREFIX" | sed "s~^$SESSION_PREFIX~~")
+    sessions_to_close=$(printf '%s\n' "$selected" | grep "^$SESSION_PREFIX" | sed "s~^$SESSION_PREFIX~~" | sed "s~$ATTENTION_SUFFIX$~~")
     [ -n "$sessions_to_close" ] || exit 0
     printf 'Delete sessions:\n'
     printf '%s\n' "$sessions_to_close" | sed 's/^/  /'
@@ -61,6 +69,7 @@ case "$key" in
     case "$first" in
       "$SESSION_PREFIX"*)
         session_name="${first#$SESSION_PREFIX}"
+        session_name="${session_name%$ATTENTION_SUFFIX}"
         id_to_focus=$(
           printf '%s' "$kitty_ls" |
           jq --arg wm_name "$session_name" 'first(.[] | select(.wm_name == $wm_name) | .tabs[] | select(.is_active) | .windows[] | select(.is_active) | .id)'
