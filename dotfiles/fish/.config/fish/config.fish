@@ -3,7 +3,7 @@ set -g fish_greeting
 
 # colorscheme
 set fish_color_command 7FC79B
-set fish_color_cwd 6CA9EF
+set fish_color_cwd 74AAE7
 set fish_color_error E25A6A
 set fish_color_param BB781B
 set fish_color_quote D1AF9F
@@ -65,7 +65,7 @@ set -x MANPAGER 'nvim +Man!'
 
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
-set -x FZF_DEFAULT_OPTS '--color query:regular,hl:#E6A64C,hl+:bold:#E6A64C,prompt:#E0A8E1,bg+:#561E57,gutter:#191929,info:#565B8F,separator:#1F2033,scrollbar:#565B8F,border:#565B8F'
+set -x FZF_DEFAULT_OPTS '--color query:regular,hl:#E6A64C,hl+:bold:#E6A64C,prompt:#E0A8E1,bg+:#4E224F,gutter:#191929,info:#4D5180,separator:#262840,scrollbar:#4D5180,border:#4D5180'
 if status --is-interactive
   fzf --fish | source
 end
