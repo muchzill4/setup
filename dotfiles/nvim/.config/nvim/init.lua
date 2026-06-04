@@ -324,28 +324,11 @@ extend_palette {
   },
 }
 
-vim.pack.add { "https://github.com/lewis6991/gitsigns.nvim" }
-require("gitsigns").setup {
-  on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
-    local opts = { buffer = bufnr, expr = true }
-
-    map("n", "]c", function()
-      if vim.wo.diff then
-        return "]c"
-      end
-      vim.schedule(function() gs.next_hunk() end)
-      return "<Ignore>"
-    end, opts)
-
-    map("n", "[c", function()
-      if vim.wo.diff then
-        return "[c"
-      end
-      vim.schedule(function() gs.prev_hunk() end)
-      return "<Ignore>"
-    end, opts)
-  end,
+vim.pack.add { 'https://github.com/nvim-mini/mini.diff' }
+require('mini.diff').setup {
+  view = {
+    style = 'sign',
+  },
 }
 --- }}}
 --- format {{{
