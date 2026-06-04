@@ -22,8 +22,6 @@ vim.opt.scrolloff = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.tags:append { ".git/tags" }
-
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
@@ -39,7 +37,6 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.completeopt = "menuone,noselect,popup"
 vim.opt.autocomplete = true
-vim.opt.complete = ".^5,w^5,b^5,u^5"
 
 vim.opt.wildmode = "longest:full,full"
 
@@ -47,9 +44,6 @@ vim.opt.exrc = true
 
 vim.opt.winborder = "rounded"
 
-vim.opt.switchbuf = "useopen"
-
-vim.opt.foldnestmax = 3
 vim.opt.foldminlines = 4
 vim.opt.foldlevel = 99
 
@@ -86,10 +80,6 @@ end
 set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
 
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("AutoInsertInTerminal", {}),
-  command = "startinsert",
-})
 -- }}}
 -- Keymaps {{{
 local map = vim.keymap.set
