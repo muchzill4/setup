@@ -38,8 +38,7 @@ local function mark_pi_terminal(bufnr)
 end
 
 local function open_terminal(command)
-  vim.cmd "botright split"
-  vim.cmd.resize(15)
+  vim.cmd "botright vertical split"
   vim.cmd.terminal(command_string(command))
   local bufnr = vim.api.nvim_get_current_buf()
   mark_pi_terminal(bufnr)
@@ -103,7 +102,7 @@ local function focus_terminal(bufnr)
     end
   end
 
-  vim.cmd "botright split"
+  vim.cmd "botright vertical split"
   vim.api.nvim_win_set_buf(0, bufnr)
 end
 
