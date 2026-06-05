@@ -148,18 +148,18 @@ map("n", "@p", function() require("yacp").replay() end)
 
 local extend_palette = function(entries) require("yacp.palette").extend(entries) end
 --- }}}
---- pi {{{
-local pi = require "pi"
-pi.setup {
+--- agent {{{
+local agent = require "agent"
+agent.setup {
   adapter = { name = "kitty", launch_type = "window" },
   command = { vim.env.SHELL, "-c", "pi" },
 }
 
-map("n", "<leader>ac", function() pi.open { focus = true } end)
-map("v", "<leader>ac", function() pi.send_selection { focus = true } end)
+map("n", "<leader>ac", function() agent.open { focus = true } end)
+map("v", "<leader>ac", function() agent.send_selection { focus = true } end)
 
 extend_palette {
-  { name = "pi focus", cmd = function() pi.open { focus = true } end },
+  { name = "agent focus", cmd = function() agent.open { focus = true } end },
 }
 --- }}}
 --- misc {{{

@@ -1,8 +1,8 @@
-local context = require "pi.context"
+local context = require "agent.context"
 
 local adapters = {
-  neovim = require "pi.adapters.neovim",
-  kitty = require "pi.adapters.kitty",
+  neovim = require "agent.adapters.neovim",
+  kitty = require "agent.adapters.kitty",
 }
 
 local defaults = {
