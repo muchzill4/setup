@@ -53,6 +53,27 @@ local function visual_positions()
   return vim.fn.visualmode(), vim.fn.getpos "'<", vim.fn.getpos "'>"
 end
 
+local function dedent(lines)
+  local min_indent
+
+  for _, line in ipairs(lines) do
+    local indent = line:match("^(%s*)%S")
+    if indent then
+      min_indent = min_indent and math.min(min_indent, #indent) or #indent
+    end
+  end
+
+  if not min_indent or min_indent == 0 then
+    return lines
+  end
+
+  for i, line in ipairs(lines) do
+    lines[i] = line:sub(min_indent + 1)
+  end
+
+  return lines
+end
+
 local function selection_info()
   local mode, start_pos, end_pos = visual_positions()
   local start_line, start_col = start_pos[2], start_pos[3]
@@ -78,7 +99,7 @@ local function selection_info()
   end
 
   return {
-    text = table.concat(lines, "\n"),
+    text = table.concat(dedent(lines), "\n"),
     start_line = start_line,
     end_line = end_line,
     mode = mode,
