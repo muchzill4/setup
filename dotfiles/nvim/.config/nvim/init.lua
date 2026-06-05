@@ -151,7 +151,7 @@ local extend_palette = function(entries) require("yacp.palette").extend(entries)
 --- pi {{{
 local pi = require "pi"
 pi.setup {
-  adapter = { name = "kitty", launch_type = "tab" },
+  adapter = { name = "kitty", launch_type = "window" },
   command = { vim.env.SHELL, "-c", "pi" },
 }
 
