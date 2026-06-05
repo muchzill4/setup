@@ -44,8 +44,10 @@ vim.opt.exrc = true
 
 vim.opt.winborder = "rounded"
 
-vim.opt.foldminlines = 4
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 1
+vim.opt.foldmethod = "indent"
+vim.opt.foldnestmax = 10
+vim.opt.foldtext = ""
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
