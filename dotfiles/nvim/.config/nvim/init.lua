@@ -148,6 +148,19 @@ map("n", "@p", function() require("yacp").replay() end)
 
 local extend_palette = function(entries) require("yacp.palette").extend(entries) end
 --- }}}
+--- agent {{{
+local agent = require "agent"
+local pi = agent.new {
+  adapter = agent.adapter.kitty {
+    command = { vim.env.SHELL, "-c", "pi" },
+    launch_type = "window",
+    send_delay_ms = 1500,
+  },
+}
+
+map("n", "<leader>ac", function() pi.send { focus = true, compose = true } end)
+map("v", "<leader>ac", function() pi.send_selection { focus = true, compose = true } end)
+--- }}}
 --- misc {{{
 vim.pack.add {
   "https://github.com/tpope/vim-eunuch",
