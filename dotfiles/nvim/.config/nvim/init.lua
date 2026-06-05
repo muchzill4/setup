@@ -31,7 +31,6 @@ vim.opt.timeoutlen = 300
 vim.opt.undofile = true
 
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 vim.opt.signcolumn = "yes"
 
