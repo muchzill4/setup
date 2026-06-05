@@ -161,7 +161,7 @@ local function send(config, command, message, opts)
   end
 
   if opened then
-    vim.defer_fn(send_payload, 500)
+    vim.defer_fn(send_payload, config.send_delay_ms)
   else
     send_payload()
   end
@@ -172,6 +172,7 @@ function M.configure(opts)
   local config = {
     command = opts.command,
     launch_type = opts.launch_type or "window",
+    send_delay_ms = opts.send_delay_ms or 500,
   }
   if config.launch_type ~= "window" and config.launch_type ~= "tab" and config.launch_type ~= "os-window" then
     notify("Invalid kitty launch type: " .. tostring(opts.launch_type), vim.log.levels.ERROR)

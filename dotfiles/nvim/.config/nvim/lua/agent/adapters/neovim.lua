@@ -5,10 +5,13 @@ local function notify(message, level)
 end
 
 function M.configure(config)
-  local command = config.command
+  config = {
+    command = config.command,
+    send_delay_ms = config.send_delay_ms or 100,
+  }
   return {
-    open = function(opts) return M.open(command, opts) end,
-    send = function(message, opts) return M.send(command, message, opts) end,
+    open = function(opts) return M.open(config.command, opts) end,
+    send = function(message, opts) return M.send(config, message, opts) end,
   }
 end
 
@@ -123,10 +126,10 @@ function M.open(command, opts)
   return true
 end
 
-function M.send(command, message, opts)
+function M.send(config, message, opts)
   opts = opts or {}
   local previous_win = vim.api.nvim_get_current_win()
-  local bufnr, opened = ensure_terminal(command)
+  local bufnr, opened = ensure_terminal(config.command)
   if not bufnr then
     notify("Could not open Neovim pi terminal", vim.log.levels.ERROR)
     return
@@ -149,7 +152,7 @@ function M.send(command, message, opts)
   end
 
   if opened then
-    vim.defer_fn(send_payload, 100)
+    vim.defer_fn(send_payload, config.send_delay_ms)
   else
     send_payload()
   end
