@@ -108,34 +108,6 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/doubletrouble")
 vim.cmd "colorscheme doubletrouble"
 --- }}}
---- yacp {{{
-vim.pack.add { "https://github.com/muchzill4/yacp.nvim" }
-require("yacp").setup {
-  palette = {
-    {
-      name = "setup / dotfiles",
-      cmd = function() require("fzf-lua").files { cwd = "~/Dev/my/setup" } end,
-    },
-    { name = "unload buffers", cmd = "%bd|edit#|bd#" },
-    { name = "pack update", cmd = function() vim.pack.update() end },
-    {
-      name = "pack update (plugin)",
-      cmd = function()
-        local names = vim.tbl_map(function(p) return p.spec.name end, vim.pack.get())
-        require("fzf-lua").fzf_exec(names, {
-          actions = { ["default"] = function(selected) vim.pack.update(selected) end },
-        })
-      end,
-    },
-  },
-  enable_focus = true,
-}
-map("n", "<Leader>p", function() require("yacp").yacp() end)
-map("v", "<Leader>p", function() require("yacp").yacp() end)
-map("n", "@p", function() require("yacp").replay() end)
-
-local extend_palette = function(entries) require("yacp.palette").extend(entries) end
---- }}}
 --- agent {{{
 local agent = require "agent"
 local pi = agent.new {
@@ -222,13 +194,6 @@ vim.pack.add { "https://github.com/knubie/vim-kitty-navigator" }
 vim.g["kitty_navigator_enable_stack_layout"] = 1
 
 vim.pack.add { "https://github.com/itspriddle/vim-marked" }
-extend_palette {
-  {
-    name = "markdown preview",
-    cmd = "MarkedOpen!",
-    show = function() return vim.bo.filetype == "markdown" end,
-  },
-}
 
 vim.pack.add { "https://github.com/stevearc/oil.nvim" }
 require("oil").setup {
@@ -298,20 +263,8 @@ map("n", "<Leader>S", function() require("fzf-lua").grep_cword() end)
 --- git {{{
 vim.pack.add { "https://github.com/tpope/vim-fugitive" }
 map("n", "<leader>g", "<Cmd>Git<CR>")
-extend_palette {
-  { name = "git blame", cmd = "Git blame" },
-  { name = "git log", cmd = "Git log --oneline -100" },
-  { name = "git file log", cmd = "Git log --oneline -100 %" },
-}
 
 vim.pack.add { "https://github.com/tpope/vim-rhubarb" }
-extend_palette {
-  { name = "git browse", cmd = ".GBrowse" },
-  {
-    name = "github pull request",
-    cmd = "!gh pr create --web --head (git branch --show-current)",
-  },
-}
 
 vim.pack.add { "https://github.com/lewis6991/gitsigns.nvim" }
 require("gitsigns").setup {
@@ -383,10 +336,6 @@ vim.g["test#python#pytest#options"] = "-vv"
 map("n", "<leader>l", "<Cmd>TestLast<CR>")
 map("n", "<leader>T", "<Cmd>TestFile<CR>")
 map("n", "<leader>t", "<Cmd>TestNearest<CR>")
-
-extend_palette {
-  { name = "test suite", cmd = "TestSuite" },
-}
 
 local test_runs = {
   { cmd = "cargo test", failing_test_pattern = "^----.*----$" },

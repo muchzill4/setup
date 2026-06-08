@@ -71,10 +71,6 @@
     "vim-unimpaired": {
       "rev": "db65482581a28e4ccf355be297f1864a4e66985c",
       "src": "https://github.com/tpope/vim-unimpaired"
-    },
-    "yacp.nvim": {
-      "rev": "899a0e3bca3f16500047bf178db74de0f798b893",
-      "src": "https://github.com/muchzill4/yacp.nvim"
     }
   }
 }
