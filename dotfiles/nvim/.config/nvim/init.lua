@@ -69,18 +69,6 @@ vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",
   command = "wincmd =",
 })
-
-vim.opt.cursorline = true
-local set_cursorline_group = vim.api.nvim_create_augroup("CursorLineControl", {})
-local set_cursorline = function(event, value)
-  vim.api.nvim_create_autocmd(event, {
-    group = set_cursorline_group,
-    callback = function() vim.opt_local.cursorline = value end,
-  })
-end
-set_cursorline("WinLeave", false)
-set_cursorline("WinEnter", true)
-
 -- }}}
 -- Keymaps {{{
 local map = vim.keymap.set
