@@ -5,7 +5,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "doubletrouble": {
-      "rev": "6126b3154ac6abc441a584a0f77a5cb066f09f9b",
+      "rev": "e1d27047377095316ed3b40ae8bea7f0ea199d8a",
       "src": "https://github.com/muchzill4/doubletrouble"
     },
     "fidget.nvim": {
@@ -13,7 +13,7 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "fea9eedc6894c44d44cbb772a5cd11c93b82d7a1",
+      "rev": "988416cc782dfe28bff3f0da9b8c943b236cd86a",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -25,11 +25,11 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "oil.nvim": {
-      "rev": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297",
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "8c8b9c5a154e33c565baa2f4562eb50056df8f5b",
+      "rev": "30b6dd8d14bf4a3870dc44ccefdc228a9a760e71",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vim-eunuch": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/tpope/vim-fugitive"
     },
     "vim-kitty-navigator": {
-      "rev": "504032c138261b10b281a1d83b2d47078e4566df",
+      "rev": "c40c7d6181fa44fade771980952c60c1d89c28ea",
       "src": "https://github.com/knubie/vim-kitty-navigator"
     },
     "vim-marked": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "7062b50979a28e804081f0e82b7321184ec1c20b",
+      "rev": "2676d84c6901e484df00b5d728bd6a345d47ee12",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-tmux-navigator": {
