@@ -302,9 +302,6 @@ extend_palette {
   { name = "git blame", cmd = "Git blame" },
   { name = "git log", cmd = "Git log --oneline -100" },
   { name = "git file log", cmd = "Git log --oneline -100 %" },
-  { name = "git diff current file", cmd = "Gvdiffsplit!" },
-  { name = "git push", cmd = "Git push" },
-  { name = "git push --force", cmd = "Git push --force" },
 }
 
 vim.pack.add { "https://github.com/tpope/vim-rhubarb" }
