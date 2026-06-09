@@ -113,7 +113,6 @@ map("v", "<leader>ac", function() pi.send_selection { focus = true, compose = tr
 --- }}}
 --- misc {{{
 vim.pack.add {
-  "https://github.com/tpope/vim-eunuch",
   "https://github.com/tpope/vim-unimpaired",
   "https://github.com/tpope/vim-surround",
 }
