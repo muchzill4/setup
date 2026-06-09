@@ -80,16 +80,7 @@ map("t", "<C-[>", "<C-\\><C-n>")
 
 map("n", "<Leader>w", "<Cmd>w<CR>")
 
-map("n", "n", "nzz")
-map("n", "N", "Nzz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-d>", "<C-d>zz")
 map("n", "J", "mzJ`z")
-map("n", "<C-o>", "<C-o>zz")
-map("n", "<C-i>", "<C-i>zz")
-
-map("n", "j", [[(v:count >= 5 ? "m'" . v:count : "") . "j"]], { expr = true })
-map("n", "k", [[(v:count >= 5 ? "m'" . v:count : "") . "k"]], { expr = true })
 
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>")
 
