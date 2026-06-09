@@ -43,7 +43,7 @@ vim.opt.exrc = true
 
 vim.opt.winborder = "rounded"
 
-vim.opt.foldlevel = 1
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 10
 vim.opt.foldtext = ""
