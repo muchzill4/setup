@@ -3,11 +3,11 @@ local workspace = require "agent.workspace"
 
 ---@class AgentNeovimAdapterOpts
 ---@field command string[]
----@field send_delay_ms? integer
+---@field initial_send_delay_ms? integer
 
 ---@class AgentNeovimAdapterConfig
 ---@field command string[]
----@field send_delay_ms integer
+---@field initial_send_delay_ms integer
 
 local M = {}
 
@@ -121,7 +121,7 @@ function M.send(adapter_config, message, send_opts)
   end
 
   if opened then
-    vim.defer_fn(send_payload, adapter_config.send_delay_ms)
+    vim.defer_fn(send_payload, adapter_config.initial_send_delay_ms)
   else
     send_payload()
   end
@@ -137,7 +137,7 @@ function M.new(adapter_opts)
 
   local adapter_config = {
     command = adapter_opts.command,
-    send_delay_ms = adapter_opts.send_delay_ms or 100,
+    initial_send_delay_ms = adapter_opts.initial_send_delay_ms or 100,
   }
   return {
     send = function(message, send_opts) return M.send(adapter_config, message, send_opts) end,

@@ -104,7 +104,7 @@ local pi = agent.new {
   adapter = agent.adapter.kitty {
     command = { vim.env.SHELL, "-c", "pi" },
     launch_type = "window",
-    send_delay_ms = 1500,
+    initial_send_delay_ms = 1500,
   },
 }
 

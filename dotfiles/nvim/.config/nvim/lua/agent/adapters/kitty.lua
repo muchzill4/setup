@@ -6,12 +6,12 @@ local workspace = require "agent.workspace"
 ---@class AgentKittyAdapterOpts
 ---@field command string[]
 ---@field launch_type? AgentKittyLaunchType
----@field send_delay_ms? integer
+---@field initial_send_delay_ms? integer
 
 ---@class AgentKittyAdapterConfig
 ---@field command string[]
 ---@field launch_type AgentKittyLaunchType
----@field send_delay_ms integer
+---@field initial_send_delay_ms integer
 
 local M = {}
 
@@ -132,7 +132,7 @@ local function send(adapter_config, message, send_opts)
   end
 
   if opened then
-    vim.defer_fn(send_payload, adapter_config.send_delay_ms)
+    vim.defer_fn(send_payload, adapter_config.initial_send_delay_ms)
   else
     send_payload()
   end
@@ -149,7 +149,7 @@ local function normalize_adapter_config(adapter_opts)
   local adapter_config = {
     command = adapter_opts.command,
     launch_type = adapter_opts.launch_type or "window",
-    send_delay_ms = adapter_opts.send_delay_ms or 500,
+    initial_send_delay_ms = adapter_opts.initial_send_delay_ms or 500,
   }
   if
     adapter_config.launch_type ~= "window"
