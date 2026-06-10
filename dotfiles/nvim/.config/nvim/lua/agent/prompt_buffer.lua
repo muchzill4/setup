@@ -10,7 +10,8 @@ local defaults = {
   split = "botright split",
 }
 
-local sequence = 0
+local prompt_buffer_name = "agent://prompt"
+local current_bufnr
 
 local function trim_trailing_blank_lines(lines)
   local last = #lines
@@ -26,9 +27,49 @@ local function message_from_buffer(bufnr)
   return table.concat(lines, "\n")
 end
 
-local function buffer_name()
-  sequence = sequence + 1
-  return string.format("agent-prompt://%d", sequence)
+local function current_buffer()
+  if current_bufnr and vim.api.nvim_buf_is_valid(current_bufnr) then
+    return current_bufnr
+  end
+
+  current_bufnr = nil
+  return nil
+end
+
+local function focus_or_create_buffer(split)
+  local bufnr = current_buffer()
+  if bufnr then
+    local winid = vim.fn.bufwinid(bufnr)
+    if winid ~= -1 then
+      vim.api.nvim_set_current_win(winid)
+    else
+      vim.cmd(split)
+      vim.api.nvim_win_set_buf(0, bufnr)
+    end
+    return bufnr
+  end
+
+  vim.cmd(split)
+  bufnr = vim.api.nvim_create_buf(false, true)
+  current_bufnr = bufnr
+  vim.api.nvim_win_set_buf(0, bufnr)
+
+  vim.api.nvim_buf_set_name(bufnr, prompt_buffer_name)
+  vim.bo[bufnr].buftype = "acwrite"
+  vim.bo[bufnr].bufhidden = "wipe"
+  vim.bo[bufnr].filetype = "markdown"
+  vim.bo[bufnr].swapfile = false
+
+  vim.api.nvim_create_autocmd("BufWipeout", {
+    buffer = bufnr,
+    callback = function()
+      if current_bufnr == bufnr then
+        current_bufnr = nil
+      end
+    end,
+  })
+
+  return bufnr
 end
 
 local function initial_lines(message)
@@ -62,15 +103,7 @@ function M.open(args)
 
   local prompt_buffer_config = normalize_prompt_buffer_config(args.prompt_buffer)
 
-  vim.cmd(prompt_buffer_config.split)
-  local bufnr = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_win_set_buf(0, bufnr)
-
-  vim.api.nvim_buf_set_name(bufnr, buffer_name())
-  vim.bo[bufnr].buftype = "acwrite"
-  vim.bo[bufnr].bufhidden = "wipe"
-  vim.bo[bufnr].filetype = "markdown"
-  vim.bo[bufnr].swapfile = false
+  local bufnr = focus_or_create_buffer(prompt_buffer_config.split)
 
   local lines = initial_lines(args.message)
   local last_line = lines[#lines] or ""
@@ -78,6 +111,7 @@ function M.open(args)
   vim.api.nvim_win_set_cursor(0, { #lines, #last_line })
   vim.cmd "startinsert"
 
+  vim.api.nvim_clear_autocmds({ event = "BufWriteCmd", buffer = bufnr })
   vim.api.nvim_create_autocmd("BufWriteCmd", {
     buffer = bufnr,
     callback = function()
