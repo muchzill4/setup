@@ -1,9 +1,6 @@
 .DS_Store
 .tool-versions
 .venv
-tags
 .nvim.lua
-!/.github/
 mise.toml
 __pycache__/
-**/.claude/settings.local.json
