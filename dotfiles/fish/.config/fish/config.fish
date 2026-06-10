@@ -63,6 +63,9 @@ set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
 set -x MANPAGER 'nvim +Man!'
 
+# ripgrep
+set -gx RIPGREP_CONFIG_PATH ~/.ripgreprc
+
 # fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files'
 set -x FZF_DEFAULT_OPTS '--color query:regular,hl:#E6A64C,hl+:bold:#E6A64C,prompt:#E0A8E1,bg+:#4E224F,gutter:#191929,info:#565B8F,separator:#262840,scrollbar:#565B8F,border:#565B8F'
