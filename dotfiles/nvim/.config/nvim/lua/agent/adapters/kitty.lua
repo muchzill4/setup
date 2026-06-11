@@ -102,6 +102,21 @@ local function focus_window(id)
   return system_ok(kitty_cmd { "focus-window", "--match", "id:" .. id })
 end
 
+local function open(adapter_config, open_opts)
+  open_opts = open_opts or {}
+  local id = ensure_window(adapter_config, open_opts)
+  if not id then
+    return
+  end
+
+  if open_opts.focus ~= false then
+    local focused, focus_output = focus_window(id)
+    if not focused then
+      notify("Could not focus kitty agent window: " .. focus_output, vim.log.levels.ERROR)
+    end
+  end
+end
+
 local function send(adapter_config, message, send_opts)
   send_opts = send_opts or {}
   -- When sending to a newly launched kitty window, keep Neovim focused until
@@ -168,6 +183,7 @@ function M.new(adapter_opts)
   local adapter_config = normalize_adapter_config(adapter_opts)
 
   return {
+    open = function(open_opts) return open(adapter_config, open_opts) end,
     send = function(message, send_opts) return send(adapter_config, message, send_opts) end,
   }
 end

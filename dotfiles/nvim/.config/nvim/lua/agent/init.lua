@@ -6,17 +6,19 @@ local prompt_buffer = require "agent.prompt_buffer"
 ---@field focus? boolean
 ---@field compose? boolean
 
----@class AgentAdapterSendOpts
+---@class AgentAdapterOpts
 ---@field focus? boolean
 
 ---@class AgentAdapter
----@field send fun(message: string, send_opts?: AgentAdapterSendOpts): any
+---@field send fun(message: string, opts?: AgentAdapterOpts): any
+---@field open fun(opts?: AgentAdapterOpts): any
 
 ---@class AgentConfig
 ---@field adapter AgentAdapter
 ---@field prompt_buffer? AgentPromptBufferOpts
 
 ---@class AgentInstance
+---@field open fun(opts?: AgentAdapterOpts): any
 ---@field send fun(instruction_or_opts?: string|AgentSendOpts, send_opts?: AgentSendOpts): any
 ---@field send_selection fun(instruction_or_opts?: string|AgentSendOpts, send_opts?: AgentSendOpts): any
 
@@ -58,7 +60,7 @@ local function normalize_send_args(instruction_or_opts, send_opts)
 end
 
 ---@param send_opts? AgentSendOpts
----@return AgentAdapterSendOpts
+---@return AgentAdapterOpts
 local function normalize_send_opts(send_opts)
   local result = vim.tbl_deep_extend("force", {}, send_opts or {})
   result.compose = nil
@@ -90,6 +92,9 @@ function M.new(agent_config)
   end
 
   return {
+    open = function(open_opts)
+      return adapter.open(open_opts)
+    end,
     send = function(instruction_or_opts, send_opts)
       local instruction, opts = normalize_send_args(instruction_or_opts, send_opts)
       return send_payload(with_instruction(context.current_file(), instruction), opts)

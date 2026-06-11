@@ -94,6 +94,26 @@ local function focus_terminal(bufnr)
   vim.api.nvim_win_set_buf(0, bufnr)
 end
 
+function M.open(adapter_config, open_opts)
+  open_opts = open_opts or {}
+  local previous_win = vim.api.nvim_get_current_win()
+  local current_workspace = workspace.current()
+  local bufnr, opened = ensure_terminal(adapter_config, current_workspace)
+  if not bufnr then
+    notify("Could not open Neovim agent terminal", vim.log.levels.ERROR)
+    return
+  end
+
+  if open_opts.focus == false and opened and vim.api.nvim_win_is_valid(previous_win) then
+    vim.api.nvim_set_current_win(previous_win)
+    return
+  end
+
+  if open_opts.focus ~= false then
+    focus_terminal(bufnr)
+  end
+end
+
 function M.send(adapter_config, message, send_opts)
   send_opts = send_opts or {}
   local previous_win = vim.api.nvim_get_current_win()
@@ -140,6 +160,7 @@ function M.new(adapter_opts)
     initial_send_delay_ms = adapter_opts.initial_send_delay_ms or 100,
   }
   return {
+    open = function(open_opts) return M.open(adapter_config, open_opts) end,
     send = function(message, send_opts) return M.send(adapter_config, message, send_opts) end,
   }
 end
