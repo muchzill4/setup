@@ -108,9 +108,9 @@ local pi = agent.new {
   },
 }
 
-map("n", "<leader>ao", function() pi.open { focus = true } end)
-map("n", "<leader>ac", function() pi.send { focus = true, compose = true } end)
-map("v", "<leader>ac", function() pi.send_selection { focus = true, compose = true } end)
+map("n", "<leader>A", function() pi.open { focus = true } end)
+map("n", "<leader>a", function() pi.send { focus = true, compose = true } end)
+map("v", "<leader>a", function() pi.send_selection { focus = true, compose = true } end)
 --- }}}
 --- misc {{{
 vim.pack.add {
