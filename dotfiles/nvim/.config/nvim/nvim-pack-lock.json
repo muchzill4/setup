@@ -5,7 +5,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "doubletrouble": {
-      "rev": "e1d27047377095316ed3b40ae8bea7f0ea199d8a",
+      "rev": "2a5f85e5fc93e31ac68f8dcce6e3ba18a9439cae",
       "src": "https://github.com/muchzill4/doubletrouble"
     },
     "fidget.nvim": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "30b6dd8d14bf4a3870dc44ccefdc228a9a760e71",
+      "rev": "95f81026390077f8eea9eef6d32ad59d4c3bd3ee",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vim-fugitive": {
