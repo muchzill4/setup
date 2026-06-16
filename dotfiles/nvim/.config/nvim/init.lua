@@ -98,10 +98,12 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/doubletrouble")
 vim.cmd "colorscheme doubletrouble"
 --- }}}
---- agent {{{
-local agent = require "agent"
-local pi = agent.new {
-  adapter = agent.adapter.kitty {
+--- henchman {{{
+vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/henchman.nvim")
+
+local henchman = require "henchman"
+local pi = henchman.new {
+  adapter = henchman.adapter.kitty {
     command = { vim.env.SHELL, "-c", "pi" },
     launch_type = "window",
     initial_send_delay_ms = 1500,
