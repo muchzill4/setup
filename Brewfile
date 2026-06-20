@@ -1,6 +1,5 @@
 # Homebrew
 # --------------------
-brew "ast-grep"
 brew "curl"
 brew "fish"
 brew "fzf"
@@ -28,6 +27,7 @@ brew "docker-credential-helper"
 # --------------------
 cask "1password"
 cask "dash"
+cask "fantastical"
 cask "imageoptim"
 cask "kitty"
 cask "menuwhere"
