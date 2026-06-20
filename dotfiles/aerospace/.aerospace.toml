@@ -158,8 +158,13 @@ on-mode-changed = []
     ctrl-cmd-j = 'mode join'
     ctrl-cmd-l = 'mode layout'
     ctrl-cmd-s = 'mode service'
+    ctrl-cmd-semicolon = 'mode x'
 
-# 'join' binding mode declaration.
+# A mode to just pass keys through!
+[mode.x.binding]
+ctrl-cmd-semicolon = 'mode main'
+esc = 'mode main'
+
 [mode.join.binding]
     esc = 'mode main'
 
@@ -169,7 +174,6 @@ on-mode-changed = []
     k = ['join-with up', 'mode main']
     l = ['join-with right', 'mode main']
 
-# 'layout' binding mode declaration.
 [mode.layout.binding]
     esc = 'mode main'
 
@@ -178,7 +182,6 @@ on-mode-changed = []
     a = ['layout accordion horizontal vertical', 'mode main']
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 
-# 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
