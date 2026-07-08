@@ -7,6 +7,13 @@
   status = auto
   branch = auto
 
+[log]
+  graph = true
+  abbrevCommit = true
+
+[format]
+  pretty = oneline
+
 [push]
   default = current
   autoSetupRemote = true
