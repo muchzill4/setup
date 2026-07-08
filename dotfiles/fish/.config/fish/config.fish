@@ -25,7 +25,6 @@ if status --is-interactive
   abbr -a -g c 'clear'
   abbr -a -g d 'docker'
   abbr -a -g dc 'docker compose'
-  abbr -a -g dce 'docker compose exec'
   abbr -a -g dr 'docker run --rm -it'
   abbr -a -g e 'nvim'
   abbr -a -g g 'git'
@@ -35,7 +34,6 @@ if status --is-interactive
   abbr -a -g gp 'git push'
   abbr -a -g gq 'git pull'
   abbr -a -g gc 'git commit'
-  abbr -a -g gb 'git branch'
   abbr -a -g gsw 'git switch'
   abbr -a -g gr 'git restore'
   abbr -a -g gd 'git diff'
@@ -44,7 +42,6 @@ if status --is-interactive
   abbr -a -g la 'ls -AF'
   abbr -a -g ll 'ls -alh'
   abbr -a -g md 'mkdir -p'
-  abbr -a -g t 'tmux-projects'
 end
 
 fish_add_path ~/.local/bin /opt/homebrew/bin /opt/homebrew/sbin
