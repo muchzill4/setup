@@ -1,7 +1,4 @@
 {
   "editorPaddingX": 1,
-  "showHardwareCursor": true,
-  "packages": [
-    "git:github.com/earendil-works/pi-review"
-  ]
+  "showHardwareCursor": true
 }
