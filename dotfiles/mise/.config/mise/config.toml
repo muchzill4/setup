@@ -13,7 +13,6 @@ uv = "latest"
 
 node = "latest"
 "npm:typescript" = "latest"
-"npm:typescript-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 
 pi = "latest"

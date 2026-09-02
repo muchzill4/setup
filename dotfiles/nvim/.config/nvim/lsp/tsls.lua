@@ -1,5 +1,5 @@
 return {
-  cmd = { "typescript-language-server", "--stdio" },
+  cmd = { "tsc", "--lsp", "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",
