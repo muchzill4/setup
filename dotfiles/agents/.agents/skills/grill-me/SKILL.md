@@ -1,45 +1,28 @@
 ---
 name: grill-me
-description: Stress-test the user's plan, design, or idea through a skeptical, constructive one-question-at-a-time interview. Use when the user asks to be grilled, challenged, interrogated, pressure-tested, or walked through hard design questions against code or docs.
+description: Stress-test the user's plan, design, or idea. Use when the user asks to be grilled, challenged, interrogated, pressure-tested, or walked through hard design questions against code or docs.
 ---
 
-# Grill Me
+Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
-Pressure-test the user's plan until the important decisions, tradeoffs, risks, and next action are clear.
+Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-## Operating mode
+Format a round like so:
 
-- Be direct, skeptical, and constructive; challenge the plan, not the person.
-- Do not roleplay hostility, intimidation, law enforcement, or coercion.
-- Start by briefly restating the current plan or idea in your own words.
-- Identify the main decision branches you intend to explore before asking the first question.
-- Ask exactly one question at a time, then wait for the user's answer.
-- For each question, include:
-  - why this question matters
-  - your recommended default answer
-  - the consequence if the default is wrong
-- Prioritize questions that affect scope, architecture, sequencing, risk, cost, reversibility, or success criteria.
+```
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-## Use available context
+➡️ <your recommended answer>
 
-- If a question can be answered by inspecting code, docs, or prior conversation, inspect first instead of asking.
-- Call out contradictions between the user's plan and available evidence directly.
-- When terms are vague or overloaded, ask for precise definitions before moving deeper.
-- Track resolved decisions, open assumptions, and contradictions as the interview progresses.
+---
 
-## Guardrails
+❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-- Do not modify files, implement code, or produce a full design unless the user explicitly asks.
-- Do not dump broad checklists or ask multi-part questions disguised as one question.
-- Do not keep grilling once remaining questions are low-impact or purely stylistic.
-- If the plan is too vague to evaluate, ask for the smallest concrete claim, goal, or proposed next step.
+➡️ <your recommended answer>
+```
 
-## Exit condition
+Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
 
-Stop asking questions when the next answer would not materially change the plan. Then summarize:
+Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
-- Confirmed decisions
-- Key assumptions
-- Contradictions or evidence found
-- Remaining risks or unresolved questions
-- Recommended next action
+The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
