@@ -60,7 +60,14 @@ end
 # env
 set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
-set -x MANPAGER 'nvim +Man!'
+
+# Set MANPAGER only for direct interactive `man` calls; child processes do not inherit it.
+if status --is-interactive
+  function man --wraps=man
+    set --local --export MANPAGER 'nvim +Man!'
+    command man $argv
+  end
+end
 
 # ripgrep
 set -gx RIPGREP_CONFIG_PATH ~/.ripgreprc
