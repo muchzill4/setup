@@ -103,10 +103,10 @@ vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/henchman.nvim")
 
 local henchman = require "henchman"
 local pi = henchman.new {
-  adapter = henchman.adapter.kitty {
-    command = { vim.env.SHELL, "-c", "pi" },
-    launch_type = "window",
+  adapter = henchman.adapter.tmux {
+    command = { "pi" },
     initial_send_delay_ms = 1500,
+    reuse_existing = true,
   },
 }
 
@@ -182,8 +182,8 @@ vim.g["projectionist_heuristics"] = {
   },
 }
 
-vim.pack.add { "https://github.com/knubie/vim-kitty-navigator" }
-vim.g["kitty_navigator_enable_stack_layout"] = 1
+vim.pack.add { "https://github.com/christoomey/vim-tmux-navigator" }
+vim.g.tmux_navigator_preserve_zoom = 1
 
 vim.pack.add { "https://github.com/itspriddle/vim-marked" }
 
