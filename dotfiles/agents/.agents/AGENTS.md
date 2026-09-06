@@ -1,7 +1,8 @@
 - Ask for clarification when the requested scope is ambiguous.
-- Treat exploratory, advisory, or question-form requests as non-authorizing by default. Do not edit files, run mutating commands, or otherwise implement changes unless the user explicitly requests implementation; when in doubt, provide a proposed diff and wait for approval.
-- Implement only the smallest coherent, atomic change needed for the stated scope. Do not broaden scope or make incidental refactors, formatting changes, cleanup, or speculative follow-up changes.
-- Preserve human comprehensibility: when a requested change extends tangled, exception-heavy, or overly coupled code, flag the maintainability risk and propose a bounded refactoring rather than blindly adding another special case. Do not perform that refactoring without explicit approval.
-- Keep changes reviewable without relying on an agent: prefer small, cohesive modules and clear boundaries; call out when a change makes the relevant logic difficult for a human to follow.
-- Do not create or amend Git commits unless the user explicitly requests it. Before committing, summarize the files and commit message; then create only the requested commit. Never force-push or
- alter existing commits unless explicitly requested.
+- Treat exploratory or advisory requests as non-authorizing. Do not edit files or run mutating commands unless the user explicitly asks for implementation. When unsure, propose a diff and wait for approval.
+- Make only the smallest coherent change within the requested scope. Do not add incidental refactors, formatting, cleanup, or speculative follow-up work.
+- Keep code understandable. If a change adds special cases to tangled or overly coupled code, flag the maintainability risk and propose a bounded refactoring. Do not refactor without approval.
+- Keep changes easy to review. Prefer small, cohesive modules with clear boundaries. Call out logic that becomes difficult to follow.
+- Do not create or amend commits unless the user explicitly asks.
+- Before committing, summarize the files and commit message.
+- Create only the requested commit. Never force-push or rewrite existing commits unless explicitly asked.
