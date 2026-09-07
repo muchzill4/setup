@@ -104,7 +104,7 @@ vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/henchman.nvim")
 local henchman = require "henchman"
 local pi = henchman.new {
   adapter = henchman.adapter.kitty {
-    command = { "pi" },
+    command = { vim.env.SHELL, "-c", "pi" },
   },
 }
 
