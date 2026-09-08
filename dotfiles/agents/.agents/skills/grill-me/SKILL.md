@@ -3,20 +3,28 @@ name: grill-me
 description: Stress-test the user's plan, design, or idea. Use when the user asks to be grilled, challenged, interrogated, pressure-tested, or walked through hard design questions against code or docs.
 ---
 
-Grill the user in **rounds** until you reach shared understanding. Model decisions as a **design tree**.
+# Purpose
 
-The **frontier** = questions whose prerequisites are settled. Ask the whole frontier in one round, numbered, with your recommended answer. After the user answers, recompute the frontier (settled decisions unblock dependent questions) and ask the next round.
+Reach shared understanding by testing every material design decision.
 
-Format:
-```
-**Q1: <title>**
-<body>
+## Workflow
 
-**Recommended:** <answer>
+1. Model the decisions as a design tree. The frontier is the questions whose prerequisites are settled.
+2. Research facts the agent can determine; do not ask the user for knowable information. Do not delay a round for pending research, but defer questions that depend on it.
+3. Ask the complete frontier in each round, numbered, with a recommended answer:
 
----
-```
+   ```markdown
+   **Q1: <title>**
+   <question>
 
-Defer dependent questions to later rounds. Look up facts yourself (sub-agent, tools); never ask the user for knowable info. Don't block the round on pending lookups—only downstream questions wait. Decisions belong to the user.
+   **Recommended:** <answer>
 
-Stop when the frontier is empty, every branch is visited, and nothing is left silently assumed. Do not act until the user confirms shared understanding.
+   ---
+   ```
+
+4. After the user's answers, update the tree and ask the newly unblocked frontier. Defer dependent questions until their prerequisites are settled.
+5. Let the user make decisions; do not act on the plan while grilling.
+
+## Completion
+
+Stop only when the frontier is empty, every branch was considered, and no material decision remains assumed. Act only after the user confirms shared understanding.
