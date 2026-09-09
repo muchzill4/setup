@@ -105,6 +105,7 @@ local henchman = require "henchman"
 local pi = henchman.new {
   adapter = henchman.adapter.kitty {
     command = { vim.env.SHELL, "-c", "pi" },
+    initial_send_delay_ms = 100,
   },
 }
 
@@ -253,6 +254,7 @@ map("n", "<Leader>S", function() require("fzf-lua").grep_cword() end)
 --- git {{{
 vim.pack.add { "https://github.com/tpope/vim-fugitive" }
 map("n", "<leader>g", "<Cmd>Git<CR>")
+map("n", "<leader>G", "<Cmd>Git log<CR>")
 
 vim.pack.add { "https://github.com/tpope/vim-rhubarb" }
 
