@@ -12,7 +12,7 @@ Produce a concise, paste-ready PR title and description grounded in the branch d
 1. Determine the repository and base branch; default to the current directory and infer the base when possible. Ask one concise question if it cannot be inferred.
 2. Gather read-only evidence: branch and status, merge-base, commit summary, changed files, and diff statistics. Exclude uncommitted changes unless the user asks to include them.
 3. Read a repository PR/MR template if present. Inspect targeted diffs only when the summary evidence is insufficient.
-4. Write the title and body from that evidence. Do not invent tests, tickets, reviewers, deployment notes, screenshots, or risk claims.
+4. Write the title and body from that evidence. Explain why the change is useful, not just what changed. Verify compatibility claims against affected public outputs and interfaces; for CLI output changes, check both plain and JSON output. Distinguish internal refactoring from user-visible behavior changes.
 5. Do not create, push, or update a PR unless separately asked.
 
 ## Output
