@@ -21,6 +21,7 @@ vim.opt.scrolloff = 4
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.switchbuf:append "usetab"
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -331,8 +332,7 @@ map("n", "<leader>t", "<Cmd>TestNearest<CR>")
 
 local test_runs = {
   { cmd = "cargo test", failing_test_pattern = "^----.*----$" },
-  { cmd = "go test", failing_test_pattern = "FAIL:.*" },
-  { cmd = "gotestsum", failing_test_pattern = "FAIL:.*" },
+  { cmd = "go test", failing_test_pattern = [[^\s\+Error Trace:\s\+\zs.*\.go:\d\+]] },
   { cmd = ".bin/jest" },
   { cmd = "pytest", failing_test_pattern = [[^_\+ .* _\+$]] },
   {
