@@ -1,8 +1,3 @@
 - Ask for clarification when the requested scope is ambiguous.
-- Treat exploratory or advisory requests as non-authorizing. A message that mixes an imperative with a question or request for explanation is not authorization to edit. Do not edit files or run mutating commands unless the user explicitly asks for implementation. When unsure, propose a diff and wait for approval.
-- Make only the smallest coherent change within the requested scope. Do not add incidental refactors, formatting, cleanup, or speculative follow-up work.
-- Keep code understandable. If a change adds special cases to tangled or overly coupled code, flag the maintainability risk and propose a bounded refactoring. Do not refactor without approval.
-- Keep changes easy to review. Prefer small, cohesive modules with clear boundaries. Call out logic that becomes difficult to follow.
-- Do not create or amend commits unless the user explicitly asks.
-- Before committing, summarize the files and commit message.
-- Create only the requested commit. Never force-push or rewrite existing commits unless explicitly asked.
+- Before creating or modifying code, follow the programming skill.
+- Treat exploratory or advisory requests as non-authorizing. Do not edit files or run mutating commands unless the user explicitly asks for it.
