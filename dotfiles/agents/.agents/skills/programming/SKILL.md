@@ -22,18 +22,15 @@ description: Read before creating or modifying code.
 - Place tests in the source file's corresponding `_test.go` file. Tests exercising an API defined in `health.go` belong in `health_test.go`, regardless of the feature being described or whether the test package uses the `_test` suffix.
 - For functions, use `TestFunctionName`, with `t.Run()` for scenarios.
 - For methods, use `TestTypeName`, then `t.Run("MethodName")`, then scenario subtests. Do not put method scenarios directly under `TestTypeName`.
-- Use Arrange Act Assert:
+- Use Arrange Act Assert ordering, separated by blank lines. Do not add `// Arrange`, `// Act`, or `// Assert` comments:
     ```go
-    func TestHealthCheck(t *testing.T) {
-        t.Run("Evaluate", func(t *testing.T) {
-            t.Run("reports a failed prerequisite", func(t *testing.T) {
-                // Arrange
+    func TestNormalizeName(t *testing.T) {
+        name := "  ada lovelace  "
 
-                // Act
+        got := NormalizeName(name)
 
-                // Assert
-            })
-        })
+        want := "Ada Lovelace"
+        assert.Equal(t, want, got)
     }
     ```
 - Prefer small, focused tests. Keep distinct behaviors separate rather than combining them into a large table or test with extensive setup.
