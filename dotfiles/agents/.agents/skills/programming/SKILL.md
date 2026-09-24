@@ -5,10 +5,14 @@ description: Read before creating or modifying code.
 
 # Programming conventions
 
+- For incremental implementation requests with small atomic steps or review stops, follow the `slice` skill.
 - Keep code understandable. If a change adds special cases to tangled or overly coupled code, flag the maintainability risk and propose a bounded refactoring. Do not refactor without approval.
 - Keep changes easy to review. Prefer small, cohesive modules with clear boundaries. Call out logic that becomes difficult to follow.
 - Make only the smallest coherent change within the requested scope. Do not add incidental refactors, formatting, cleanup, or speculative follow-up work.
 - Prefer direct code over pass-through helpers, wrapper types, and speculative extension points. Introduce abstractions or defensive machinery for a concrete responsibility or failure mode, not hypothetical future use.
+- Keep execution, domain interpretation, and presentation separate. Low-level code should expose results and errors; consumer-specific labels, grouping, CLI guidance, and formatting belong at the consuming boundary.
+- Make behavior-selecting inputs explicit in tests. Avoid nil, zero values, or ambient context when they accidentally select a different scenario.
+- Aim for lines under 100 characters in new code. Break long calls and composite literals across lines without reformatting unrelated code.
 
 # Commit conventions
 
@@ -37,4 +41,8 @@ description: Read before creating or modifying code.
 - Test observable behavior, not constructor wiring or static membership unless that wiring is itself a contract. Avoid re-testing guarantees owned by another component.
 - Prefer complete literal `want :=` over reconstructing expected output using the implementation's algorithm.
 - Keep unit tests independent of real commands, network access, and host configuration; use fakes.
+
+# Final review
+
+- Before presenting a change, review newly introduced helpers, wrappers, injection points, and tests. Remove those that add no concrete responsibility, readability benefit, or distinct behavioral coverage.
 
