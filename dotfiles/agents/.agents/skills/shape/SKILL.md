@@ -13,8 +13,9 @@ Agree on consequential boundaries while leaving local implementation choices ope
 2. Show the minimum relevant domain types and component or package responsibilities. Name who owns state and its transitions.
 3. Trace one concrete end-to-end call path through those components. Justify each new abstraction by a current responsibility; omit pass-through layers and speculative extension points.
 4. Specify exact shared signatures where the next implementation or parallel tasks must agree. Leave internal choices open. Identify compatibility or migration implications when relevant.
-5. Present one compact proposal: types, ownership, call path, shared contracts, explicit exclusions, and unresolved decisions. Omit sections that do not affect the change; use code sketches where clearer than prose.
-6. For parallel work, identify independent components and shared-change ownership. Require proposed contract revisions to return for agreement rather than being made independently by each agent.
+5. Name where new code will live and which new or changed tests will prove the behavior.
+6. Present one compact proposal: types, ownership, call path, shared contracts, file placement, proving tests, explicit exclusions, and unresolved decisions. Omit sections that do not affect the change; use code sketches where clearer than prose.
+7. For parallel work, identify independent components and shared-change ownership. Require proposed contract revisions to return for agreement rather than being made independently by each agent.
 
 ## Stop
 

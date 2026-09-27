@@ -10,7 +10,7 @@ Deliver one change the user can meaningfully verify before more work accumulates
 ## Workflow
 
 1. Identify the next behavior and applicable contracts from existing code and plans. Reuse settled decisions rather than requiring exploration or redesign for every task.
-2. Define a compact slice: observable behavior, scope, behavior to preserve, exclusions, dependencies or shared contracts, and a few acceptance checks. Split broad todos until the change is independently reviewable; commit-sized alone is not sufficient.
+2. Define a compact slice: observable behavior, scope, behavior to preserve, exclusions, dependencies or shared contracts, and a few acceptance checks. Split broad todos until the change is independently reviewable; commit-sized alone is not sufficient. When a behavior spans layers, make the first slice a thin end-to-end path through all of them; add persistence, business logic, and error handling in later slices rather than completing one layer at a time.
 3. If planning or delegating, present the slice and stop. For delegation, include relevant paths, owned changes, verification commands, and the same stop condition; identify shared-file coordination needs.
 4. Implement only with explicit authorization for this scope. If the request already authorizes a sufficiently bounded change, proceed without asking again. Otherwise present the slice for approval.
 5. For implementation, follow the `programming` skill. Pause if delivery requires expanding scope or changing agreed contracts; propose the smallest revision for approval.
@@ -18,6 +18,6 @@ Deliver one change the user can meaningfully verify before more work accumulates
 
 ## Stop
 
-After verification, report the behavior delivered, changed files and review entry points, check results, and remaining limitations. Stop on blockers with the decision needed.
+After verification, report the behavior delivered, changed files and review entry points, check results, remaining limitations, and the implementation choices you are least confident in. Stop on blockers with the decision needed.
 
 Do not begin another todo without explicit authorization. Suggesting a next step does not authorize taking it.
