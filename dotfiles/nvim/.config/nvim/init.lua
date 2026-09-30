@@ -288,11 +288,11 @@ vim.pack.add { "https://github.com/stevearc/conform.nvim" }
 require("conform").setup {
   formatters_by_ft = {
     lua = { "stylua" },
-    typescript = { "biome" },
-    typescriptreact = { "biome" },
-    markdown = { "biome" },
-    json = { "biome" },
-    yaml = { "biome" },
+    typescript = { "deno_fmt" },
+    typescriptreact = { "deno_fmt" },
+    markdown = { "deno_fmt" },
+    json = { "deno_fmt" },
+    yaml = { "deno_fmt" },
   },
   format_on_save = function(bufnr)
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
