@@ -1,4 +1,7 @@
 {
   "editorPaddingX": 1,
-  "showHardwareCursor": true
+  "showHardwareCursor": true,
+  "defaultTools": [
+    "+codemode"
+  ]
 }
