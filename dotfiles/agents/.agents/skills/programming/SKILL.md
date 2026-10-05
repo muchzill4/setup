@@ -12,7 +12,7 @@ description: Read before creating or modifying code.
 - Prefer direct code over pass-through helpers, wrapper types, and speculative extension points. Introduce abstractions or defensive machinery for a concrete responsibility or failure mode, not hypothetical future use.
 - Keep execution, domain interpretation, and presentation separate. Low-level code should expose results and errors; consumer-specific labels, grouping, CLI guidance, and formatting belong at the consuming boundary.
 - Make behavior-selecting inputs explicit in tests. Avoid nil, zero values, or ambient context when they accidentally select a different scenario.
-- Aim for lines under 100 characters in new code. Break long calls and composite literals across lines without reformatting unrelated code.
+- Aim for lines under 120 characters in new code. Break long calls and composite literals across lines without reformatting unrelated code.
 
 # Commit conventions
 
