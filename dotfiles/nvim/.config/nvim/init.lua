@@ -287,18 +287,16 @@ require("gitsigns").setup {
 vim.pack.add { "https://github.com/stevearc/conform.nvim" }
 require("conform").setup {
   formatters_by_ft = {
-    lua = { "stylua" },
-    typescript = { "deno_fmt" },
-    typescriptreact = { "deno_fmt" },
-    markdown = { "deno_fmt" },
-    json = { "deno_fmt" },
-    yaml = { "deno_fmt" },
+    lua = { "dprint" },
+    json = { "dprint" },
+    markdown = { "dprint" },
+    yaml = { "dprint" },
   },
   format_on_save = function(bufnr)
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
       return
     end
-    return { timeout_ms = 500, lsp_fallback = true }
+    return { timeout_ms = 300, lsp_fallback = true }
   end,
 }
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
