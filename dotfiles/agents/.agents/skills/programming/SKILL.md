@@ -40,7 +40,8 @@ description: Read before creating or modifying code.
 - Prefer small, focused tests. Keep distinct behaviors separate rather than combining them into a large table or test with extensive setup.
 - Test observable behavior, not constructor wiring or static membership unless that wiring is itself a contract. Avoid re-testing guarantees owned by another component.
 - Prefer complete literal `want :=` over reconstructing expected output using the implementation's algorithm.
-- Keep unit tests independent of real commands, network access, and host configuration; use fakes.
+- Keep unit tests independent of real commands, network access, and host configuration; use in-process fakes at explicit dependency boundaries.
+- Never install fake CLI executables, shadow commands through `PATH`, or invoke `go test`/test binaries with environment flags that make them act as mock CLIs.
 
 # Final review
 
