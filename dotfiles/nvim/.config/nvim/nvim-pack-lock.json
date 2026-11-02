@@ -13,11 +13,11 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "fzf-lua": {
-      "rev": "348df165f1773dd08c5d710add3fd0db6d421e6a",
+      "rev": "07fce8ac8dffba4e11f1cbe5490d730a2cc5ec7a",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "fd780920613e541cbdfac41bf711583ed49f9249",
+      "rev": "1e9d0fbfe7ff848bc402d2c2e2854fb4eff2dce7",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "nvim-treesitter-context": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "e99a8d5abf935cc193cc71600a2ad6a5b61b1aa0",
+      "rev": "06c90a3af8eb471f4a4ff979d681312284a8583a",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vim-fugitive": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "3afb1cf5cd3013e8822e6eecf612fc36c974a98f",
+      "rev": "7a5f7e1848b573de556adffe718097933d827d32",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-tmux-navigator": {
