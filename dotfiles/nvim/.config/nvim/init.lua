@@ -104,7 +104,10 @@ vim.opt.rtp:prepend(vim.fn.expand "~/Dev/my/henchman.nvim")
 
 local henchman = require "henchman"
 local pi = henchman.new {
-  adapter = henchman.adapter.kitty {
+  adapter = vim.env.REX_SESSION and henchman.adapter.rex {
+    command = { vim.env.SHELL, "-c", "pi" },
+    initial_send_delay_ms = 100,
+  } or henchman.adapter.kitty {
     command = { vim.env.SHELL, "-c", "pi" },
     initial_send_delay_ms = 100,
   },
@@ -182,8 +185,6 @@ vim.g["projectionist_heuristics"] = {
   },
 }
 
-vim.pack.add { "https://github.com/knubie/vim-kitty-navigator" }
-vim.g.kitty_navigator_enable_stack_layout = 1
 
 vim.pack.add { "https://github.com/itspriddle/vim-marked" }
 
