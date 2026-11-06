@@ -11,7 +11,7 @@ Produce a concise, paste-ready PR title and description grounded in the branch d
 
 1. Determine the repository and base branch; default to the current directory and infer the base when possible. Ask one concise question if it cannot be inferred.
 2. Gather read-only evidence: branch and status, merge-base, commit summary, changed files, and diff statistics. Exclude uncommitted changes unless the user asks to include them.
-3. Read a repository PR/MR template if present. Inspect targeted diffs only when the summary evidence is insufficient.
+3. Read and follow a repository PR/MR template if present, preserving its checklist; mark items complete only when supported by evidence. Inspect targeted diffs only when the summary evidence is insufficient.
 4. Write the title and body from that evidence. Explain why the change is useful, not just what changed. Verify compatibility claims against affected public outputs and interfaces; for CLI output changes, check both plain and JSON output. Distinguish internal refactoring from user-visible behavior changes.
 5. Do not create, push, or update a PR unless separately asked.
 
@@ -26,9 +26,12 @@ Description:
 <ready-to-paste PR body>
 ```
 
-If no template exists, use `## Summary` and `## Changes` headings in the body.
+- Keep the body succinct: include only distinct, reviewer-relevant changes and rationale. Avoid extra bullets elaborating implications already conveyed.
+- Describe retained behavior as an outcome (e.g. “Retaining X prevents Y”), not as though it were newly introduced.
+- If no template exists, use `## Summary` with one or two concise paragraphs; add `## Changes` only for useful, non-redundant bullets.
+- Keep verification rigorous but internal. Unless explicitly requested or required by the template, omit Validation/Testing sections, test commands/results, `git diff --check`, and local environment failures from the PR body. Work-status reports belong outside PR text; do not append them to a PR-text-only response.
 
-## Validation
+## Internal review
 
 - Reflect the requested branch diff and repository template.
 - Include no preamble, commentary, or code fences outside the required body content.
