@@ -1,3 +1,2 @@
-- Ask for clarification when the requested scope is ambiguous.
 - Before creating or modifying code, follow the programming skill.
 - Treat exploratory or advisory requests as non-authorizing. Do not edit files or run mutating commands unless the user explicitly asks for it.
